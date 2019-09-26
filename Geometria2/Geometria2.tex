@@ -48,10 +48,10 @@ Ecco alcuni esempi di distanze:
 \item La distanza $d_1$ su $\mathbb{R}^n$, che alla coppia di elementi
 ${x=(x_1, \dots, x_n)}, {y=(y_1, \dots, y_n)}$
  associa il numero
- ${\displaystyle d_1(x, y)=\sum_{i=1}^n |x_i-y_i|}$;
+ $${\displaystyle d_1(x, y)=\sum_{i=1}^n |x_i-y_i|};$$
 \item la distanza $d_2$ (o $d_E$, distanza
-euclidea) su $\mathbb{R}^n$, $\displaystyle d_2(x, y)=\sqrt{\sum_{i=1}^n
-(x_i-y_i)^2}$;
+euclidea) su $\mathbb{R}^n$,
+$$\displaystyle d_2(x, y)=\sqrt{\sum_{i=1}^n (x_i-y_i)^2};$$
 \item la distanza $d_{\infty}$ su $\mathbb{R}^n$,
 ${\displaystyle d_{\infty}(x, y)=\sup_{i=1, \dots, n} \{ |x_i-y_i| \}}$;
 \item
@@ -59,9 +59,9 @@ la distanza discreta su un generico insieme $x$, $d(x, y)=1$ se $x \not= y$ e
 $0$ altrimenti;
 \item le distanze $d_1$, $d_2$, $d_{\infty}$ sullo spazio delle funzioni
 continue da $[0, 1]$ in $\mathbb{R}$, definite rispettivamente
-${\displaystyle d_1(f, g)=\int_0^1 |f(t)-g(t)| dt}$,
-${\displaystyle d_2(f, g)=\sqrt{\int_0^1 (f(t)-g(t))^2 dt}}$,
-${\displaystyle d_{\infty}(f, g)=\sup_{t \in [0, 1]} |f(t)-g(t)|}$.
+$${\displaystyle d_1(f, g)=\int_0^1 |f(t)-g(t)| dt},$$
+$${\displaystyle d_2(f, g)=\sqrt{\int_0^1 (f(t)-g(t))^2 dt}},$$
+$${\displaystyle d_{\infty}(f, g)=\sup_{t \in [0, 1]} |f(t)-g(t)|}.$$
 \end{itemize}
 \end{ex}
 
@@ -94,7 +94,7 @@ Dati $p \in X, R>0$, ${B(p, R):=\{ x \in X \mid d(p, x)<R\}}$ è detta la
 
 \begin{defn}
 ${f:(X, d) \rightarrow (Y, d')}$ è \textsc{continua in $x_0$} se
-${\forall \, \epsilon > 0 \, \exists \, \delta >0 \tc f(B(x_0, \delta))
+${\forall \epsilon > 0 \; \exists \; \delta >0}\\\ \tc {f(B(x_0, \delta))
 \subseteq B(f(x_0), \epsilon)}$, cioè ${f^{-1}(B(f(x_0), \epsilon)) \supseteq
 B(x_0, \delta)}$.
 \end{defn}
@@ -199,15 +199,20 @@ nelle metriche $d_1, d_2, d_{\infty}$.
 \end{center}
 
 \begin{proof}
-Per AM-QM si ha che $\displaystyle \frac{\sum_{i=1}^n |x_i-y_i|}{n} \le
-\sqrt{\frac{\sum_{i=1}^n (x_i-y_i)^2}{n}}$, da cui $d_1(x, y) \le \sqrt{n} \cdot
-d_2(x, y)$. Stimando tutti i termini con il massimo otteniamo che $\displaystyle
-\sqrt{\sum_{i=1}^n (x_i-y_i)^2} \le \sqrt{\sum_{i=1}^n \sup_{j=1, \dots, n}
-\{(x_j-y_j)^2\}}=\sqrt{n} \cdot \sup_{j=1, \dots, n} \{ |x_j-y_j| \}$, da cui
-$d_2(x, y) \le \sqrt{n} \cdot d_{\infty} (x, y)$. Infine è ovvio che
-$\displaystyle \sup_{i=1, \dots, n} |x_i-y_i| \le \sum_{i=1}^n |x_i-y_i|$, da
-cui $d_{\infty}(x, y) \le d_1(x, y)$. Scegliendo $k=\sqrt{n}$ è ora sufficiente
-applicare il lemma.
+Per AM-QM si ha che
+$$\displaystyle \frac{\sum_{i=1}^n |x_i-y_i|}{n} \le \sqrt{\frac{\sum_{i=1}^n
+(x_i-y_i)^2}{n}},$$
+da cui $d_1(x, y) \le \sqrt{n} \cdot d_2(x, y)$. Stimando tutti i termini con il
+massimo otteniamo che
+$$\displaystyle \sqrt{\sum_{i=1}^n (x_i-y_i)^2} \le
+\sqrt{\sum_{i=1}^n \sup_{j=1, \dots, n} \{(x_j-y_j)^2\}}=\sqrt{n} \cdot
+\sup_{j=1, \dots, n} \{ |x_j-y_j| \},$$
+da cui
+$d_2(x, y) \le \sqrt{n} \cdot d_{\infty} (x, y).$
+ Infine è ovvio che
+ $$\displaystyle \sup_{i=1, \dots, n} |x_i-y_i| \le
+ \sum_{i=1}^n |x_i-y_i|$$, da cui $d_{\infty}(x, y) \le d_1(x, y).$
+Scegliendo $k=\sqrt{n}$ è ora sufficiente applicare il lemma.
 \end{proof}
 
 Nella dimostrazione del corollario era importante che lo spazio fosse di
