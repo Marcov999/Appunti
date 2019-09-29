@@ -1,0 +1,40 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mstyle}[]
+
+\usepackage{enumitem}% http://ctan.org/pkg/enumitem
+
+\newcounter{basicblock}[section]
+\renewcommand{\thebasicblock}{\thesection.\arabic{basicblock}}
+\newenvironment{block}[1][]
+{\refstepcounter{basicblock}\par\medskip\noindent\textbf{#1~\thebasicblock}\quad}
+{
+\medskip}
+
+\newcommand{\vect}{\overrightarrow}
+\renewcommand{\implies}{\Rightarrow}
+\let\oldforall\forall
+\renewcommand{\forall}{\oldforall \,}
+\newcommand{\tc}{\text{ t.c. }}
+
+\setlist[itemize]{noitemsep, topsep=3pt}
+\setlist[enumerate]{noitemsep, topsep=3pt}
+\newenvironment{nlist}
+    {\begin{enumerate}[label=(\roman*)]}
+    {\end{enumerate}}
+
+\renewcommand{\labelitemi}{$-$}
+\renewcommand{\labelitemii}{$\cdot$}
+\renewcommand{\labelitemiii}{$\diamond$}
+\renewcommand{\labelitemiv}{$\ast$}
+
+\newenvironment{thm}{\begin{block}[Teorema]}{\end{block}}
+\newenvironment{lm}{\begin{block}[Lemma]}{\end{block}}
+\newenvironment{defn}{\begin{block}[Definizione]}{\end{block}}
+\newenvironment{prop}{\begin{block}[Proposizione]}{\end{block}}
+\newenvironment{cor}{\begin{block}[Corollario]}{\end{block}}
+\newenvironment{ex}{\begin{block}[Esempio]}{\end{block}}
+\newenvironment{exc}{\begin{block}[Esercizio]}{\end{block}}
+\newenvironment{oss}{\begin{block}[Osservazione]}{\end{block}}
+\newenvironment{ftt}{\begin{block}[Fatto]}{\end{block}}
+
+%\renewcommand{\title}[1]{\title{\textbf{\Huge #1}}}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.7.27)  26 SEP 2019 15:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.7.27)  29 SEP 2019 17:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -37,8 +37,9 @@ File: babel.def 2016/02/24 3.9q Babel common definitions
 \it@lettering=\count88
 \it@doublequoteactive=\count89
 \it@ISOcompliance=\count90
-)) (./etoolbox.sty
-Package: etoolbox 2018/08/19 v2.5f e-TeX tools for LaTeX (JAW)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count91
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
@@ -746,7 +747,19 @@ File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
-)))
+))) (./mstyle.sty
+Package: mstyle 
+
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2011/09/28 v3.5.2 Customized lists
+\labelindent=\skip49
+\enit@outerparindent=\dimen161
+\enit@toks=\toks40
+\enit@inbox=\box39
+\enitdp@description=\count124
+)
+\c@basicblock=\count125
+)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibraryarrows.code.tex
 File: tikzlibraryarrows.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
@@ -754,38 +767,38 @@ File: tikzlibraryarrows.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.
 tex
 File: pgflibraryarrows.code.tex 2013/09/23 v3.0.1a (rcs-revision 1.16)
-\arrowsize=\dimen161
+\arrowsize=\dimen162
 )) (./Geometria2.aux)
 \openout1 = `Geometria2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Info: Redefining \it@ocap on input line 22.
-LaTeX Info: Redefining \it@ccap on input line 22.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Info: Redefining \it@ocap on input line 16.
+LaTeX Info: Redefining \it@ccap on input line 16.
  ABD: EveryShipout initializing macros
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count124
-\scratchdimen=\dimen162
-\scratchbox=\box39
-\nofMPsegments=\count125
-\nofMParguments=\count126
-\everyMPshowfont=\toks40
-\MPscratchCnt=\count127
-\MPscratchDim=\dimen163
-\MPnumerator=\count128
-\makeMPintoPDFobject=\count129
-\everyMPtoPDFconversion=\toks41
+\scratchcounter=\count126
+\scratchdimen=\dimen163
+\scratchbox=\box40
+\nofMPsegments=\count127
+\nofMParguments=\count128
+\everyMPshowfont=\toks41
+\MPscratchCnt=\count129
+\MPscratchDim=\dimen164
+\MPnumerator=\count130
+\makeMPintoPDFobject=\count131
+\everyMPtoPDFconversion=\toks42
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -834,40 +847,60 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 23.
+LaTeX Font Info:    Try loading font information for U+msa on input line 17.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 23.
+LaTeX Font Info:    Try loading font information for U+msb on input line 17.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+! Extra alignment tab has been changed to \cr.
+<recently read> \endtemplate 
+                             
+l.17 \maketitle
+               
+? 
+[1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./Geometria2.toc)
 \tf@toc=\write4
 \openout4 = `Geometria2.toc'.
 
- [2]
-Underfull \hbox (badness 10000) in paragraph at lines 55--61
 
+[2]
+Overfull \hbox (30.41064pt too wide) in paragraph at lines 48--51
+[]\T1/cmr/m/n/10 La di-stan-za $\OML/cmm/m/it/10 d[]$ \T1/cmr/m/n/10 su $\U/msb
+/m/n/10 R[]$\T1/cmr/m/n/10 , che al-la cop-pia di ele-men-ti $[]\OML/cmm/m/it/1
+0 ; []$
  []
 
 [3] [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 163--168
-
+Overfull \hbox (0.72661pt too wide) in paragraph at lines 224--227
+\T1/cmr/bx/n/10 Definizione 2.16  \T1/cmr/m/n/10 Uno \T1/cmr/m/sc/10 spa-zio to
+-po-lo-gi-co \T1/cmr/m/n/10 è una cop-pia $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X;
+ ^^\\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ;  []$\T1/cmr/m/n/10 ,
  []
 
-[6] (./Geometria2.aux) ) 
+[6]
+Overfull \hbox (10.86882pt too wide) in paragraph at lines 275--279
+\T1/cmr/bx/n/10 Definizione 2.22  $\OML/cmm/m/it/10 f \OT1/cmr/m/n/10 : (\OML/c
+mm/m/it/10 X; ^^\\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! \OT1/cmr/m/n/10 (\OML/cmm
+/m/it/10 Y; ^^\[]\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 si di-ce \T1/cmr/m/sc/10 con
+-ti-nua \T1/cmr/m/n/10 se $[] []$.
+ []
+
+[7] (./Geometria2.aux) ) 
 Here is how much of TeX's memory you used:
- 14153 strings out of 494942
- 270906 string characters out of 6180501
- 308676 words of memory out of 5000000
- 17154 multiletter control sequences out of 15000+600000
- 16733 words of font info for 49 fonts, out of 8000000 for 9000
+ 14455 strings out of 494942
+ 275911 string characters out of 6180501
+ 314973 words of memory out of 5000000
+ 17446 multiletter control sequences out of 15000+600000
+ 18267 words of font info for 51 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 48i,6n,54p,799b,637s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,6n,54p,799b,640s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/marco/.texmf-var/fonts/pk/ljfour/jknappen/ec/ec
 ti1000.600pk> </home/marco/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1000.600p
 k> </home/marco/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/m
@@ -884,10 +917,10 @@ r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
 -dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Geometria2.pdf (6 pages, 154743 bytes).
+Output written on Geometria2.pdf (7 pages, 156289 bytes).
 PDF statistics:
- 304 PDF objects out of 1000 (max. 8388607)
- 76 compressed objects within 1 object stream
+ 313 PDF objects out of 1000 (max. 8388607)
+ 80 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

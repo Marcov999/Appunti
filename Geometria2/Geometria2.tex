@@ -6,183 +6,286 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{pgf,tikz}
+\usepackage{mstyle}
 \usetikzlibrary{arrows}
 
-\theoremstyle{definition}
-\newtheorem*{thm}{Teorema}
-\newtheorem*{lm}{Lemma}
-\newtheorem*{defn}{Definizione} 
-\newtheorem*{prop}{Proposizione}
-\newtheorem*{cor}{Corollario}
-
 \title{Appunti di Geometria 2 \\ anno accademico 2019/2020}
-%\date{}
-\author{Marco Vergamini}
+\date{}
+\author{Marco Vergamini & Alessio Marchetti}
 
 \begin{document}
-	\maketitle
-	
-	\newpage
-	
-	\tableofcontents
-	
-	\newpage
-	
-	\section{Introduzione}
-	Questi appunti sono basati sul corso di Geometria 2 tenuto dai professori Roberto Frigerio e Jacopo Gandini nell'anno accademico 2019/2020. Sono dati per buoni i contenuti dei corsi del primo anno, in particolare Analisi 1 e Geometria 2. Verranno omesse o soltanto hintate le dimostrazioni più semplici, ma si consiglia comunque di provare a svolgerle per conto proprio. Ogni tanto sarà commesso qualche abuso di notazione, facendo comunque in modo che il significato sia reso chiaro dal contesto. Inoltre, la notazione verrà alleggerita man mano, per evitare inutili ripetizioni e appesantimenti nella lettura.
-	
-	\section{Spazi metrici e spazi topologici}
-	\subsection{Spazi metrici}
-	\begin{defn}
-		Uno \textsc{spazio metrico} è una coppia $(X, d)$, $X$ insieme, \\ $d: X \times X \rightarrow \mathbb{R}$ t.c. per ogni $x, y, z \in X$ \\
-		1) $d(x, y) \ge 0$ e $d(x, y)=0 \Leftrightarrow x=y$; \\
-		2) $d(x, y)=d(y, x)$; \\
-		3) $d(x, z) \le d(x, y)+d(y,z)$ (disuguaglianza triangolare). \\
-		$d$ si dice \textsc{distanza} o \textsc{metrica}.
-	\end{defn}
-	
-	Ecco alcuni esempi di distanze: \\
-	- la distanza $d_1$ su $\mathbb{R}^n$, che alla coppia di elementi $x=(x_1, \dots, x_n), \\ y=(y_1, \dots, y_n)$ associa il numero $\displaystyle d_1(x, y)=\sum_{i=1}^n |x_i-y_i|$; \\
-	- la distanza $d_2$ (o $d_E$, distanza euclidea) su $\mathbb{R}^n$, $\displaystyle d_2(x, y)=\sqrt{\sum_{i=1}^n (x_i-y_i)^2}$; \\
-	- la distanza $d_{\infty}$ su $\mathbb{R}^n$, $\displaystyle d_{\infty}(x, y)=\sup_{i=1, \dots, n} \{ |x_i-y_i| \}$; \\
-	- la distanza discreta su un generico insieme $x$, $d(x, y)=1$ se $x \not= y$ e $0$ altrimenti; \\
-	- le distanze $d_1, d_2, d_{\infty}$ sullo spazio delle funzioni continue da $[0, 1]$ in $\mathbb{R}$, definite rispettivamente $\displaystyle d_1(f, g)=\int_0^1 |f(t)-g(t)| dt$, $\displaystyle d_2(f, g)=\sqrt{\int_0^1 (f(t)-g(t))^2 dt}$, $\displaystyle d_{\infty}(f, g)=\sup_{t \in [0, 1]} |f(t)-g(t)|$.
-	
-	\begin{defn}
-		$f:(X, d) \rightarrow (Y, d')$ viene detto \textsc{embedding isometrico} se $d'(f(x_1), f(x_2))=d(x_1, x_2)$ per ogni $x_1, x_2 \in X$.
-	\end{defn}
-	
-	Fatti: \\
-	- l'identità è un embedding isometrico; \\
-	- composizione di embedding isometrici è un embedding isometrico; \\
-	- se un embedding isometrico $f$ è biettivo, anche $f^{-1}$ è un embedding isometrico e $f$ si dice \textsc{isometria}; \\
-	- un embedding isometrico è sempre iniettivo, dunque è un'isometria se e solo se è suriettivo; \\
-	- se $(X, d)$ è fissato, l'insieme delle isometrie da $X$ in sé è un gruppo con la composizione, chiamato $Isom(X,d)$. \\
-	
-	\subsection{Continuità in spazi metrici}
-	
-	\begin{defn}
-		Dati $p \in X, R>0$, $B(p, R):=\{ x \in X | d(p, x)<R\}$ è detta la \textsc{palla aperta} di centro $p$ e raggio $R$.
-	\end{defn}
-	
-	\begin{defn}
-		$f:(X, d) \rightarrow (Y, d')$ è \textsc{continua in $x_0$} se $\forall \, \epsilon > 0 \, \exists \, \delta >0$ t.c. $f(B(x_0, \delta)) \subseteq B(f(x_0), \epsilon)$, cioè $f^{-1}(B(f(x_0), \epsilon)) \supseteq B(x_0, \delta)$.
-	\end{defn}
-	
-	\begin{defn}
-		$f(X, d) \rightarrow (Y, d')$ è detta \textsc{continua} se è continua in ogni $x_0 \in X$.
-	\end{defn}
-	
-	Osservazione: gli embedding isometrici sono continui.
-	
-	\begin{defn}
-		Sia $X$ uno spazio metrico, $A \subseteq X$ è detto \textsc{aperto} se per ogni $x \in A$ esiste $R>0$ t.c. $B(x, R) \subseteq A$.
-	\end{defn}
-	
-	Fatto: le palle aperte sono aperti. Per dimostrarlo, sfruttare la disuguaglianza triangolare.
-	
-	\begin{thm}
-		$f(X, d) \rightarrow (Y, d')$ è continua se e solo se per ogni aperto $A$ di $Y$ $f^{-1}(A)$ è aperto di $X$.
-	\end{thm}
-	
-	\begin{proof}
-		Supponiamo $f$ continua. Prendiamo $x \in f^{-1}(A)$, allora si ha che $f(x) \in A$, ma dato che $A$ è aperto esiste una palla aperta di centro $f(x)$ $B_Y$ t.c. $B_Y \subseteq A$, da cui $f^{-1}{B_Y} \subseteq f^{-1}(A)$. Usando la definizione di continuità, detto $\epsilon$ il raggio di $B_Y$, scegliendo il $\delta$ corrispondente come raggio di una palla di centro $x$, sia essa $B_X$, si ha che $B_X \subseteq f^{-1}(B_Y) \subseteq f^{-1}(A)$, perciò abbiamo trovato una palla centrata in $x$ tutta contenuta in $f^{-1}(A)$ e questo prova che è un aperto. \\
-		Viceversa, supponiamo che le controimmagini di aperti siano a loro volta aperti. Dati $x_0 \in X$ e $\epsilon >0$ si ha che $B(f(x_0), \epsilon)$ è un aperto di $Y$, perciò la sua controimmagine è un aperto, ma allora per definizione di aperto esiste $\delta>0$ tale che $B(x_0, \delta) \subseteq f^{-1}(B(f(x_0), \epsilon))$ e questo prova che $f$ è continua.
-	\end{proof}
-	
-	Osservazione: la continuità di una funzione dipende quindi solo indirettamente dalla metrica, mentre è direttamente collegata agli aperti generati dalla metrica stessa. Segue facilmente che due metriche che generano gli stessi aperti portano anche alla stessa famiglia di funzioni continue. Diamo dunque la seguente definizione.
-	
-	\begin{defn}
-		Due distanze $d, d'$ su un insieme $X$ si dicono \textit{topologicamente equivalenti} se inducono la stessa famiglia di aperti.
-	\end{defn}
-	
-	\begin{lm}
-		Siano $d, d'$ distanze su $X$ t.c. esiste $k \ge 1$ t.c. per ogni $x, y \in X$ valga $d(x, y)/k \le d'(x, y) \le k \cdot d(x, y)$. Allora $d$ e $d'$ sono topologicamente equivalenti.
-	\end{lm}
-	
-	\begin{proof}
-		Sia $A$ un aperto indotto da $d'$ e $x_0 \in A$. Per definizione di aperto esiste $R>0$ tale che $B_{d'}(x_0, R) \subseteq A$. Considero $B_d(x_0, R/k)$. Dato un elemento $x \in B_d(x_0, R/k)$ ho che $d'(x_0, x) \le k \cdot d(x_0, x)<k \cdot R/k=R$, dunque $x \in B_{d'}(x_0, R)$. Allora $B_d(x_0, R/k) \subseteq B_{d'}(x_0, R/k) \subseteq A$ e dunque $A$ è anche un aperto indotto da $d$. Per la simmetria delle disuguaglianze nelle ipotesi si dimostra anche l'opposto, perciò gli aperti di $d$ e $d'$ sono gli stessi, come voluto.
-	\end{proof}
-	
-	\begin{cor}
-		$d_1, d_2, d_{\infty}$ sono topologicamente equivalenti su $\mathbb{R}^n$.
-	\end{cor}
-	
-	\begin{center}
-	\pagestyle{empty}
-		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=2.0cm,y=2.0cm]
-		\draw[->,color=black] (-1.72,0) -- (1.78,0);
-		\foreach \x in {-1,1}
-		\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
-		\draw[->,color=black] (0,-1.4) -- (0,1.44);
-		\foreach \y in {-1,1}
-		\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
-		\clip(-1.72,-1.2) rectangle (1.78,1.24);
-		\draw(0,0) circle (2cm);
-		\draw (-1,0)-- (0,1);
-		\draw (0,1)-- (1,0);
-		\draw (1,0)-- (0,-1);
-		\draw (0,-1)-- (-1,0);
-		\draw (-1,1)-- (1,1);
-		\draw (1,1)-- (1,-1);
-		\draw (1,-1)-- (-1,-1);
-		\draw (-1,1)-- (-1,-1);
-		\end{tikzpicture}
-		
-	Nell'immagine sono rappresentate, nell'ordine dalla più interna alla più esterna, le palle aperte centrate nell'origine e di raggio $1$ rispettivamente nelle metriche $d_1, d_2, d_{\infty}$.
-	\end{center}
-	
-	\begin{proof}
-		Per AM-QM si ha che $\displaystyle \frac{\sum_{i=1}^n |x_i-y_i|}{n} \le \sqrt{\frac{\sum_{i=1}^n (x_i-y_i)^2}{n}}$, da cui $d_1(x, y) \le \sqrt{n} \cdot d_2(x, y)$. Stimando tutti i termini con il massimo otteniamo che $\displaystyle \sqrt{\sum_{i=1}^n (x_i-y_i)^2} \le \sqrt{\sum_{i=1}^n \sup_{j=1, \dots, n} \{(x_j-y_j)^2\}}=\sqrt{n} \cdot \sup_{j=1, \dots, n} \{ |x_j-y_j| \}$, da cui $d_2(x, y) \le \sqrt{n} \cdot d_{\infty} (x, y)$. Infine è ovvio che $\displaystyle \sup_{i=1, dots, n} |x_i-y_i| \le \sum_{i=1}^n |x_i-y_i|$, da cui $d_{\infty}(x, y) \le d_1(x, y)$. Scegliendo $k=\sqrt{n}$ è ora sufficiente applicare il lemma.
-	\end{proof}
-	
-	Nella dimostrazione del corollario era importante che lo spazio fosse di dimensione finita. Nello spazio delle funzioni continue da $[0, 1]$ a $\mathbb{R}$ le tre distanze non sono topologicamente equivalenti.
-	
-	\subsection{Spazi topologici}
-	
-	\begin{defn}
-		Uno \textsc{spazio topologico} è una coppia $(X, \tau), \tau \subseteq \mathcal{P}(X)$, t.c. \\
-		1) $\emptyset, X \in \tau$; \\
-		2) $A_1, A_2 \in \tau \Rightarrow A_1 \cap A_2 \in \tau$; \\
-		3) se $I$ è un insieme e $A_i \in \tau \, \forall i \in I$, allora $\displaystyle \bigcup_{i \in I} A_i \in \tau$. \\
-		$\tau$ si dice \textsc{topologia} di $X$ e gli elementi della topologia sono detti \textsc{aperti} di $\tau$.
-	\end{defn}
-	
-	\begin{prop}
-		Se $(X, d)$ è uno spazio metrico gli aperti rispetto a $d$ definiscono una topologia.
-	\end{prop}
-	
-	\begin{defn}
-		uno spazio topologico $(X, \tau)$ è detto \textit{metrizzabile} se $\tau$ è indotta da una distanza su $X$.
-	\end{defn}
-	
-	\begin{defn}
-		Sia $(X, \tau)$ uno spazio topologico, $C \subseteq X$ è \textsc{chiuso} se $X \setminus C$ è aperto.
-	\end{defn}
-	
-	Osservazioni: \\
-	1) possono esistere insiemi né aperti né chiusi; \\
-	2) $\emptyset$ e $X$ sono chiusi; \\
-	3) unione finita di chiusi è chiusa; \\
-	4) intersezione arbitraria di chiusi è chiusa. \\
-	
-	Ecco alcuni esempi di spazi topologici: \\
-	- tutte le topologie indotte da una metrica; \\
-	- la topologia discreta, cioè $\tau=\mathcal{P}(X)$, indotta dalla distanza discreta; \\
-	- la topologia indiscreta, cioè $\tau=\{ \emptyset, X \}$; \\
-	- la topologia cofinita, dove gli aperti sono l'insieme vuoto più tutti e soli gli insiemi il cui complementare è un insieme finito.
-	
-	\subsection{Continuità in spazi topologici}
-	
-	\begin{defn}
-		$f: (X, \tau) \rightarrow (Y, \tau')$ si dice \textsc{continua} se $f^{-1}(A) \in \tau \, \forall A \in \tau'$.
-	\end{defn}
-	
-	Notiamo che per quanto dimostrato nella sezione 2.2, le due definizioni di funzione continua sono equivalenti per uno spazio metrico se si considera la topologia indotta dalla metrica.
-	
-	\begin{thm}
-		1) L'identità è una funzione continua; \\
-		2) composizione di funzioni continue è una funzione continua.
-	\end{thm}
-	
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+\section{Introduzione}
+Questi appunti sono basati sul corso di Geometria 2 tenuto dai professori
+Roberto Frigerio e Jacopo Gandini nell'anno accademico 2019/2020. Sono dati per
+buoni i contenuti dei corsi del primo anno, in particolare Analisi 1 e Geometria
+1. Verranno omesse o soltanto hintate le dimostrazioni più semplici, ma si
+consiglia comunque di provare a svolgerle per conto proprio. Ogni tanto sarà
+commesso qualche abuso di notazione, facendo comunque in modo che il significato
+sia reso chiaro dal contesto. Inoltre, la notazione verrà alleggerita man mano,
+per evitare inutili ripetizioni e appesantimenti nella lettura.
+
+\section{Spazi metrici e spazi topologici}
+\subsection{Spazi metrici}
+\begin{defn}
+	Uno \textsc{spazio metrico} è una coppia $(X, d)$, $X$ insieme,
+	${d: X \times X \rightarrow \mathbb{R}}$ t.c. per ogni ${x, y, z \in X}$
+    \begin{nlist}
+	\item $d(x, y) \ge 0$ e $d(x, y)=0 \Leftrightarrow x=y$;
+	\item $d(x, y)=d(y, x)$;
+	\item $d(x, z) \le d(x, y)+d(y,z)$ (disuguaglianza triangolare).
+    \end{nlist}
+	In tal caso $d$ si dice \textsc{distanza} o \textsc{metrica}.
+\end{defn}
+
+\begin{ex}
+Ecco alcuni esempi di distanze:
+\begin{itemize}
+\item La distanza $d_1$ su $\mathbb{R}^n$, che alla coppia di elementi
+${x=(x_1, \dots, x_n)}, {y=(y_1, \dots, y_n)}$
+ associa il numero
+ $${\displaystyle d_1(x, y)=\sum_{i=1}^n |x_i-y_i|};$$
+\item la distanza $d_2$ (o $d_E$, distanza
+euclidea) su $\mathbb{R}^n$,
+$$\displaystyle d_2(x, y)=\sqrt{\sum_{i=1}^n (x_i-y_i)^2};$$
+\item la distanza $d_{\infty}$ su $\mathbb{R}^n$,
+${\displaystyle d_{\infty}(x, y)=\sup_{i=1, \dots, n} \{ |x_i-y_i| \}}$;
+\item
+la distanza discreta su un generico insieme $x$, $d(x, y)=1$ se $x \not= y$ e
+$0$ altrimenti;
+\item le distanze $d_1$, $d_2$, $d_{\infty}$ sullo spazio delle funzioni
+continue da $[0, 1]$ in $\mathbb{R}$, definite rispettivamente
+$${\displaystyle d_1(f, g)=\int_0^1 |f(t)-g(t)| dt},$$
+$${\displaystyle d_2(f, g)=\sqrt{\int_0^1 (f(t)-g(t))^2 dt}},$$
+$${\displaystyle d_{\infty}(f, g)=\sup_{t \in [0, 1]} |f(t)-g(t)|}.$$
+\end{itemize}
+\end{ex}
+
+\begin{defn}
+	$f:(X, d) \rightarrow (Y, d')$ viene detto \textsc{embedding isometrico} se
+	$d'(f(x_1), f(x_2))=d(x_1, x_2)$ per ogni $x_1, x_2 \in X$.
+\end{defn}
+
+\begin{oss}
+Valgono i seguenti fatti:
+\begin{itemize}
+\item l'identità è un embedding isometrico;
+\item composizione di embedding isometrici è un embedding isometrico;
+\item se un embedding isometrico $f$ è biettivo, anche $f^{-1}$ è un embedding
+isometrico e $f$ si dice \textsc{isometria};
+\item un embedding isometrico è sempre iniettivo, dunque è un'isometria se e
+solo se è suriettivo;
+\item se $(X, d)$ è fissato, l'insieme delle isometrie da $X$ in sé è un gruppo
+con la composizione, chiamato $Isom(X,d)$.
+\end{itemize}
+\end{oss}
+
+
+
+\subsection{Continuità in spazi metrici}
+\begin{defn}
+Dati $p \in X, R>0$, ${B(p, R):=\{ x \in X \mid d(p, x)<R\}}$ è detta la
+\textsc{palla aperta} di centro $p$ e raggio $R$.
+\end{defn}
+
+\begin{defn}
+${f:(X, d) \rightarrow (Y, d')}$ è \textsc{continua in $x_0$} se
+${\forall \epsilon > 0 \; \exists \; \delta >0}\\\ \tc {f(B(x_0, \delta))
+\subseteq B(f(x_0), \epsilon)}$, cioè ${f^{-1}(B(f(x_0), \epsilon)) \supseteq
+B(x_0, \delta)}$.
+\end{defn}
+
+\begin{defn}
+${f(X, d) \rightarrow (Y, d')}$ è detta \textsc{continua} se è continua in ogni
+${x_0 \in X}$.
+\end{defn}
+
+\begin{oss}
+Gli embedding isometrici sono continui.
+\end{oss}
+
+\begin{defn}
+Sia $X$ uno spazio metrico, $A \subseteq X$ è detto \textsc{aperto} se per ogni
+$x \in A$ esiste ${R>0 \tc B(x, R) \subseteq A}$.
+\end{defn}
+
+\begin{ftt}
+Le palle aperte sono aperti. Per dimostrarlo, sfruttare la disuguaglianza
+triangolare.
+\end{ftt}
+
+\begin{thm}
+$f(X, d) \rightarrow (Y, d')$ è continua se e solo se per ogni aperto $A$ di $Y$
+$f^{-1}(A)$ è aperto di $X$.
+\end{thm}
+
+\begin{proof}
+Supponiamo $f$ continua. Prendiamo $x \in f^{-1}(A)$, allora si ha che $f(x) \in
+A$, ma dato che $A$ è aperto esiste una palla aperta di centro $f(x)$ $B_Y$ t.c.
+$B_Y \subseteq A$, da cui $f^{-1}(B_Y) \subseteq f^{-1}(A)$. Usando la
+definizione di continuità, detto $\epsilon$ il raggio di $B_Y$, scegliendo il
+$\delta$ corrispondente come raggio di una palla di centro $x$, sia essa $B_X$,
+si ha che $B_X \subseteq f^{-1}(B_Y) \subseteq f^{-1}(A)$, perciò abbiamo
+trovato una palla centrata in $x$ tutta contenuta in $f^{-1}(A)$ e questo prova
+che è un aperto.
+
+Viceversa, supponiamo che le controimmagini di aperti siano a loro volta aperti.
+Dati $x_0 \in X$ e $\epsilon >0$ si ha che $B(f(x_0), \epsilon)$ è un aperto di
+$Y$, perciò la sua controimmagine è un aperto, ma allora per definizione di
+aperto esiste $\delta>0$ tale che $B(x_0, \delta) \subseteq f^{-1}(B(f(x_0),
+\epsilon))$ e questo prova che $f$ è continua.
+\end{proof}
+
+\begin{oss}
+La continuità di una funzione dipende quindi solo indirettamente dalla metrica,
+mentre è direttamente collegata agli aperti generati dalla metrica stessa. Segue
+facilmente che due metriche che generano gli stessi aperti portano anche alla
+stessa famiglia di funzioni continue. Diamo dunque la seguente definizione.
+\end{oss}
+
+\begin{defn}
+Due distanze $d, d'$ su un insieme $X$ si dicono \textsc{topologicamente
+equivalenti} se inducono la stessa famiglia di aperti.
+\end{defn}
+
+\begin{lm}
+Siano $d, d'$ distanze su $X$ t.c. esiste $k \ge 1$ t.c. per ogni $x, y \in X$
+valga $d(x, y)/k \le d'(x, y) \le k \cdot d(x, y)$. Allora $d$ e $d'$ sono
+topologicamente equivalenti.
+\end{lm}
+
+\begin{proof}
+Sia $A$ un aperto indotto da $d'$ e $x_0 \in A$. Per definizione di aperto
+esiste $R>0$ tale che $B_{d'}(x_0, R) \subseteq A$. Considero $B_d(x_0, R/k)$.
+Dato un elemento $x \in B_d(x_0, R/k)$ ho che $d'(x_0, x) \le k \cdot d(x_0,
+x)<k \cdot R/k=R$, dunque $x \in B_{d'}(x_0, R)$. Allora $B_d(x_0, R/k)
+\subseteq B_{d'}(x_0, R/k) \subseteq A$ e dunque $A$ è anche un aperto indotto
+da $d$. Per la simmetria delle disuguaglianze nelle ipotesi si dimostra anche
+l'opposto, perciò gli aperti di $d$ e $d'$ sono gli stessi, come voluto.
+\end{proof}
+
+\begin{cor}
+$d_1, d_2, d_{\infty}$ sono topologicamente equivalenti su $\mathbb{R}^n$.
+\end{cor}
+
+\begin{center}
+\pagestyle{empty}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=2.0cm,y=2.0cm]
+    \draw[->,color=black] (-1.72,0) -- (1.78,0);
+    \foreach \x in {-1,1}
+    \draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
+    \draw[->,color=black] (0,-1.4) -- (0,1.44);
+    \foreach \y in {-1,1}
+    \draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt);
+    \clip(-1.72,-1.2) rectangle (1.78,1.24);
+    \draw(0,0) circle (2cm);
+    \draw (-1,0)-- (0,1);
+    \draw (0,1)-- (1,0);
+    \draw (1,0)-- (0,-1);
+    \draw (0,-1)-- (-1,0);
+    \draw (-1,1)-- (1,1);
+    \draw (1,1)-- (1,-1);
+    \draw (1,-1)-- (-1,-1);
+    \draw (-1,1)-- (-1,-1);
+\end{tikzpicture}
+
+Nell'immagine sono rappresentate, nell'ordine dalla più interna alla più
+esterna, le palle aperte centrate nell'origine e di raggio $1$ rispettivamente
+nelle metriche $d_1, d_2, d_{\infty}$.
+\end{center}
+
+\begin{proof}
+Per AM-QM si ha che
+$$\displaystyle \frac{\sum_{i=1}^n |x_i-y_i|}{n} \le \sqrt{\frac{\sum_{i=1}^n
+(x_i-y_i)^2}{n}},$$
+da cui $d_1(x, y) \le \sqrt{n} \cdot d_2(x, y)$. Stimando tutti i termini con il
+massimo otteniamo che
+$$\displaystyle \sqrt{\sum_{i=1}^n (x_i-y_i)^2} \le
+\sqrt{\sum_{i=1}^n \sup_{j=1, \dots, n} \{(x_j-y_j)^2\}}=\sqrt{n} \cdot
+\sup_{j=1, \dots, n} \{ |x_j-y_j| \},$$
+da cui
+$d_2(x, y) \le \sqrt{n} \cdot d_{\infty} (x, y).$
+ Infine è ovvio che
+ $$\displaystyle \sup_{i=1, \dots, n} |x_i-y_i| \le
+ \sum_{i=1}^n |x_i-y_i|$$, da cui $d_{\infty}(x, y) \le d_1(x, y).$
+Scegliendo $k=\sqrt{n}$ è ora sufficiente applicare il lemma.
+\end{proof}
+
+Nella dimostrazione del corollario era importante che lo spazio fosse di
+dimensione finita. Nello spazio delle funzioni continue da $[0, 1]$ a
+$\mathbb{R}$ le tre distanze non sono topologicamente equivalenti.
+
+\subsection{Spazi topologici}
+
+\begin{defn}
+Uno \textsc{spazio topologico} è una coppia $(X, \tau),\quad {\tau \subseteq
+\mathcal{P}(X)}$, t.c.
+\begin{nlist}
+\item $\emptyset, X \in \tau$;
+\item $A_1, A_2 \in \tau \Rightarrow A_1 \cap A_2 \in \tau$;
+\item se $I$ è un insieme e $A_i \in \tau \, \forall i \in I$, allora
+$\displaystyle \bigcup_{i \in I} A_i \in \tau$.
+\end{nlist}
+$\tau$ si dice \textsc{topologia} di $X$ e gli elementi della topologia sono
+detti \textsc{aperti} di $\tau$.
+\end{defn}
+
+\begin{prop}
+Se $(X, d)$ è uno spazio metrico gli aperti rispetto a $d$ definiscono una
+topologia.
+\end{prop}
+
+\begin{defn}
+Uno spazio topologico $(X, \tau)$ è detto \textsc{metrizzabile} se $\tau$ è
+indotta da una distanza su $X$.
+\end{defn}
+
+\begin{defn}
+Sia $(X, \tau)$ uno spazio topologico, $C \subseteq X$ è \textsc{chiuso} se $X
+\setminus C$ è aperto.
+\end{defn}
+
+\begin{oss}
+\begin{nlist}
+\item possono esistere insiemi né aperti né chiusi;
+\item $\emptyset$ e $X$ sono chiusi;
+\item unione finita di chiusi è chiusa;
+\item intersezione arbitraria di chiusi è chiusa.
+\end{nlist}
+\end{oss}
+
+\begin{ex}
+Ecco alcuni esempi di spazi topologici:
+\begin{itemize}
+\item tutte le topologie indotte da una metrica;
+\item la topologia discreta, cioè $\tau=\mathcal{P}(X)$, indotta dalla distanza
+discreta;
+\item la topologia indiscreta, cioè $\tau=\{ \emptyset, X \}$;
+\item la topologia cofinita, dove gli aperti sono l'insieme vuoto più tutti e
+soli gli insiemi il cui complementare è un insieme finito.
+\end{itemize}
+\end{ex}
+
+\subsection{Continuità in spazi topologici}
+
+\begin{defn}
+$f: (X, \tau) \rightarrow (Y, \tau')$ si dice \textsc{continua} se ${f^{-1}(A)
+\in \tau,}\; {\forall A \in \tau'}$.
+\end{defn}
+
+Notiamo che per il teorema 2.11 della sezione 2.2, le due definizioni di
+funzione continua sono equivalenti per uno spazio metrico se si considera la
+topologia indotta dalla metrica. %aggiungere riferimenti ipertestuali al teorema e alla sezione
+
+\begin{thm}
+\begin{nlist}
+\item L'identità è una funzione continua;
+\item composizione di funzioni continue è una funzione continua.
+\end{nlist}
+\end{thm}
+
 \end{document}
