@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.7.27)  29 SEP 2019 17:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.7.27)  30 SEP 2019 14:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -37,9 +37,8 @@ File: babel.def 2016/02/24 3.9q Babel common definitions
 \it@lettering=\count88
 \it@doublequoteactive=\count89
 \it@ISOcompliance=\count90
-))
-(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
+)) (./etoolbox.sty
+Package: etoolbox 2018/08/19 v2.5f e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count91
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
@@ -894,10 +893,10 @@ mm/m/it/10 X; ^^\\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! \OT1/cmr/m/n/10 (\OML/cmm
 
 [7] (./Geometria2.aux) ) 
 Here is how much of TeX's memory you used:
- 14455 strings out of 494942
- 275911 string characters out of 6180501
- 314973 words of memory out of 5000000
- 17446 multiletter control sequences out of 15000+600000
+ 14465 strings out of 494942
+ 275927 string characters out of 6180501
+ 315281 words of memory out of 5000000
+ 17457 multiletter control sequences out of 15000+600000
  18267 words of font info for 51 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  48i,6n,54p,799b,640s stack positions out of 5000i,500n,10000p,200000b,80000s
