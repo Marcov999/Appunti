@@ -1,8 +1,0 @@
-\select@language {italian}
-\select@language {italian}
-\contentsline {section}{\numberline {1}Introduzione}{3}
-\contentsline {section}{\numberline {2}Spazi metrici e spazi topologici}{3}
-\contentsline {subsection}{\numberline {2.1}Spazi metrici}{3}
-\contentsline {subsection}{\numberline {2.2}Continuit\IeC {\`a} in spazi metrici}{4}
-\contentsline {subsection}{\numberline {2.3}Spazi topologici}{6}
-\contentsline {subsection}{\numberline {2.4}Continuit\IeC {\`a} in spazi topologici}{7}
