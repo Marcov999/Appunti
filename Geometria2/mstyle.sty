@@ -6,9 +6,9 @@
 \newcounter{basicblock}[section]
 \renewcommand{\thebasicblock}{\thesection.\arabic{basicblock}}
 \newenvironment{block}[1][]
-{\refstepcounter{basicblock}\par\medskip\noindent\textbf{#1~\thebasicblock}\quad}
-{
-\medskip}
+{\refstepcounter{basicblock}\par\medskip\noindent\textbf{#1~\thebasicblock}
+    \quad}
+{\medskip}
 
 \newcommand{\vect}{\overrightarrow}
 \renewcommand{\implies}{\Rightarrow}
