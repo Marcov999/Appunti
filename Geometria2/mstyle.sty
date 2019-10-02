@@ -2,6 +2,7 @@
 \ProvidesPackage{mstyle}[]
 
 \usepackage{enumitem}% http://ctan.org/pkg/enumitem
+\usetikzlibrary{shapes.geometric}
 
 \newcounter{basicblock}[section]
 \renewcommand{\thebasicblock}{\thesection.\arabic{basicblock}}
@@ -27,6 +28,8 @@
 \renewcommand{\labelitemiii}{$\diamond$}
 \renewcommand{\labelitemiv}{$\ast$}
 
+\newcommand{\warningsign}{\tikz[baseline=-.75ex] \node[shape=regular polygon, regular polygon sides=3, inner sep=0pt, draw, thick] {\textbf{!}};}
+
 \newenvironment{thm}{\begin{block}[Teorema]}{\end{block}}
 \newenvironment{lm}{\begin{block}[Lemma]}{\end{block}}
 \newenvironment{defn}{\begin{block}[Definizione]}{\end{block}}
@@ -36,5 +39,7 @@
 \newenvironment{exc}{\begin{block}[Esercizio]}{\end{block}}
 \newenvironment{oss}{\begin{block}[Osservazione]}{\end{block}}
 \newenvironment{ftt}{\begin{block}[Fatto]}{\end{block}}
+\newenvironment{acht}{\begin{block}[\warningsign]}{\end{block}}
+
 
 %\renewcommand{\title}[1]{\title{\textbf{\Huge #1}}}

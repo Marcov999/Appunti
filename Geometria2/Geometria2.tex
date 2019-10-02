@@ -7,6 +7,8 @@
 \usepackage{amssymb}
 \usepackage{pgf,tikz}
 \usepackage{mstyle}
+\usepackage{hyperref}
+
 \usetikzlibrary{arrows}
 
 \title{Appunti di Geometria 2 \\ anno accademico 2019/2020}
@@ -279,8 +281,7 @@ $f: (X, \tau) \rightarrow (Y, \tau')$ si dice \textsc{continua} se ${f^{-1}(A)
 
 Notiamo che per il teorema \ref{thm:cont_inv}, le due
 definizioni di funzione continua sono equivalenti per uno spazio metrico se si
-considera la topologia indotta dalla metrica. %aggiungere riferimenti
-ipertestuali al teorema e alla sezione
+considera la topologia indotta dalla metrica.
 
 \begin{thm}
 \begin{nlist}
@@ -289,4 +290,35 @@ ipertestuali al teorema e alla sezione
 \end{nlist}
 \end{thm}
 
+\begin{defn}
+Una funzione $f: X \rightarrow Y$ si dice \textsc{omeomorfismo} se $f$ è
+continua e esiste una funzione $g:Y\rightarrow X$ continua tale che $f \circ g =
+Id_Y$ e $g \circ f = Id_x$. Cio\`e $f$ \`e continua, bigettiva e con inversa
+continua.
+\end{defn}
+
+\begin{oss}
+	\begin{nlist}
+	\item Composizione di omeomorfismi è un omeomerfismo; due spazi legati da un omeomorfismo si dicomo \textsc{omeomorfi} e essere omeomorfi è una relazione di equivalenza;
+	\item l'insieme degli omeomorfismi da $(X, \tau)$ in sé è un gruppo;
+	\item \warningsign\quad se $f:X \rightarrow Y$ è continua e bigettiva non è detto che sia un omeomorfismo, cioè $f^{-1}$ può non essere continua.
+\end{nlist}
+\end{oss}
+
+\begin{ex}
+	Siano $\tau_E$ la topologia euclidea, $\tau_C$ la cofinita, $\tau_D$ la discreta e $\tau_I$ l'indiscreta. Le seguenti mappe sono dunque continue: \\
+	$Id:(\mathbb{R}, \tau_D) \rightarrow (\mathbb{R}, \tau_E)$, $Id:(\mathbb{R}, \tau_E) \rightarrow (\mathbb{R}, \tau_C)$, $Id:(\mathbb{R}, \tau_C) \rightarrow (\mathbb{R}, \tau_I)$. Nessuna delle inverse è però continua. Più in generale, $Id: (X, \tau) \rightarrow (X, \simga)$ con $\sigma \subset \atu$ è continua ma l'inversa no.
+\ebd{ex}
+
+\begin{defn}
+Dato un insieme $X$ su cui sono definite le topologie $\tau$ e $\tau'$, si dice che $\tau$ \`e meno fine di $\tau'$ se $\tau \subseteq \tau'$.
+\end{defn}
+
+\begin{oss}
+Con il setting della definizione sopra, si pu\`o dire che $\tau$ \`e meno fine di $\tau'$ se e solo se ${Id_X:(X,\tau')\rightarrow(X, \tau)}$ \`e continua.
+\end{oss}
+
+\begin{lm}
+
+\end{lm}
 \end{document}
