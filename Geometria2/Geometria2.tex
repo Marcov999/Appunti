@@ -31,6 +31,7 @@ commesso qualche abuso di notazione, facendo comunque in modo che il significato
 sia reso chiaro dal contesto. Inoltre, la notazione verrà alleggerita man mano,
 per evitare inutili ripetizioni e appesantimenti nella lettura.
 
+
 \section{Spazi metrici e spazi topologici}
 \subsection{Spazi metrici}
 \begin{defn}
@@ -307,18 +308,81 @@ continua.
 
 \begin{ex}
 	Siano $\tau_E$ la topologia euclidea, $\tau_C$ la cofinita, $\tau_D$ la discreta e $\tau_I$ l'indiscreta. Le seguenti mappe sono dunque continue: \\
-	$Id:(\mathbb{R}, \tau_D) \rightarrow (\mathbb{R}, \tau_E)$, $Id:(\mathbb{R}, \tau_E) \rightarrow (\mathbb{R}, \tau_C)$, $Id:(\mathbb{R}, \tau_C) \rightarrow (\mathbb{R}, \tau_I)$. Nessuna delle inverse è però continua. Più in generale, $Id: (X, \tau) \rightarrow (X, \simga)$ con $\sigma \subset \atu$ è continua ma l'inversa no.
-\ebd{ex}
+	$Id:(\mathbb{R}, \tau_D) \rightarrow (\mathbb{R}, \tau_E)$, $Id:(\mathbb{R}, \tau_E) \rightarrow (\mathbb{R}, \tau_C)$, $Id:(\mathbb{R}, \tau_C) \rightarrow (\mathbb{R}, \tau_I)$. Nessuna delle inverse è però continua. Più in generale, $Id: (X, \tau) \rightarrow (X, \sigma)$ con $\sigma \subsetneq \tau$ è continua ma l'inversa no.
+\end{ex}
+
+\subsection{Ordinamento fra topologie, basi e prebasi}
+
+Vogliamo mettere un ordinamento parziale sulle topologie di un certo insieme fissato.
 
 \begin{defn}
-Dato un insieme $X$ su cui sono definite le topologie $\tau$ e $\tau'$, si dice che $\tau$ \`e meno fine di $\tau'$ se $\tau \subseteq \tau'$.
+Dato un insieme $X$ su cui sono definite le topologie $\tau$ e $\tau'$, si dice che $\tau$ \`e \textit{meno fine} di $\tau'$ se $\tau \subseteq \tau'$, cioè ogni aperto di $\tau$ è anche aperto di $\tau'$. $\tau'$ si dice \textit{più fine} di $\tau$.
 \end{defn}
 
 \begin{oss}
-Con il setting della definizione sopra, si pu\`o dire che $\tau$ \`e meno fine di $\tau'$ se e solo se ${Id_X:(X,\tau')\rightarrow(X, \tau)}$ \`e continua.
+Equivalentemente alla definizione sopra, si pu\`o dire che $\tau$ \`e meno fine di $\tau'$ se e solo se ${Id:(X,\tau')\rightarrow(X, \tau)}$ \`e continua.
 \end{oss}
 
-\begin{lm}
+Quando $\tau$ è meno fine di $\tau'$ scriveremo $\tau < \tau'$. Si noti che dalla definizione ogni topologia è meno fine di se stessa, cioè $\tau < \tau' \, \forall \tau$.
 
+\begin{ex}
+	$\tau_I < \tau_C < \tau_E < \tau_D$, \, $\tau_I < \tau < \tau_D \, \forall \tau$.
+\end{ex}
+
+\begin{lm}
+	Intersezione arbitraria di topologie su $X$ è ancora una topologia su $X$.
 \end{lm}
+
+\begin{proof}
+	Siano $\tau_i, i \in I$ topologie su $X$. Verifichiamo che $\displaystyle \tau=\bigcap_{i \in I} \tau_i$ soddisfi gli assiomi di topologia. \\
+	$\emptyset, X \in \tau_i \, \forall i \in I \Rightarrow \emptyset, X \in \tau$. \\
+	$A_1, A_2 \in \tau \Rightarrow A_1, A_2 \in \tau_i \, \forall i \in I \Rightarrow A_1 \cap A_2 \in \tau_i \, \forall i \in I \Rightarrow A_1 \cap A_2 \in \tau$. \\
+	Siano $A_j, j \in J$ insiemi che stanno in $\tau$. \\
+	$\displaystyle A_j \in \tau \, \forall j \in J \Rightarrow A_j \in \tau_i \, \forall i \in I, j \in J \Rightarrow \bigcup_{j \in J} A_j \in \tau_i \, \forall i \in I \Rightarrow \bigcup_{j \in J} A_j \in \tau$.
+\end{proof}
+
+\begin{cor}
+	Data una famiglia $\tau_i, i \in I$ di topologie su $X$, esiste la più fine tra le topologie meno fini di ogni $\tau_i$: è $\displaystyle \bigcap_{i \in I} \tau_i$.
+\end{cor}
+
+\begin{cor}
+	Sia $X$ un insieme, $S \subseteq \mathcal{P}(X)$, allora esiste la topologia meno fine tra quelle che contengono $S$. Tale topologia si dice \textit{generata} da $S$ e $S$ si dice \textsc{prebase} della topologia. Se $\Omega= \{ \tau \text{ topologia } | S \in \tau \}$ (che è non vuoto perché contiene almeno la topologia discreta), la topologia cercata è $\displaystyle \bigcap_{\tau \in \Omega} \tau$.
+\end{cor}
+
+\begin{defn}
+	sia $(X, \tau)$ uno spazio topologico fissato, una \textsc{base} di $\tau$ è un insieme $\mathcal{B} \subseteq \tau$ t.c. $\forall A \in \tau, \exists B_i \in \mathcal{B}, i \in I$ t.c. $\displaystyle A= \bigcup_{i \in I} B_i$.
+\end{defn}
+
+\begin{ex}
+	Se $X$ è uno spazio metrico, una base della topologia indotta sono le palle.
+\end{ex}
+
+\begin{defn}
+	$(X, \tau)$ si dice \textit{a base numerabile} (o che soddisfa il \textsc{secondo assioma di numerabilità}) se ammette una base numerabile.
+\end{defn}
+
+\begin{prop}
+	Sia $X$ un insieme senza topologia, $\mathcal{B} \subseteq \mathcal{P}(X)$ è base di una topologia su $X$ $\Leftrightarrow$ valgono le seguenti: \\
+	\begin{nlist}
+		\item $\displaystyle X=\bigcup_{B \in \mathcal{B}} B$;
+		\item $\forall A, A' \in \mathcal{B}, \exists B_i \in \mathcal{B}, i \in I$ t.c. $\displaystyle A \cap A'= \bigcup_{i \in I} B_i$.
+	\end{nlist}
+\end{prop}
+
+\begin{proof}
+	Inserire dimostrazione.
+\end{proof}
+
+\begin{prop}
+	Siano $X$ un insieme e $S \subseteq \mathcal{P}(X)$ la prebase di una topologia $\tau$ su $X$. Allora:
+	\begin{nlist}
+		\item le intersezioni finite di elementi di $S \cup \{X\}$ sono una base di $\tau$;
+		\item $A \in \tau$ $\Leftrightarrow$ $A$ è unione arbitraria di intersezioni finite di elementi di $S \cup \{X\}$.
+	\end{nlist}
+\end{prop}
+
+\begin{proof}
+	Inserire dimostrazione.
+\end{proof}
+
 \end{document}
