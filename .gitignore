@@ -3,3 +3,4 @@
 *.toc
 *.idx
 *.synctex.gz
+tmp/*
