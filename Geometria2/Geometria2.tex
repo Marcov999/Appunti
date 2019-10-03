@@ -420,7 +420,7 @@ $\displaystyle A_j \in \tau \, \forall j \in J \Rightarrow A_j \in \tau_i \,
 	\textsc{secondo assioma di numerabilità}) se ammette una base numerabile.
 \end{defn}
 
-\begin{prop}
+\begin{prop} \label{prop:base}
 	Sia $X$ un insieme senza topologia, $\mathcal{B} \subseteq \mathcal{P}(X)$ è
 	base di una topologia su $X$ $\Leftrightarrow$ valgono le seguenti:
 	\begin{nlist}
@@ -597,7 +597,7 @@ soddisfa il secondo assioma di numerabilità. Vediamo gli altri due.
 \begin{defn}
 	Un \textsc{sistema fondamentale di intorni} per $x_0$ è una famiglia
 	$\mathcal{F} \subseteq \mathcal{I}(x_0)$ t.c. $\forall U \in
-	\mathcal{I(x_0)} \, \exists V \in \mathcal{F}$ con $V \subseteq U$.
+	\mathcal{I}(x_0) \, \exists V \in \mathcal{F}$ con $V \subseteq U$.
 \end{defn}
 
 \begin{ex} \label{1/n}
@@ -626,12 +626,11 @@ soddisfa il secondo assioma di numerabilità. Vediamo gli altri due.
 \begin{proof}
 	Supponiamo che $X$ soddisfi il secondo assioma di numerabilità. Per la
 	proposizione \ref{N2impN3} otteniamo subito che soddisfa il terzo. Vogliamo
-	adesso mostrare che soddisfa anche il primo.
-
-	Sia $\mathcal{B}$ una base numerabile. Dato $x \in X$, consideriamo
-	l'insieme $\{ B \in \mathcal{B} | x \in B \}$. Essendo un sottoinsieme di
-	$\mathcal{B}$ è sicuramente numerabile e contiene solo insiemi aperti, cioè
-	intorni di $x$. Mostriamo che è un sistema fondamentale di intorni per $x$.
+	adesso mostrare che soddisfa anche il primo. Sia $\mathcal{B}$ una base
+	numerabile. Dato $x \in X$, consideriamo l'insieme ${\{ B \in \mathcal{B}\
+	|\ x \in B \}}$. Essendo un sottoinsieme di $\mathcal{B}$ è sicuramente
+	numerabile e contiene solo insiemi aperti, cioè intorni di $x$. Mostriamo
+	che è un sistema fondamentale di intorni per $x$.
 
 	Consideriamo un intorno $U$ di $x$. Questo ha un sottoinsieme aperto $V
 	\subseteq U$ contenente $x$, dunque $V$ è esprimibile come unione di
@@ -645,12 +644,25 @@ soddisfa il secondo assioma di numerabilità. Vediamo gli altri due.
 	\begin{nlist}
 		\item $A \subseteq X$ è aperto se e solo se è intorno di ogni suo punto;
 		\item sia $C \subseteq X$ un insieme generico, allora $x \in
-		\overline{C}$ se e solo se ogni intorno di $X$ interseca $C$.
+		\overline{C}$ se e solo se ogni intorno di $x$ interseca $C$.
 	\end{nlist}
 \end{prop}
 
 \begin{proof}
-	Inserire dimostrazione.
+\begin{nlist}
+\item Sia $A$ un insieme che \`e intorno di ogni suo punto, cio\`e per ogni $x
+\in A$ esiste un aperto $V_x \subseteq A$ che lo contiene. Allora vale che $A =
+\bigcup_{x \in A} V_x$. Poiché $A$ \`e unione di aperti\`e aperto.
+
+Viceversa sia $A$ aperto. Allora ogni suo punto \`e interno ad esso.
+
+\item Si ha che $\overline{C}$ \`e il complementare di $(X\setminus C)^\circ$.
+Dunque $x$ appartiene a $\overline{C}$ se e solo se non \`e interno a $X
+\setminus C$, cioè se e solo se ogni suo intorno $U$ non \`e tutto contenuto nel
+complementare di $C$. Questo accade quando ogni intorno di $X$ interseca $C$ in
+almeno un punto.
+
+\end{nlist}
 \end{proof}
 
 \begin{ex}
@@ -659,7 +671,7 @@ soddisfa il secondo assioma di numerabilità. Vediamo gli altri due.
     Allora valgono le seguenti:
 	\begin{nlist}
 		\item $\mathcal{B}$ è base di una toplogia $\tau$;
-		\item $\tau$ fine della topologia euclidea;
+		\item $\tau$ \`e pi\`u fine della topologia euclidea;
 		\item $\tau$ è separabile;
 		\item $\tau$ non è a base numerabile;
 		\item $\tau$ non è metrizzabile.
@@ -667,8 +679,40 @@ soddisfa il secondo assioma di numerabilità. Vediamo gli altri due.
 \end{ex}
 
 \begin{proof}
-	Inserire dimostrazione.
-    %TODO
+    \begin{nlist}
+        \item Verifichiamo utilizando la proposizione \ref{prop:base}. Il primo
+        punto vale in quanto $\mathbb{R}$ \`e coperto da intervalli del tipo
+        $\left[-n, n\right)$ con $n$ naturale. Inoltre dati i due intervalli
+        $[a,b)$ e $[c,d)$, distinguo:
+        \begin{itemize}
+            \item $b\leq c$. Allora l'itersezione \`e vuota.
+            \item $c < b$ e $b \leq d$. Allora l'itersezione \`e $[c,b)$.
+            \item $c < b$ e $b > d$. Allora l'itersezione \`e $[c,d)$.
+        \end{itemize}
+        In ogni caso vale anche il secondo punto.
+
+        \item Voglio mostrare che ogni aperto di $\tau$ \`e anche aperto di
+        $\tau_E$. Sia allora $(a, b)$ un aperto della base degli intervalli
+        aperti della topologia euclidea. Si considerino gli aperti in $\tau$
+        della forma $[a+\frac{1}{n},b)$ con $n$ naturale positivo. L'unione di
+        tutti questi \`e allora $(a,b)$.
+
+        \item Si noti che $\mathbb{Q}$ \`e un denso numerabile.
+
+        \item Sia $\mathcal{D}$ una base di $\tau$. Si noti che ogni intervallo
+        del tipo $[x,x+1)$ con $x$ reale, pu\`o essere scritto come unione degli
+        elementi della base solo se in $\mathcal{d}$ c'\`e un elemento $D$ tale
+        che $\inf(D) = x$. Allora la mappa
+        \begin{align*}
+            \phi:\mathcal{D}&\to \mathbb{R}\\
+            D & \mapsto \inf(D)
+        \end{align*}
+        deve essere surgettiva. Dunque la base scelta non pu\`o essere
+        numerabile.
+
+        \item Semplice conseguenza dei punti precedenti e della proposizione
+        \ref{metr-num}.
+    \end{nlist}
 \end{proof}
 
 \end{document}
