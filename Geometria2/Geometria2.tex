@@ -281,11 +281,12 @@ soli gli insiemi il cui complementare è un insieme finito.
 Notiamo che parte interna e chiusura sono ben definite: per la prima basta prendere l'unione di tutti gli aperti contenuti in $B$ (alla peggio c'è solo il vuoto, che è contenuto in ogni insieme), per la seconda si prende l'intersezione di tutti i chiusi che lo contengono (alla peggio c'è solo $X$). Per la stabilità degli aperti per unione arbitraria e dei chiusi per intersezione arbitraria, gli insiemi così ottenuti sono ancora un aperto e un chiuso e sono rispettivamente il più grande aperto contenuto e il più piccolo chiuso che contiene per come sono stati costruiti.
 
 \begin{ftt}
-	$X= \stackrel{\circ}{B} \sqcup \partial B \sqcup \stackrel{\circ}{(X \setminus B)}$ dove con $\sqcup$ si indica l'unione disgiunta.
+	$X= \stackrel{\circ}{B} \sqcup\ \partial B\ \sqcup \stackrel{\circ}{(X
+	\setminus B)}$ dove con $\sqcup$ si indica l'unione disgiunta.
 \end{ftt}
 
 \begin{proof}
-	Per definizione $\stackrel{\circ}{B} \cup \partial B=\overline{B}$ e i due insiemi sono disgiunti. Inoltre, essendo $\overline B$ il più piccolo chiuso che contiene $B$, il suo complementare dev'essere il più grande aperto disgiunto da $B$, cioè il più grande aperto contenuto in $X \setminus B$, che è la parte interna di quest'ultimo. La tesi segue facilmente.
+	Per definizione $\stackrel{\circ}{B} \cup\ \partial B=\overline{B}$ e i due insiemi sono disgiunti. Inoltre, essendo $\overline B$ il più piccolo chiuso che contiene $B$, il suo complementare dev'essere il più grande aperto disgiunto da $B$, cioè il più grande aperto contenuto in $X \setminus B$, che è la parte interna di quest'ultimo. La tesi segue facilmente.
 \end{proof}
 
 \subsection{Continuità in spazi topologici}
@@ -414,7 +415,7 @@ $\displaystyle A_j \in \tau \, \forall j \in J \Rightarrow A_j \in \tau_i \,
 	Se $X$ è uno spazio metrico, una base della topologia indotta sono le palle.
 \end{ex}
 
-\begin{defn}
+\begin{defn} \label{N2}
 	$(X, \tau)$ si dice \textit{a base numerabile} (o che soddisfa il
 	\textsc{secondo assioma di numerabilità}) se ammette una base numerabile.
 \end{defn}
@@ -431,7 +432,7 @@ $\displaystyle A_j \in \tau \, \forall j \in J \Rightarrow A_j \in \tau_i \,
 	\end{nlist}
 \end{prop}
 
-\begin{proof} \label{base_car}
+\begin{proof} \label{prop:preb}
 Sia $\tau$ l'insieme di tutte le possibili unioni di elementi di $\mathcal{B}$.
 Si vuole dimostrare che che $\tau$ \`e una topologia su $X$.
 \begin{nlist}
@@ -463,20 +464,44 @@ intersezione finita, e questo conclude la dimostrazione.
 \end{prop}
 
 \begin{proof}
-	Sicuramente, poiché $\tau$ è generata da $S$, $S \subseteq \tau$ e quindi anche tutte le intersezioni finite di elementi di $S$ e le unioni arbitrarie di tali inersezioni devono stare in $\tau$. Se mostriamo che sono sufficienti a definire una topologia, abbiamo finito. \\
-	Chiaramente il vuoto è l'intersezione di un insieme vuoto di insiemi e $X$ c'è perché lo abbiamo aggiunto a mano. \\
-	Unione arbitraria di unioni arbitrarie di elementi di un insieme è ancora unione arbitraria di elementi di tale insieme. \\
-	Siano ora $\displaystyle A_1= \bigcup_{i \in I} B_i, A_2=\bigcup_{j \in J} B_j$ con tutti i $B_i, B_j$ intersezioni finite di elementi di $S$. Allora $\displaystyle A_1 \cap A_2 = \left( \bigcup_{i \in I} B_i \right) \cap \left(\bigcup_{j \in J} B_j \right)= \bigcup_{i \in I, j \in J} (B_i \cap B_j)$, ma  intersezione di due intersezioni finite di elementi di $S$ è ancora un'intersezione finita di elementi di $S$, perciò $A_1 \cap A_2$ è ancora un'unione di intersezioni finite di elementi di $S$. Questo basta per dimostrare (i) e (ii) è una semplice riformulazione.
+	Sicuramente, poiché $\tau$ è generata da $S$, $S \subseteq \tau$ e quindi
+	anche tutte le intersezioni finite di elementi di $S$ e le unioni arbitrarie
+	di tali inersezioni devono stare in $\tau$. Se mostriamo che sono
+	sufficienti a definire una topologia, abbiamo finito.
+
+    Chiaramente il vuoto è l'intersezione di un insieme vuoto di insiemi e $X$
+    c'è perché lo abbiamo aggiunto a mano.
+
+    Unione arbitraria di unioni arbitrarie di elementi di un insieme è ancora
+    unione arbitraria di elementi di tale insieme.
+
+    Siano ora $A_1= \bigcup_{i \in I} B_i,\ A_2=\bigcup_{j \in J} B_j$ con tutti
+    i $B_i,\ B_j$ intersezioni finite di elementi di $S$. Allora
+    $$A_1 \cap A_2 =
+    \left( \bigcup_{i \in I} B_i \right) \cap \left(\bigcup_{j \in J} B_j
+    \right)= \bigcup_{i \in I, j \in J} (B_i \cap B_j),$$
+     ma  intersezione di due intersezioni finite di elementi di $S$ è ancora
+     un'intersezione finita di elementi di $S$, perciò $A_1 \cap A_2$ è ancora
+     un'unione di intersezioni finite di elementi di $S$. Questo basta per
+     dimostrare (i) e (ii) è una semplice riformulazione.
 \end{proof}
 
 \begin{exc}
-	\warningsign\quad Il seguente esercizio è frutto di una domanda fatta da uno studente a lezione e potrebbe essere più difficile di altri esercizi del corso. \\
-	Trovare un esempio (o dimostrare che non esiste) di uno spazio topologico $X$ e una funzione $f: (X, \tau) \rightarrow (X, \tau)$ continua e bigettiva con inversa non continua. \\
-	Stando a quanto dice Frigerio, probabilmente tale funzione esiste, euristicamente perché non c'è un modo facile di dimostrare il contrario.
+	Il seguente esercizio è frutto di una domanda fatta da uno studente a
+	lezione e potrebbe essere più difficile di altri esercizi del corso.
+
+    \marginpar{\warningsign}
+	Trovare un esempio (o dimostrare che non esiste) di uno spazio topologico
+	$X$ e una funzione $f: (X, \tau) \rightarrow (X, \tau)$ continua e bigettiva
+	con inversa non continua.
+
+    Stando a quanto dice Frigerio, probabilmente tale funzione esiste,
+    euristicamente perché non c'è un modo facile di dimostrare il contrario.
 \end{exc}
 
 \begin{prop}
-	Sia $f: (X, \tau) \rightarrow (Y, \tau')$ e $S, \mathcal{B}$ rispettivamente una prebase e una base di $\tau'$. Allora sono equivalenti:
+	Sia $f: (X, \tau) \rightarrow (Y, \tau')$ e $S,\ \mathcal{B}$
+	rispettivamente una prebase e una base di $\tau'$. Allora sono equivalenti:
 	\begin{nlist}
 		\item $f$ è continua;
 		\item $f^{-1}(A)$ è aperto per ogni $A \in S$;
@@ -485,25 +510,39 @@ intersezione finita, e questo conclude la dimostrazione.
 \end{prop}
 
 \begin{proof}
-	Poiché ogni base è una prebase, ((i) $\Leftrightarrow$ (ii)) $\Rightarrow$ ((i) $\Leftrightarrow$ (iii)). \\
-	(i) $\Rightarrow$ (ii) è ovvia, perciò resta da dimostrare (ii) $\Rightarrow$ (i). \\
-	Sia $A$ un aperto di $\tau'$. Per la proposizione \ref{prop:preb} $A$ si può scrivere come unione di intersezioni finite di elementi di $S$. Poiché la controimmagine di un'unione è l'unione delle controimmagini e la controimmagine di un'intersezione è l'intersezione delle controimmagini, la controimmagine di $A$ è unione di intersezioni finite di controimmagini di elementi di $S$, ma queste controimmagini sono aperte, perciò un'unione di loro intersezioni finite è ancora aperta, perciò $f^{-1}(A)$ è aperto in $X$ per ogni $A$ aperto in $Y$, e questo equivale a dire che $f$ è continua.
+	Poiché ogni base è una prebase, ((i) $\Leftrightarrow$ (ii)) $\Rightarrow$
+	((i) $\Leftrightarrow$ (iii)).
+
+	(i) $\Rightarrow$ (ii) è ovvia, perciò resta da dimostrare (ii)
+	$\Rightarrow$ (i).
+
+	Sia $A$ un aperto di $\tau'$. Per la proposizione \ref{prop:preb}, $A$ si
+	può scrivere come unione di intersezioni finite di elementi di $S$. Poiché
+	la controimmagine di un'unione è l'unione delle controimmagini e la
+	controimmagine di un'intersezione è l'intersezione delle controimmagini, la
+	controimmagine di $A$ è unione di intersezioni finite di controimmagini di
+	elementi di $S$, ma queste controimmagini sono aperte, perciò un'unione di
+	loro intersezioni finite è ancora aperta, perciò $f^{-1}(A)$ è aperto in $X$
+	per ogni $A$ aperto in $Y$, e questo equivale a dire che $f$ è continua.
 \end{proof}
 
 \subsection{Assiomi di numerabilità}
 
-Nella definizione \ref{N2} abbiamo stabilito quando uno spazio topologico soddisfa il secondo assioma di numerabilità. Vediamo gli altri due.
+Nella definizione \ref{N2} abbiamo stabilito quando uno spazio topologico
+soddisfa il secondo assioma di numerabilità. Vediamo gli altri due.
 
 \begin{defn}
 	$Y \subseteq X$ si dice \textsc{denso} se $\overline{Y}=X$.
 \end{defn}
 
 \begin{oss}
-	$Y$ è denso $\Leftrightarrow$ $Y \cap A \not=\emptyset$ per ogni $A$ aperto non vuoto.
+	$Y$ è denso $\Leftrightarrow$ $Y \cap A \not=\emptyset$ per ogni $A$ aperto
+	non vuoto.
 \end{oss}
 
 \begin{defn} \label{N3}
-	$X$ si dice \textsc{separabile} (o che soddisfa il \textsc{terzo assioma di numerabilità}) se ammette un sottoinsieme denso numerabile.
+	$X$ si dice \textsc{separabile} (o che soddisfa il \textsc{terzo assioma di
+	numerabilità}) se ammette un sottoinsieme denso numerabile.
 \end{defn}
 
 \begin{prop} \label{N2impN3}
@@ -511,55 +550,102 @@ Nella definizione \ref{N2} abbiamo stabilito quando uno spazio topologico soddis
 \end{prop}
 
 \begin{proof}
-	Sia $\{ B_i, {i \in \mathbb{N}}\}$ la base numerabile di $X$ e scegliamo per ogni $i \in \mathbb{N}$ un elemento $x_i \in B_i$. Vogliamo mostrare che $\{ x_i, i \in \mathbb{N} \}$ è un sottoinsieme denso numerabile di $X$. \\
-	Ovviamente è numerabile. Per dimostrare che è denso, mostriamo che interseca ogni aperto non vuoto. \\
-	Sia dunque $A$ un aperto non vuoto di $X$, allora, dato che i $B_i$ formano una base, $A$ è esprimibile come unione di alcuni di essi, in particolare esiste $i_0$ t.c. $B_{i_0} \subseteq A$ e perciò $x_{i_0} \in B_{i_0} \Rightarrow x_{i_0} \in A$, dunque l'intersezione tra il nostro insieme e un aperto non vuoto non è mai vuota, come voluto.
+	Sia $\{ B_i, {i \in \mathbb{N}}\}$ la base numerabile di $X$ e scegliamo per
+	ogni $i \in \mathbb{N}$ un elemento $x_i \in B_i$. Vogliamo mostrare che $\{
+	x_i, i \in \mathbb{N} \}$ è un sottoinsieme denso numerabile di $X$.
+
+	Ovviamente è numerabile. Per dimostrare che è denso, mostriamo che interseca
+	ogni aperto non vuoto.
+
+	Sia dunque $A$ un aperto non vuoto di $X$, allora, dato che i $B_i$ formano
+	una base, $A$ è esprimibile come unione di alcuni di essi, in particolare
+	esiste $i_0$ t.c. $B_{i_0} \subseteq A$ e perciò $x_{i_0} \in B_{i_0}
+	\Rightarrow x_{i_0} \in A$, dunque l'intersezione tra il nostro insieme e un
+	aperto non vuoto non è mai vuota, come voluto.
 \end{proof}
 
 \begin{prop} \label{metr-num}
-	Se $(X, \tau)$ è metrizzabile, $X$ è separabile $\Leftrightarrow$ è a base numerabile.
+	Se $(X, \tau)$ è metrizzabile, $X$ è separabile $\Leftrightarrow$ è a base
+	numerabile.
 \end{prop}
 
 \begin{proof}
-	($\Rightarrow$) Mostriamo che per ogni aperto $A$ e per ogni $x \in A$, esiste una palla di centro un elemento del sottoinsieme denso numerabile e raggio un razionale positivo tutta contenuta in $A$. Allora tali palle formano una base numerabile. \\
-	Sicuramente esiste una palla di centro $x$ e raggio $R \in \mathbb{R}^+$ tutta contenuta in $A$. Consideriamo la palla di centro $x$ e raggio $R/3$, che è contenuta nella prima. Questa palla è in particolare un insieme aperto, dunque ha un elemento $y$ in comune con il sottoinsieme denso numerabile. Scegliendo un razionale $R/3<r<2 \cdot R/3$ si ottiene che la palla di centro $y$ e raggio $r$ è tutta contenuta nella palla di centro $x$ e raggio $R$, dunque è tutta contenuta in $A$, e contiene $x$, come voluto. \\
+	($\Rightarrow$) Mostriamo che per ogni aperto $A$ e per ogni $x \in A$,
+	esiste una palla di centro un elemento del sottoinsieme denso numerabile e
+	raggio un razionale positivo tutta contenuta in $A$. Allora tali palle
+	formano una base numerabile.
+
+	Sicuramente esiste una palla di centro $x$ e raggio $R \in \mathbb{R}^+$
+	tutta contenuta in $A$. Consideriamo la palla di centro $x$ e raggio $R/3$,
+	che è contenuta nella prima. Questa palla è in particolare un insieme
+	aperto, dunque ha un elemento $y$ in comune con il sottoinsieme denso
+	numerabile. Scegliendo un razionale $R/3<r<2 \cdot R/3$ si ottiene che la
+	palla di centro $y$ e raggio $r$ è tutta contenuta nella palla di centro $x$
+	e raggio $R$, dunque è tutta contenuta in $A$, e contiene $x$, come voluto.
+
 	L'altra freccia discende dalla proposizione \ref{N2impN3}.
 \end{proof}
 
 \begin{defn}
-	Sia $(X, \tau)$ uno spazio topologico fissato e $x_0 \in X$. Un insieme $U \subseteq X$ è un \textsc{intorno} di $x_0$ se $x_0 \in \stackrel{\circ}{U}$, o equivalentemente se esiste $V$ aperto con $x_0 \in V \subseteq U$. L'insieme degli intorni di $x_0$ si denota con $\mathcal{I}(x_0)$.
+	Sia $(X, \tau)$ uno spazio topologico fissato e $x_0 \in X$. Un insieme $U
+	\subseteq X$ è un \textsc{intorno} di $x_0$ se $x_0 \in
+	\stackrel{\circ}{U}$, o equivalentemente se esiste $V$ aperto con $x_0 \in V
+	\subseteq U$. L'insieme degli intorni di $x_0$ si denota con
+	$\mathcal{I}(x_0)$.
 \end{defn}
 
 \begin{defn}
-	Un \textsc{sistema fondamentale di intorni} per $x_0$ è una famiglia $\mathcal{F} \subseteq \mathcal{I}(x_0)$ t.c. $\forall U \in \mathcal{I(x_0)} \, \exists V \in \mathcal{F}$ con $V \subseteq U$.
+	Un \textsc{sistema fondamentale di intorni} per $x_0$ è una famiglia
+	$\mathcal{F} \subseteq \mathcal{I}(x_0)$ t.c. $\forall U \in
+	\mathcal{I(x_0)} \, \exists V \in \mathcal{F}$ con $V \subseteq U$.
 \end{defn}
 
 \begin{ex} \label{1/n}
-	Se $X$ è uno spazio metrico, le palle centrate in $x_0$ do raggio $1/n$ al variare di $n$ intero positivo sono un sistema fondamentale di intorni. In particolare, sono un sistema fondamentale di intorni numerabile.
+	Se $X$ è uno spazio metrico, le palle centrate in $x_0$ do raggio $1/n$ al
+	variare di $n$ intero positivo sono un sistema fondamentale di intorni. In
+	particolare, sono un sistema fondamentale di intorni numerabile.
 \end{ex}
 
 \begin{defn} \label{N1}
-	$X$ soddisfa il \textsc{primo assioma di numerabilità} se ogni $x_0 \in X$ ha un sistema fondamentale di intorni numerabile.
+	$X$ soddisfa il \textsc{primo assioma di numerabilità} se ogni $x_0 \in X$
+	ha un sistema fondamentale di intorni numerabile.
 \end{defn}
 
 \begin{ftt}
-	Se $X$ è metrizzabile $X$ soddisfa il primo assioma di numerabilità. Ciò discende direttamente dall'esempio \ref{1/n}.
+	Se $X$ è metrizzabile $X$ soddisfa il primo assioma di numerabilità. Ciò
+	discende direttamente dall'esempio \ref{1/n}.
 \end{ftt}
 
 \begin{prop}
-	Il secondo assioma di numerabilità implica il primo e il terzo assioma di numerabilità. Discende dalla proposizione \ref{metr-num} che in spazi metrici vale anche che il terzo assioma di numerabilità implica il secondo assioma di numerabilità.
+	Il secondo assioma di numerabilità implica il primo e il terzo assioma di
+	numerabilità. Discende dalla proposizione \ref{metr-num} che in spazi
+	metrici vale anche che il terzo assioma di numerabilità implica il secondo
+	assioma di numerabilità.
 \end{prop}
 
 \begin{proof}
-	Supponiamo che $X$ soddisfi il secondo assioma di numerabilità. Per la proposizione \ref{N2impN3} otteniamo subito che soddisfa il terzo. Vogliamo adesso mostrare che soddisfa anche il primo. \\
-	Sia $\mathcal{B}$ una base numerabile. Dato $x \in X$, consideriamo l'insieme $\{ B \in \mathcal{B} | x \in B \}$. Essendo un sottoinsieme di $\mathcal{B}$ è sicuramente numerabile e contiene solo insiemi aperti, cioè intorni di $x$. Mostriamo che è un sistema fondamentale di intorni per $x$. \\
-	Consideriamo un intorno $U$ di $x$. Questo ha un sottoinsieme aperto $V \subseteq U$ contenente $x$, dunque $V$ è esprimibile come unione di elementi di $\mathcal{B}$ e ce ne dev'essere uno che contiene $x$, che sta quindi nel nostro insieme ed è contenuto in $V$ e quindi in $U$. Dunque, per ogni intorno $U$ di $x$ troviamo un elemento del nostro insieme di intorni di $x$ contenuto in $U$, che è quello che dovevamo dimostrare.
+	Supponiamo che $X$ soddisfi il secondo assioma di numerabilità. Per la
+	proposizione \ref{N2impN3} otteniamo subito che soddisfa il terzo. Vogliamo
+	adesso mostrare che soddisfa anche il primo.
+
+	Sia $\mathcal{B}$ una base numerabile. Dato $x \in X$, consideriamo
+	l'insieme $\{ B \in \mathcal{B} | x \in B \}$. Essendo un sottoinsieme di
+	$\mathcal{B}$ è sicuramente numerabile e contiene solo insiemi aperti, cioè
+	intorni di $x$. Mostriamo che è un sistema fondamentale di intorni per $x$.
+
+	Consideriamo un intorno $U$ di $x$. Questo ha un sottoinsieme aperto $V
+	\subseteq U$ contenente $x$, dunque $V$ è esprimibile come unione di
+	elementi di $\mathcal{B}$ e ce ne dev'essere uno che contiene $x$, che sta
+	quindi nel nostro insieme ed è contenuto in $V$ e quindi in $U$. Dunque, per
+	ogni intorno $U$ di $x$ troviamo un elemento del nostro insieme di intorni
+	di $x$ contenuto in $U$, che è quello che dovevamo dimostrare.
 \end{proof}
 
 \begin{prop}
 	\begin{nlist}
 		\item $A \subseteq X$ è aperto se e solo se è intorno di ogni suo punto;
-		\item sia $C \subseteq X$ un insieme generico, allora $x \in \overline{C}$ se e solo se ogni intorno di $X$ interseca $C$.
+		\item sia $C \subseteq X$ un insieme generico, allora $x \in
+		\overline{C}$ se e solo se ogni intorno di $X$ interseca $C$.
 	\end{nlist}
 \end{prop}
 
@@ -568,7 +654,9 @@ Nella definizione \ref{N2} abbiamo stabilito quando uno spazio topologico soddis
 \end{proof}
 
 \begin{ex}
-	La retta di Sorgenfrey. Su $X=\mathbb{R}$ consideriamo il seguente insieme: $\mathcal{B}=\{[a, b) | a<b\}$. Valgono le seguenti:
+	La retta di Sorgenfrey. Su $X=\mathbb{R}$ consideriamo il seguente insieme:
+	$${\mathcal{B}=\{\,[a, b)\ |\ a<b\}}.$$
+    Allora valgono le seguenti:
 	\begin{nlist}
 		\item $\mathcal{B}$ è base di una toplogia $\tau$;
 		\item $\tau$ fine della topologia euclidea;
@@ -580,6 +668,7 @@ Nella definizione \ref{N2} abbiamo stabilito quando uno spazio topologico soddis
 
 \begin{proof}
 	Inserire dimostrazione.
+    %TODO
 \end{proof}
 
 \end{document}
