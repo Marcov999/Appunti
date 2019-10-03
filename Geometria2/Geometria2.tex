@@ -177,7 +177,8 @@ $d_1, d_2, d_{\infty}$ sono topologicamente equivalenti su $\mathbb{R}^n$.
 
 \begin{center}
 \pagestyle{empty}
-\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=2.0cm,y=2.0cm]
+\begin{tikzpicture}[line cap=round,line join=round,
+    >=triangle 45,x=2.0cm,y=2.0cm]
     \draw[->,color=black] (-1.72,0) -- (1.78,0);
     \foreach \x in {-1,1}
     \draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt);
@@ -225,20 +226,20 @@ $\mathbb{R}$ le tre distanze non sono topologicamente equivalenti.
 \subsection{Spazi topologici}
 
 \begin{defn}
-Uno \textsc{spazio topologico} è una coppia $(X, \tau),\quad {\tau \subseteq
+Uno \textsc{spazio topologico} è una coppia $(X, \tau),\; {\tau \subseteq
 \mathcal{P}(X)}$, t.c.
 \begin{nlist}
-\item $\emptyset, X \in \tau$;
-\item $A_1, A_2 \in \tau \Rightarrow A_1 \cap A_2 \in \tau$;
+\item $\emptyset,\ X \in \tau$;
+\item $A_1,\ A_2 \in \tau \Rightarrow A_1 \cap A_2 \in \tau$;
 \item se $I$ è un insieme e $A_i \in \tau \, \forall i \in I$, allora
 $\displaystyle \bigcup_{i \in I} A_i \in \tau$.
 \end{nlist}
-$\tau$ si dice \textsc{topologia} di $X$ e gli elementi della topologia sono
-detti \textsc{aperti} di $\tau$.
+Allora $\tau$ si dice \textsc{topologia} di $X$ e gli elementi della topologia
+sono detti \textsc{aperti} di $\tau$.
 \end{defn}
 
 \begin{prop}
-Se $(X, d)$ è uno spazio metrico gli aperti rispetto a $d$ definiscono una
+Se $(X, d)$ è uno spazio metrico, gli aperti rispetto a $d$ definiscono una
 topologia.
 \end{prop}
 
@@ -277,7 +278,8 @@ soli gli insiemi il cui complementare è un insieme finito.
 
 \begin{defn}
 $f: (X, \tau) \rightarrow (Y, \tau')$ si dice \textsc{continua} se ${f^{-1}(A)
-\in \tau,}\; {\forall A \in \tau'}$.
+\in \tau,}\; {\forall A \in \tau'}$, cioè una funzione \`e continua se la
+controimmagine di aperti \`e aperta.
 \end{defn}
 
 Notiamo che per il teorema \ref{thm:cont_inv}, le due
@@ -300,33 +302,53 @@ continua.
 
 \begin{oss}
 	\begin{nlist}
-	\item Composizione di omeomorfismi è un omeomerfismo; due spazi legati da un omeomorfismo si dicomo \textsc{omeomorfi} e essere omeomorfi è una relazione di equivalenza;
+	\item Composizione di omeomorfismi è un omeomerfismo; due spazi legati da un
+	omeomorfismo si dicomo \textsc{omeomorfi} e essere omeomorfi è una relazione
+	di equivalenza;
 	\item l'insieme degli omeomorfismi da $(X, \tau)$ in sé è un gruppo;
-	\item \warningsign\quad se $f:X \rightarrow Y$ è continua e bigettiva non è detto che sia un omeomorfismo, cioè $f^{-1}$ può non essere continua.
+	\item se $f:X \rightarrow Y$ è continua e bigettiva non è detto che sia un
+	omeomorfismo, cioè $f^{-1}$ può non essere continua.
+    \marginpar{\warningsign}
 \end{nlist}
 \end{oss}
 
 \begin{ex}
-	Siano $\tau_E$ la topologia euclidea, $\tau_C$ la cofinita, $\tau_D$ la discreta e $\tau_I$ l'indiscreta. Le seguenti mappe sono dunque continue: \\
-	$Id:(\mathbb{R}, \tau_D) \rightarrow (\mathbb{R}, \tau_E)$, $Id:(\mathbb{R}, \tau_E) \rightarrow (\mathbb{R}, \tau_C)$, $Id:(\mathbb{R}, \tau_C) \rightarrow (\mathbb{R}, \tau_I)$. Nessuna delle inverse è però continua. Più in generale, $Id: (X, \tau) \rightarrow (X, \sigma)$ con $\sigma \subsetneq \tau$ è continua ma l'inversa no.
+	Siano $\tau_E$ la topologia euclidea, $\tau_C$ la cofinita, $\tau_D$ la
+	discreta e $\tau_I$ l'indiscreta. Le seguenti mappe sono dunque continue:
+    \begin{itemize}
+	\item $Id:(\mathbb{R}, \tau_D) \rightarrow (\mathbb{R}, \tau_E)$,
+    \item $Id:(\mathbb{R}, \tau_E) \rightarrow (\mathbb{R}, \tau_C)$,
+    \item $Id:(\mathbb{R}, \tau_C) \rightarrow (\mathbb{R}, \tau_I)$.
+    \end{itemize}
+    Nessuna delle inverse è però continua. Più in generale, $Id: (X, \tau)
+    \rightarrow (X, \sigma)$ con $\sigma \subsetneq \tau$ è continua ma
+    l'inversa no.
 \end{ex}
 
 \subsection{Ordinamento fra topologie, basi e prebasi}
 
-Vogliamo mettere un ordinamento parziale sulle topologie di un certo insieme fissato.
+Vogliamo mettere un ordinamento parziale sulle topologie di un certo insieme
+fissato.
 
 \begin{defn}
-Dato un insieme $X$ su cui sono definite le topologie $\tau$ e $\tau'$, si dice che $\tau$ \`e \textit{meno fine} di $\tau'$ se $\tau \subseteq \tau'$, cioè ogni aperto di $\tau$ è anche aperto di $\tau'$. $\tau'$ si dice \textit{più fine} di $\tau$.
+Dato un insieme $X$ su cui sono definite le topologie $\tau$ e $\tau'$, si dice
+che $\tau$ \`e \textsc{meno fine} di $\tau'$ se $\tau \subseteq \tau'$, cioè
+ogni aperto di $\tau$ è anche aperto di $\tau'$. $\tau'$ si dice \textsc{più
+fine} di $\tau$.
 \end{defn}
 
 \begin{oss}
-Equivalentemente alla definizione sopra, si pu\`o dire che $\tau$ \`e meno fine di $\tau'$ se e solo se ${Id:(X,\tau')\rightarrow(X, \tau)}$ \`e continua.
+Equivalentemente alla definizione sopra, si pu\`o dire che $\tau$ \`e meno fine
+di $\tau'$ se e solo se ${Id:(X,\tau')\rightarrow(X, \tau)}$ \`e continua.
 \end{oss}
 
-Quando $\tau$ è meno fine di $\tau'$ scriveremo $\tau < \tau'$. Si noti che dalla definizione ogni topologia è meno fine di se stessa, cioè $\tau < \tau' \, \forall \tau$.
+Quando $\tau$ è meno fine di $\tau'$ scriveremo $\tau < \tau'$. Si noti che
+dalla definizione ogni topologia è meno fine di se stessa, cioè $\tau < \tau'
+\; \forall \tau$.
 
 \begin{ex}
-	$\tau_I < \tau_C < \tau_E < \tau_D$, \, $\tau_I < \tau < \tau_D \, \forall \tau$.
+	$\tau_I < \tau_C < \tau_E < \tau_D$, \, $\tau_I < \tau < \tau_D \; \forall
+	\tau$.
 \end{ex}
 
 \begin{lm}
@@ -334,23 +356,44 @@ Quando $\tau$ è meno fine di $\tau'$ scriveremo $\tau < \tau'$. Si noti che dal
 \end{lm}
 
 \begin{proof}
-	Siano $\tau_i, i \in I$ topologie su $X$. Verifichiamo che $\displaystyle \tau=\bigcap_{i \in I} \tau_i$ soddisfi gli assiomi di topologia. \\
-	$\emptyset, X \in \tau_i \, \forall i \in I \Rightarrow \emptyset, X \in \tau$. \\
-	$A_1, A_2 \in \tau \Rightarrow A_1, A_2 \in \tau_i \, \forall i \in I \Rightarrow A_1 \cap A_2 \in \tau_i \, \forall i \in I \Rightarrow A_1 \cap A_2 \in \tau$. \\
-	Siano $A_j, j \in J$ insiemi che stanno in $\tau$. \\
-	$\displaystyle A_j \in \tau \, \forall j \in J \Rightarrow A_j \in \tau_i \, \forall i \in I, j \in J \Rightarrow \bigcup_{j \in J} A_j \in \tau_i \, \forall i \in I \Rightarrow \bigcup_{j \in J} A_j \in \tau$.
+Siano $\tau_i,\ i \in I$ topologie su $X$.
+Verifichiamo che $ \tau=\bigcap_{i \in I} \tau_i$ soddisfa gli assiomi di
+topologia.
+
+\begin{nlist}
+\item $\emptyset, X \in \tau_i \, \forall i \in I \Rightarrow \emptyset, X \in
+\tau$.
+\item $A_1, A_2 \in \tau \Rightarrow A_1, A_2 \in \tau_i \, \forall i
+\in I \Rightarrow A_1 \cap A_2 \in \tau_i \, \forall i \in I \Rightarrow A_1
+\cap A_2 \in \tau$.
+\item Siano $A_j, j \in J$ insiemi che stanno in $\tau$. \\
+$\displaystyle A_j \in \tau \, \forall j \in J \Rightarrow A_j \in \tau_i \,
+\forall i \in I, j \in J \Rightarrow {\bigcup_{j \in J} A_j \in \tau_i \,
+\forall i \in I} \Rightarrow {\bigcup_{j \in J} A_j \in \tau}$.
+\end{nlist}
 \end{proof}
 
 \begin{cor}
-	Data una famiglia $\tau_i, i \in I$ di topologie su $X$, esiste la più fine tra le topologie meno fini di ogni $\tau_i$: è $\displaystyle \bigcap_{i \in I} \tau_i$.
+	Data una famiglia $\tau_i, i \in I$ di topologie su $X$, esiste la più fine
+	tra le topologie meno fini di ogni $\tau_i$: è $\displaystyle \bigcap_{i \in
+	I} \tau_i$.
 \end{cor}
 
 \begin{cor}
-	Sia $X$ un insieme, $S \subseteq \mathcal{P}(X)$, allora esiste la topologia meno fine tra quelle che contengono $S$. Tale topologia si dice \textit{generata} da $S$ e $S$ si dice \textsc{prebase} della topologia. Se $\Omega= \{ \tau \text{ topologia } | S \in \tau \}$ (che è non vuoto perché contiene almeno la topologia discreta), la topologia cercata è $\displaystyle \bigcap_{\tau \in \Omega} \tau$.
+	Sia $X$ un insieme, $S \subseteq \mathcal{P}(X)$, allora esiste la topologia
+	meno fine tra quelle che contengono $S$. Tale topologia si dice
+	\textit{generata} da $S$ e $S$ si dice \textsc{prebase} della topologia. Se
+	$\Omega= \{ \tau \text{ topologia } |\; S \in \tau \}$ (che è non vuoto
+	perché contiene almeno la topologia discreta), la topologia cercata è
+	$\displaystyle \bigcap_{\tau \in \Omega} \tau$.
 \end{cor}
 
 \begin{defn}
-	sia $(X, \tau)$ uno spazio topologico fissato, una \textsc{base} di $\tau$ è un insieme $\mathcal{B} \subseteq \tau$ t.c. $\forall A \in \tau, \exists B_i \in \mathcal{B}, i \in I$ t.c. $\displaystyle A= \bigcup_{i \in I} B_i$.
+	sia $(X, \tau)$ uno spazio topologico fissato, una \textsc{base} di $\tau$ è
+	un insieme $\mathcal{B} \subseteq \tau$ t.c. $\forall A \in \tau, \exists
+	B_i \in \mathcal{B}, i \in I$ t.c. $A= \bigcup_{i \in I} B_i$. Ovvero
+	$\mathcal{B}$ \`e una base se ogni aperto di $\tau$ pu\`o essere scritto
+	come unione qualunque di elementi di $\mathcal{B}$.
 \end{defn}
 
 \begin{ex}
@@ -358,31 +401,62 @@ Quando $\tau$ è meno fine di $\tau'$ scriveremo $\tau < \tau'$. Si noti che dal
 \end{ex}
 
 \begin{defn}
-	$(X, \tau)$ si dice \textit{a base numerabile} (o che soddisfa il \textsc{secondo assioma di numerabilità}) se ammette una base numerabile.
+	$(X, \tau)$ si dice \textit{a base numerabile} (o che soddisfa il
+	\textsc{secondo assioma di numerabilità}) se ammette una base numerabile.
 \end{defn}
 
 \begin{prop}
-	Sia $X$ un insieme senza topologia, $\mathcal{B} \subseteq \mathcal{P}(X)$ è base di una topologia su $X$ $\Leftrightarrow$ valgono le seguenti: \\
+	Sia $X$ un insieme senza topologia, $\mathcal{B} \subseteq \mathcal{P}(X)$ è
+	base di una topologia su $X$ $\Leftrightarrow$ valgono le seguenti:
 	\begin{nlist}
-		\item $\displaystyle X=\bigcup_{B \in \mathcal{B}} B$;
-		\item $\forall A, A' \in \mathcal{B}, \exists B_i \in \mathcal{B}, i \in I$ t.c. $\displaystyle A \cap A'= \bigcup_{i \in I} B_i$.
+		\item \label{i_prop} $\displaystyle X=\bigcup_{B \in \mathcal{B}} B$;
+		\item $\forall A, A' \in \mathcal{B}, \exists B_i \in \mathcal{B}, i \in
+		I$ t.c. $A \cap A'= \bigcup_{i \in I} B_i$. Cio\`e ogni intersezione di
+		una coppia di elementi di $\mathcal{B}$ pu\`o essere scritta come unione
+		di elementi di $\mathcal{B}$.
 	\end{nlist}
 \end{prop}
 
-\begin{proof}
-	Inserire dimostrazione.
+\begin{proof} \label{base_car}
+Sia $\tau$ l'insieme di tutte le possibili unioni di elementi di $\mathcal{B}$.
+Si vuole dimostrare che che $\tau$ \`e una topologia su $X$.
+\begin{nlist}
+\item L'unione di zero elementi \`e l'insieme vuoto, dunque $\emptyset  \in
+\tau$. Inoltre \ref{i_prop} dice che $X \in \tau$.
+\item Per associativit\`a dell'unione insiemistica, l'unione di unioni di aperti
+di $\mathcal{B}$ appartiene ancora a $\tau$. Pi\`u precisamente, siano $A_i,\ i
+\in I$ elementi di $\tau$. Allora, per ogni $i$, $A_i = \bigcup_{j \in J_i}
+B_j$, con i $B_j \in \mathcal{B}$. Si pu\`o anche scrivere
+$$
+\bigcup_{i \in I}A_i = \bigcup_{i \in I}\bigcup_{j \in J_i}B_j =
+\bigcup_{j \in J}B_j
+$$
+dove $J = \bigcup_{i \in I}J_i$.
+\item Dall'ipotesi (ii) discende direttamente il fatto che $\tau$ \`e chiuso per
+intersezione finita, e questo conclude la dimostrazione.
+\end{nlist}
 \end{proof}
 
 \begin{prop}
-	Siano $X$ un insieme e $S \subseteq \mathcal{P}(X)$ la prebase di una topologia $\tau$ su $X$. Allora:
+	Siano $X$ un insieme e $S \subseteq \mathcal{P}(X)$ la prebase di una
+	topologia $\tau$ su $X$. Allora:
 	\begin{nlist}
-		\item le intersezioni finite di elementi di $S \cup \{X\}$ sono una base di $\tau$;
-		\item $A \in \tau$ $\Leftrightarrow$ $A$ è unione arbitraria di intersezioni finite di elementi di $S \cup \{X\}$.
+		\item le intersezioni finite di elementi di $S \cup \{X\}$ sono una base
+		di $\tau$;
+		\item $A \in \tau$ $\Leftrightarrow$ $A$ è unione arbitraria di
+		intersezioni finite di elementi di $S \cup \{X\}$.
 	\end{nlist}
 \end{prop}
 
 \begin{proof}
-	Inserire dimostrazione.
+La parte (i) $\Leftrightarrow$ (ii) viene dalla definizione di base.
+
+Osservando la proposizione \ref{base_car}, si vede che l'insieme delle
+intersezioni finite degli elementi $S \cup {X}$ \`e una base di una topologia.
+Per dire che tale topologia \`e proprio $\tau$ basta mostrare che comunque le
+intersezioni finite di $S$ devono appartenere a tutte le topologie che
+contengono $S$, e quindi anche alla loro intersezione. Lo stesso vale per
+l'unione.
 \end{proof}
 
 \end{document}

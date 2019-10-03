@@ -7,13 +7,14 @@
 \newcounter{basicblock}[section]
 \renewcommand{\thebasicblock}{\thesection.\arabic{basicblock}}
 \newenvironment{block}[1][]
-{\refstepcounter{basicblock}\par\medskip\noindent\textbf{#1~\thebasicblock}
-    \quad}
+{\refstepcounter{basicblock}\par\medskip\noindent\textbf{#1~\thebasicblock}.}
 {\medskip}
 
 \newcommand{\vect}{\overrightarrow}
 \renewcommand{\implies}{\Rightarrow}
+\renewcommand{\epsilon}{\varepsilon}
 \let\oldforall\forall
+\let\emptyset\varnothing
 \renewcommand{\forall}{\oldforall \,}
 \newcommand{\tc}{\text{ t.c. }}
 
