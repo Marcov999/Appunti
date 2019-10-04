@@ -433,23 +433,31 @@ $\displaystyle A_j \in \tau \, \forall j \in J \Rightarrow A_j \in \tau_i \,
 \end{prop}
 
 \begin{proof} \label{prop:preb}
-Sia $\tau$ l'insieme di tutte le possibili unioni di elementi di $\mathcal{B}$.
-Si vuole dimostrare che che $\tau$ \`e una topologia su $X$.
-\begin{nlist}
-\item L'unione di zero elementi \`e l'insieme vuoto, dunque $\emptyset  \in
-\tau$. Inoltre \ref{i_prop} dice che $X \in \tau$.
-\item Per associativit\`a dell'unione insiemistica, l'unione di unioni di aperti
-di $\mathcal{B}$ appartiene ancora a $\tau$. Pi\`u precisamente, siano $A_i,\ i
-\in I$ elementi di $\tau$. Allora, per ogni $i$, $A_i = \bigcup_{j \in J_i}
-B_j$, con i $B_j \in \mathcal{B}$. Si pu\`o anche scrivere
-$$
-\bigcup_{i \in I}A_i = \bigcup_{i \in I}\bigcup_{j \in J_i}B_j =
-\bigcup_{j \in J}B_j
-$$
-dove $J = \bigcup_{i \in I}J_i$.
-\item Dall'ipotesi (ii) discende direttamente il fatto che $\tau$ \`e chiuso per
-intersezione finita, e questo conclude la dimostrazione.
-\end{nlist}
+    ($\Rightarrow$) Ovviamente, se $\mathcal{B}$ è la base di una topologia su
+    $X$, l'insieme $X$ deve essere unione di elementi di $\mathcal{B}$, inoltre
+    tutti gli elementi di $\mathcal{B}$ devono essere sottoinsiemi di $X$, da
+    cui discende (i).
+
+	$A, A' \in \mathcal{B} \Rightarrow A, A' \in \tau \Rightarrow A \cap A' \in
+	\tau$, per cui $A \cap A'$ deve poter essere esprimibile come unione di
+	elementi di $\mathcal{B}$, che è l'affermazione (ii).
+
+	($\Leftarrow$) Dobbiamo mostrare che l'insieme $\tau$ di tutte le possibili
+	unioni di elementi di $\mathcal{B}$ soddisfa gli assiomi di topologia.
+
+	Chiaramente $\emptyset \in \tau$ come unione di un insieme vuoto di elementi
+	di $\mathcal{B}$ e $X \in \tau$ per (ii).  Se faccio l'unione arbitraria di
+	insiemi ottenuti come unione di elementi di $\mathcal{B}$ ottengo ovviamente
+	un insieme che è unione di elementi di $\mathcal{B}$.
+
+	Infine, $\displaystyle A, A' \in \tau \Rightarrow A=\bigcup_{i \in I} B_i,
+	A'=\bigcup_{j \in J} B_j$ con $B_i, B_j \in \mathcal{B} \, \forall i \in I,
+	j \in J$. Allora $\displaystyle A \cap A'= \left(\bigcup_{i \in I} B_i
+	\right) \cap \left(\bigcup_{j \in J} B_j \right)=\bigcup_{i \in I, j \in J}
+	(B_i \cap B_j)$, ma tutti i $B_i$ e $B_j$ stanno in $\mathcal{B}$, dunque
+	per (ii) tutti i $B_i \cap B_j$ sono rappresentabili come unione di elementi
+	di $\mathcal{B}$, perciò anche la loro unione, che è proprio $A \cap A'$,
+	può essere scritta in quel modo e quindi sta in $\tau$.
 \end{proof}
 
 \begin{prop}
@@ -701,7 +709,7 @@ almeno un punto.
 
         \item Sia $\mathcal{D}$ una base di $\tau$. Si noti che ogni intervallo
         del tipo $[x,x+1)$ con $x$ reale, pu\`o essere scritto come unione degli
-        elementi della base solo se in $\mathcal{d}$ c'\`e un elemento $D$ tale
+        elementi della base solo se in $\mathcal{D}$ c'\`e un elemento $D$ tale
         che $\inf(D) = x$. Allora la mappa
         \begin{align*}
             \phi:\mathcal{D}&\to \mathbb{R}\\
