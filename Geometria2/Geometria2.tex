@@ -340,6 +340,19 @@ continua.
     l'inversa no.
 \end{ex}
 
+\begin{exc}
+	Il seguente esercizio è frutto di una domanda fatta da uno studente a
+	lezione e potrebbe essere più difficile di altri esercizi del corso.
+
+    \marginpar{\warningsign}
+	Trovare un esempio (o dimostrare che non esiste) di uno spazio topologico
+	$X$ e una funzione $f: (X, \tau) \rightarrow (X, \tau)$ continua e bigettiva
+	con inversa non continua.
+
+    Stando a quanto dice Frigerio, probabilmente tale funzione esiste,
+    euristicamente perché non c'è un modo facile di dimostrare il contrario.
+\end{exc}
+
 \subsection{Ordinamento fra topologie, basi e prebasi}
 
 Vogliamo mettere un ordinamento parziale sulle topologie di un certo insieme
@@ -483,7 +496,7 @@ $\displaystyle A_j \in \tau \, \forall j \in J \Rightarrow A_j \in \tau_i \,
     Unione arbitraria di unioni arbitrarie di elementi di un insieme è ancora
     unione arbitraria di elementi di tale insieme.
 
-    Siano ora $A_1= \bigcup_{i \in I} B_i,\ A_2=\bigcup_{j \in J} B_j$ con tutti
+    Siano ora $\displaystyle A_1= \bigcup_{i \in I} B_i,\ A_2=\bigcup_{j \in J} B_j$ con tutti
     i $B_i,\ B_j$ intersezioni finite di elementi di $S$. Allora
     $$A_1 \cap A_2 =
     \left( \bigcup_{i \in I} B_i \right) \cap \left(\bigcup_{j \in J} B_j
@@ -493,19 +506,6 @@ $\displaystyle A_j \in \tau \, \forall j \in J \Rightarrow A_j \in \tau_i \,
      un'unione di intersezioni finite di elementi di $S$. Questo basta per
      dimostrare (i) e (ii) è una semplice riformulazione.
 \end{proof}
-
-\begin{exc}
-	Il seguente esercizio è frutto di una domanda fatta da uno studente a
-	lezione e potrebbe essere più difficile di altri esercizi del corso.
-
-    \marginpar{\warningsign}
-	Trovare un esempio (o dimostrare che non esiste) di uno spazio topologico
-	$X$ e una funzione $f: (X, \tau) \rightarrow (X, \tau)$ continua e bigettiva
-	con inversa non continua.
-
-    Stando a quanto dice Frigerio, probabilmente tale funzione esiste,
-    euristicamente perché non c'è un modo facile di dimostrare il contrario.
-\end{exc}
 
 \begin{prop}
 	Sia $f: (X, \tau) \rightarrow (Y, \tau')$ e $S,\ \mathcal{B}$
@@ -659,7 +659,7 @@ soddisfa il secondo assioma di numerabilità. Vediamo gli altri due.
 \begin{proof}
 \begin{nlist}
 \item Sia $A$ un insieme che \`e intorno di ogni suo punto, cio\`e per ogni $x
-\in A$ esiste un aperto $V_x \subseteq A$ che lo contiene. Allora vale che $A =
+\in A$ esiste un aperto $V_x \subseteq A$ che lo contiene. Allora vale che $\displaystyle A =
 \bigcup_{x \in A} V_x$. Poiché $A$ \`e unione di aperti\`e aperto.
 
 Viceversa sia $A$ aperto. Allora ogni suo punto \`e interno ad esso.
@@ -682,7 +682,8 @@ almeno un punto.
 		\item $\tau$ \`e pi\`u fine della topologia euclidea;
 		\item $\tau$ è separabile;
 		\item $\tau$ non è a base numerabile;
-		\item $\tau$ non è metrizzabile.
+		\item $\tau$ non è metrizzabile;
+		\item $\tau$ è primo numerabile.
 	\end{nlist}
 \end{ex}
 
@@ -708,9 +709,9 @@ almeno un punto.
         \item Si noti che $\mathbb{Q}$ \`e un denso numerabile.
 
         \item Sia $\mathcal{D}$ una base di $\tau$. Si noti che ogni intervallo
-        del tipo $[x,x+1)$ con $x$ reale, pu\`o essere scritto come unione degli
+        del tipo $[x,x+1)$, con $x$ reale, pu\`o essere scritto come unione degli
         elementi della base solo se in $\mathcal{D}$ c'\`e un elemento $D$ tale
-        che $\inf(D) = x$. Allora la mappa
+        che $x \in D \subseteq [x, x+1)$, da cui $\inf(D) = x$. Allora la mappa
         \begin{align*}
             \phi:\mathcal{D}&\to \mathbb{R}\\
             D & \mapsto \inf(D)
@@ -720,7 +721,37 @@ almeno un punto.
 
         \item Semplice conseguenza dei punti precedenti e della proposizione
         \ref{metr-num}.
+
+				\item Basta notare che per ogni $x \in \mathbb{R}$ l'insieme $\{ [x-1/n, x+1/n) | n \in \mathbb{Z}^+\}$ è una famiglia di intorni numerabile per $x$.
     \end{nlist}
 \end{proof}
+
+\begin{ex}
+	Topologia di Zariski. Sia $\mathbb{K}$ un campo. Definiamo una topologia $\tau_Z$ in $\mathbb{K}^n$ in cui i chiusi sono tutti e soli gli insiemi i cui elementi si annullano in tutti i polinomi di una famiglia arbitraria (non vuota) $\mathcal{F} \subseteq \mathbb{K}[x_1, \dots, x_n]$ di polinomi a $n$ variabili con coefficienti in $\mathbb{K}$. Dimostreremo che $\tau_Z$ è effettivamente una topologia, che è meno fine di quella euclidea quando $\mathbb{K}=\mathbb{R}$. Inoltre, quando $n=1$ e per $\mathbb{K}$ generico, $\tau_Z$ coincide con la topologia cofinita.
+\end{ex}
+
+\begin{proof}
+	Dimostreremo che i chiusi soddisfano le proprietà di topologia (per i chiusi, ovviamente), per passaggio al complementare si può concludere che $\tau_Z$ è una topologia.
+
+	Ovviamente il vuoto è chiuso perché la proprietà dei suoi elementi di annullarsi in un qualunque insieme di polinomi è sempre vera a vuoto, mentre $\mathbb{K}^n$ è chiuso perché tutti gli elementi si annullano nella famiglia formata dal solo polinomio nullo.
+
+	Siano ora $C_1, C_2$ due chiusi i cui elementi si annullano, per definizione, nei polinomi rispettivamente delle famiglie $\mathcal{F}_1, \mathcal{F}_2$. Consideriamo la famiglia $\mathcal{F}_{1, 2}=$ \\
+	$=\{ f_1 \cdot f_2 | f_1 \in \mathcal{F}_1, f_2 \in \mathcal{F}_2 \}$. Mostriamo che l'insieme dei punti che si annullano nei polinomi di $\mathcal{F}_{1, 2}$ è proprio $C_1 \cup C_2$. Ovviamente se $x \in C_1 \cup C_2$ possiamo dire senza perdita di generalità che $x$ si annulla in tutti i polinomi in $\mathcal{F}_1$, e quindi banalmente anche in tutti i polinomi di $\mathcal{F}_{1, 2}$.
+	D'altro canto, se $x$ si annulla in tutti i polinomi di $\mathcal{F}_{1, 2}$, si deve annullare almeno o in tutti i polinomi di $\mathcal{F}_1$ o in tutti i polinomi di $\mathcal{F}_2$. Se per assurdo così non fosse, esisterebbero $f_1 \in \mathcal{F}_1, f_2 \in \mathcal{F}_2$ t.c. $f_1(x) \not= 0 \not= f_2(x)$ e, poiché siamo in un campo, si avrebbe $f_1(x) \cdot f_2(x)=0$, assurdo.
+	Dunque $x \in C_1 \cup C_2$.
+
+	Consideriamo adesso dei chiusi $C_i, i \in I$ definiti dalle famiglie $\mathcal{F}_i$. Mostriamo che $\displaystyle C=\bigcap_{i \in I} C_i$ è l'insieme dei punti che si annullano nei polinomi di $\displaystyle \mathcal{F}_I=\bigcup_{i \in I} \mathcal{F}_i$. Se $x \in C$ allora $x \in C_i \, \forall i \in I$ e dunque si annulla in tutti i polinomi di $\mathcal{F}_i$ per ogni $i$, quindi si annulla in tutti i polinomi della loro unione,
+	che è proprio $\mathcal{F}_I$. Viceversa, se $x$ si annulla in tutti i polinomi di $\mathcal{F}_I$ allora si annulla in tutti i polinomi di ogni suo sottoinsieme, in particolare in tutti i polinomi di $\mathcal{F}_i \, \forall i \in I$, quindi $x \in C_i$ per ogni $i$ da cui $x \in C$.
+
+	Poniamo ora $\mathbb{K}=\mathbb{R}$. Poiché i polinomi in $\mathbb{R}[x_1, \dots, x_n]$ sono funzioni continue per la topologia euclidea, la controimmagine di un aperto è a sua volta un aperto. Per passaggio al complementare la controimmagine di un chiuso è a sua volta un chiuso. Ma allora, sia $\mathcal{F}$ una famiglia di polinomi, ho che, essendo $\{ 0 \}$ chiuso in $\tau_E$ di $\mathbb{R}$, $f^{-1}(0)$ (qui si intende la controimmagine) è chiuso in $\tau_E$ di $\mathbb{R}^n$ per ogni $f \in \mathcal{F}$.
+	Ma l'insieme dei punti che si annullano in tutti i polinomi di $\mathcal{F}$ può essere descritto come $\displaystyle \bigcap_{f \in \mathcal{F}} f^{-1}(0)$, che essendo intersezione di chiusi è chiuso in $\tau_E$, quindi tutti i chiusi di $\tau_Z$ sono chiusi in $\tau_E$, per passaggio al complementare la stessa cosa con gli aperti e dunque $\tau_Z < \tau_E$.
+
+	Sia adesso $\mathbb{K}$ generico e $n=1$. Sia $p$ un generico polinomio in $\mathbb{R}[x]$ e $\overline{\mathbb{K}}$ la chiusura algebrica di $\mathbb{K}$. Per il teorema fondamentale dell'algebra, $p$ ha al più $\deg{p}$ zeri in $\overline{\mathbb{K}}$, quindi a maggior ragione ne ha al più un numero finito in $\mathbb{K}$. Dunque i punti che si annullano in tutti i polinomi di una generica famiglia di polinomi sono finiti (limitati dal grado di un qualsiasi polinomio della famiglia), dunque i chiusi sono tutti finiti.
+	Considerando invece un insieme finito $\{ x_1, \dots, x_m\} \subseteq \mathbb{K}$, esso si annulla in tutti i polinomi dell'ideale generato da $(x-x_1) \cdot \ldots \cdot (x-x_m)$, dunque è vero anche il viceversa, cioè che tutti i finiti sono chiusi, quindi in questo caso $\tau_Z$ coincide con la topologia euclidea.
+\end{proof}
+
+\begin{ftt}
+	Se $X$ non è numerabile, la topologia cofinita su $X$ non soddisfa alcun assioma di numerabilità.
+\end{ftt}
 
 \end{document}
