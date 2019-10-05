@@ -275,18 +275,18 @@ soli gli insiemi il cui complementare è un insieme finito.
 \end{ex}
 
 \begin{defn}
-	Dato uno spazio topologico $X$ e un insieme $B \subseteq X$, si chiama \textit{parte interna} di $B$, e la si indica con $\stackrel{\circ}{B}$, il più grande aperto contenuto in $B$. Analogamente, la \textit{chiusura} di $B$, indicata con $\overline{B}$, è il più piccolo chiuso che contiene $B$. Definiamo infine la \textit{frontiera} (o \textit{bordo}) di un insieme come l'insieme $\partial B= \overline{B} \setminus \stackrel{\circ}{B}$.
+	Dato uno spazio topologico $X$ e un insieme $B \subseteq X$, si chiama \textit{parte interna} di $B$, e la si indica con $B^{\circ}$, il più grande aperto contenuto in $B$. Analogamente, la \textit{chiusura} di $B$, indicata con $\overline{B}$, è il più piccolo chiuso che contiene $B$. Definiamo infine la \textit{frontiera} (o \textit{bordo}) di un insieme come l'insieme $\partial B= \overline{B} \setminus B^{\circ}$.
 \end{defn}
 
 Notiamo che parte interna e chiusura sono ben definite: per la prima basta prendere l'unione di tutti gli aperti contenuti in $B$ (alla peggio c'è solo il vuoto, che è contenuto in ogni insieme), per la seconda si prende l'intersezione di tutti i chiusi che lo contengono (alla peggio c'è solo $X$). Per la stabilità degli aperti per unione arbitraria e dei chiusi per intersezione arbitraria, gli insiemi così ottenuti sono ancora un aperto e un chiuso e sono rispettivamente il più grande aperto contenuto e il più piccolo chiuso che contiene per come sono stati costruiti.
 
 \begin{ftt}
-	$X= \stackrel{\circ}{B} \sqcup\ \partial B\ \sqcup \stackrel{\circ}{(X
-	\setminus B)}$ dove con $\sqcup$ si indica l'unione disgiunta.
+	$X= B^{\circ} \sqcup\ \partial B\ \sqcup (X
+	\setminus B)^{\circ}$ dove con $\sqcup$ si indica l'unione disgiunta.
 \end{ftt}
 
 \begin{proof}
-	Per definizione $\stackrel{\circ}{B} \cup\ \partial B=\overline{B}$ e i due insiemi sono disgiunti. Inoltre, essendo $\overline B$ il più piccolo chiuso che contiene $B$, il suo complementare dev'essere il più grande aperto disgiunto da $B$, cioè il più grande aperto contenuto in $X \setminus B$, che è la parte interna di quest'ultimo. La tesi segue facilmente.
+	Per definizione $B^{\circ} \cup\ \partial B=\overline{B}$ e i due insiemi sono disgiunti. Inoltre, essendo $\overline B$ il più piccolo chiuso che contiene $B$, il suo complementare dev'essere il più grande aperto disgiunto da $B$, cioè il più grande aperto contenuto in $X \setminus B$, che è la parte interna di quest'ultimo. La tesi segue facilmente.
 \end{proof}
 
 \subsection{Continuità in spazi topologici}
@@ -597,7 +597,7 @@ soddisfa il secondo assioma di numerabilità. Vediamo gli altri due.
 \begin{defn}
 	Sia $(X, \tau)$ uno spazio topologico fissato e $x_0 \in X$. Un insieme $U
 	\subseteq X$ è un \textsc{intorno} di $x_0$ se $x_0 \in
-	\stackrel{\circ}{U}$, o equivalentemente se esiste $V$ aperto con $x_0 \in V
+	U^{\circ}$, o equivalentemente se esiste $V$ aperto con $x_0 \in V
 	\subseteq U$. L'insieme degli intorni di $x_0$ si denota con
 	$\mathcal{I}(x_0)$.
 \end{defn}
@@ -624,7 +624,7 @@ soddisfa il secondo assioma di numerabilità. Vediamo gli altri due.
 	discende direttamente dall'esempio \ref{1/n}.
 \end{ftt}
 
-\begin{prop}
+\begin{prop} \label{N2power}
 	Il secondo assioma di numerabilità implica il primo e il terzo assioma di
 	numerabilità. Discende dalla proposizione \ref{metr-num} che in spazi
 	metrici vale anche che il terzo assioma di numerabilità implica il secondo
@@ -751,7 +751,14 @@ almeno un punto.
 \end{proof}
 
 \begin{ftt}
-	Se $X$ non è numerabile, la topologia cofinita su $X$ non soddisfa alcun assioma di numerabilità.
+	Se $X$ non è numerabile, la topologia cofinita su $X$ non soddisfa alcun assioma di numerabilità. %Secondo me il terzo lo soddisfa per qualunque insieme finito
 \end{ftt}
+
+\begin{proof}
+	Per la proposizione \ref{N2power}, se dimostriamo che non soddisfa il primo otteniamo anche che non soddisfa il secondo. Sia dunque per assurdo $x_0 \in X$ e $\mathcal{F}$ un suo sistema fondamentale di intorni numerabile. Notiamo che per ogni $x \in X, x\not=x_0$ l'insieme $X \setminus \{ x\}$ è un aperto, dunque esiste un intorno di $x_0$ tutto contenuto in esso, cioè che non contiene $x$. Notiamo, per come è definita la topologia cofinita, che gli intorni, essendo sovrainsiemi di insiemi aperti, sono a loro volta aperti, cioè il loro complementare è finito. Ma dato che per ogni $x \in X \setminus \{ x_0\}$ esiste un intorno di $x_0$ che non contiene $x$, posso scrivere $X \{ x_0\}$, che è ancora un insieme numerabile, come
+	l'unione dei complementari degli insiemi in $\mathcal{F}$, cioè un'unione numerabile di insiemi finiti, che è numerabile, da cui l'assurdo.
+
+	Per quanto riguarda il terzo assioma, secondo me ho capito male mentre ero a lezione, perché mi sembra che qualunque sottoinsieme infinito di $X$ debba necessariamente intersecare in qualche punto il complementare di un insieme finito, e quindi anche un insieme infinito di cardinalità numerabile avrebbe intersezione non nulla con tutti gli aperti e sarebbe di conseguenza un denso numerabile.
+\end{proof}
 
 \end{document}
