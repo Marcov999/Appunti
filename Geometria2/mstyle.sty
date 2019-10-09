@@ -12,10 +12,11 @@
 
 \usetikzlibrary{arrows}
 \usetikzlibrary{shapes.geometric}
+\usetikzlibrary{cd}
 \usepackage{enumitem}% http://ctan.org/pkg/enumitem
 
-\newcounter{basicblock}[section]
-\renewcommand{\thebasicblock}{\thesection.\arabic{basicblock}}
+\newcounter{basicblock}[subsection]
+\renewcommand{\thebasicblock}{\thesubsection.\arabic{basicblock}}
 \newenvironment{block}[1][]
 {\refstepcounter{basicblock}\par\medskip\noindent\textbf{#1~\thebasicblock}.}
 {\medskip}
@@ -29,6 +30,7 @@
 \newcommand{\tc}{\text{ t.c. }}
 \newcommand{\open}[1]{\stackrel{\circ}{#1}}
 \newcommand\restrict[1]{\raisebox{-.5ex}{$|$}_{#1}}
+\DeclareMathOperator{\id}{id}
 
 \newcommand{\hooklongrightarrow}{\lhook\joinrel\longrightarrow}
 \newcommand{\hooklongleftarrow}{\longleftarrow\joinrel\rhook}

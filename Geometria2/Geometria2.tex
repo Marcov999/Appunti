@@ -255,15 +255,29 @@ $\mathbb{R}$ le tre distanze non sono topologicamente equivalenti.
         \item la topologia discreta, cioè $\tau=\mathcal{P}(X)$, indotta dalla
         distanza discreta;
         \item la topologia indiscreta, cioè $\tau=\{ \emptyset, X \}$;
-        \item la topologia cofinita, dove gli aperti sono l'insieme vuoto più tutti e soli gli insiemi il cui complementare è un insieme finito.
+        \item la topologia cofinita, dove gli aperti sono l'insieme vuoto più
+        tutti e soli gli insiemi il cui complementare è un insieme finito.
     \end{itemize}
 \end{ex}
 
 \begin{defn}
-	Dato uno spazio topologico $X$ e un insieme $B \subseteq X$, si chiama \textit{parte interna} di $B$, e la si indica con $B^{\circ}$, il più grande aperto contenuto in $B$. Analogamente, la \textit{chiusura} di $B$, indicata con $\overline{B}$, è il più piccolo chiuso che contiene $B$. Definiamo infine la \textit{frontiera} (o \textit{bordo}) di un insieme come l'insieme $\partial B= \overline{B} \setminus B^{\circ}$.
+	Dato uno spazio topologico $X$ e un insieme $B \subseteq X$, si chiama
+	\textit{parte interna} di $B$, e la si indica con $B^{\circ}$, il più grande
+	aperto contenuto in $B$. Analogamente, la \textit{chiusura} di $B$, indicata
+	con $\overline{B}$, è il più piccolo chiuso che contiene $B$. Definiamo
+	infine la \textit{frontiera} (o \textit{bordo}) di un insieme come l'insieme
+	$\partial B= \overline{B} \setminus B^{\circ}$.
 \end{defn}
 
-Notiamo che parte interna e chiusura sono ben definite: per la prima basta prendere l'unione di tutti gli aperti contenuti in $B$ (alla peggio c'è solo il vuoto, che è contenuto in ogni insieme), per la seconda si prende l'intersezione di tutti i chiusi che lo contengono (alla peggio c'è solo $X$). Per la stabilità degli aperti per unione arbitraria e dei chiusi per intersezione arbitraria, gli insiemi così ottenuti sono ancora un aperto e un chiuso e sono rispettivamente il più grande aperto contenuto e il più piccolo chiuso che contiene per come sono stati costruiti. Infine, è banale mostrare che la parte interna di un aperto è l'aperto stesso e la chiusura di un chiuso è il chiuso stesso.
+Notiamo che parte interna e chiusura sono ben definite: per la prima basta
+prendere l'unione di tutti gli aperti contenuti in $B$ (alla peggio c'è solo il
+vuoto, che è contenuto in ogni insieme), per la seconda si prende l'intersezione
+di tutti i chiusi che lo contengono (alla peggio c'è solo $X$). Per la stabilità
+degli aperti per unione arbitraria e dei chiusi per intersezione arbitraria, gli
+insiemi così ottenuti sono ancora un aperto e un chiuso e sono rispettivamente
+il più grande aperto contenuto e il più piccolo chiuso che contiene per come
+sono stati costruiti. Infine, è banale mostrare che la parte interna di un
+aperto è l'aperto stesso e la chiusura di un chiuso è il chiuso stesso.
 
 \begin{ftt}
 	$X= B^{\circ} \sqcup\ \partial B\ \sqcup (X
@@ -271,7 +285,11 @@ Notiamo che parte interna e chiusura sono ben definite: per la prima basta prend
 \end{ftt}
 
 \begin{proof}
-	Per definizione $B^{\circ} \cup\ \partial B=\overline{B}$ e i due insiemi sono disgiunti. Inoltre, essendo $\overline B$ il più piccolo chiuso che contiene $B$, il suo complementare dev'essere il più grande aperto disgiunto da $B$, cioè il più grande aperto contenuto in $X \setminus B$, che è la parte interna di quest'ultimo. La tesi segue facilmente.
+	Per definizione $B^{\circ} \cup\ \partial B=\overline{B}$ e i due insiemi
+	sono disgiunti. Inoltre, essendo $\overline B$ il più piccolo chiuso che
+	contiene $B$, il suo complementare dev'essere il più grande aperto disgiunto
+	da $B$, cioè il più grande aperto contenuto in $X \setminus B$, che è la
+	parte interna di quest'ultimo. La tesi segue facilmente.
 \end{proof}
 
 \subsection{Continuità in spazi topologici}
@@ -338,7 +356,8 @@ considera la topologia indotta dalla metrica.
     euristicamente perché non c'è un modo facile di dimostrare il contrario.
 \end{exc}
 
-Introduciamo adesso un concetto che permetterà di caratterizzare la continuità in spazi topologici in modo analogo a quanto fatto per gli spazi metrici.
+Introduciamo adesso un concetto che permetterà di caratterizzare la continuità
+in spazi topologici in modo analogo a quanto fatto per gli spazi metrici.
 
 \begin{defn}
 	Sia $(X, \tau)$ uno spazio topologico fissato e $x_0 \in X$. Un insieme $U
@@ -349,7 +368,9 @@ Introduciamo adesso un concetto che permetterà di caratterizzare la continuità
 \end{defn}
 
 \begin{defn}
-	$f:(X, \tau) \rightarrow (Y, \tau')$ è detta \textit{continua in $x_0$} se per ogni intorno $U$ di $f(x_0)$ esiste un intorno $V$ di $x_0$ t.c. $f(V) \subseteq U$.
+	$f:(X, \tau) \rightarrow (Y, \tau')$ è detta \textit{continua in $x_0$} se
+	per ogni intorno $U$ di $f(x_0)$ esiste un intorno $V$ di $x_0$ t.c. $f(V)
+	\subseteq U$.
 \end{defn}
 
 Appare dunque intuitivo il seguente risultato.
@@ -359,10 +380,22 @@ Appare dunque intuitivo il seguente risultato.
 \end{thm}
 
 \begin{proof}
-	($\implies$) Supponiamo $f$ continua e $x_0 \in X$, sia inoltre $U$ un intorno di $f(x_0)$. Per definizione di intorno esiste un aperto $A$ con $f(x_0) \in A \subseteq U$, perciò $x_0 \in f^{-1}(A) \subseteq f^{-1}(U)$, ma poiché $f$ è continua abbiamo che $f^{-1}(A)$ è ancora un aperto, perciò ponendo $V=f^{-1}(U)$ abbiamo che $V$ è un intorno di $x_0$ t.c. $f(V) \subseteq U$, che è quello che volevamo.
+	($\implies$) Supponiamo $f$ continua e $x_0 \in X$, sia inoltre $U$ un
+	intorno di $f(x_0)$. Per definizione di intorno esiste un aperto $A$ con
+	$f(x_0) \in A \subseteq U$, perciò $x_0 \in f^{-1}(A) \subseteq f^{-1}(U)$,
+	ma poiché $f$ è continua abbiamo che $f^{-1}(A)$ è ancora un aperto, perciò
+	ponendo $V=f^{-1}(U)$ abbiamo che $V$ è un intorno di $x_0$ t.c. $f(V)
+	\subseteq U$, che è quello che volevamo.
 
-	($\Leftarrow$) Supponiamo $f$ continua in ogni punto di $X$ e sia $A$ un insieme aperto in $Y$. Per ogni $x \in f^{-1}(A)$, $A$ è un intorno di $f(x)$. Ma dato che $f$ è continua in ogni punto di $X$, esiste un intorno $V_x$ di $x$ t.c. $x \in V_x \subseteq f^{-1}(A)$. Per definizione di intorno, ciò significa che esiste un aperto $A_x$ di $X$ t.c. $x \in A_x \subseteq V \subseteq f^{-1}(A)$. Dunque dev'essere $\displaystyle f^{-1}(A)= \bigcup_{x \in f^{-1}(A)} A_x$,
-	quindi $f^{-1}(A)$ è un aperto in $X$ per ogni $A$ aperto in $Y$, il che equivale a dire che $f$ è continua.
+	($\Leftarrow$) Supponiamo $f$ continua in ogni punto di $X$ e sia $A$ un
+	insieme aperto in $Y$. Per ogni $x \in f^{-1}(A)$, $A$ è un intorno di
+	$f(x)$. Ma dato che $f$ è continua in ogni punto di $X$, esiste un intorno
+	$V_x$ di $x$ t.c. $x \in V_x \subseteq f^{-1}(A)$. Per definizione di
+	intorno, ciò significa che esiste un aperto $A_x$ di $X$ t.c. $x \in A_x
+	\subseteq V \subseteq f^{-1}(A)$. Dunque dev'essere $\displaystyle
+	f^{-1}(A)= \bigcup_{x \in f^{-1}(A)} A_x$,
+	quindi $f^{-1}(A)$ è un aperto in $X$ per ogni $A$ aperto in $Y$, il che
+	equivale a dire che $f$ è continua.
 \end{proof}
 
 \subsection{Ordinamento fra topologie, basi e prebasi}
@@ -511,7 +544,8 @@ dalla definizione ogni topologia è meno fine di se stessa, cioè $\tau < \tau'
     Unione arbitraria di unioni arbitrarie di elementi di un insieme è ancora
     unione arbitraria di elementi di tale insieme.
 
-    Siano ora $\displaystyle A_1= \bigcup_{i \in I} B_i,\ A_2=\bigcup_{j \in J} B_j$ con tutti
+    Siano ora $\displaystyle A_1= \bigcup_{i \in I} B_i,\ A_2=\bigcup_{j \in J}
+    B_j$ con tutti
     i $B_i,\ B_j$ intersezioni finite di elementi di $S$. Allora
     $$A_1 \cap A_2 =
     \left( \bigcup_{i \in I} B_i \right) \cap \left(\bigcup_{j \in J} B_j
@@ -935,7 +969,7 @@ $X$ sarà sempre uno spazio topologico primo numerabile.
 	ipotesi.
 \end{proof}
 
-\section{Sottospazi topologici}
+\subsection{Sottospazi topologici}
 
 \begin{defn}
     Sia $(X, \tau)$ uno spazio topologico, $Y \subseteq X$ un sottoinsieme,
@@ -961,8 +995,116 @@ $X$ sarà sempre uno spazio topologico primo numerabile.
     \[
     \mathcal{B'} = \{B \cap Y \;|\; B \in \mathcal{B}\}
     \]
-    \`e una base per $\tau\restrict{Y}$.
+    \`e una base per $\tau\restrict{Y}$. La dimostrazione \`e analoga a quella
+    fatta per le topologie.
 \end{oss}
 
+\begin{defn}
+    Sia $(X, d)$ uno spazio metrico e $Y \subseteq X$ un sottoinsieme generico.
+    La distanza $d$ pu\`o essere ristretta a $Y \times Y$. In tal caso
+    $d\restrict{Y \times Y}$, che verr\`a indicata anche come $d\restrict{Y}$
+    \`e una distanza su X.
+\end{defn}
 
+\begin{prop}
+    Nel setting della definizione precedente, siano $\tau$ la topologia indotta
+    da $d$ su $X$, $\tau\restrict{Y}$ la restrizione di $\tau$ a $Y$, e $\sigma$
+    la topologia indotta da $d\restrict{Y}$ su $Y$. Allora $\tau\restrict{Y} =
+    \sigma$.
+\end{prop}
+
+\begin{proof}
+    Siano $\mathcal{B}$ e $\mathcal{D}$ rispettivamente basi per
+    $\tau\restrict{y}$ e $\sigma$. Cio\`e:
+    \begin{align*}
+        \mathcal{B}\ =&\ \{Y\ \cap\ \{x \in X \tc d(x, x_0) < r,\quad x_0 \in
+        X,\ r \in \mathbb{R}^+\}\}\\
+        =&\ \{y \in Y \tc d(y, x_0) < r,\quad x_0 \in X,\ r \in \mathbb{R}^+\}
+    \end{align*}
+    \[
+        \mathcal{D}\ =\ \{y \in Y \tc d(y, y_0) < r,\quad y_0 \in Y,\ r \in
+        \mathbb{R}^+\}
+    \]
+    Chiaramente $\mathcal{D} \subseteq \mathcal{B}$, quindi anche $\sigma
+    \subseteq \tau\restrict{Y}$.
+
+    Inoltre, poiché le palle sono aperte, preso un $B \in \mathcal{B}$, per ogni
+    $y \in B \cap Y$ esiste un $r_y>0$ tale che $D_y = B(y,r_y)$ sia contenuto
+    in $B$. per cui si ha che
+    \[
+        B = \bigcup_{y \in B \cap Y} D_y.
+    \]
+    Ma ogni $D_y$ \`e un elemento della base $\mathcal{D}$, quindi ogni aperto
+    di $\tau\restrict{Y}$ \`e un aperto di $\sigma$, concludendo l'ultima
+    inclusione.
+\end{proof}
+
+\begin{defn}
+    Siano $(X, \tau)$ spazio topologico, $Y \subseteq X$. Allora $Y$ si dice
+    discreto in $X$ se $\tau\restrict{Y} = \mathcal{P}(Y)$, cioè la topologia
+    ristretta a $Y$ \`e quella discreta.
+\end{defn}
+
+\begin{oss}
+    Se $Y$ \`e discreto in $X$, allora per ogni $y \in Y$ esiste un aperto $U$
+    di $X$ tale che $U \cap Y = \{y\}$.
+\end{oss}
+
+\begin{thm}
+    \emph{Proprietà universale delle immersioni.} Sia $X$ spazio topologico e $Y
+    \subseteq X$ con $i: Y \hooklongrightarrow X$ mappa di immersione. Allora
+    per ogni spazio topologico $Z$ e per ogni funzione $g: Z \longrightarrow Y$,
+    si ha che $f$ \`e continua se e solo se $i \circ f$ \`e continua.
+\end{thm}
+
+\begin{proof}
+    Poiché $i$ \`e continua per la definizione della topologia su $Y$, e poiché
+    la composizione di continue \`e continua, si ha che se $f$ \`e continua,
+    anche $i \circ f$ lo \`e.
+
+    Per l'altra implicazione, supponiamo $i \circ f$ continua e sia $A$ un
+    aperto di $Y$. Allora esiste $U$ aperto di $X$ tale che ${U\cap Y = A}$, e
+    vale ${i^{-1}(U) = A}$. Allora $(i\circ f)^{-1}(U) = f^{-1}(i^{-1}(U)) =
+    f^{-1}(A)$ \`e aperto in $Z$.
+\end{proof}
+
+\begin{thm}
+    \emph{Universalit\`a della proprietà universale.} La proprietà universale
+    delle immersioni caratterizza in modo unico la topologia ristretta. Cio\`e
+    dato $(X, \tau)$ spazio topologico con $Y \subseteq X$ e immersione ${i: Y
+    \hooklongrightarrow X}$, $\tau\restrict{Y}$ \`e l'unica topologia su $Y$ che
+    rispetta la proprietà universale.
+\end{thm}
+
+\begin{proof}
+    Sia $\sigma$ una topologia su $Y$ che rispetta la propriet\`a universale.
+    \begin{nlist}
+        \item Prendo come $Z$ lo spazio $(Y, \tau\restrict{Y})$ e come $f$
+        l'identità su $Y$. Il diagramma della proprietà universale \`e allora il
+        seguente:
+
+        \begin{center}\begin{tikzcd}
+            (Y, \tau\restrict{Y}) \arrow[r, "\id"] \arrow[rd, "g=i"]
+            & (Y, \sigma) \arrow[d, "i", hookrightarrow]\\
+            & (X,\tau)
+        \end{tikzcd}\end{center}
+
+        Per definizione $g$ \`e continua, $i$ \`e continua, quindi $\id$ \`e
+        continua. Allora $\tau\restrict{Y} \subseteq \sigma$.
+
+        \item Questa volata prendo come $Z$ lo spazio $(Y, \sigma)$ mantenendo
+        come $f$ l'identità. Il diagramma risulta essere:
+
+        \begin{center}\begin{tikzcd}
+            (Y, \sigma) \arrow[r, "\id"] \arrow[rd, "g=i"]
+            & (Y, \sigma) \arrow[d, "i", hookrightarrow]\\
+            & (X,\tau)
+        \end{tikzcd}\end{center}
+
+        Per definizione $\id$ \`e continua, quindi lo \`e anche $g=i$ per la
+        propriet\`a universale. Allora $\sigma$ rende continua $i$, e dunque
+        vale $\sigma \subseteq \tau\restrict{Y}$ per la definizione della
+        restrizione di $\tau$.
+    \end{nlist}
+\end{proof}
 \end{document}
