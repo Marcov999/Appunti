@@ -1,8 +1,18 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{mstyle}[]
 
-\usepackage{enumitem}% http://ctan.org/pkg/enumitem
+\usepackage[italian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{pgf,tikz}
+\usepackage{hyperref}
+
+\usetikzlibrary{arrows}
 \usetikzlibrary{shapes.geometric}
+\usepackage{enumitem}% http://ctan.org/pkg/enumitem
 
 \newcounter{basicblock}[section]
 \renewcommand{\thebasicblock}{\thesection.\arabic{basicblock}}
