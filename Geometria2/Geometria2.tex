@@ -86,7 +86,7 @@ Dati $p \in X, R>0$, ${B(p, R):=\{ x \in X \mid d(p, x)<R\}}$ è detta la
 \end{defn}
 
 \begin{defn}
-${f:(X, d) \rightarrow (Y, d')}$ è \textsc{continua in $x_0$} se
+${f:(X, d) \rightarrow (Y, d')}$ è \textit{continua in $x_0$} se
 ${\forall \epsilon > 0 \; \exists \; \delta >0}\\\ \tc {f(B(x_0, \delta))
 \subseteq B(f(x_0), \epsilon)}$, cioè ${f^{-1}(B(f(x_0), \epsilon)) \supseteq
 B(x_0, \delta)}$.
@@ -268,7 +268,7 @@ soli gli insiemi il cui complementare è un insieme finito.
 	Dato uno spazio topologico $X$ e un insieme $B \subseteq X$, si chiama \textit{parte interna} di $B$, e la si indica con $B^{\circ}$, il più grande aperto contenuto in $B$. Analogamente, la \textit{chiusura} di $B$, indicata con $\overline{B}$, è il più piccolo chiuso che contiene $B$. Definiamo infine la \textit{frontiera} (o \textit{bordo}) di un insieme come l'insieme $\partial B= \overline{B} \setminus B^{\circ}$.
 \end{defn}
 
-Notiamo che parte interna e chiusura sono ben definite: per la prima basta prendere l'unione di tutti gli aperti contenuti in $B$ (alla peggio c'è solo il vuoto, che è contenuto in ogni insieme), per la seconda si prende l'intersezione di tutti i chiusi che lo contengono (alla peggio c'è solo $X$). Per la stabilità degli aperti per unione arbitraria e dei chiusi per intersezione arbitraria, gli insiemi così ottenuti sono ancora un aperto e un chiuso e sono rispettivamente il più grande aperto contenuto e il più piccolo chiuso che contiene per come sono stati costruiti.
+Notiamo che parte interna e chiusura sono ben definite: per la prima basta prendere l'unione di tutti gli aperti contenuti in $B$ (alla peggio c'è solo il vuoto, che è contenuto in ogni insieme), per la seconda si prende l'intersezione di tutti i chiusi che lo contengono (alla peggio c'è solo $X$). Per la stabilità degli aperti per unione arbitraria e dei chiusi per intersezione arbitraria, gli insiemi così ottenuti sono ancora un aperto e un chiuso e sono rispettivamente il più grande aperto contenuto e il più piccolo chiuso che contiene per come sono stati costruiti. Infine, è banale mostrare che la parte interna di un aperto è l'aperto stesso e la chiusura di un chiuso è il chiuso stesso.
 
 \begin{ftt}
 	$X= B^{\circ} \sqcup\ \partial B\ \sqcup (X
@@ -342,6 +342,33 @@ continua.
     Stando a quanto dice Frigerio, probabilmente tale funzione esiste,
     euristicamente perché non c'è un modo facile di dimostrare il contrario.
 \end{exc}
+
+Introduciamo adesso un concetto che permetterà di caratterizzare la continuità in spazi topologici in modo analogo a quanto fatto per gli spazi metrici.
+
+\begin{defn}
+	Sia $(X, \tau)$ uno spazio topologico fissato e $x_0 \in X$. Un insieme $U
+	\subseteq X$ è un \textsc{intorno} di $x_0$ se $x_0 \in
+	U^{\circ}$, o equivalentemente se esiste $V$ aperto con $x_0 \in V
+	\subseteq U$. L'insieme degli intorni di $x_0$ si denota con
+	$\mathcal{I}(x_0)$.
+\end{defn}
+
+\begin{defn}
+	$f:(X, \tau) \rightarrow (Y, \tau')$ è detta \textit{continua in $x_0$} se per ogni intorno $U$ di $f(x_0)$ esiste un intorno $V$ di $x_0$ t.c. $f(V) \subseteq U$.
+\end{defn}
+
+Appare dunque intuitivo il seguente risultato.
+
+\begin{thm}
+	$f$ è continua $\Leftrightarrow$ è continua in ogni $x_0 \in X$.
+\end{thm}
+
+\begin{proof}
+	($\implies$) Supponiamo $f$ continua e $x_0 \in X$, sia inoltre $U$ un intorno di $f(x_0)$. Per definizione di intorno esiste un aperto $A$ con $f(x_0) \in A \subseteq U$, perciò $x_0 \in f^{-1}(A) \subseteq f^{-1}(U)$, ma poiché $f$ è continua abbiamo che $f^{-1}(A)$ è ancora un aperto, perciò ponendo $V=f^{-1}(U)$ abbiamo che $V$ è un intorno di $x_0$ t.c. $f(V) \subseteq U$, che è quello che volevamo.
+
+	($\Leftarrow$) Supponiamo $f$ continua in ogni punto di $X$ e sia $A$ un insieme aperto in $Y$. Per ogni $x \in f^{-1}(A)$, $A$ è un intorno di $f(x)$. Ma dato che $f$ è continua in ogni punto di $X$, esiste un intorno $V_x$ di $x$ t.c. $x \in V_x \subseteq f^{-1}(A)$. Per definizione di intorno, ciò significa che esiste un aperto $A_x$ di $X$ t.c. $x \in A_x \subseteq V \subseteq f^{-1}(A)$. Dunque dev'essere $\displaystyle f^{-1}(A)= \bigcup_{x \in f^{-1}(A)} A_x$,
+	quindi $f^{-1}(A)$ è un aperto in $X$ per ogni $A$ aperto in $Y$, il che equivale a dire che $f$ è continua.
+\end{proof}
 
 \subsection{Ordinamento fra topologie, basi e prebasi}
 
@@ -585,14 +612,6 @@ soddisfa il secondo assioma di numerabilità. Vediamo gli altri due.
 \end{proof}
 
 \begin{defn}
-	Sia $(X, \tau)$ uno spazio topologico fissato e $x_0 \in X$. Un insieme $U
-	\subseteq X$ è un \textsc{intorno} di $x_0$ se $x_0 \in
-	U^{\circ}$, o equivalentemente se esiste $V$ aperto con $x_0 \in V
-	\subseteq U$. L'insieme degli intorni di $x_0$ si denota con
-	$\mathcal{I}(x_0)$.
-\end{defn}
-
-\begin{defn}
 	Un \textsc{sistema fondamentale di intorni} per $x_0$ è una famiglia
 	$\mathcal{F} \subseteq \mathcal{I}(x_0)$ t.c. $\forall U \in
 	\mathcal{I}(x_0) \, \exists V \in \mathcal{F}$ con $V \subseteq U$.
@@ -749,6 +768,45 @@ almeno un punto.
 	l'unione dei complementari degli insiemi in $\mathcal{F}$, cioè un'unione numerabile di insiemi finiti, che è numerabile, da cui l'assurdo.
 
 	Per quanto riguarda il terzo assioma, secondo me ho capito male mentre ero a lezione, perché mi sembra che qualunque sottoinsieme infinito di $X$ debba necessariamente intersecare in qualche punto il complementare di un insieme finito, e quindi anche un insieme infinito di cardinalità numerabile avrebbe intersezione non nulla con tutti gli aperti e sarebbe di conseguenza un denso numerabile.
+\end{proof}
+
+Procediamo adesso a caratterizzare, negli insiemi che soddisfano il primo assioma di numerabilità, aperti, chiusi e continuità tramite successioni.
+Diamo prima una definizione.
+
+\begin{defn}
+	$l \in X$ è detto \textit{limite} della successione $(a_n)_{n \in \mathbb{N}}$ se per ogni intorno $U$ di $l$ esiste $n_0 \in \mathbb{N}$ t.c. per ogni $n \ge n_0$ si ha che $a_n \in U$.
+\end{defn}
+
+Passiamo dunque alle varia caratterizzazioni. Nei due (tre?) enunciati seguenti, $X$ sarà sempre uno spazio topologico primo numerabile.
+
+%come si definiscono gli aperti per successioni?
+
+\begin{prop}
+	Un sottoinsieme $C \subseteq X$ è chiuso $\Leftrightarrow$ è chiuso per successioni, cioè per ogni successione $(a_k)$ di elementi di $C$ che converge a un limite $l$, anche $l \in C$.
+\end{prop}
+
+\begin{proof}
+	Notiamo prima il seguente fatto: se $U_k, \, n \in \mathbb{N}$ è un sistema fondamentale di intorni numerabile per $x$, definiamo $V_k=U_0 \cap U_1 \cap \dots \cap U_k$. Allora $V_k, \, k \in \mathbb{N}$ è un sistema fondamentale di intorni numerabile t.c. $V_{k+1} \subseteq V_k$.
+
+	($\implies$) Supponiamo $C$ chiuso e sia $(a_k)$ una successione di elementi di $C$ con limite $l$. Per assurdo, $l \not\in C$. Allora $l \in X \setminus C$, che è un insieme aperto, in particolare $X \setminus C$ è un intorno di $l$. Esiste dunque, per definizione di limite, un $k_0 \in \mathbb{N}$ t.c. per ogni $k \ge k_0$ si abbia che $a_k \in X \setminus C$, ma $a_k \in C$ per ogni $k \in \mathbb{N}$,
+	assurdo. Questa freccia vale in tutti gli spazi topologici.
+
+	($\Leftarrow$) Supponiamo adesso che per ogni successione $(a_k)$ di elementi di $C$ avente limite $l$ si abbia $l \in C$. Consideriamo un elemento $x \in X \setminus C$. Vogliamo mostrare che esiste un intorno $U_x$ di $x$ tutto contenuto in $X \setminus C$. Se così non fosse, per ogni intorno di $x$ esisterebbe un elemento di $C$ in esso contenuto. Poiché $X$ è primo numerabile, consideriamo dunque un sistema fondamentale di intorni numerabile di $x$, sia esso $V_k, \, k \in \mathbb{N}$, e lo prendiamo t.c. $V_{k+1} \subseteq V_k$. Adesso scegliamo per ogni $k$ un elemento
+	$a_k \in V_k$ t.c. $a_k \in C$, che esiste per l'ipotesi assurda. Notiamo che alcuni di questi elementi possono essere uguali, non ha importanza. Dato che abbiamo preso un sistema di intorni fondamentale, per ogni intorno $U$ di $x$ esiste un $k_0$ t.c. $V_{k_0} \subseteq U$. Ma poiché $V_k \subseteq V_ {k_0}$ per ogni $k \ge k_0$ (facile conseguenza di $V_{k+1} \subseteq V_k$), ho che $a_k \in V_k \subseteq V_{k_0} \subseteq U$ per ogni $k \ge k_0$. Riassumendo, per ogni $U$ intorno di $x$ esiste un
+	$k_0$ t.c. per ogni $k \ge k_0$ si ha $a_k \in U$, ma questo per definizione significa che $x$ è il limite di $(a_k)$, assurdo poiché $a_k \in C$ per ogni $k$ mentre $x \in X \setminus C$, contro l'ipotesi iniziale che per tutte le successioni in $C$ aventi limite anche il limite è in $C$. Dunque per ogni $x \in X \setminus C$ esiste un intorno $U_x \subseteq X \setminus C$, da cui si ha che esiste un aperto $A_x$ con $x \in A_x \subseteq U_x \subseteq X \setminus C$. Ma allora,
+	$\displaystyle X \setminus C=\bigcup_{x \in X \setminus C} A_x$ che un'unione di aperti, perciò $X \setminus C$ è aperto e di conseguenza $C$ è chiuso.
+\end{proof}
+
+\begin{prop}
+	Sia $Y$ uno spazio topologico (che non deve necessariamente soddisfare il primo assioma di numerabilità). Una funzione $f:X \rightarrow Y$ è continua in $\bar{x}$ $\Leftrightarrow$ per ogni successione$(x_n)_{n \in \mathbb{N}}$ convergente a $\bar{x}$ la successione $(f(x_n))_{n \in \mathbb{N}}$ converge a $f(\bar(x))$.
+\end{prop}
+
+\begin{proof}
+	($\implies$) Supponiamo che $f$ sia continua in $\bar{x}$ e consideriamo una generica successione $(x_n)$ convergente a $\bar{x}$. Prendiamo un intorno $U$ di $f(\bar{x})$ in $Y$. Dato che $f$ è continua in $\bar{x}$, esiste un intorno $V$ di $\bar{x}$ in $X$ t.c. $f(V) \subseteq U$. Prendiamo, per ipotesi di convergenza, $n_0 \in \mathbb{N}$ t.c. $a_n \in V$
+	per ogni $n \ge n_0$. Allora si ha anche, sempre per ogni $n \ge n_0$, $f(x_n) \in U$, da cui otteniamo che $(f(x_n))$ converge a $f(\bar{x})$. Questa freccia vale per $X$ spazio topologico qualsiasi.
+
+	($\Leftarrow$) Supponiamo adesso che per ogni successione convergente in $X$ la successione immagine converga all'immagine del limite in $Y$. Per assurdo, $f$ non è continua in $\bar{x}$. Allora deve esistere un intorno $U$ di $f(\bar{x})$ t.c. per ogni intorno $V$ di $\bar{x}$ si ha $f(V) \not \subseteq U$. Prendiamo un sistema fondamentale di intorni numerabile di $\bar{x}$, sia esso $V_n, \, n \in \mathbb{N}$, e come nella dimostrazione precedente lo prendiamo t.c. $V_{n+1} \subseteq V_n$ per ogni $n$.
+	Prendiamo, per ogni $n$, un elemento $x_n \in V_n$ t.c. $f(x_n) \not\in U$, che esiste per l'ipotesi assurda. Allora si mostra, come nella dimostrazione precedente, che la successione $(x_n)$ tende a $\bar{x}$, ma le loro immagini $f(x_n)$ sono tutte fuori dallo stesso intorno $U$ di $f(\bar{x})$, dunque la successione $(f(x_n))$ non tende a $f(\bar{x})$, assurdo per ipotesi.
 \end{proof}
 
 \end{document}
