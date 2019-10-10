@@ -19,7 +19,7 @@ buoni i contenuti dei corsi del primo anno, in particolare Analisi 1 e Geometria
 consiglia comunque di provare a svolgerle per conto proprio. Ogni tanto sarà
 commesso qualche abuso di notazione, facendo comunque in modo che il significato
 sia reso chiaro dal contesto. Inoltre, la notazione verrà alleggerita man mano,
-per evitare inutili ripetizioni e appesantimenti nella lettura.
+per evitare inutili ripetizioni e appesantimenti nella lettura. Si ricorda anche che questi appunti sono scritti a più mani, non sempre subito dopo le lezioni, non sempre con appunti completi, ecc.. Spesso saranno rivisti, verranno aggiunte cose che mancavano perché c'era poco tempo (o voglia...), potrebbero mancare argomenti più o meno marginali... insomma, non è un libro di testo per il corso, ma vuole essere un valido supporto per aiutare gli studenti che seguono il corso. Speriamo di essere riusciti in questo intento.
 
 
 \section{Spazi metrici e spazi topologici}
@@ -355,6 +355,12 @@ considera la topologia indotta dalla metrica.
     Stando a quanto dice Frigerio, probabilmente tale funzione esiste,
     euristicamente perché non c'è un modo facile di dimostrare il contrario.
 \end{exc}
+
+\begin{sol}
+	La seguente soluzione è un esempio mostrato a lezione da Gandini. Vedi te a volte il caso.
+
+	Mettiamo su $\mathbb{Z}$ la seguente topologia: $A \subseteq \mathbb{Z}$ è aperto se $A=\mathbb{Z}$ o $A \subseteq \mathbb{N}$. È semplice verificare che è una topologia. Allora la funzione $f: \mathbb{Z} \rightarrow \mathbb{Z}$ t.c. $f(n)=n-1$ è l'esempio cercato. Banalmente è bigettiva, è semplice verificare che è continua ma l'inversa no.
+\end{sol}
 
 Introduciamo adesso un concetto che permetterà di caratterizzare la continuità
 in spazi topologici in modo analogo a quanto fatto per gli spazi metrici.
@@ -884,10 +890,24 @@ Diamo prima una definizione.
 	per ogni $n \ge n_0$ si ha che $a_n \in U$.
 \end{defn}
 
-Passiamo dunque alle varia caratterizzazioni. Nei due (tre?) enunciati seguenti,
+Passiamo dunque alle varia caratterizzazioni. Nei tre enunciati seguenti,
 $X$ sarà sempre uno spazio topologico primo numerabile.
 
-%come si definiscono gli aperti per successioni?
+\begin{prop}
+	Un sottoinsieme $A \subseteq X$ è aperto $\Leftrightarrow$ è aperto per successioni (si dice aperto per successioni?), cioè se per ogni successione $(a_k)$ di elementi di $x$ che converge a un limite $l \in A$ esiste $k_0$ t.c. per ogni $k \ge k_0$ si ha $a_k \in A$.
+\end{prop}
+
+\begin{proof}
+	Notiamo prima il seguente fatto: se $U_k, \, n \in \mathbb{N}$ è un sistema
+	fondamentale di intorni numerabile per $x$, definiamo $V_k=U_0 \cap U_1 \cap
+	\dots \cap U_k$. Allora $V_k, \, k \in \mathbb{N}$ è un sistema fondamentale
+	di intorni numerabile tale che $V_{k+1} \subseteq V_k$.
+
+	($\implies$) Sia $A$ un aperto e $(a_k)$ una successione avente limite $l \in A$. Poiché $A$ stesso è un intorno di $l$, si conclude che esiste $k_0$ t.c. $a_k \in A$ per ogni $k \ge k_0$ dalla definizione di limite.
+
+	($\Leftarrow$) Sia $A$ un insieme aperto per successioni e prendiamo $x \in A$. Vogliamo mostrare che esiste un intorno $U_x$ di $x$ tutto contenuto in $A$. Se per assurdo così non fosse, allora ogni intorno di $x$ avrebbe un elemento non contenuto in $A$. Consideriamo adesso un sistema fondamentale di intorni numerabile $V_k, k \in \mathbb{N}$, e lo prendiamo t.c. $V_{k+1} \subseteq V_k$. Per ciascuno di questi intorni, prendiamo un elemento $a_k \in V_k$ t.c. $a_k \not\in A$, che esiste per ipotesi assurda (alcuni elementi possono anche ripetersi, non ha importanza). Allora avremmo, dato che il sistema di intorni è fondamentale e che $V_{k'} \subseteq V_k$ se $k'>k$
+	(segue da $V_{k+1} \subseteq V_k$), che la successione $(a_k)$ sta definitivamente in ogni intorno di $x$ e dunque ha limite $x$, ma è tutta fuori da $A$, assurdo perché $A$ è aperto per successioni. Allora per ogni $x \in A$ esiste un intorno $U_x$ t.c. $U_x \subseteq A$, ma questo ci dice anche che per ogni $x \in A$ esiste un aperto $A_x$ t.c. $x \in A_x \subseteq U_x \subseteq A$, da cui otteniamo che $\displaystyle A=\bigcup_{x \in A} A_x$ è un'unione di aperti e dunque è aperto.
+\end{proof}
 
 \begin{prop}
 	Un sottoinsieme $C \subseteq X$ è chiuso $\Leftrightarrow$ è chiuso per
@@ -896,11 +916,6 @@ $X$ sarà sempre uno spazio topologico primo numerabile.
 \end{prop}
 
 \begin{proof}
-	Notiamo prima il seguente fatto: se $U_k, \, n \in \mathbb{N}$ è un sistema
-	fondamentale di intorni numerabile per $x$, definiamo $V_k=U_0 \cap U_1 \cap
-	\dots \cap U_k$. Allora $V_k, \, k \in \mathbb{N}$ è un sistema fondamentale
-	di intorni numerabile t.c. $V_{k+1} \subseteq V_k$.
-
 	($\implies$) Supponiamo $C$ chiuso e sia $(a_k)$ una successione di elementi
 	di $C$ con limite $l$. Per assurdo, $l \not\in C$. Allora $l \in X \setminus
 	C$, che è un insieme aperto, in particolare $X \setminus C$ è un intorno di
@@ -915,7 +930,7 @@ $X$ sarà sempre uno spazio topologico primo numerabile.
 	$U_x$ di $x$ tutto contenuto in $X \setminus C$. Se così non fosse, per ogni
 	intorno di $x$ esisterebbe un elemento di $C$ in esso contenuto. Poiché $X$
 	è primo numerabile, consideriamo dunque un sistema fondamentale di intorni
-	numerabile di $x$, sia esso $V_k, \, k \in \mathbb{N}$, e lo prendiamo t.c.
+	numerabile di $x$, sia esso $V_k, \, k \in \mathbb{N}$, e come nella dimostrazione precedente lo prendiamo t.c.
 	$V_{k+1} \subseteq V_k$. Adesso scegliamo per ogni $k$ un elemento $a_k \in
 	V_k$ t.c. $a_k \in C$, che esiste per l'ipotesi assurda. Notiamo che alcuni
 	di questi elementi possono essere uguali, non ha importanza. Dato che
