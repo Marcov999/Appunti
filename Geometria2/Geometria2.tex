@@ -1122,4 +1122,45 @@ $X$ sarà sempre uno spazio topologico primo numerabile.
         restrizione di $\tau$.
     \end{nlist}
 \end{proof}
+
+\begin{defn}
+    Sia $f:X\longrightarrow Y$ una funzione. Essa si dice \textsc{aperta} se manda aperti in aperti e \textsc{chiusa} se manda chiusi in chiusi.
+\end{defn}
+% TODO: dimostrazione?
+
+\begin{oss}
+    Sia $f$ come sopra continua e bigettiva. Allora essa \`e un omeomorfismo se e solo se \`e aperta, e se solo se \`e chiusa.
+\end{oss}
+
+\begin{ex}
+    Si consideri l'insieme $\mathbb{Z}$ con la topologia $\tau = \mathcal{P}(\mathbb{N})\cup\mathbb{Z}$. Allora $f: n \longmapsto n-1$ \`e bigettiva, continua, non aperta e non omeomerfismo.
+\end{ex}
+
+\begin{defn}
+    Sia $f:X \hooklongrightarrow Y$ una funzione iniettiva continua. Allora $f$ si dice \textsc{immersione topologica} se per ogni $A \subseteq X$ aperto esiste un aperto $U \subseteq Y$ tale che $A = f^{-1}(U)$.
+\end{defn}
+
+\begin{oss}
+    Sia $f: X \longrightarrow Y$ continua. Allora $f$ \`e chiusa e iniettiva se e solo se \`e un'immersione chiusa, se e solo se f \`e immersione con $f(X)$ chiuso. Idem con gli aperti.
+\end{oss}
+
+\begin{oss}
+    Sia $Y \subseteq X$ un sottospazio. Allora:
+    \begin{nlist}
+        \item se $X$ \`e N1 allora $Y$ \`e N1;
+
+        \item idem con N2;
+
+        \item se $X$ e separabile e metrizzabile allora $Y$ \`e separabile.
+    \end{nlist}
+\end{oss}
+
+\begin{proof}
+    I primi punti sono ovvi. Per quanto riguarda l'ultimo, se $X$ \`e metrizzabile e separabile, \`e N1. Dunque anche $Y$ \`e metrizzabile e N1, e quindi anche separabile.
+\end{proof}
+
+\begin{ex}
+    \emph{Il piano di Sorgenfrey}. Si prenda lo spazio $\mathbb{R}^2$ dotato della topologia generata dai rettangoli del tipo ${[a,b) \times [c.d)}$. Esso \`e chiamto il piano di Sorgenfrey. Si consideri il sottospazio della retta $y=-x$. La topologia indotta \`e la discreta, infatti per ogni punto $(k, -k)$, il rettangolo ${[k, k+1)\times[-k, 1-k)}$ interseca la retta solo nel punto considerato. Dunque si \`e trovato uno spazio separabile (prendendo per esempio $\mathbb{Q}^2$ come denso numerabile) che ha un sottospazio non separabile.
+\end{ex}
+
 \end{document}
