@@ -1,0 +1,114 @@
+\begin{defn}
+    $f: (X, \tau) \rightarrow (Y, \tau')$ si dice \textsc{continua} se
+    ${f^{-1}(A) \in \tau,}\; {\forall A \in \tau'}$, cioè una funzione \`e
+    continua se la controimmagine di aperti \`e aperta.
+\end{defn}
+
+Notiamo che per il teorema \ref{thm:cont_inv}, le due
+definizioni di funzione continua sono equivalenti per uno spazio metrico se si
+considera la topologia indotta dalla metrica.
+
+\begin{thm}
+    \begin{nlist}
+        \item L'identità è una funzione continua;
+        \item composizione di funzioni continue è una funzione continua.
+    \end{nlist}
+\end{thm}
+
+\begin{defn}
+    Una funzione $f: X \rightarrow Y$ si dice \textsc{omeomorfismo} se $f$ è
+    continua e esiste una funzione $g:Y\rightarrow X$ continua tale che $f \circ
+    g = Id_Y$ e $g \circ f = Id_x$. Cio\`e $f$ \`e continua, bigettiva e con
+    inversa continua.
+\end{defn}
+
+\begin{oss}
+	\begin{nlist}
+	\item Composizione di omeomorfismi è un omeomorfismo; due spazi legati da un
+	omeomorfismo si dicomo \textsc{omeomorfi} e essere omeomorfi è una relazione
+	di equivalenza;
+	\item l'insieme degli omeomorfismi da $(X, \tau)$ in sé è un gruppo;
+	\item se $f:X \rightarrow Y$ è continua e bigettiva non è detto che sia un
+	omeomorfismo, cioè $f^{-1}$ può non essere continua.
+    \marginpar{\warningsign}
+\end{nlist}
+\end{oss}
+
+\begin{ex}
+	Siano $\tau_E$ la topologia euclidea, $\tau_C$ la cofinita, $\tau_D$ la
+	discreta e $\tau_I$ l'indiscreta. Le seguenti mappe sono dunque continue:
+    \begin{itemize}
+	\item $Id:(\mathbb{R}, \tau_D) \rightarrow (\mathbb{R}, \tau_E)$,
+    \item $Id:(\mathbb{R}, \tau_E) \rightarrow (\mathbb{R}, \tau_C)$,
+    \item $Id:(\mathbb{R}, \tau_C) \rightarrow (\mathbb{R}, \tau_I)$.
+    \end{itemize}
+    Nessuna delle inverse è però continua. Più in generale, $Id: (X, \tau)
+    \rightarrow (X, \sigma)$ con $\sigma \subsetneq \tau$ è continua ma
+    l'inversa no.
+\end{ex}
+
+\begin{exc}
+	Il seguente esercizio è frutto di una domanda fatta da uno studente a
+	lezione e potrebbe essere più difficile di altri esercizi del corso.
+
+    \marginpar{\warningsign}
+	Trovare un esempio (o dimostrare che non esiste) di uno spazio topologico
+	$X$ e una funzione $f: (X, \tau) \rightarrow (X, \tau)$ continua e bigettiva
+	con inversa non continua.
+
+    Stando a quanto dice Frigerio, probabilmente tale funzione esiste,
+    euristicamente perché non c'è un modo facile di dimostrare il contrario.
+\end{exc}
+
+\begin{sol}
+	La seguente soluzione è un esempio mostrato a lezione da Gandini. Vedi te a
+	volte il caso.
+
+	Mettiamo su $\mathbb{Z}$ la seguente topologia: $A \subseteq \mathbb{Z}$ è
+	aperto se $A=\mathbb{Z}$ o $A \subseteq \mathbb{N}$. È semplice verificare
+	che è una topologia. Allora la funzione $f: \mathbb{Z} \rightarrow
+	\mathbb{Z}$ t.c. $f(n)=n-1$ è l'esempio cercato. Banalmente è bigettiva, è
+	semplice verificare che è continua ma l'inversa no.
+\end{sol}
+
+Introduciamo adesso un concetto che permetterà di caratterizzare la continuità
+in spazi topologici in modo analogo a quanto fatto per gli spazi metrici.
+
+\begin{defn}
+	Sia $(X, \tau)$ uno spazio topologico fissato e $x_0 \in X$. Un insieme $U
+	\subseteq X$ è un \textsc{intorno} di $x_0$ se $x_0 \in
+	U^{\circ}$, o equivalentemente se esiste $V$ aperto con $x_0 \in V
+	\subseteq U$. L'insieme degli intorni di $x_0$ si denota con
+	$\mathcal{I}(x_0)$.
+\end{defn}
+
+\begin{defn}
+	$f:(X, \tau) \rightarrow (Y, \tau')$ è detta \textit{continua in $x_0$} se
+	per ogni intorno $U$ di $f(x_0)$ esiste un intorno $V$ di $x_0$ t.c. $f(V)
+	\subseteq U$.
+\end{defn}
+
+Appare dunque intuitivo il seguente risultato.
+
+\begin{thm}
+	$f$ è continua $\Leftrightarrow$ è continua in ogni $x_0 \in X$.
+\end{thm}
+
+\begin{proof}
+	($\implies$) Supponiamo $f$ continua e $x_0 \in X$, sia inoltre $U$ un
+	intorno di $f(x_0)$. Per definizione di intorno esiste un aperto $A$ con
+	$f(x_0) \in A \subseteq U$, perciò $x_0 \in f^{-1}(A) \subseteq f^{-1}(U)$,
+	ma poiché $f$ è continua abbiamo che $f^{-1}(A)$ è ancora un aperto, perciò
+	ponendo $V=f^{-1}(U)$ abbiamo che $V$ è un intorno di $x_0$ t.c. $f(V)
+	\subseteq U$, che è quello che volevamo.
+
+	($\Leftarrow$) Supponiamo $f$ continua in ogni punto di $X$ e sia $A$ un
+	insieme aperto in $Y$. Per ogni $x \in f^{-1}(A)$, $A$ è un intorno di
+	$f(x)$. Ma dato che $f$ è continua in ogni punto di $X$, esiste un intorno
+	$V_x$ di $x$ t.c. $x \in V_x \subseteq f^{-1}(A)$. Per definizione di
+	intorno, ciò significa che esiste un aperto $A_x$ di $X$ t.c. $x \in A_x
+	\subseteq V \subseteq f^{-1}(A)$. Dunque dev'essere $\displaystyle
+	f^{-1}(A)= \bigcup_{x \in f^{-1}(A)} A_x$,
+	quindi $f^{-1}(A)$ è un aperto in $X$ per ogni $A$ aperto in $Y$, il che
+	equivale a dire che $f$ è continua.
+\end{proof}

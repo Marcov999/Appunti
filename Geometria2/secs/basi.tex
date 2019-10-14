@@ -1,0 +1,182 @@
+Vogliamo mettere un ordinamento parziale sulle topologie di un certo insieme
+fissato.
+
+\begin{defn}
+    Dato un insieme $X$ su cui sono definite le topologie $\tau$ e $\tau'$, si
+    dice che $\tau$ \`e \textsc{meno fine} di $\tau'$ se $\tau \subseteq \tau'$,
+    cioè ogni aperto di $\tau$ è anche aperto di $\tau'$. $\tau'$ si dice
+    \textsc{più fine} di $\tau$.
+\end{defn}
+
+\begin{oss}
+    Equivalentemente alla definizione sopra, si pu\`o dire che $\tau$ \`e meno
+    fine di $\tau'$ se e solo se ${Id:(X,\tau')\rightarrow(X, \tau)}$ \`e
+    continua.
+\end{oss}
+
+Quando $\tau$ è meno fine di $\tau'$ scriveremo $\tau < \tau'$. Si noti che
+dalla definizione ogni topologia è meno fine di se stessa, cioè $\tau < \tau'
+\; \forall \tau$.
+
+\begin{ex}
+	$\tau_I < \tau_C < \tau_E < \tau_D$, \, $\tau_I < \tau < \tau_D \; \forall
+	\tau$.
+\end{ex}
+
+\begin{lm}
+	Intersezione arbitraria di topologie su $X$ è ancora una topologia su $X$.
+\end{lm}
+
+\begin{proof}
+    Siano $\tau_i,\ i \in I$ topologie su $X$. Verifichiamo che $
+    \tau=\bigcap_{i \in I} \tau_i$ soddisfa gli assiomi di topologia.
+
+    \begin{nlist}
+        \item $\emptyset, X \in \tau_i \, \forall i \in I \Rightarrow \emptyset,
+        X \in \tau$.
+
+        \item $A_1, A_2 \in \tau \Rightarrow A_1, A_2 \in \tau_i \, \forall i
+        \in I \Rightarrow A_1 \cap A_2 \in \tau_i \, \forall i \in I \Rightarrow
+        A_1 \cap A_2 \in \tau$.
+
+        \item Siano $A_j, j \in J$ insiemi che stanno in $\tau$. \\
+        $\displaystyle A_j \in \tau \, \forall j \in J \Rightarrow A_j \in
+        \tau_i \, \forall i \in I, j \in J \Rightarrow {\bigcup_{j \in J} A_j
+        \in \tau_i \, \forall i \in I} \Rightarrow {\bigcup_{j \in J} A_j \in
+        \tau}$.
+    \end{nlist}
+\end{proof}
+
+\begin{cor}
+	Data una famiglia $\tau_i, i \in I$ di topologie su $X$, esiste la più fine
+	tra le topologie meno fini di ogni $\tau_i$: è $\displaystyle \bigcap_{i \in
+	I} \tau_i$.
+\end{cor}
+
+\begin{cor}
+	Sia $X$ un insieme, $S \subseteq \mathcal{P}(X)$, allora esiste la topologia
+	meno fine tra quelle che contengono $S$. Tale topologia si dice
+	\textit{generata} da $S$ e $S$ si dice \textsc{prebase} della topologia. Se
+	$\Omega= \{ \tau \text{ topologia } |\; S \in \tau \}$ (che è non vuoto
+	perché contiene almeno la topologia discreta), la topologia cercata è
+	$\displaystyle \bigcap_{\tau \in \Omega} \tau$.
+\end{cor}
+
+\begin{defn}
+	sia $(X, \tau)$ uno spazio topologico fissato, una \textsc{base} di $\tau$ è
+	un insieme $\mathcal{B} \subseteq \tau$ t.c. $\forall A \in \tau, \exists
+	B_i \in \mathcal{B}, i \in I$ t.c. $A= \bigcup_{i \in I} B_i$. Ovvero
+	$\mathcal{B}$ \`e una base se ogni aperto di $\tau$ pu\`o essere scritto
+	come unione qualunque di elementi di $\mathcal{B}$.
+\end{defn}
+
+\begin{ex}
+	Se $X$ è uno spazio metrico, una base della topologia indotta sono le palle.
+\end{ex}
+
+\begin{defn} \label{N2}
+	$(X, \tau)$ si dice \textit{a base numerabile} (o che soddisfa il
+	\textsc{secondo assioma di numerabilità}) se ammette una base numerabile.
+\end{defn}
+
+\begin{prop} \label{prop:base}
+	Sia $X$ un insieme senza topologia, $\mathcal{B} \subseteq \mathcal{P}(X)$ è
+	base di una topologia su $X$ $\Leftrightarrow$ valgono le seguenti:
+	\begin{nlist}
+		\item \label{i_prop} $\displaystyle X=\bigcup_{B \in \mathcal{B}} B$;
+		\item $\forall A, A' \in \mathcal{B}, \exists B_i \in \mathcal{B}, i \in
+		I$ t.c. $A \cap A'= \bigcup_{i \in I} B_i$. Cio\`e ogni intersezione di
+		una coppia di elementi di $\mathcal{B}$ pu\`o essere scritta come unione
+		di elementi di $\mathcal{B}$.
+	\end{nlist}
+\end{prop}
+
+\begin{proof} \label{prop:preb}
+    ($\Rightarrow$) Ovviamente, se $\mathcal{B}$ è la base di una topologia su
+    $X$, l'insieme $X$ deve essere unione di elementi di $\mathcal{B}$, inoltre
+    tutti gli elementi di $\mathcal{B}$ devono essere sottoinsiemi di $X$, da
+    cui discende (i).
+
+	$A, A' \in \mathcal{B} \Rightarrow A, A' \in \tau \Rightarrow A \cap A' \in
+	\tau$, per cui $A \cap A'$ deve poter essere esprimibile come unione di
+	elementi di $\mathcal{B}$, che è l'affermazione (ii).
+
+	($\Leftarrow$) Dobbiamo mostrare che l'insieme $\tau$ di tutte le possibili
+	unioni di elementi di $\mathcal{B}$ soddisfa gli assiomi di topologia.
+
+	Chiaramente $\emptyset \in \tau$ come unione di un insieme vuoto di elementi
+	di $\mathcal{B}$ e $X \in \tau$ per (ii).  Se faccio l'unione arbitraria di
+	insiemi ottenuti come unione di elementi di $\mathcal{B}$ ottengo ovviamente
+	un insieme che è unione di elementi di $\mathcal{B}$.
+
+	Infine, $\displaystyle A, A' \in \tau \Rightarrow A=\bigcup_{i \in I} B_i,
+	A'=\bigcup_{j \in J} B_j$ con $B_i, B_j \in \mathcal{B} \, \forall i \in I,
+	j \in J$. Allora $\displaystyle A \cap A'= \left(\bigcup_{i \in I} B_i
+	\right) \cap \left(\bigcup_{j \in J} B_j \right)=\bigcup_{i \in I, j \in J}
+	(B_i \cap B_j)$, ma tutti i $B_i$ e $B_j$ stanno in $\mathcal{B}$, dunque
+	per (ii) tutti i $B_i \cap B_j$ sono rappresentabili come unione di elementi
+	di $\mathcal{B}$, perciò anche la loro unione, che è proprio $A \cap A'$,
+	può essere scritta in quel modo e quindi sta in $\tau$.
+\end{proof}
+
+\begin{prop}
+	Siano $X$ un insieme e $S \subseteq \mathcal{P}(X)$ la prebase di una
+	topologia $\tau$ su $X$. Allora:
+	\begin{nlist}
+		\item le intersezioni finite di elementi di $S \cup \{X\}$ sono una base
+		di $\tau$;
+		\item $A \in \tau$ $\Leftrightarrow$ $A$ è unione arbitraria di
+		intersezioni finite di elementi di $S \cup \{X\}$.
+	\end{nlist}
+\end{prop}
+
+\begin{proof}
+	Sicuramente, poiché $\tau$ è generata da $S$, $S \subseteq \tau$ e quindi
+	anche tutte le intersezioni finite di elementi di $S$ e le unioni arbitrarie
+	di tali intersezioni devono stare in $\tau$. Se mostriamo che sono
+	sufficienti a definire una topologia, abbiamo finito.
+
+    Chiaramente il vuoto è l'intersezione di un insieme vuoto di insiemi e $X$
+    c'è perché lo abbiamo aggiunto a mano.
+
+    Unione arbitraria di unioni arbitrarie di elementi di un insieme è ancora
+    unione arbitraria di elementi di tale insieme.
+
+    Siano ora $\displaystyle A_1= \bigcup_{i \in I} B_i,\ A_2=\bigcup_{j \in J}
+    B_j$ con tutti
+    i $B_i,\ B_j$ intersezioni finite di elementi di $S$. Allora
+    $$A_1 \cap A_2 =
+    \left( \bigcup_{i \in I} B_i \right) \cap \left(\bigcup_{j \in J} B_j
+    \right)= \bigcup_{i \in I, j \in J} (B_i \cap B_j),$$
+     ma  intersezione di due intersezioni finite di elementi di $S$ è ancora
+     un'intersezione finita di elementi di $S$, perciò $A_1 \cap A_2$ è ancora
+     un'unione di intersezioni finite di elementi di $S$. Questo basta per
+     dimostrare (i) e (ii) è una semplice riformulazione.
+\end{proof}
+
+\begin{prop}
+	Sia $f: (X, \tau) \rightarrow (Y, \tau')$ e $S,\ \mathcal{B}$
+	rispettivamente una prebase e una base di $\tau'$. Allora sono equivalenti:
+	\begin{nlist}
+		\item $f$ è continua;
+		\item $f^{-1}(A)$ è aperto per ogni $A \in S$;
+		\item $f^{-1}(A)$ è aperto per ogni $A \in \mathcal{B}$.
+	\end{nlist}
+\end{prop}
+
+\begin{proof}
+	Poiché ogni base è una prebase, ((i) $\Leftrightarrow$ (ii)) $\Rightarrow$
+	((i) $\Leftrightarrow$ (iii)).
+
+	(i) $\Rightarrow$ (ii) è ovvia, perciò resta da dimostrare (ii)
+	$\Rightarrow$ (i).
+
+	Sia $A$ un aperto di $\tau'$. Per la proposizione \ref{prop:preb}, $A$ si
+	può scrivere come unione di intersezioni finite di elementi di $S$. Poiché
+	la controimmagine di un'unione è l'unione delle controimmagini e la
+	controimmagine di un'intersezione è l'intersezione delle controimmagini, la
+	controimmagine di $A$ è unione di intersezioni finite di controimmagini di
+	elementi di $S$, ma queste controimmagini sono aperte, perciò un'unione di
+	loro intersezioni finite è ancora aperta, perciò $f^{-1}(A)$ è aperto in $X$
+	per ogni $A$ aperto in $Y$, e questo equivale a dire che $f$ è continua.
+\end{proof}

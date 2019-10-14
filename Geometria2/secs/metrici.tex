@@ -1,0 +1,50 @@
+\begin{defn}
+	Uno \textsc{spazio metrico} è una coppia $(X, d)$, $X$ insieme,
+	${d: X \times X \rightarrow \mathbb{R}}$ t.c. per ogni ${x, y, z \in X}$
+    \begin{nlist}
+    	\item $d(x, y) \ge 0$ e $d(x, y)=0 \Leftrightarrow x=y$;
+    	\item $d(x, y)=d(y, x)$;
+    	\item $d(x, z) \le d(x, y)+d(y,z)$ (disuguaglianza triangolare).
+    \end{nlist}
+	In tal caso $d$ si dice \textsc{distanza} o \textsc{metrica}.
+\end{defn}
+
+\begin{ex}
+    Ecco alcuni esempi di distanze:
+    \begin{itemize}
+        \item La distanza $d_1$ su $\mathbb{R}^n$, che alla coppia di elementi
+        ${x=(x_1, \dots, x_n)}, {y=(y_1, \dots, y_n)}$ associa il numero
+        $${\displaystyle d_1(x, y)=\sum_{i=1}^n |x_i-y_i|};$$
+        \item la distanza $d_2$ (o $d_E$, distanza euclidea) su $\mathbb{R}^n$,
+        $$\displaystyle d_2(x, y)=\sqrt{\sum_{i=1}^n (x_i-y_i)^2};$$
+        \item la distanza $d_{\infty}$ su $\mathbb{R}^n$, ${\displaystyle
+        d_{\infty}(x, y)=\sup_{i=1, \dots, n} \{ |x_i-y_i| \}}$;
+        \item
+        la distanza discreta su un generico insieme $x$, $d(x, y)=1$ se $x \not=
+        y$ e $0$ altrimenti;
+        \item le distanze $d_1$, $d_2$, $d_{\infty}$ sullo spazio delle funzioni
+        continue da $[0, 1]$ in $\mathbb{R}$, definite rispettivamente
+        $${\displaystyle d_1(f, g)=\int_0^1 |f(t)-g(t)| dt},$$
+        $${\displaystyle d_2(f, g)=\sqrt{\int_0^1 (f(t)-g(t))^2 dt}},$$
+        $${\displaystyle d_{\infty}(f, g)=\sup_{t \in [0, 1]} |f(t)-g(t)|}.$$
+    \end{itemize}
+\end{ex}
+
+\begin{defn}
+	$f:(X, d) \rightarrow (Y, d')$ viene detto \textsc{embedding isometrico} se
+	$d'(f(x_1), f(x_2))=d(x_1, x_2)$ per ogni $x_1, x_2 \in X$.
+\end{defn}
+
+\begin{oss}
+    Valgono i seguenti fatti:
+    \begin{itemize}
+        \item l'identità è un embedding isometrico;
+        \item composizione di embedding isometrici è un embedding isometrico;
+        \item se un embedding isometrico $f$ è biettivo, anche $f^{-1}$ è un
+        embedding isometrico e $f$ si dice \textsc{isometria};
+        \item un embedding isometrico è sempre iniettivo, dunque è un'isometria
+        se e solo se è suriettivo;
+        \item se $(X, d)$ è fissato, l'insieme delle isometrie da $X$ in sé è un
+        gruppo con la composizione, chiamato $\Isom (X,d)$.
+    \end{itemize}
+\end{oss}

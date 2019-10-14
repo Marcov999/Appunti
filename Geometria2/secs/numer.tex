@@ -1,0 +1,413 @@
+Nella definizione \ref{N2} abbiamo stabilito quando uno spazio topologico
+soddisfa il secondo assioma di numerabilità. Vediamo gli altri due.
+
+\begin{defn}
+	$Y \subseteq X$ si dice \textsc{denso} se $\overline{Y}=X$.
+\end{defn}
+
+\begin{oss}
+	$Y$ è denso $\Leftrightarrow$ $Y \cap A \not=\emptyset$ per ogni $A$ aperto
+	non vuoto.
+\end{oss}
+
+\begin{defn} \label{N3}
+	$X$ si dice \textsc{separabile} (o che soddisfa il \textsc{terzo assioma di
+	numerabilità}) se ammette un sottoinsieme denso numerabile.
+\end{defn}
+
+\begin{prop} \label{N2impN3}
+	Se $X$ è a base numerabile, $X$ è separabile.
+\end{prop}
+
+\begin{proof}
+	Sia $\{ B_i, {i \in \mathbb{N}}\}$ la base numerabile di $X$ e scegliamo per
+	ogni $i \in \mathbb{N}$ un elemento $x_i \in B_i$. Vogliamo mostrare che $\{
+	x_i, i \in \mathbb{N} \}$ è un sottoinsieme denso numerabile di $X$.
+
+	Ovviamente è numerabile. Per dimostrare che è denso, mostriamo che interseca
+	ogni aperto non vuoto.
+
+	Sia dunque $A$ un aperto non vuoto di $X$, allora, dato che i $B_i$ formano
+	una base, $A$ è esprimibile come unione di alcuni di essi, in particolare
+	esiste $i_0$ t.c. $B_{i_0} \subseteq A$ e perciò $x_{i_0} \in B_{i_0}
+	\Rightarrow x_{i_0} \in A$, dunque l'intersezione tra il nostro insieme e un
+	aperto non vuoto non è mai vuota, come voluto.
+\end{proof}
+
+\begin{prop} \label{metr-num}
+	Se $(X, \tau)$ è metrizzabile, $X$ è separabile $\Leftrightarrow$ è a base
+	numerabile.
+\end{prop}
+
+\begin{proof}
+	($\Rightarrow$) Mostriamo che per ogni aperto $A$ e per ogni $x \in A$,
+	esiste una palla di centro un elemento del sottoinsieme denso numerabile e
+	raggio un razionale positivo tutta contenuta in $A$. Allora tali palle
+	formano una base numerabile.
+
+	Sicuramente esiste una palla di centro $x$ e raggio $R \in \mathbb{R}^+$
+	tutta contenuta in $A$. Consideriamo la palla di centro $x$ e raggio $R/3$,
+	che è contenuta nella prima. Questa palla è in particolare un insieme
+	aperto, dunque ha un elemento $y$ in comune con il sottoinsieme denso
+	numerabile. Scegliendo un razionale $R/3<r<2 \cdot R/3$ si ottiene che la
+	palla di centro $y$ e raggio $r$ è tutta contenuta nella palla di centro $x$
+	e raggio $R$, dunque è tutta contenuta in $A$, e contiene $x$, come voluto.
+
+	L'altra freccia discende dalla proposizione \ref{N2impN3}.
+\end{proof}
+
+\begin{defn}
+	Un \textsc{sistema fondamentale di intorni} per $x_0$ è una famiglia
+	$\mathcal{F} \subseteq \mathcal{I}(x_0)$ t.c. $\forall U \in
+	\mathcal{I}(x_0) \, \exists V \in \mathcal{F}$ con $V \subseteq U$.
+\end{defn}
+
+\begin{ex} \label{1/n}
+	Se $X$ è uno spazio metrico, le palle centrate in $x_0$ do raggio $1/n$ al
+	variare di $n$ intero positivo sono un sistema fondamentale di intorni. In
+	particolare, sono un sistema fondamentale di intorni numerabile.
+\end{ex}
+
+\begin{defn} \label{N1}
+	$X$ soddisfa il \textsc{primo assioma di numerabilità} se ogni $x_0 \in X$
+	ha un sistema fondamentale di intorni numerabile.
+\end{defn}
+
+\begin{ftt}
+	Se $X$ è metrizzabile $X$ soddisfa il primo assioma di numerabilità. Ciò
+	discende direttamente dall'esempio \ref{1/n}.
+\end{ftt}
+
+\begin{prop} \label{N2power}
+	Il secondo assioma di numerabilità implica il primo e il terzo assioma di
+	numerabilità. Discende dalla proposizione \ref{metr-num} che in spazi
+	metrici vale anche che il terzo assioma di numerabilità implica il secondo
+	assioma di numerabilità.
+\end{prop}
+
+\begin{proof}
+	Supponiamo che $X$ soddisfi il secondo assioma di numerabilità. Per la
+	proposizione \ref{N2impN3} otteniamo subito che soddisfa il terzo. Vogliamo
+	adesso mostrare che soddisfa anche il primo. Sia $\mathcal{B}$ una base
+	numerabile. Dato $x \in X$, consideriamo l'insieme ${\{ B \in \mathcal{B}\
+	|\ x \in B \}}$. Essendo un sottoinsieme di $\mathcal{B}$ è sicuramente
+	numerabile e contiene solo insiemi aperti, cioè intorni di $x$. Mostriamo
+	che è un sistema fondamentale di intorni per $x$.
+
+	Consideriamo un intorno $U$ di $x$. Questo ha un sottoinsieme aperto $V
+	\subseteq U$ contenente $x$, dunque $V$ è esprimibile come unione di
+	elementi di $\mathcal{B}$ e ce ne dev'essere uno che contiene $x$, che sta
+	quindi nel nostro insieme ed è contenuto in $V$ e quindi in $U$. Dunque, per
+	ogni intorno $U$ di $x$ troviamo un elemento del nostro insieme di intorni
+	di $x$ contenuto in $U$, che è quello che dovevamo dimostrare.
+\end{proof}
+
+\begin{prop}
+	\begin{nlist}
+		\item $A \subseteq X$ è aperto se e solo se è intorno di ogni suo punto;
+		\item sia $C \subseteq X$ un insieme generico, allora $x \in
+		\overline{C}$ se e solo se ogni intorno di $x$ interseca $C$.
+	\end{nlist}
+\end{prop}
+
+\begin{proof}
+    \begin{nlist}
+        \item Sia $A$ un insieme che \`e intorno di ogni suo punto, cio\`e per
+        ogni $x \in A$ esiste un aperto $V_x \subseteq A$ che lo contiene.
+        Allora vale che $\displaystyle A = \bigcup_{x \in A} V_x$. Poiché $A$
+        \`e unione di aperti\`e aperto.
+
+        Viceversa sia $A$ aperto. Allora ogni suo punto \`e interno ad esso.
+
+        \item Si ha che $\overline{C}$ \`e il complementare di $(X\setminus
+        C)^\circ$. Dunque $x$ appartiene a $\overline{C}$ se e solo se non \`e
+        interno a $X \setminus C$, cioè se e solo se ogni suo intorno $U$ non
+        \`e tutto contenuto nel complementare di $C$. Questo accade quando ogni
+        intorno di $X$ interseca $C$ in almeno un punto.
+    \end{nlist}
+\end{proof}
+
+\begin{ex}
+	La retta di Sorgenfrey. Su $X=\mathbb{R}$ consideriamo il seguente insieme:
+	$${\mathcal{B}=\{\,[a, b)\ |\ a<b\}}.$$
+    Allora valgono le seguenti:
+	\begin{nlist}
+		\item $\mathcal{B}$ è base di una topologia $\tau$;
+		\item $\tau$ \`e pi\`u fine della topologia euclidea;
+		\item $\tau$ è separabile;
+		\item $\tau$ non è a base numerabile;
+		\item $\tau$ non è metrizzabile;
+		\item $\tau$ è primo numerabile.
+	\end{nlist}
+\end{ex}
+
+\begin{proof}
+    \begin{nlist}
+        \item Verifichiamo utilizando la proposizione \ref{prop:base}. Il primo
+        punto vale in quanto $\mathbb{R}$ \`e coperto da intervalli del tipo
+        $\left[-n, n\right)$ con $n$ naturale. Inoltre dati i due intervalli
+        $[a,b)$ e $[c,d)$, distinguo:
+        \begin{itemize}
+            \item $b\leq c$. Allora l'intersezione \`e vuota.
+            \item $c < b$ e $b \leq d$. Allora l'intersezione \`e $[c,b)$.
+            \item $c < b$ e $b > d$. Allora l'intersezione \`e $[c,d)$.
+        \end{itemize}
+        In ogni caso vale anche il secondo punto.
+
+        \item Voglio mostrare che ogni aperto di $\tau$ \`e anche aperto di
+        $\tau_E$. Sia allora $(a, b)$ un aperto della base degli intervalli
+        aperti della topologia euclidea. Si considerino gli aperti in $\tau$
+        della forma $[a+\frac{1}{n},b)$ con $n$ naturale positivo. L'unione di
+        tutti questi \`e allora $(a,b)$.
+
+        \item Si noti che $\mathbb{Q}$ \`e un denso numerabile.
+
+        \item Sia $\mathcal{D}$ una base di $\tau$. Si noti che ogni intervallo
+        del tipo $[x,x+1)$, con $x$ reale, pu\`o essere scritto come unione
+        degli elementi della base solo se in $\mathcal{D}$ c'\`e un elemento $D$
+        tale che $x \in D \subseteq [x, x+1)$, da cui $\inf(D) = x$. Allora la
+        mappa
+        \begin{align*}
+            \phi:\mathcal{D}&\to \mathbb{R}\\
+            D & \mapsto \inf(D)
+        \end{align*}
+        deve essere surgettiva. Dunque la base scelta non pu\`o essere
+        numerabile.
+
+        \item Semplice conseguenza dei punti precedenti e della proposizione
+        \ref{metr-num}.
+
+				\item Basta notare che per ogni $x \in \mathbb{R}$ l'insieme $\{
+				[x-1/n, x+1/n) | n \in \mathbb{Z}^+\}$ è una famiglia di intorni
+				numerabile per $x$.
+    \end{nlist}
+\end{proof}
+
+\begin{ex}
+	Topologia di Zariski. Sia $\mathbb{K}$ un campo. Definiamo una topologia
+	$\tau_Z$ in $\mathbb{K}^n$ in cui i chiusi sono tutti e soli gli insiemi i
+	cui elementi si annullano in tutti i polinomi di una famiglia arbitraria
+	(non vuota) $\mathcal{F} \subseteq \mathbb{K}[x_1, \dots, x_n]$ di polinomi
+	a $n$ variabili con coefficienti in $\mathbb{K}$. Dimostreremo che $\tau_Z$
+	è effettivamente una topologia, che è meno fine di quella euclidea quando
+	$\mathbb{K}=\mathbb{R}$. Inoltre, quando $n=1$ e per $\mathbb{K}$ generico,
+	$\tau_Z$ coincide con la topologia cofinita.
+\end{ex}
+
+\begin{proof}
+	Dimostreremo che i chiusi soddisfano le proprietà di topologia (per i
+	chiusi, ovviamente), per passaggio al complementare si può concludere che
+	$\tau_Z$ è una topologia.
+
+	Ovviamente il vuoto è chiuso perché la proprietà dei suoi elementi di
+	annullarsi in un qualunque insieme di polinomi è sempre vera a vuoto, mentre
+	$\mathbb{K}^n$ è chiuso perché tutti gli elementi si annullano nella
+	famiglia formata dal solo polinomio nullo.
+
+	Siano ora $C_1, C_2$ due chiusi i cui elementi si annullano, per
+	definizione, nei polinomi rispettivamente delle famiglie $\mathcal{F}_1,
+	\mathcal{F}_2$. Consideriamo la famiglia $\mathcal{F}_{1, 2}=$ \\ $=\{ f_1
+	\cdot f_2 | f_1 \in \mathcal{F}_1, f_2 \in \mathcal{F}_2 \}$. Mostriamo che
+	l'insieme dei punti che si annullano nei polinomi di $\mathcal{F}_{1, 2}$ è
+	proprio $C_1 \cup C_2$. Ovviamente se $x \in C_1 \cup C_2$ possiamo dire
+	senza perdita di generalità che $x$ si annulla in tutti i polinomi in
+	$\mathcal{F}_1$, e quindi banalmente anche in tutti i polinomi di
+	$\mathcal{F}_{1, 2}$. D'altro canto, se $x$ si annulla in tutti i polinomi
+	di $\mathcal{F}_{1, 2}$, si deve annullare almeno o in tutti i polinomi di
+	$\mathcal{F}_1$ o in tutti i polinomi di $\mathcal{F}_2$. Se per assurdo
+	così non fosse, esisterebbero $f_1 \in \mathcal{F}_1, f_2 \in \mathcal{F}_2$
+	t.c. $f_1(x) \not= 0 \not= f_2(x)$ e, poiché siamo in un campo, si avrebbe
+	$f_1(x) \cdot f_2(x)=0$, assurdo. Dunque $x \in C_1 \cup C_2$.
+
+	Consideriamo adesso dei chiusi $C_i, i \in I$ definiti dalle famiglie
+	$\mathcal{F}_i$. Mostriamo che $\displaystyle C=\bigcap_{i \in I} C_i$ è
+	l'insieme dei punti che si annullano nei polinomi di $\displaystyle
+	\mathcal{F}_I=\bigcup_{i \in I} \mathcal{F}_i$. Se $x \in C$ allora $x \in
+	C_i \, \forall i \in I$ e dunque si annulla in tutti i polinomi di
+	$\mathcal{F}_i$ per ogni $i$, quindi si annulla in tutti i polinomi della
+	loro unione, che è proprio $\mathcal{F}_I$. Viceversa, se $x$ si annulla in
+	tutti i polinomi di $\mathcal{F}_I$ allora si annulla in tutti i polinomi di
+	ogni suo sottoinsieme, in particolare in tutti i polinomi di $\mathcal{F}_i
+	\, \forall i \in I$, quindi $x \in C_i$ per ogni $i$ da cui $x \in C$.
+
+	Poniamo ora $\mathbb{K}=\mathbb{R}$. Poiché i polinomi in $\mathbb{R}[x_1,
+	\dots, x_n]$ sono funzioni continue per la topologia euclidea, la
+	controimmagine di un aperto è a sua volta un aperto. Per passaggio al
+	complementare la controimmagine di un chiuso è a sua volta un chiuso. Ma
+	allora, sia $\mathcal{F}$ una famiglia di polinomi, ho che, essendo $\{ 0
+	\}$ chiuso in $\tau_E$ di $\mathbb{R}$, $f^{-1}(0)$ (qui si intende la
+	controimmagine) è chiuso in $\tau_E$ di $\mathbb{R}^n$ per ogni $f \in
+	\mathcal{F}$. Ma l'insieme dei punti che si annullano in tutti i polinomi di
+	$\mathcal{F}$ può essere descritto come $\displaystyle \bigcap_{f \in
+	\mathcal{F}} f^{-1}(0)$, che essendo intersezione di chiusi è chiuso in
+	$\tau_E$, quindi tutti i chiusi di $\tau_Z$ sono chiusi in $\tau_E$, per
+	passaggio al complementare la stessa cosa con gli aperti e dunque $\tau_Z <
+	\tau_E$.
+
+	Sia adesso $\mathbb{K}$ generico e $n=1$. Sia $p$ un generico polinomio in
+	$\mathbb{R}[x]$ e $\overline{\mathbb{K}}$ la chiusura algebrica di
+	$\mathbb{K}$. Per il teorema fondamentale dell'algebra, $p$ ha al più
+	$\deg{p}$ zeri in $\overline{\mathbb{K}}$, quindi a maggior ragione ne ha al
+	più un numero finito in $\mathbb{K}$. Dunque i punti che si annullano in
+	tutti i polinomi di una generica famiglia di polinomi sono finiti (limitati
+	dal grado di un qualsiasi polinomio della famiglia), dunque i chiusi sono
+	tutti finiti.
+	Considerando invece un insieme finito $\{ x_1, \dots, x_m\} \subseteq
+	\mathbb{K}$, esso si annulla in tutti i polinomi dell'ideale generato da
+	$(x-x_1) \cdot \ldots \cdot (x-x_m)$, dunque è vero anche il viceversa, cioè
+	che tutti i finiti sono chiusi, quindi in questo caso $\tau_Z$ coincide con
+	la topologia euclidea.
+\end{proof}
+
+\begin{ftt}
+	Se $X$ non è numerabile, la topologia cofinita su $X$ non soddisfa alcun
+	assioma di numerabilità. %Secondo me il terzo lo soddisfa per qualunque
+	                           % insieme finito
+\end{ftt}
+
+\begin{proof}
+	Per la proposizione \ref{N2power}, se dimostriamo che non soddisfa il primo
+	otteniamo anche che non soddisfa il secondo. Sia dunque per assurdo $x_0 \in
+	X$ e $\mathcal{F}$ un suo sistema fondamentale di intorni numerabile.
+	Notiamo che per ogni $x \in X, x\not=x_0$ l'insieme $X \setminus \{ x\}$ è
+	un aperto, dunque esiste un intorno di $x_0$ tutto contenuto in esso, cioè
+	che non contiene $x$. Notiamo, per come è definita la topologia cofinita,
+	che gli intorni, essendo sovrainsiemi di insiemi aperti, sono a loro volta
+	aperti, cioè il loro complementare è finito. Ma dato che per ogni $x \in X
+	\setminus \{ x_0\}$ esiste un intorno di $x_0$ che non contiene $x$, posso
+	scrivere $X \{ x_0\}$, che è ancora un insieme numerabile, come l'unione dei
+	complementari degli insiemi in $\mathcal{F}$, cioè un'unione numerabile di
+	insiemi finiti, che è numerabile, da cui l'assurdo.
+
+	Per quanto riguarda il terzo assioma, secondo me ho capito male mentre ero a
+	lezione, perché mi sembra che qualunque sottoinsieme infinito di $X$ debba
+	necessariamente intersecare in qualche punto il complementare di un insieme
+	finito, e quindi anche un insieme infinito di cardinalità numerabile avrebbe
+	intersezione non nulla con tutti gli aperti e sarebbe di conseguenza un
+	denso numerabile.
+\end{proof}
+
+Procediamo adesso a caratterizzare, negli insiemi che soddisfano il primo
+assioma di numerabilità, aperti, chiusi e continuità tramite successioni.
+Diamo prima una definizione.
+
+\begin{defn}
+	$l \in X$ è detto \textit{limite} della successione $(a_n)_{n \in
+	\mathbb{N}}$ se per ogni intorno $U$ di $l$ esiste $n_0 \in \mathbb{N}$ t.c.
+	per ogni $n \ge n_0$ si ha che $a_n \in U$.
+\end{defn}
+
+Passiamo dunque alle varia caratterizzazioni. Nei tre enunciati seguenti,
+$X$ sarà sempre uno spazio topologico primo numerabile.
+
+\begin{prop}
+	Un sottoinsieme $A \subseteq X$ è aperto $\Leftrightarrow$ è aperto per
+	successioni (si dice aperto per successioni?), cioè se per ogni successione
+	$(a_k)$ di elementi di $x$ che converge a un limite $l \in A$ esiste $k_0$
+	t.c. per ogni $k \ge k_0$ si ha $a_k \in A$.
+\end{prop}
+
+\begin{proof}
+	Notiamo prima il seguente fatto: se $U_k, \, n \in \mathbb{N}$ è un sistema
+	fondamentale di intorni numerabile per $x$, definiamo $V_k=U_0 \cap U_1 \cap
+	\dots \cap U_k$. Allora $V_k, \, k \in \mathbb{N}$ è un sistema fondamentale
+	di intorni numerabile tale che $V_{k+1} \subseteq V_k$.
+
+	($\implies$) Sia $A$ un aperto e $(a_k)$ una successione avente limite $l
+	\in A$. Poiché $A$ stesso è un intorno di $l$, si conclude che esiste $k_0$
+	t.c. $a_k \in A$ per ogni $k \ge k_0$ dalla definizione di limite.
+
+	($\Leftarrow$) Sia $A$ un insieme aperto per successioni e prendiamo $x \in
+	A$. Vogliamo mostrare che esiste un intorno $U_x$ di $x$ tutto contenuto in
+	$A$. Se per assurdo così non fosse, allora ogni intorno di $x$ avrebbe un
+	elemento non contenuto in $A$. Consideriamo adesso un sistema fondamentale
+	di intorni numerabile $V_k, k \in \mathbb{N}$, e lo prendiamo t.c. $V_{k+1}
+	\subseteq V_k$. Per ciascuno di questi intorni, prendiamo un elemento $a_k
+	\in V_k$ t.c. $a_k \not\in A$, che esiste per ipotesi assurda (alcuni
+	elementi possono anche ripetersi, non ha importanza). Allora avremmo, dato
+	che il sistema di intorni è fondamentale e che $V_{k'} \subseteq V_k$ se
+	$k'>k$
+	(segue da $V_{k+1} \subseteq V_k$), che la successione $(a_k)$ sta
+	definitivamente in ogni intorno di $x$ e dunque ha limite $x$, ma è tutta
+	fuori da $A$, assurdo perché $A$ è aperto per successioni. Allora per ogni
+	$x \in A$ esiste un intorno $U_x$ t.c. $U_x \subseteq A$, ma questo ci dice
+	anche che per ogni $x \in A$ esiste un aperto $A_x$ t.c. $x \in A_x
+	\subseteq U_x \subseteq A$, da cui otteniamo che $\displaystyle A=\bigcup_{x
+	\in A} A_x$ è un'unione di aperti e dunque è aperto.
+\end{proof}
+
+\begin{prop}
+	Un sottoinsieme $C \subseteq X$ è chiuso $\Leftrightarrow$ è chiuso per
+	successioni, cioè per ogni successione $(a_k)$ di elementi di $C$ che
+	converge a un limite $l$, anche $l \in C$.
+\end{prop}
+
+\begin{proof}
+	($\implies$) Supponiamo $C$ chiuso e sia $(a_k)$ una successione di elementi
+	di $C$ con limite $l$. Per assurdo, $l \not\in C$. Allora $l \in X \setminus
+	C$, che è un insieme aperto, in particolare $X \setminus C$ è un intorno di
+	$l$. Esiste dunque, per definizione di limite, un $k_0 \in \mathbb{N}$ t.c.
+	per ogni $k \ge k_0$ si abbia che $a_k \in X \setminus C$, ma $a_k \in C$
+	per ogni $k \in \mathbb{N}$,
+	assurdo. Questa freccia vale in tutti gli spazi topologici.
+
+	($\Leftarrow$) Supponiamo adesso che per ogni successione $(a_k)$ di
+	elementi di $C$ avente limite $l$ si abbia $l \in C$. Consideriamo un
+	elemento $x \in X \setminus C$. Vogliamo mostrare che esiste un intorno
+	$U_x$ di $x$ tutto contenuto in $X \setminus C$. Se così non fosse, per ogni
+	intorno di $x$ esisterebbe un elemento di $C$ in esso contenuto. Poiché $X$
+	è primo numerabile, consideriamo dunque un sistema fondamentale di intorni
+	numerabile di $x$, sia esso $V_k, \, k \in \mathbb{N}$, e come nella
+	dimostrazione precedente lo prendiamo t.c.
+	$V_{k+1} \subseteq V_k$. Adesso scegliamo per ogni $k$ un elemento $a_k \in
+	V_k$ t.c. $a_k \in C$, che esiste per l'ipotesi assurda. Notiamo che alcuni
+	di questi elementi possono essere uguali, non ha importanza. Dato che
+	abbiamo preso un sistema di intorni fondamentale, per ogni intorno $U$ di
+	$x$ esiste un $k_0$ t.c. $V_{k_0} \subseteq U$. Ma poiché $V_k \subseteq V_
+	{k_0}$ per ogni $k \ge k_0$ (facile conseguenza di $V_{k+1} \subseteq V_k$),
+	ho che $a_k \in V_k \subseteq V_{k_0} \subseteq U$ per ogni $k \ge k_0$.
+	Riassumendo, per ogni $U$ intorno di $x$ esiste un $k_0$ t.c. per ogni $k
+	\ge k_0$ si ha $a_k \in U$, ma questo per definizione significa che $x$ è il
+	limite di $(a_k)$, assurdo poiché $a_k \in C$ per ogni $k$ mentre $x \in X
+	\setminus C$, contro l'ipotesi iniziale che per tutte le successioni in $C$
+	aventi limite anche il limite è in $C$. Dunque per ogni $x \in X \setminus
+	C$ esiste un intorno $U_x \subseteq X \setminus C$, da cui si ha che esiste
+	un aperto $A_x$ con $x \in A_x \subseteq U_x \subseteq X \setminus C$. Ma
+	allora, $\displaystyle X \setminus C=\bigcup_{x \in X \setminus C} A_x$ che
+	un'unione di aperti, perciò $X \setminus C$ è aperto e di conseguenza $C$ è
+	chiuso.
+\end{proof}
+
+\begin{prop}
+	Sia $Y$ uno spazio topologico (che non deve necessariamente soddisfare il
+	primo assioma di numerabilità). Una funzione $f:X \rightarrow Y$ è continua
+	in $\bar{x}$ $\Leftrightarrow$ per ogni successione$(x_n)_{n \in
+	\mathbb{N}}$ convergente a $\bar{x}$ la successione $(f(x_n))_{n \in
+	\mathbb{N}}$ converge a $f(\bar(x))$.
+\end{prop}
+
+\begin{proof}
+	($\implies$) Supponiamo che $f$ sia continua in $\bar{x}$ e consideriamo una
+	generica successione $(x_n)$ convergente a $\bar{x}$. Prendiamo un intorno
+	$U$ di $f(\bar{x})$ in $Y$. Dato che $f$ è continua in $\bar{x}$, esiste un
+	intorno $V$ di $\bar{x}$ in $X$ t.c. $f(V) \subseteq U$. Prendiamo, per
+	ipotesi di convergenza, $n_0 \in \mathbb{N}$ t.c. $a_n \in V$ per ogni $n
+	\ge n_0$. Allora si ha anche, sempre per ogni $n \ge n_0$, $f(x_n) \in U$,
+	da cui otteniamo che $(f(x_n))$ converge a $f(\bar{x})$. Questa freccia vale
+	per $X$ spazio topologico qualsiasi.
+
+	($\Leftarrow$) Supponiamo adesso che per ogni successione convergente in $X$
+	la successione immagine converga all'immagine del limite in $Y$. Per
+	assurdo, $f$ non è continua in $\bar{x}$. Allora deve esistere un intorno
+	$U$ di $f(\bar{x})$ t.c. per ogni intorno $V$ di $\bar{x}$ si ha $f(V) \not
+	\subseteq U$. Prendiamo un sistema fondamentale di intorni numerabile di
+	$\bar{x}$, sia esso $V_n, \, n \in \mathbb{N}$, e come nella dimostrazione
+	precedente lo prendiamo t.c. $V_{n+1} \subseteq V_n$ per ogni $n$.
+
+	Prendiamo, per ogni $n$, un elemento $x_n \in V_n$ t.c. $f(x_n) \not\in U$,
+	che esiste per l'ipotesi assurda. Allora si mostra, come nella dimostrazione
+	precedente, che la successione $(x_n)$ tende a $\bar{x}$, ma le loro
+	immagini $f(x_n)$ sono tutte fuori dallo stesso intorno $U$ di $f(\bar{x})$,
+	dunque la successione $(f(x_n))$ non tende a $f(\bar{x})$, assurdo per
+	ipotesi.
+\end{proof}

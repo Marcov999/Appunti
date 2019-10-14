@@ -1,0 +1,89 @@
+\begin{defn} 
+	Sia $\{X_\alpha\}_{\alpha \in A}$ una famiglia di spazi topologici. Allora
+	il \textsc{prodotto cartesiano} della famiglia è:
+	$$X:=\prod_{\alpha \in A} X_\alpha = \{f:A \longrightarrow \bigcup _{\alpha
+	\in A} X_\alpha  \mid f(\alpha)\in X_\alpha, \forall \alpha \in A\} $$
+	Se $A=\{1, \dots ,n\}$, allora:
+	$$\prod_{i=1}^n X_i=X_1 \times \cdots \times X_n \ni (x_1, \dots ,x_n)
+	\qquad x_i:=f(i)$$
+\end{defn}
+\begin{defn}
+	La \textsc{topologia prodotto} su $X=\begin{matrix} \prod_{i\alpha \in A}
+	X_\alpha \end{matrix}	$ è la topologia meno fine su $X$ che rende
+	continue tutte le proiezioni $p_\alpha : X \longrightarrow X_\alpha$.
+\end{defn}
+\begin{oss}
+	$X$ viene naturalmente con proiezioni:
+	$$p_\alpha :X \longrightarrow X_\alpha \qquad f \longmapsto f(\alpha) \qquad
+	\forall \alpha \in A$$
+	Inoltre questa topologia è ben definita poiché l'intersezione di topologie è
+	una topologia.
+\end{oss}
+\begin{prop}
+	Una base per la topologia prodotto su $X$ è data da:
+	$$\mathcal{B}=\left \{\prod_{\alpha \in A} U_\alpha \mid U_\alpha \subset
+	X_\alpha \text{ aperto }, U_\alpha =X_\alpha \text{ tranne al più 		un
+	numero finito di }\alpha \right \}$$
+\end{prop}
+\begin{proof}
+	Sia $U_\alpha \subset X_\alpha$ aperto. Allora:
+	$$p_\alpha ^{-1} (U_\alpha)=\prod_{\beta \in A} V_\beta \qquad
+	\text{dove}\qquad V_\beta =\begin{cases}U_\alpha & \text{se }\beta \alpha \\
+	X_\beta & \text{se } \beta \ne \alpha \end{cases}$$
+	Dunque le proiezioni $p_\alpha$ sono continue se e solo se tutte le
+	preimmagini di tale forma sono aperte nella topologia prodotto.
+    Quindi:
+	$$p_\alpha ^{-1} (U_\alpha) \subset X \text{ aperto } \qquad \forall \text{
+	aperto } U_\alpha \subset X_\alpha$$
+	Siano $U_{\alpha _1} \subset X_{\alpha _1} , \dots , U_{\alpha _n} \subset
+	X_{\alpha _n}$ aperti, con $\alpha _1, \dots, \alpha _n \in A$. Allora:
+	$$X \supset \bigcap _{i=1}^n p_{\alpha _I}^{-1}(U_{\alpha _i}) = \prod
+	_{\alpha \in A} V_\alpha \qquad \text{dove}\qquad V_\alpha =
+	\begin{cases}U_{\alpha _i} & \text{se }\alpha =\alpha  _i \\ X_\alpha &
+	\text{se } \alpha \ne \alpha _i \end{cases}$$
+	Dunque ogni elemento di $\mathcal{B}$ è aperto nella topologia prodotto su
+	$X$ (infatti l'intersezione di aperti è un aperto). Se $ \mathcal{B}$ è
+	base di una topologia abbiamo finito, in quanto per definizione la topologia
+	prodotto è la meno fine che rende continue tutte le $p_\alpha$.
+	Altrimenti:
+	$$\left( \prod_{\alpha \in A} U_\alpha \right) \bigcap \left( \prod_{\alpha
+	\in A} V_\alpha \right)=\prod _{\alpha \in A} (U_\alpha \cap V_\alpha)$$
+	Dunque le intersezioni di elementi di $\mathcal{B}$ sono ancora in
+	$\mathcal{B}$, che quindi è chiuso rispetto alle intersezioni finite, e
+	perciò è una base.
+\end{proof}
+\begin{oss}
+	Supponiamo $\mathcal{B}_\alpha$ base della topologia di $X_\alpha$.
+	Definiamo:
+	$$\mathcal{B}'=\left \{ \prod_{\alpha \in A} B_\alpha \mid B_\alpha \in
+	\mathcal{B}_\alpha, B_\alpha =X_\alpha \text{ tranne al più un numero
+	finito di } \alpha \right \}$$
+	Allora $\mathcal{B}'$ è una base per la topologia prodotto in $X$.
+\end{oss}
+\begin{cor}
+	Supponiamo $A$ numerabile e $\mathcal{B}_\alpha$ base numerabile per
+	$X_\alpha$ per ogni $\alpha$. Allora $\mathcal{B}'$ è una base numerabile
+	per $X$.
+\end{cor}
+\begin{proof}
+	Per esercizio.
+\end{proof}
+\begin{cor}
+	(analogo al precedente) Supponiamo $A$ numerabile e che tutti gli $X_\alpha$
+	siano primo-numerabili. Allora la topologia prodotto è	primo-numerabile.
+\end{cor}
+\begin{oss}
+	In generale, se $A$ non è numerabile i due corollari sono falsi.
+\end{oss}
+\begin{ex}
+	Prendiamo $\mathbb{R}$ con la topologia euclidea, e consideriamo:
+	$$\mathbb{R}^n=\underbrace{\mathbb{R} \times \cdots \times 	\mathbb{R}}_
+	{n\text{ volte}}$$
+	Esso eredita una topologia prodotto che coincide con la topologia euclidea
+	su $\mathbb{R}^n$. In particolare, la topologia euclidea ha per base le
+	palle aperte. La topologia prodotto ha per base i parallelepipedi retti
+	aperti:
+	$$(a_1,b_1)\times \cdots \times (a_n,b_n)$$
+	In effetti tali parallelepipedi sono aperti nella topologia euclidea (e
+	viceversa).
+\end{ex}

@@ -1,0 +1,204 @@
+\begin{prop}
+	$p_\alpha :X \longrightarrow X_\alpha$ è un'applicazione aperta $\forall
+	\alpha \in A$ (sempre prendendo $X=\begin{matrix} \prod_{\alpha \in A}
+	X_\alpha \end{matrix}$).
+\end{prop}
+\begin{proof}
+	Sia $\mathcal{B}$ la base di $X$, allora $p_\alpha$ è aperta se e solo se
+	$p_\alpha (B)$ aperto $\forall B \in \mathcal{B}$.
+	Supponiamo $B=\begin{matrix} \prod_{\alpha \in A} U_\alpha \end{matrix}$ con
+	$U_\alpha \subset X_\alpha$ aperto. Allora $p_\alpha (B)=U_\alpha$ è
+	aperto per definizione.
+\end{proof}
+\begin{oss}
+	Le proiezioni $p_\alpha$ in generale non sono chiuse.
+\end{oss}
+\begin{ex}
+	Prendiamo $p_1 :\mathbb{R}^2=\mathbb{R}\times \mathbb{R} \longrightarrow
+	\mathbb{R}$ e sia $Z$ l'iperbole equilatera, ovvero $Z=\{xy \mid
+	xy=1\}$. Allora $Z$ è chiuso in quanto $Z=p^{-1}(0)$ con $p=xy-1$, $p$
+	continua e $0 \in \mathbb{R}$ è chiuso.  Invece, $p_1(\{xy \mid xy=1
+	\})=\mathbb{R} \smallsetminus \{0\}$ non è chiuso perché $\{0\}$ non è
+	aperto.
+\end{ex}
+\begin{prop}
+	Dato $\alpha \in A$ fissiamo $x_\beta \in X_\beta$ $\forall \beta \ne
+	\alpha$, e definiamo $X \supset X(\alpha)=\{f \in X \mid
+	f(\beta)=x_\beta\}$. Allora la restrizione:
+	$$p_\alpha \restrict {X(\alpha)} :X(\alpha) \longrightarrow X_\alpha$$
+	è un omeomorfismo.
+\end{prop}
+\begin{proof}
+	\begin{nlist}
+    	\item $p_\alpha \restrict{X(\alpha)}$ è continua perche è restrizione di
+    	$p_\alpha$, che è continua.
+    	\item $p_\alpha \restrict{X(\alpha)}$ è bigettiva.
+    	\item $p_\alpha \restrict{X(\alpha)}$ è aperta: gli aperti di
+    	$X(\alpha)$ sono:
+    	$$\prod _{\beta \in A} U_\beta \cap X(\alpha)$$
+    	dove
+    	$$\prod_{\beta \in A} U_\beta=U:=\{f \in X(\alpha) \mid f(\alpha) \in
+    	U_\alpha \}$$
+    \end{nlist}
+    D'altra parte $p_\alpha \restrict{X(\alpha)}(U)=p_\alpha (U)=U_\alpha$, che
+    è aperto in $X_\alpha$.
+\end{proof}
+\begin{prop}(\emph{Proprietà universale della topologia prodotto})\\
+	La topologia prodotto ha la seguente proprietà: dato $Z$ spazio topologico e
+	$f:Z \longrightarrow X$ funzione arbitraria, allora $f$ è continua se e
+	solo se $p_\alpha \circ f$ è continua. Il diagramma risulta essere:
+	\begin{center}\begin{tikzcd}
+            & X \arrow[d, "p_\alpha"]\\
+            Z \arrow[ru, "f"] \arrow[r, "p_\alpha \circ f"'] & X_\alpha
+     \end{tikzcd}\end{center}
+\end{prop}
+\begin{proof}
+	($\Rightarrow$) La composizione di funzioni continue è una funzione
+	continua.\\
+	($\Leftarrow$) Sia $U \subset X$ aperto. Vediamo se $f^{-1}(U)$ aperto. Ci
+	basta vederlo per $U \in \mathcal{B}$, quindi:
+	$$U=\prod_{\alpha \in A} U_\alpha \qquad \qquad \text{con }U_\alpha \subset
+	X_\alpha \text{ aperto}$$
+	Inoltre, $\exists A_0 \subset A$ finito tale che $U_\alpha =X_\alpha$
+	($\forall \alpha \notin A_0$). D'altra parte:
+	$$f^{-1}(U)=f^{-1}\left(\prod_{\alpha \in A} U_\alpha\right)=f^{-1}
+	\left(\bigcap _{\alpha \in A} p_\alpha ^{-1}(U_\alpha) \right)=
+	\bigcap_{\alpha \in A} (p_\alpha \circ f)^{-1}(U_\alpha)$$
+	Dunque $f^{-1}(U)$ è un'intersezione finita di aperti.
+\end{proof}
+\begin{thm}
+	La topologia prodotto è univocamente caratterizzata dalla proprietà
+	universale.\\
+	\underline{Equivalentemente}: Se $\tau _X$ è una topologia in $X$ con la
+	proprietà:\\
+	$\forall Z$ spazio topologico, $f:Z \longrightarrow X$, allora $f$ è
+	continua se e solo se $p_\alpha \circ f$ è continua.
+\end{thm}
+\begin{proof}
+	Abbiamo visto che la topologia prodotto soddisfa la proprietà. Siano $\tau
+	_X$ una topologia che soddisfa la proprietà, $\tau _\alpha$ la topologia
+	in $X_\alpha$ e $\tau _{pr}$ la topologia prodotto su $X$. Prendiamo
+	$Z=(X,\tau _{pr})$, e otteniamo il diagramma:
+		\begin{center}\begin{tikzcd}[column sep=small]
+			& (X,\tau _X) \arrow[rd, "p_\alpha"] & \\
+			(X,\tau _{pr})	\arrow[ru, "\id _X"] \arrow[rr, "p_\alpha"'] & &
+			(X_\alpha,\tau _\alpha)
+    		\end{tikzcd}\end{center}
+    	Abbiamo mostrato che $p_\alpha :(X,\tau _{pr}) \longrightarrow
+    	(X_\alpha, \tau _\alpha)$ è continua. Allora per la proprietà è continua
+    	anche $\id _X$, quindi $\tau _X \subset \tau _{pr}$, ovvero $\tau _X <
+    	\tau _{pr}$. Viceversa, per la minimalità di $\tau _{pr}$, basta
+    	vedere che $p_\alpha :(X,\tau _X) \longrightarrow (X_\alpha, \tau
+    	_\alpha)$ è continua $\forall \alpha \in A$. Prendiamo $Z=(X,\tau _X)$ e
+    	$f=\id _X$. Allora otteniamo il diagramma:
+    		\begin{center}\begin{tikzcd}
+         	& (X,\tau _X) \arrow[dd, "p_\alpha"]\\
+         	(X,\tau _X) \arrow[ru, "\id _X"] \arrow[rd, "p_\alpha"'] & \\
+         	& (X_\alpha,\tau _\alpha)
+         \end{tikzcd}\end{center}
+     Da cui possiamo osservare che $\id _X$ è continua per la proprietà
+     universale, e anche $p_\alpha$ lo è.
+\end{proof}
+
+Diamo adesso alcune informazioni generali che verranno dimostrate più avanti,
+dopodiché vedremo alcune proprietà dei prodotti topologici nel caso degli spazi
+metrici.
+
+\begin{nlist}
+\item Il prodotto di una quantità numerabile di spazi metrici è metrizzabile. In
+generale, è falso se la quantità non è numerabile.
+\item Il prodotto di una quantità al più continua di spazi separabili è
+separabile.
+\end{nlist}
+\begin{prop}
+	Sia $(X,d)$ spazio metrico. Allora $\bar{d}:X \times X \longrightarrow
+	\mathbb{R}$ definita come:
+	$$\bar{d}(x,y)=\min \{d(x,y),1\}$$
+	è una distanza topologicamente equivalente a $d$. Dunque la topologia di uno
+	spazio metrizzabile è indotta da una distanza $\le 1$.
+\end{prop}
+\begin{proof}
+	Verifichiamo che $\bar{d}$ è una distanza. \\
+	\begin{nlist}
+	\item $\bar{d}(x,y) \ge 0 \quad \forall x,y \quad \text{e} \quad
+	\bar{d}(x,y)=0 \Leftrightarrow x=y$ è ovvio dalla definizione.
+	\item Anche la simmetria di $\bar{d}$ è ovvia dalla definizione
+	\item Vediamo che $\bar{d}(x,z) \le \bar{d}(x,y)+\bar{d}(y,z) \quad \forall
+	x,y,z$. Se almeno una tra $\bar{d}(x,y)$ e $\bar{d}(y,z)$ è uguale a 1
+	la tesi è ovvia ($\bar{d}(x,z) \le 1$). Altrimenti:
+	$$\bar{d}(x,z) \le d(x,z) \le d(x,y)+ d(y,z) =\bar{d}(x,y)+\bar{d}(y,z)$$
+	\end{nlist}
+	Dunque $\bar{d}$ è una distanza. Come base della topologia associata ad una
+	distanza si possono prendere le palle di raggio $R$, al	variare di $R<1$.
+	Ma $\forall x \in X, \forall R<1, B_d(x,R)=B_{\bar{d}}(x,R)$, perciò le
+	topologie indotte coincidono.
+\end{proof}
+\begin{defn}
+	$f:(X,d) \longrightarrow (Y,d')$ di dice $K$-\textsc{Lipschitz} se $\forall
+	K>0,\forall x_1,x_2 \in X$:
+	$$d'(f(x_1),f(x_2)) \le Kd(x_1,x_2)$$
+	Inoltre, poiché $f(B(x,\frac{\varepsilon}{k}) \subseteq
+	B(f(x),\varepsilon)$, una funzione $K$-Lipschitz è continua.
+\end{defn}
+\begin{thm}
+Sia $\{(X_i,d_i)\}_{i \in \mathbb{N}}$ una famiglia di spazi metrici. Allora
+$X=\prod _{i \in \mathbb{N}} X_i$ è metrizzabile.
+\end{thm}
+\begin{proof}
+	Costruiamo $d:X \times X \longrightarrow \mathbb{R}$ distanza che induce
+	$\tau _{pr}$ (la topologia prodotto). $\forall i \in \mathbb{N}		$ posso
+	supporre $d_i \le 1$. Denotiamo con $(x_i)_{i \in \mathbb{N}}$ i punti di
+	$X$, dove $x_i \in X_i$, $\forall i \in \mathbb{N}$. 				Poniamo:
+	$$d(x,y)=\sum _{i=0}^\infty 2^{-i} \cdot d_i(x_i,y_i)$$
+	che è $<+\infty$ poichè $d_i \le 1$. È facile verificare che $d$ è una
+	distanza. Sia ora $\tau _d$ la topologia indotta, e mostriamo che $		\tau
+	_{pr} =\tau _d$.\\
+	Se $\pi _i:X \longrightarrow X_i$ è la proiezione su $X_i$, allora:
+	$$d_i(\pi _i(x),\pi _i(y))=d_i(x_i,y_i)=2^i(2^{-i} \cdot d_i(x_i,y_i)) \le
+	2^i d(x,y)$$
+	Quindi $\pi _i$ è $2^i$-Lipschitz, dunque è continua. Allora ogni proiezione
+	è continua rispetto a $\tau _d$, quindi $\tau _d >\tau _{pr}$. 		Vediamo
+	adesso l'inclusione opposta ($\tau _d < \tau _{pr}$).\\
+	Basta osservare che ogni palla di $d$ è aperta in $\tau _{pr}$. Sia
+	$B=B_d(x,\varepsilon) \subseteq X$ e sia $y \in B$. Allora $\exists
+	\delta >0$ tale che $B(y,\delta) \subseteq B$. Dobbiamo allora mostrare che
+	$\exists U$ aperto di $\tau _{pr}$ con $y \in U \subseteq B_d(y,\delta)$.
+	Sia quindi $n_0 \in \mathbb{N}$ tale che $\sum _{i=n_0+1}^\infty 2^{-i} <
+	\delta /2$. Poniamo:
+	$$U=\bigcap _{i=0}^{n_0} \pi _i ^{-1} \left( B\left(
+	y_i,\dfrac{\delta}{4}\right) \right) =B_{d_0}\left( y_0,
+	\dfrac{\delta}{4}\right) \times \cdots		\times B_{d_n}\left(
+	y_n,\dfrac{\delta}{4}\right) \times X_{n_0+1} \times \cdots \times X_n
+	\times \cdots$$
+	Se $z \in U, \quad d_i(x_i,y_i) < \dfrac{\delta}{4} \quad \forall i \le
+	n_0$, allora:
+	$$d(y,z)=\sum _{i=0}^\infty 2^{-i} d_i(y_i,z_i)=\sum _{i=0}^{n_0} 2^{-i}
+	d_i(y_i,z_i)+\sum _{i=n_0+1}^\infty 2^{-i} d_i(y_i,z_i)<$$
+	$$<\dfrac{\delta}{4}\left( \sum _{i=0}^{n_0}2^{-i} \right) +\sum
+	_{i=n_0+1}^\infty 2^{-i} < \dfrac{\delta}{4} \cdot
+	2+\dfrac{\delta}{2}=\delta		$$
+	Dunque $U \subseteq B(y,\delta)$.
+\end{proof}
+\begin{oss}
+	In realtà potevamo usare una qualsiasi serie convergente a termini positivi
+	al posto di $\sum _{i=0}^\infty 2^{-i}$.
+\end{oss}
+\begin{oss}
+	Genericamente, se il prodotto più che numerabile di spazi metrici non è
+	primo-numerabile allora non è metrizzabile.
+\end{oss}
+\begin{prop}(\emph{Prodotti finiti})
+	Se $(X,d)$ e $(Y,d')$ sono spazi metrici, allora $X \times Y$ è
+	metrizzabile, e ha topologia indotta da una qualsiasi delle seguenti
+	distanze:
+	\begin{nlist}
+	\item $d_\infty ((x_1,y_1),(x_2,y_2))=\max \{d(x_1,x_2),d'(y_1,y_2)\}$
+	\item $d_2 ((x_1,y_1),(x_2,y_2))=\sqrt{d(x_1,x_2)^2+d'(y_1,y_2)^2}$
+	\item $d_1 ((x_1,y_1),(x_2,y_2))=d(x_1,x_2)+d'(y_1,y_2)$
+	\end{nlist}
+\end{prop}
+\begin{proof}
+	Si può verificare che $d_1,d_2,d_\infty$ sono equivalenti, come già visto su
+	$\mathbb{R}^n$. Inoltre, è facile vedere che inducono la topologia
+	prodotto.
+\end{proof}

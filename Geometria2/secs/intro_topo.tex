@@ -1,0 +1,80 @@
+\begin{defn}
+    Uno \textsc{spazio topologico} è una coppia $(X, \tau),\; {\tau \subseteq
+    \mathcal{P}(X)}$, t.c.
+    \begin{nlist}
+        \item $\emptyset,\ X \in \tau$;
+        \item $A_1,\ A_2 \in \tau \Rightarrow A_1 \cap A_2 \in \tau$;
+        \item se $I$ è un insieme e $A_i \in \tau \, \forall i \in I$, allora
+        $\displaystyle \bigcup_{i \in I} A_i \in \tau$.
+    \end{nlist}
+    Allora $\tau$ si dice \textsc{topologia} di $X$ e gli elementi della
+    topologia sono detti \textsc{aperti} di $\tau$.
+\end{defn}
+
+\begin{prop}
+    Se $(X, d)$ è uno spazio metrico, gli aperti rispetto a $d$ definiscono una
+    topologia.
+\end{prop}
+
+\begin{defn}
+    Uno spazio topologico $(X, \tau)$ è detto \textsc{metrizzabile} se $\tau$ è
+    indotta da una distanza su $X$.
+\end{defn}
+
+\begin{defn}
+    Sia $(X, \tau)$ uno spazio topologico, $C \subseteq X$ è \textsc{chiuso} se
+    $X \setminus C$ è aperto.
+\end{defn}
+
+\begin{oss}
+\begin{nlist}
+\item possono esistere insiemi né aperti né chiusi;
+\item $\emptyset$ e $X$ sono chiusi;
+\item unione finita di chiusi è chiusa;
+\item intersezione arbitraria di chiusi è chiusa.
+\end{nlist}
+\end{oss}
+
+\begin{ex}
+    Ecco alcuni esempi di spazi topologici:
+    \begin{itemize}
+        \item tutte le topologie indotte da una metrica;
+        \item la topologia discreta, cioè $\tau=\mathcal{P}(X)$, indotta dalla
+        distanza discreta;
+        \item la topologia indiscreta, cioè $\tau=\{ \emptyset, X \}$;
+        \item la topologia cofinita, dove gli aperti sono l'insieme vuoto più
+        tutti e soli gli insiemi il cui complementare è un insieme finito.
+    \end{itemize}
+\end{ex}
+
+\begin{defn}
+	Dato uno spazio topologico $X$ e un insieme $B \subseteq X$, si chiama
+	\textit{parte interna} di $B$, e la si indica con $B^{\circ}$, il più grande
+	aperto contenuto in $B$. Analogamente, la \textit{chiusura} di $B$, indicata
+	con $\overline{B}$, è il più piccolo chiuso che contiene $B$. Definiamo
+	infine la \textit{frontiera} (o \textit{bordo}) di un insieme come l'insieme
+	$\partial B= \overline{B} \setminus B^{\circ}$.
+\end{defn}
+
+Notiamo che parte interna e chiusura sono ben definite: per la prima basta
+prendere l'unione di tutti gli aperti contenuti in $B$ (alla peggio c'è solo il
+vuoto, che è contenuto in ogni insieme), per la seconda si prende l'intersezione
+di tutti i chiusi che lo contengono (alla peggio c'è solo $X$). Per la stabilità
+degli aperti per unione arbitraria e dei chiusi per intersezione arbitraria, gli
+insiemi così ottenuti sono ancora un aperto e un chiuso e sono rispettivamente
+il più grande aperto contenuto e il più piccolo chiuso che contiene per come
+sono stati costruiti. Infine, è banale mostrare che la parte interna di un
+aperto è l'aperto stesso e la chiusura di un chiuso è il chiuso stesso.
+
+\begin{ftt}
+	$X= B^{\circ} \sqcup\ \partial B\ \sqcup (X
+	\setminus B)^{\circ}$ dove con $\sqcup$ si indica l'unione disgiunta.
+\end{ftt}
+
+\begin{proof}
+	Per definizione $B^{\circ} \cup\ \partial B=\overline{B}$ e i due insiemi
+	sono disgiunti. Inoltre, essendo $\overline B$ il più piccolo chiuso che
+	contiene $B$, il suo complementare dev'essere il più grande aperto disgiunto
+	da $B$, cioè il più grande aperto contenuto in $X \setminus B$, che è la
+	parte interna di quest'ultimo. La tesi segue facilmente.
+\end{proof}

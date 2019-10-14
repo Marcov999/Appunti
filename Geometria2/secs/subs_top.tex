@@ -1,0 +1,192 @@
+\begin{defn}
+    Sia $(X, \tau)$ uno spazio topologico, $Y \subseteq X$ un sottoinsieme,
+    cio\`e esiste una mappa iniettiva $i: Y \hooklongrightarrow X$ di
+    inclusione. La topologia ristretta su $Y$ da $\tau$ \`e la topologia meno
+    fine che rende $i$ continua.
+\end{defn}
+
+\begin{oss}
+    Per avere $i$ continua, serve che per ogni $U$ aperto di $\tau$, si abbia
+    $i^{-1}(U)$ aperto nella topologia ristretta $\tau \restrict{Y}$. Poiché
+    $i^{-1}(U) = U \cap Y$, si ha in effetti che per ogni aperto $U$ di $\tau$,
+    $U \cap Y \in \tau \restrict{Y}$.
+
+    Siccome $\sigma = \{U \cap Y \;|\; U \in \tau\}$ \`e una topologia su $Y$
+    che rende continua $i$ e ${\tau\restrict{Y} \subseteq \sigma}$, deve valere
+    l'uguaglianza in quanto $\tau\restrict{Y}$ \`e la meno fine con tali
+    proprietà.
+\end{oss}
+
+\begin{oss}
+    Vale anche che se $\mathcal{B}$ \`e base per $\tau$, allora
+    \[
+    \mathcal{B'} = \{B \cap Y \;|\; B \in \mathcal{B}\}
+    \]
+    \`e una base per $\tau\restrict{Y}$. La dimostrazione \`e analoga a quella
+    fatta per le topologie.
+\end{oss}
+
+\begin{defn}
+    Sia $(X, d)$ uno spazio metrico e $Y \subseteq X$ un sottoinsieme generico.
+    La distanza $d$ pu\`o essere ristretta a $Y \times Y$. In tal caso
+    $d\restrict{Y \times Y}$, che verr\`a indicata anche come $d\restrict{Y}$
+    \`e una distanza su X.
+\end{defn}
+
+\begin{prop}
+    Nel setting della definizione precedente, siano $\tau$ la topologia indotta
+    da $d$ su $X$, $\tau\restrict{Y}$ la restrizione di $\tau$ a $Y$, e $\sigma$
+    la topologia indotta da $d\restrict{Y}$ su $Y$. Allora $\tau\restrict{Y} =
+    \sigma$.
+\end{prop}
+
+\begin{proof}
+    Siano $\mathcal{B}$ e $\mathcal{D}$ rispettivamente basi per
+    $\tau\restrict{y}$ e $\sigma$. Cio\`e:
+    \begin{align*}
+        \mathcal{B}\ =&\ \{Y\ \cap\ \{x \in X \tc d(x, x_0) < r,\quad x_0 \in
+        X,\ r \in \mathbb{R}^+\}\}\\
+        =&\ \{y \in Y \tc d(y, x_0) < r,\quad x_0 \in X,\ r \in \mathbb{R}^+\}
+    \end{align*}
+    \[
+        \mathcal{D}\ =\ \{y \in Y \tc d(y, y_0) < r,\quad y_0 \in Y,\ r \in
+        \mathbb{R}^+\}
+    \]
+    Chiaramente $\mathcal{D} \subseteq \mathcal{B}$, quindi anche $\sigma
+    \subseteq \tau\restrict{Y}$.
+
+    Inoltre, poiché le palle sono aperte, preso un $B \in \mathcal{B}$, per ogni
+    $y \in B \cap Y$ esiste un $r_y>0$ tale che $D_y = B(y,r_y)$ sia contenuto
+    in $B$. per cui si ha che
+    \[
+        B = \bigcup_{y \in B \cap Y} D_y.
+    \]
+    Ma ogni $D_y$ \`e un elemento della base $\mathcal{D}$, quindi ogni aperto
+    di $\tau\restrict{Y}$ \`e un aperto di $\sigma$, concludendo l'ultima
+    inclusione.
+\end{proof}
+
+\begin{defn}
+    Siano $(X, \tau)$ spazio topologico, $Y \subseteq X$. Allora $Y$ si dice
+    discreto in $X$ se $\tau\restrict{Y} = \mathcal{P}(Y)$, cioè la topologia
+    ristretta a $Y$ \`e quella discreta.
+\end{defn}
+
+\begin{oss}
+    Se $Y$ \`e discreto in $X$, allora per ogni $y \in Y$ esiste un aperto $U$
+    di $X$ tale che $U \cap Y = \{y\}$.
+\end{oss}
+
+\begin{thm}
+    \emph{Proprietà universale delle immersioni.} Sia $X$ spazio topologico e $Y
+    \subseteq X$ con $i: Y \hooklongrightarrow X$ mappa di immersione. Allora
+    per ogni spazio topologico $Z$ e per ogni funzione $g: Z \longrightarrow Y$,
+    si ha che $f$ \`e continua se e solo se $i \circ f$ \`e continua.
+\end{thm}
+
+\begin{proof}
+    Poiché $i$ \`e continua per la definizione della topologia su $Y$, e poiché
+    la composizione di continue \`e continua, si ha che se $f$ \`e continua,
+    anche $i \circ f$ lo \`e.
+
+    Per l'altra implicazione, supponiamo $i \circ f$ continua e sia $A$ un
+    aperto di $Y$. Allora esiste $U$ aperto di $X$ tale che ${U\cap Y = A}$, e
+    vale ${i^{-1}(U) = A}$. Allora $(i\circ f)^{-1}(U) = f^{-1}(i^{-1}(U)) =
+    f^{-1}(A)$ \`e aperto in $Z$.
+\end{proof}
+
+\begin{thm}
+    \emph{Universalit\`a della proprietà universale.} La proprietà universale
+    delle immersioni caratterizza in modo unico la topologia ristretta. Cio\`e
+    dato $(X, \tau)$ spazio topologico con $Y \subseteq X$ e immersione ${i: Y
+    \hooklongrightarrow X}$, $\tau\restrict{Y}$ \`e l'unica topologia su $Y$ che
+    rispetta la proprietà universale.
+\end{thm}
+
+\begin{proof}
+    Sia $\sigma$ una topologia su $Y$ che rispetta la propriet\`a universale.
+    \begin{nlist}
+        \item Prendo come $Z$ lo spazio $(Y, \tau\restrict{Y})$ e come $f$
+        l'identità su $Y$. Il diagramma della proprietà universale \`e allora il
+        seguente:
+
+        \begin{center}\begin{tikzcd}
+            (Y, \tau\restrict{Y}) \arrow[r, "\id"] \arrow[rd, "g=i"]
+            & (Y, \sigma) \arrow[d, "i", hookrightarrow]\\
+            & (X,\tau)
+        \end{tikzcd}\end{center}
+
+        Per definizione $g$ \`e continua, $i$ \`e continua, quindi $\id$ \`e
+        continua. Allora $\tau\restrict{Y} \subseteq \sigma$.
+
+        \item Questa volata prendo come $Z$ lo spazio $(Y, \sigma)$ mantenendo
+        come $f$ l'identità. Il diagramma risulta essere:
+
+        \begin{center}\begin{tikzcd}
+            (Y, \sigma) \arrow[r, "\id"] \arrow[rd, "g=i"]
+            & (Y, \sigma) \arrow[d, "i", hookrightarrow]\\
+            & (X,\tau)
+        \end{tikzcd}\end{center}
+
+        Per definizione $\id$ \`e continua, quindi lo \`e anche $g=i$ per la
+        propriet\`a universale. Allora $\sigma$ rende continua $i$, e dunque
+        vale $\sigma \subseteq \tau\restrict{Y}$ per la definizione della
+        restrizione di $\tau$.
+    \end{nlist}
+\end{proof}
+\begin{defn}
+    Sia $f:X\longrightarrow Y$ una funzione. Essa si dice \textsc{aperta} se
+    manda aperti in aperti e \textsc{chiusa} se manda chiusi in chiusi.
+\end{defn}
+% TODO: dimostrazione?
+
+\begin{oss}
+    Sia $f$ come sopra continua e bigettiva. Allora essa \`e un omeomorfismo se
+    e solo se \`e aperta, e se solo se \`e chiusa.
+\end{oss}
+
+\begin{ex}
+    Si consideri l'insieme $\mathbb{Z}$ con la topologia $\tau =
+    \mathcal{P}(\mathbb{N})\cup\mathbb{Z}$. Allora $f: n \longmapsto n-1$ \`e
+    bigettiva, continua, non aperta e non omeomerfismo.
+\end{ex}
+
+\begin{defn}
+    Sia $f:X \hooklongrightarrow Y$ una funzione iniettiva continua. Allora $f$
+    si dice \textsc{immersione topologica} se per ogni $A \subseteq X$ aperto
+    esiste un aperto $U \subseteq Y$ tale che $A = f^{-1}(U)$.
+\end{defn}
+
+\begin{oss}
+    Sia $f: X \longrightarrow Y$ continua. Allora $f$ \`e chiusa e iniettiva se
+    e solo se \`e un'immersione chiusa, se e solo se f \`e immersione con $f(X)$
+    chiuso. Idem con gli aperti.
+\end{oss}
+
+\begin{oss}
+    Sia $Y \subseteq X$ un sottospazio. Allora:
+    \begin{nlist}
+        \item se $X$ \`e N1 allora $Y$ \`e N1;
+
+        \item idem con N2;
+
+        \item se $X$ e separabile e metrizzabile allora $Y$ \`e separabile.
+    \end{nlist}
+\end{oss}
+
+\begin{proof}
+    I primi punti sono ovvi. Per quanto riguarda l'ultimo, se $X$ \`e
+    metrizzabile e separabile, \`e N1. Dunque anche $Y$ \`e metrizzabile e N1, e
+    quindi anche separabile.
+\end{proof}
+
+\begin{ex}
+    \emph{Il piano di Sorgenfrey}. Si prenda lo spazio $\mathbb{R}^2$ dotato
+    della topologia generata dai rettangoli del tipo ${[a,b) \times [c.d)}$.
+    Esso \`e chiamto il piano di Sorgenfrey. Si consideri il sottospazio della
+    retta $y=-x$. La topologia indotta \`e la discreta, infatti per ogni punto
+    $(k, -k)$, il rettangolo ${[k, k+1)\times[-k, 1-k)}$ interseca la retta solo
+    nel punto considerato. Dunque si \`e trovato uno spazio separabile
+    (prendendo per esempio $\mathbb{Q}^2$ come denso numerabile) che ha un
+    sottospazio non separabile.
+\end{ex}
