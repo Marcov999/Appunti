@@ -46,16 +46,16 @@ dove `NOME` indica il tipo di blocco. Si hanno dei blocchi predefiniti
 
 |blocco|`NOME`|
 |---|---|
-|thm|Teorema|
-|lm|Lemma|
-|defn|Definizione|
-|prop|Proposizione|
-|cor|Corollario|
-|ex|Esempio|
-|exc|Esercizio|
-|sol|Soluzione|
-|oss|Osservazione|
-|ftt|Fatto|
+|`thm`|Teorema|
+|`lm`|Lemma|
+|`defn`|Definizione|
+|`prop`|Proposizione|
+|`cor`|Corollario|
+|`ex`|Esempio|
+|`exc`|Esercizio|
+|`sol`|Soluzione|
+|`oss`|Osservazione|
+|`ftt`|Fatto|
 
 Si utilizzano con la sintassi del tipo:
 ```
