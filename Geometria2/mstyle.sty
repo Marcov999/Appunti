@@ -9,17 +9,18 @@
 \usepackage{amssymb}
 \usepackage{pgf,tikz}
 \usepackage{hyperref}
+\usepackage{enumitem}% http://ctan.org/pkg/enumitem
 
 \usetikzlibrary{arrows}
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{cd}
-\usepackage{enumitem}% http://ctan.org/pkg/enumitem
 
 \newcounter{basicblock}[subsection]
 \renewcommand{\thebasicblock}{\thesubsection.\arabic{basicblock}}
 \newenvironment{block}[1][]
 {\refstepcounter{basicblock}\par\medskip\noindent\textbf{#1~\thebasicblock}.}
 {\medskip}
+\newenvironment{block*}[1][] {\par\medskip\noindent\textbf{#1}} {\medskip}
 
 \newcommand{\vect}{\overrightarrow}
 \renewcommand{\implies}{\Rightarrow}
