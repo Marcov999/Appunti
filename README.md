@@ -31,6 +31,62 @@ ottenere il pdf assicurarsi di essere con il terminale nella cartella
 `Geometria2` e dare il comando `make`. I files ausiliari si troveranno nella
 cartella `Geometria2/build`.
 
+## Come utilizzare git
+Git organizza la storia della repo con delle "istantanee" organizzate in un
+albero. Ogni istantanea &egrave; chiamata _commit_. Per indicare a git quali
+files includere nell'istantanea, utilizzare il comando
+```
+git add FILE1 FILE2 ...
+```
+Per dirgli di includere tutti i file, usare
+```
+git add *
+```
+**Nota**: anche i files modificati dall'ultimo commit vanno aggiunti nuovamente.
+Per vedere lo stato della repo (in particolare cosa &egrave; successo
+dall'ultimo commit) dare
+```
+git status
+```
+Per committare le modifiche, utlilizzare
+```
+git commit -m "MESSAGGIO"
+```
+Dove il messaggio &egrave; una piccola descrizione di cosa si &egrave; fatto nel
+commit. Per caricare tutto sul server, utilizzare
+```
+git push
+```
+Per scaricare le modifiche fatte dagli altri:
+```
+git fetch
+```
+
+### Cose che sperabilmente non servono
+Se due persone lavorano in contemporanea caricare potrebbe diventare un
+problema. Per ovviare al problema utilizzare `git merge`. Dato che
+verosimilmente si tratta di problematiche rare per il lavoro che stiamo facendo,
+consiglio di usare Google in caso di estremo pericolo.
+
+Per fare delle modifiche "pericolose" potrebbe essere un'idea furba spostarsi su un nuovo branch. In linea di massima i comandi sono:
+```
+// Creare un nuovo branch
+git checkout -b nuovo_branch
+
+// Spostarsi su un branch esistente
+git checkout nuovo_branch
+
+// Modifiche ai files
+git add *
+git commit -m "Ho fatto del lavoro sul nuovo branch"
+
+// Ricongiungersi al ramo principale
+git checkout master
+git merge nuovo_branch
+
+// verosimilmente l'ultimo comando dara` dei problemi. Auguri.
+```
+
 ## Altre note
 
 ### I blocchi
@@ -67,7 +123,7 @@ Si utilizzano con la sintassi del tipo:
 Inoltre, usando la sintassi del blocco, utilizzando `block*` si ottengono
 blocchi non numerati.
 
-### Ordine e coerenza nel file
+### Ordine e coerenza nella repo
 - Preferire l'inizio di un nuovo paragrafo (inserendo una linea vuota nel
     sorgente) all'andata a capo semplice con il `\\`.
 - Cercare di inquadrare tutti i contenuti importanti all'interno di un blocco.
@@ -80,6 +136,8 @@ blocchi non numerati.
 - Mantenere (per la leggibilit&agrave;) una larghezza del testo di 80 caratteri.
 - All'interno del testo, preferire il comando `\dots` al posto dei punti di
     sospensione (`...`).
+- Committare spesso.
+- Tenere circa aggiornato questo README.
 
 ### Diagrammi commutativi cheat sheet
 __TODO__ inserire sezione.
