@@ -6,3 +6,4 @@
 *.synctex.gz
 tmp/*
 .DS_store/*
+*/build/*
