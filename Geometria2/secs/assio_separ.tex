@@ -1,0 +1,56 @@
+In un generico spazio topologico, vorremmo usare gli aperti per dire in qualche modo che punti o insiemi (che prenderemo chiusi) disgiunti sono separati anche a livello della topologia. Per questo richiediamo che gli spazi soddisfino alcune condizioni, i cosiddetti \textsc{assiomi di separazione}. Negli enunciati degli assiomi $X$ è uno spazio topologico con una topologia data. Ecco i primi due.
+
+(T1) $\forall \, x, y \in X, x \not=y$ esistono aperti $U, V \subseteq X$ con $x \in U \setminus V, y \in V \setminus U$;
+
+(T2) $\forall \, x, y \in X, x \not=y$ esistono aperti $U, V \subseteq X$ con $U \cap V= \emptyset, x \in U, y \in V$.
+
+\begin{defn} Se $X$ gode di T2 è detto \textsc{spazio di Hausdorff}, o spazio topologico \textit{separato}.
+\end{defn}
+
+Chiaramente T2 $\implies$ T1.
+
+\begin{prop}
+  Uno spazio topologico $X$ è T1 $\Leftrightarrow$ i punti sono chiusi.
+\end{prop}
+
+\begin{proof}
+  ($\implies$) Supponiamo $X$ sia T1 e sia $x \in X$. Per ogni $y \in X, y \not=x$ esistono $U_y, V_y$ aperti che soddisfano le condizioni imposte da T1. Ma allora $x \not \in V_y, y \in V_y$, da cui $\displaystyle X \setminus \{x\}=\bigcup_{y \in X, y \not=x} V_x$, essendo unione di aperti è aperto, perciò il suo complementare, $\{x\}$, è chiuso, come voluto.
+
+  ($\Leftarrow$) Supponiamo adesso che i punti di $X$ siano chiusi. Allora, dati $x, y \in X, \\ x \not= y$, scegliendo gli aperti $U=X \setminus \{y\}, V=X \setminus \{x\}$ si ha che questi soddisfano le condizioni di T1.
+\end{proof}
+
+\begin{oss}
+  Segue facilmente dalla proposizione sopra che in uno spazio T1 tutti gli insiemi cofiniti sono aperti. D'altra parte, se tutti i cofiniti sono aperti i punti sono chiusi. Dunque, se abbiamo uno spazio topologico generico $(X, \tau)$, possiamo affermare che esso è T1 $\Leftrightarrow$ $\tau$ è più fine della topologia cofinita.
+\end{oss}
+
+\begin{prop}
+  $X$ è di Hausdorff $\Leftrightarrow$ $\Delta_X \subseteq X \times X$ è chiuso, dove $\Delta_x=\{ (x, x) | x \in X \}$ è la \textit{diagonale di $X$}.
+\end{prop}
+
+\begin{proof}
+  ($\implies$) Sia $(x, y) \in X \times X \setminus \Delta_X$. Allora $x \not= y$, dunque esistono due aperti disgiunti $U_x, V_y$ t.c. $x \in U_x, y \in U_y$, da cui $(x, y) \in U_x \times V_y$, che è un aperto della topologia prodotto. Dunque $\displaystyle X \times X \setminus \Delta_X=\bigcup_{(x, y) \in X \times X \setminus \Delta_X} U_x \times V_y$ è unione di aperti, dunque è aperto e il complementare, $\Delta_X$, è chiuso.
+
+  ($\Leftarrow$) Supponiamo adesso $\Delta_X$ chiuso. Dati due punti $x, y \in X, x \not= y$ la coppia $(x, y)$ sta nel complementare di $\Delta_X$, che è aperto. Esiste allora un elemento della base della topologia prodotto su $X \times X$ tutto contenuto in $X \times X \setminus \Delta_X$ che contiene $(x, y)$. Ma questo è della forma $U \times V$ per qualche $U$ e $V$ aperti con $x \in U, y \in V$ e dato che non interseca $\Delta_X$, significa che non possiamo trovare lo stesso elemento in entrambi gli insiemi, cioè $U \cap V= \emptyset$. Segue allora che $X$ è di Hausdorff.
+\end{proof}
+
+\begin{ex}
+  Un esempio di spazio di Hausdorff è un qualsiasi spazio metrizzabile. Lasciamo come semplice esercizio la dimostrazione che metrizzabile implica Hausdorff.
+
+  Un esempio, invece, di uno spazio T1 ma non T2, è un qualsiasi spazio infinito con la topologia cofinita. Lasciamo anche in questo caso la verifica di quanto appena detto come semplice esercizio.
+\end{ex}
+
+\begin{prop}
+  Sottospazi e prodotti arbitrari di spazi topologici T1 (rispettivamente T2) sono ancora T1 (rispettivamente T2).
+\end{prop}
+
+\begin{proof}
+  Per quanto riguarda i sottospazi, basta prendere l'intersezione degli aperti in questione con il sottospazio stesso ed è semplice verificare che rispettano ancora le condizioni, sia per T1 che per T2.
+
+  Per quanto riguarda i prodotti, ricordando la loro definizione come insiemi di funzioni, se due funzioni differiscono per almeno un elemento allora basta prendere gli aperti dati dall'assioma del caso (T1 o T2) per lo spazio topologico relativo a quell'elemento e tutto lo spazio per tutti gli altri elementi.
+\end{proof}
+
+\begin{prop}
+  Questa proposizione segue dal fatto che se abbiamo più aperti allora di sicuro possiamo trovarne che rispettano le condizioni degli assiomi, anzi, magari ne troviamo anche più di prima. Sia dunque $X$ un insieme e $\tau_1< \tau_2$ topologie su $X$, se $\tau_1$ è T1 (rispettivamente T2), allora anche $\tau_2$ è T1 (rispettivamente T2).
+\end{prop}
+
+Vediamo ora alcune applicazioni di questi primi due assiomi di separazione.
