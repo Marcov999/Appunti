@@ -33,7 +33,7 @@ Chiaramente T2 $\implies$ T1.
   ($\Leftarrow$) Supponiamo adesso $\Delta_X$ chiuso. Dati due punti $x, y \in X, x \not= y$ la coppia $(x, y)$ sta nel complementare di $\Delta_X$, che è aperto. Esiste allora un elemento della base della topologia prodotto su $X \times X$ tutto contenuto in $X \times X \setminus \Delta_X$ che contiene $(x, y)$. Ma questo è della forma $U \times V$ per qualche $U$ e $V$ aperti con $x \in U, y \in V$ e dato che non interseca $\Delta_X$, significa che non possiamo trovare lo stesso elemento in entrambi gli insiemi, cioè $U \cap V= \emptyset$. Segue allora che $X$ è di Hausdorff.
 \end{proof}
 
-\begin{ex}
+\begin{ex} \label{metrizz->T2}
   Un esempio di spazio di Hausdorff è un qualsiasi spazio metrizzabile. Lasciamo come semplice esercizio la dimostrazione che metrizzabile implica Hausdorff.
 
   Un esempio, invece, di uno spazio T1 ma non T2, è un qualsiasi spazio infinito con la topologia cofinita. Lasciamo anche in questo caso la verifica di quanto appena detto come semplice esercizio.
@@ -49,8 +49,72 @@ Chiaramente T2 $\implies$ T1.
   Per quanto riguarda i prodotti, ricordando la loro definizione come insiemi di funzioni, se due funzioni differiscono per almeno un elemento allora basta prendere gli aperti dati dall'assioma del caso (T1 o T2) per lo spazio topologico relativo a quell'elemento e tutto lo spazio per tutti gli altri elementi.
 \end{proof}
 
-\begin{prop}
+\begin{prop}Supponiamo per assurdo $f \not=g$. Allora esiste $x \in X$ t.c. $f(x) \not= g(x)$.
   Questa proposizione segue dal fatto che se abbiamo più aperti allora di sicuro possiamo trovarne che rispettano le condizioni degli assiomi, anzi, magari ne troviamo anche più di prima. Sia dunque $X$ un insieme e $\tau_1< \tau_2$ topologie su $X$, se $\tau_1$ è T1 (rispettivamente T2), allora anche $\tau_2$ è T1 (rispettivamente T2).
 \end{prop}
 
 Vediamo ora alcune applicazioni di questi primi due assiomi di separazione.
+
+\begin{nlist}
+  \item $f: X \rightarrow Y$ continua, $Y$ T2, $\Gamma_f=\{ (x, f(x)) | x \in X\} \subseteq X \times Y$ ($\Gamma_f$ è il grafico di $f$), allora $\Gamma_f$ è chiuso in $X \times Y$;
+  \item $f, g: X \rightarrow Y$ continue, $Y$ T2, allora $\{ x \in X | f(x)=g(x) \} \subseteq X$ è chiuso in $X$;
+  \item $f:X \rightarrow X$ continua, $X$ T2, allora $Fix(f) = \{ x \in X | f(x)=x \} \subseteq X$ è chiuso in $X$;
+  \item $f, g:X \rightarrow Y$ continue, $Y$ T2, $Z \subseteq X$ denso t.c. $f(z)=g(z) \, \forall z \in Z$, allora $f=g$;
+  \item $X$ T2, $\{x_n\}$ successione convergente, allora il limite è unico.
+\end{nlist}
+
+\begin{proof}
+  \begin{nlist}
+    \item Sia $(x, y) \in X \times Y \setminus \Gamma_f$. Allora $y \not=f(x)$ e poiché $Y$ è T2 si ha che esistono due aperti disgiunti $U_{f(x)}, V_y$ t.c. $f(x) \in U_{f(x)}, y \in V_y$. Per la continuità di $f$, abbiamo che $U_x=f^{-1}(U_{f(x)})$ è un aperto contenente $x$ t.c. $U_x \times V_y \subseteq X \times Y$ è un aperto della topologia prodotto contenete $(x, y)$ che per quanto detto prima non interseca mai $\Gamma_f$. Allora
+    $\displaystyle X \times Y \setminus \Gamma_f=\bigcup_{(x, y) \in X \times Y \setminus \Gamma_f} U_x \times V_y$ è unione di aperti, cioè apertp, e il suo complementare, $\Gamma_f$, è chiuso.
+    \item Sia $X_{|f=g}$ l'insieme che vogliamo mostrare essere chiuso e $x \in X \setminus X_{|f=g}$. Allora $f(x) \not= g(x)$ e dato che $Y$ è T2 esistono due aperti disgiunti $U_x', V_x'$ t.c. $f(x) \in U_x', g(x) \in V_x'$.Supponiamo per assurdo $f \not=g$. Allora esiste $x \in X$ t.c. $f(x) \not= g(x)$.
+    Per la continuità di $f$ e $g$ ho che $U_x=f^{-1}(U_x'), V_x=g^{-1}(V_x')$ sono due aperti di $X$ con intersezione non vuota (c'è almeno $x$), sia dunque $A_x$ la loro intersezione. Questo è un intorno aperto di $x$ t.c. per ogni $y \in A_x$ si ha $f(y) \not=g(y)$, per come è stato definito l'aperto. Allora $\displaystyle X \setminus X_{|f=g} = \bigcup_{x \in X \setminus X_{|f=g}} A_x$ è unione di aperti, cioè è aperto, dunque il suo complementare, $X_{|f=g}$, è chiuso.
+    \item Segue direttamente dalla precedente ponendo $Y=X$ e $g=id$.
+    \item Segue ancora una volta dalla seconda affermazione: poiché $Z \subseteq X_{|f=g}$, che è un chiuso, allora $X \subseteq \overline{Z} \subseteq X_{|f=g} \subseteq X \implies X_{|f=g} =X$.
+    \item Supponiamo per assurdo che il limite non sia unico e siano $x \not= y$ due elementi di $X$ a cui converge la successione. Poiché $X$ è T2, esistono due aperti disgiunti $U, V$ con $x \in U, y \in V$. Ma questi sono rispettivamente intorni di $x$ e $y$, dunque per definizione di limite la successione deve essere definitvamente contenuta in entrambi gli insiemi, assurdo poiché essi sono disgiunti.
+  \end{nlist}
+\end{proof}
+
+Vediamo adesso gli altri due assiomi di separazione.
+
+(T3) Per ogni chiuso $C \subseteq X, x \in X \setminus C$, esistono aperti $U, V \subseteq X$ disgiunti con $x \in U, C \subseteq V$;
+
+(T4) per ogni coppia di chiusi disgiunti $C, D \subseteq X$ esistono aperti $U, V \subseteq X$ disgiunti con $C \subseteq U, D \subseteq V$.
+
+\begin{oss}
+  T4+T1 $\implies$ T3+T1 $\implies$ T2 $\implies$ T1. La dimostrazione è lasciata come utile esercizio al lettore.
+\end{oss}
+
+\begin{defn}
+  $X$ è detto \textsc{normale} se soddisfa T1+T4. $X$ è detto \textsc{regolare} se soddisfa T1+T3.
+\end{defn}
+
+\begin{oss}
+  Possiamo riformulare la condizione T4 come segue: per ogni coppia di chiusi $C, D \subseteq X$ esiste $U \subseteq X$ aperto t.c. $C \subseteq U \subseteq \overline{U} \subseteq X \setminus D$.
+\end{oss}
+
+\begin{proof}
+  Chiaramente se esiste un siffatto $U$ possiamo prendere lui e l'aperto $X \setminus \overline{U}$ per soddisfare T4. Viceversa, siano $U, V$ gli aperti dati dalla condizione T4. Poiché $X \setminus V$ è chiuso e contenuto in $X \setminus D$ abbiamo dunque che $C \subseteq U \subseteq \overline{U} \subseteq X \setminus V \subseteq X \setminus D$.
+\end{proof}
+
+\begin{prop}
+  $X$ s.t. metrizzabile $\implies$ $X$ normale.
+\end{prop}
+
+\begin{proof}
+  Dall'esempio \ref{metrizz->T2} sappiamo già che $X$ è T2, dunque anche T1. Resta da dimostrare che $X$ è T4.
+
+  Siano dunque $C, D \subseteq X$ due chiusi disgiunti e sia $d$ la distanza su $X$. Definiamo $d_C(x)=\inf_{y \in C} d(x, y)$. Mostriamo che $d_C(x)=0 \Leftrightarrow x \in C$. Una freccia è banale. Per l'altra, se esistesse $x \in X \setminus C$ t.c. $d_C(x)=0$ basta prendere le palle di raggio $1/n$ per estrarre una successione in $C$ che tende a $ x \not\in C$, asssurdo per la proposizione \ref{chiusoxsucc}. Analogamente definiamo $d_D(x)$ e
+  dimostriamo che $d_D(x)=0 \Leftrightarrow x \in D$. Queste due funzioni così definite sono chiaramente continue. Definiamo adesso $\displaystyle f(x)=\frac{3d_C(x)}{d_C(x)+d_D(x)}$, che è chiaramente continua perché ottenuta da funzioni continue con operazioni che conservano la continuità. Inoltre è ben definita, poiché essendo $D$ e $C$ disgiunti non può mai essere che $d_C(x)=d_D(x)=0$, perciò il denominatore è sempre positivo. Osserviamo ora che $f:X \rightarrow [0, 3], C=f^{-1}(0), D=f^{-1}(3)$. Inoltre, $[0, 3]$ ha la topologia di sottospazio, perciò $[0, 1), (2, 3]$ sono due aperti disgiunti e per la continuità di $f$ anche le loro controimmagini sono aperti disgiunti che contengono rispettivamente $C$ e $D$, che è quello che serve per soddisfare T4.
+\end{proof}
+
+\begin{prop}
+  Sottospazi e prodotti arbitrari di T3 sono T3; sottospazi chiusi di T4 sono T4; in generale, sottospazi arbitrari di T4 o prodotti arbitrari di T4 non sono T4.
+\end{prop}
+
+\begin{proof}
+  Sia $X$ T3 e $Y \subseteq X$ un sottoinsieme con la topologia di sottospazio. Siano adesso $C \subseteq Y$ un chiuso e $x \in Y \setminus C$. Per definizione della topologia di sottospazio, $C=Y \cap D$ dove $D$ è un chiuso di $X$. Ovviamente $x \not\in D$, altrimenti, dato che $x \in Y$, avremmo $x \in Y \cap D=C$. Allora esistono due aperti disgiunti $U, V$ di $X$ t.c. $x \in U, D \subseteq V$. Allora $U'=U \cap Y, V'=V \cap Y$ sono due aperti
+  disgiunti di $Y$ che soddisfano le condizioni per avere T3. Per quanto riguarda T4, questa dimostrazione non funziona, dato che due chiusi disgiunti in $Y$ potrebbero non essderlo in $X$. Se però $Y$ fosse chiuso in $X$, allora i due chiusi di $Y$ sarebbero definiti a loro volta come intersezione di $Y$, che è chiuso in $X$, e un altro chiuso di $X$, quindi sarebbero a loro volta chiusi in $X$ e potremmo ripetere la dimostrazione come sopra. Serve un esempio per dire che in generale non si può fare (forse me lo sono perso quando ero a lezione). %E allora trovalo!
+
+  Passiamo adesso ai prodotti.
+\end{proof}
