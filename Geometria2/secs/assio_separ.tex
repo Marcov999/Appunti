@@ -114,7 +114,46 @@ Vediamo adesso gli altri due assiomi di separazione.
 
 \begin{proof}
   Sia $X$ T3 e $Y \subseteq X$ un sottoinsieme con la topologia di sottospazio. Siano adesso $C \subseteq Y$ un chiuso e $x \in Y \setminus C$. Per definizione della topologia di sottospazio, $C=Y \cap D$ dove $D$ è un chiuso di $X$. Ovviamente $x \not\in D$, altrimenti, dato che $x \in Y$, avremmo $x \in Y \cap D=C$. Allora esistono due aperti disgiunti $U, V$ di $X$ t.c. $x \in U, D \subseteq V$. Allora $U'=U \cap Y, V'=V \cap Y$ sono due aperti
-  disgiunti di $Y$ che soddisfano le condizioni per avere T3. Per quanto riguarda T4, questa dimostrazione non funziona, dato che due chiusi disgiunti in $Y$ potrebbero non essderlo in $X$. Se però $Y$ fosse chiuso in $X$, allora i due chiusi di $Y$ sarebbero definiti a loro volta come intersezione di $Y$, che è chiuso in $X$, e un altro chiuso di $X$, quindi sarebbero a loro volta chiusi in $X$ e potremmo ripetere la dimostrazione come sopra. Serve un esempio per dire che in generale non si può fare (forse me lo sono perso quando ero a lezione). %E allora trovalo!
+  disgiunti di $Y$ che soddisfano le condizioni per avere T3. Per quanto riguarda T4, questa dimostrazione non funziona, dato che due chiusi disgiunti in $Y$ potrebbero non essderlo in $X$. Se però $Y$ fosse chiuso in $X$, allora i due chiusi di $Y$ sarebbero definiti a loro volta come intersezione di $Y$, che è chiuso in $X$, e un altro chiuso di $X$, quindi sarebbero a loro volta chiusi in $X$ e potremmo ripetere la dimostrazione come sopra. Serve un esempio per dire che in generale non si può fare: pensateci.
 
   Passiamo adesso ai prodotti.
+\end{proof}
+
+Riassumendo, metrizzabile $\stackrel{\text{(i)}}{\implies}$ normale $\stackrel{\text{(ii)}}{\implies}$ regolare $\stackrel{\text{(iii)}}{\implies}$ T2. Vediamo dei controesempi che dimostrano che non valgono le implicazioni inverse.
+
+\begin{ex}
+  \begin{nlist}
+    \item retta di Sorgenfrey;
+    \item piano di Sorgenfrey;
+    \item la topologia su $\mathbb{R}$ generata dagli intervalli $(a, b)$ e dagli insiemi $(a, b) \setminus K$ dove $K= \{ 1/n | n \in \mathbb{N}, n \not=0 \}$, detta topologia $\mathbb{R}_K$.
+\end{nlist}
+\end{ex}
+
+\begin{proof}
+  Per quanto visto nell'esempio \ref{Sorgenfrey-retta} sappiamo già che la retta di Sorgenfrey non è metrizzabile. Mostriamo adesso che è normale. Essendo più fine della topologia euclidea, sicuramente è T1. Per dire che è T4, siano $C, D \subseteq \mathbb{R}$ due chiusi disgiunti. Ovviamente $C \subseteq \mathbb{R} \setminus D, D \subseteq \mathbb{R} \setminus C$ e questi ultimi sono aperti. Dunque per ogni $c \in C$ esiste un  $r_c>0$ t.c. $[c, c+r_c) \subseteq \mathbb{R} \setminus D$ e analogamente per ogni
+  $d \in D$ esiste un $r_d>0$ t.c. $[d, d+r_d) \subseteq \mathbb{R} \setminus C$. Siano dunque $\displaystyle U =\bigcup_{c \in C} [c, c+r_c), V=\bigcup_{d \in D} [d, d+r_d)$. Questi sono ovviamente aperti in quanto unioni di aperti e $C \subseteq U, D \subseteq V$. Se per assurdo non fossero disgiunti, allora esisterebbero $c \in C, d \in D$ t.c. $[c, c+r_c) \cap [d, d+r_d) \not= \emptyset$. Senza perdita di generalità $c<d$, allora dev'essere
+  $d \in [c, c+r_c) \subseteq \mathbb{R} \setminus D$, assurdo.
+  \item Ancora una volta la topologia è T1 in quanto più fine della topologia euclidea. Inoltre è T3: siano infatti $C \subseteq \mathbb{R^2}$ un chiuso e $x \not \in C$. Allora esiste un intorno aperto di $x$ della forma $[a, b) \times [c, d)$ tutto contenuto in $\mathbb{R} \setminus C$. È un semplice esercizio verificare che tale intorno è anche chiuso, quindi ponendo $U=[a, b) \times [c, d)$ e $V$ il suo complementare troviamo due aperti disgiunti t.c. $x \in U, C \subseteq V$.
+  Per mostrare che non è T4, ... % consideriamo di nuovo la retta $\Delta$ definita da $y=-x$. È un utile esercizio verificare che qualunque sottoinsieme di questa retta è sia aperto che chiuso nel piano di Sorgenfrey. Consideriamo allora $C=\{ (x, -x) | x \in \mathbb{Q} \}, D=\Delta \setminus C$. Questi sono due chiusi disgiunti, ma non possono essere separati con due aperti disgiunti.
+  % questa parte la lascio commentata perché a lezione mi sembrava l'avesse fatta in modo semplice, ma cercando su internet sembra un po' intricata...
+  \begin{oss}
+    Il piano di Sorgenfrey è un esempio di prodotto di T4 che non è T4.
+  \end{oss}
+  \item Essendo la topologia considerata più fine della topologia euclidea, sappiamo già che è T2. Mostriamo che non è T3. Si verifica facilmente che $K$ è chiuso e $0 \not\in K$. Se esistessero due aperti disgiunti che li separano, quello di $0$ sarebbe necessariamente unione di intorni della forma $(a, b) \setminus K$. Sia quindi, senza perdita di generalità, $(-\epsilon, \epsilon) \setminus K, \epsilon>0$ uno di questi intorni. Consideriamo allora $n \in \mathbb{N} \setminus \{0\}$ t.c. $1/n < \epsilon$. Allora qualunque intorno contenente $1/n$ interseca banalmente $(-\epsilon, \epsilon)$, dunque due aperti disgiunti che separino $0$ e $K$ non possono esistere.
+\end{proof}
+
+\begin{thm}
+  Se $X$ è regolare a base numerabile, allora $X$ è normale.
+\end{thm}
+
+\begin{proof}
+  Essendo $X$ regolare, ovviamente è T1. Dobbiamo verificare che sia T4. Siano quindi $C, D \subseteq X$ due chiusi disgiunti.
+\end{proof}
+
+\begin{thm}
+  Teorema di Urysohn: se $X$ è regolare a base numerabile, allora $X$ è metrizzabile.
+\end{thm}
+
+\begin{proof}
+  Non verrà dimostrato in questo corso.
 \end{proof}
