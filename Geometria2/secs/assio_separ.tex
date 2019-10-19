@@ -137,8 +137,16 @@ Riassumendo, metrizzabile $\stackrel{\text{(i)}}{\implies}$ normale $\stackrel{\
   $d \in D$ esiste un $r_d>0$ t.c. $[d, d+r_d) \subseteq \mathbb{R} \setminus C$. Siano dunque $\displaystyle U =\bigcup_{c \in C} [c, c+r_c), V=\bigcup_{d \in D} [d, d+r_d)$. Questi sono ovviamente aperti in quanto unioni di aperti e $C \subseteq U, D \subseteq V$. Se per assurdo non fossero disgiunti, allora esisterebbero $c \in C, d \in D$ t.c. $[c, c+r_c) \cap [d, d+r_d) \not= \emptyset$. Senza perdita di generalità $c<d$, allora dev'essere
   $d \in [c, c+r_c) \subseteq \mathbb{R} \setminus D$, assurdo.
   \item Ancora una volta la topologia è T1 in quanto più fine della topologia euclidea. Inoltre è T3: siano infatti $C \subseteq \mathbb{R^2}$ un chiuso e $x \not \in C$. Allora esiste un intorno aperto di $x$ della forma $[a, b) \times [c, d)$ tutto contenuto in $\mathbb{R} \setminus C$. È un semplice esercizio verificare che tale intorno è anche chiuso, quindi ponendo $U=[a, b) \times [c, d)$ e $V$ il suo complementare troviamo due aperti disgiunti t.c. $x \in U, C \subseteq V$.
-  Per mostrare che non è T4, ... % consideriamo di nuovo la retta $\Delta$ definita da $y=-x$. È un utile esercizio verificare che qualunque sottoinsieme di questa retta è sia aperto che chiuso nel piano di Sorgenfrey. Consideriamo allora $C=\{ (x, -x) | x \in \mathbb{Q} \}, D=\Delta \setminus C$. Questi sono due chiusi disgiunti, ma non possono essere separati con due aperti disgiunti.
-  % questa parte la lascio commentata perché a lezione mi sembrava l'avesse fatta in modo semplice, ma cercando su internet sembra un po' intricata...
+  Per mostrare che non è T4, dimostriamo prima un lemma.
+  \begin{lm}
+    Siano $X$ T4 e separabile e $D \subseteq X$ chiuso e discreto (cioè t.c. la topologia di sottospazio è quella discreta). Allora $|D| \subseteq |\mathbb{R}|$.
+  \end{lm}
+  \begin{proof}
+    Sia $Q \subseteq X$ un denso numerabile e sia $S \subseteq D$. $S$ è chiuso in $D$, ma ciò significa che è intersezione di un chiuso in $X$ e di $D$, che è chiuso in $X$, quindi $S$ è chiuso in $X$, e analogamente $D \setminus S$. Esistono allora due aperti disgiunti $U_S, V_S$ t.c. $S \subseteq U_S, D \setminus S \subseteq V_S$. Definiamo $f: \mathcal{P}(D) \rightarrow \mathcal{P}(Q)$ di modo che $f(S)=Q \cap A_S$. $f$ è iniettiva:
+    siano infatti $S, T \subseteq D$ disgiunti e supponiamo senza perdita di generalità $S \setminus T \not= \emptyset$. Notiamo che $S \setminus T \subseteq D \setminus T \subseteq V_T$, perciò $S \setminus T \subseteq U_S \cap V_T$, quindi $U_S \cap V_T \not= \emptyset$, ma essendo intersezione di
+    due aperti è un aperto, perciò esiste $x \in Q$ t.c. $x \in U_S \cap V_T \Rightarrow x \in f(S)$, ma allora $x \not\in U_T \Rightarrow x \not\in Q \cap U_T =f(T)$, il che vuol dire che $f$ è iniettiva. Perciò $|D| < |\mathcal{P}(D)| \le |\mathcal{P}(Q)|=|\mathbb{R}|$ poiché $Q$ è numerabile.
+  \end{proof}
+  Adesso basta ricordare dall'esempio \ref{Sorgenfrey-piano} che la retta $y=-x$, che ha la cardinalità del continuo, ha come topologia di sottospazio quella discreta. È facile mostrare che il piano di Sorgenfrey è separabile, quindi segue facilmente dal lemma che non è T4.
   \begin{oss}
     Il piano di Sorgenfrey è un esempio di prodotto di T4 che non è T4.
   \end{oss}
@@ -150,7 +158,11 @@ Riassumendo, metrizzabile $\stackrel{\text{(i)}}{\implies}$ normale $\stackrel{\
 \end{thm}
 
 \begin{proof}
-  Essendo $X$ regolare, ovviamente è T1. Dobbiamo verificare che sia T4. Siano quindi $C, D \subseteq X$ due chiusi disgiunti.
+  Essendo $X$ regolare, ovviamente è T1. Dobbiamo verificare che sia T4. Siano quindi $C, D \subseteq X$ due chiusi disgiunti e $\mathcal{B}$ una base numerabile. Per ogni $c \in C$ esiste un aperto $U_c$ t.c. $c \in U_c \subseteq  \overline{U_c} \subseteq X \setminus D$. Analogamente possiamo
+  scegliere un $V_d$ per ogni $d \in D$ che li separi allo stesso modo da $C$. Notiamo che possiamo prendere $U_c, V_d \in \mathcal{B}$ per ogni $c \in C, d \in D$. Definiamo adesso $\mathcal{C} \subseteq \mathcal{B}$ come $\{U_c \in \mathcal{B} | \overline{U_c} \cap D=\emptyset\}$ e analogamente $\mathcal{D}$.
+  Per quello che abbiamo detto prima, $\mathcal{C}$ ricopre $C$ e $\mathcal{D}$ ricopre $D$. Essendo $\mathcal{B}$ numerabile, possiamo scrivere $\mathcal{C}=\{U_n\}, \mathcal{D}=\{V_n\}$. Siano adesso $\displaystyle A_n= U_n \setminus \bigcup_{j=1}^n \overline{V_j}, B_n =V_n \setminus \bigcup_{j=1}^n \overline{U_j}$. Si può notare facilmente che sono tutti
+  aperti, dunque $\displaystyle A= \bigcup_{n \in \mathbb{N}} A_n$ e $\displaystyle B= \bigcup_{n \in \mathbb{N}} B_n$ sono aperti, inoltre, dato che gli $U_n$ ricoprono $C$ mentre $C \cap \overline{V_n}$ per ogni $n$, abbiamo $C \subseteq A$ e analogamente $D \subseteq B$. È un semplice
+  esercizio verificare che $A_n \cap B_n = \emptyset$ per ogni $n, m \in \mathbb{N}$, dunque $A$ e $B$ sono due aperti disgiunti contenenti rispettivamente $C$ e $D$, da cui segue che $X$ è T4.
 \end{proof}
 
 \begin{thm}
