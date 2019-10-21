@@ -1,0 +1,104 @@
+\begin{defn}
+    Siano $X$ uno spazio topologico e $\sim$ una relazione di equivalenza
+    definita su $X$. Vengono allora indotti un insieme $Y = \faktor{X}{\sim}$ e
+    una proiezione $\pi\colon X\longrightarrow Y$ che manda ogni punto nella sua
+    classe di equivalenza. La topologia quoziente definita su $Y$ \`e la
+    topologia pi\`u fine che rende $\pi$ continua.
+\end{defn}
+
+\begin{defn}
+    Data la proiezione $\pi$ come sopra, un sottoinsieme $Z \subseteq X$ si dice
+    saturo se \`e unione di classi di equivalenza per $\sim$. Cio\`e ${Z =
+    \pi^{-1}\pi(Z)}$.
+\end{defn}
+
+\begin{oss}
+    Nel setting di prima, detta $\tau_Y$ la topologia quoziente, si ha che
+    \[
+    A\in \tau_Y \Longleftrightarrow
+    \pi^{-1}(A) \text{\ aperto} \Longleftrightarrow
+    A = \pi(B) \text{\ con $B$ aperto saturo}.
+    \]
+\end{oss}
+
+\begin{thm}
+    \emph{Propriet\`a universale del quoziente.} Siano $X$ un insieme con una relazione di equivalenza $\sim$ e una proiezione $\pi$. Allora la topologia quoziente \`e l'unica topologia per cui per ogni spazio topologico $Z$ e funzione ${f\colon \faktor{X}{\sim} \longrightarrow Z}$, $f$ \`e continua se e solo se $f \circ \pi$ \`e continua.
+\end{thm}
+\begin{proof}
+    Il seguente diagramma \`e commutativo.
+
+    \begin{center}\begin{tikzcd}
+        X \arrow[dd, "\pi", two heads] \arrow[rd, "f\circ \pi"] &   \\
+        & Z \\
+            \faktor{X}{\sim} \arrow[ru, "f"] &
+    \end{tikzcd}\end{center}
+
+    Come prima cosa verifichiamo che la topologia quoziente ha la propriet\`a universale. Un'implicazione \`e facile: se $f$ e $\pi$ sono continue, anche la loro composizione lo \`e. Viceversa sia $f\circ \pi$ continua, e si prenda un aperto in Z. Allora $(f \circ \pi)^{-1}(A) = (\pi^{-1} \circ f^{-1})(A)$ \`e aperto, e dunque anche $f^{-1}(A)$ \`e aperto.
+    % TODO: forse qui bisogna spiegarlo meglio.
+
+    Mostriamo ora che se una certa topologia $\sigma$ gode della propriet\`a universale, allora \`e uguale alla topologia quoziente $\tau$.
+
+    Si prenda $Z = (\faktor{X}{\sim}, \tau)$ e $f$ l'identit\`a. Allora poich\'e $\pi$ \`e continua con la topologia $\tau$, si ha che
+    \[
+        \id\colon \faktor{X}{\sim}, \sigma \longrightarrow
+        \faktor{X}{\sim}, \tau
+    \]
+    \`e dunque $\sigma$ \`e pi\`u fine di $\tau$.
+
+    Viceversa, prendendo per $Z$ lo stesso insieme ma dotato della topologia $\sigma$ e $f = \id$, si ottiene che $\pi$ \`e continua anche con $\sigma$. Per definizione di topologia quoziente, allora $\tau$ \`e pi\`u fine di $\sigma$.
+\end{proof}
+
+\begin{defn}
+    Una funzione $f\colon X \longrightarrow Y$ continua e surgettiva si chiama identificazione quando per ogni $A \subseteq Y$, $A$ \`e aperto se e solo se $f^{-1}(A)$ \`e aperto.
+\end{defn}
+
+\begin{oss}
+    Sia $f$ una bigezione continua. Sono equivalenti:
+    \begin{nlist}
+        \item $f$ \`e immersione;
+        \item $f$ \`e omeomorfismo;
+        \item $f$ \`e identificazione.
+    \end{nlist}
+\end{oss}
+
+\begin{oss}
+    Sia $f$ continua surgettiva. Allora:
+    \begin{nlist}
+        \item Se $f$ \`e aperta, \`e identificazione.
+        \item Se $f$ \`e chiusa, \`e identificazione.
+        \item Ogni altra implicazione \`e abusiva.
+    \end{nlist}
+\end{oss}
+
+\begin{prop}
+    Sia $f\colon X \longrightarrow Y$ un'identificazione. Allora la funzione $\bar{f}$ definita dal seguente diagramma commutativo \`e un omeomorfismo.
+
+    \begin{center}
+        \begin{tikzcd}
+            X \arrow[d, "\pi"'] \arrow[r, "f"]     & Y \\
+            \faktor{X}{\sim} \arrow[ru, "\bar{f}"'] &
+        \end{tikzcd}
+    \end{center}
+\end{prop}
+\begin{proof}
+    Per come \`e definita $\bar{f}$, essa \`e ben definita e bigettiva. Poich\'e $f$ \`e continua, per la propriet\`a universale, anche $\bar{f}$ \`e continua. Voglio mostrare che $\bar{f}$ \`e aperta. Sia allora $A$ un aperto di $\faktor{X}{\sim}$. Si ha che $\bar{f}(A)=(f\circ \pi^{-1})(A)$ \`e aperto se e solo se ${ (f^{-1} \circ f \circ \pi ^{-1})(A)}$ \`e aperto perch\'e $f$ \`e identificazione. Poich\'e $\pi$ \`e la proiezione sulla topologia quoziente, $A$ \`e aperto.
+\end{proof}
+
+\begin{oss}
+    Si ha che $\bar{f}$ \`e un omeomorfismo se e solo se $f$ \`e un'identificazione.
+\end{oss}
+
+\begin{defn}
+    Sia $A \subseteq X$. Si definisce il quoziente
+    \[
+    \faktor{X}{A} = \faktor{X}{\sim}
+    \]
+    dove $x\sim x'$ se e solo se $x = x'$ oppure $x,x'\in A$. Cio\`e in questo quoziente $A$ ``collassa'' in un punto.
+\end{defn}
+
+\begin{ex}
+    L'intervallo $[0, 1]$ quozientato sul suo sottoinsieme $\{0,1\}$ \`e isomorfo alla circonferenza $S^1$.
+\end{ex}
+\begin{proof}
+    % TODO: inserire dimostrazione.
+\end{proof
