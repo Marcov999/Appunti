@@ -31,7 +31,9 @@ A \text{ aperto in }X &\Longleftrightarrow A \cap U \text{ aperto in }U \qquad &
 Sia $\mathcal{U}$ ricoprimento fondamentale di $X$, e sia $f:X \longrightarrow Y$ funzione tra spazi topologici. Allora $f$ è continua se e solo se $f \restrict {U}$ è continua $\forall U \in \mathcal{U}$.
 \end{prop}
 \begin{proof}
+  ($\implies$) È ovvia.
 
+  ($\Leftarrow$) Sia $B \subseteq Y$ un aperto, allora, dato che $\mathcal{U}$ è un ricoprimento, $\displaystyle f^{-1}(B)=\bigcup_{U \in \mathcal{U}} f\restrict{U}^{-1}(B)$, e dato che $\mathcal{U}$ è fondamentale questa è un'unione di aperti, dunque un aperto.
 \end{proof}
 
 Enunciamo ora un lemma che ci permetterà di dimostrare un teorema particolarmente importante.
