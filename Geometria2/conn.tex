@@ -1,0 +1,28 @@
+\begin{defn}
+Uno spazio topologico $X$ si dice \textsc{sconnesso} se vale una delle seguenti condizioni (equivalenti):
+\begin{nlist}
+\item $X=A \sqcup B$ (cioè $X=A \cup B$ con $A \cap B = \emptyset$) con $A,B$ aperti non vuoti. Allora in particolare $A$ e $B$ sono anche chiusi, in quanto sono uno il complementare dell'altro.
+\item $X=A \sqcup B$ con $A,B$ chiusi non vuoti
+\item $\exists A \subseteq X, A \neq \emptyset, A \neq X, A$ è sia aperto che chiuso
+\end{nlist}
+\end{defn}
+
+\begin{defn}
+$X$ si dice \textsc{connesso} se non è sconnesso. In altre parole, se: \\ $\forall A \subseteq X, A \neq \emptyset, A$ aperto e chiuso, allora $A=X$.
+\end{defn}
+
+\begin{ex}
+$\mathbb{R} \smallsetminus \{0\}$ è sconnesso in quanto unione degli aperti $(-\infty,0)$ e $(0,+\infty)$.
+\end{ex}
+
+\begin{thm}
+$[0,1] \subset \mathbb{R}$ è connesso.
+\end{thm}
+\begin{proof}
+Siano $A,B$ aperti non vuoti di [0,1], con $[0,1]=A \sqcup B$. Posso supporre $0 \in A$. Dunque, se $t_0=\inf B$ (esiste poiché $B$ è non vuoto e limitato inferiormente), allora $t_0 \ge \varepsilon >0$, perché altrimenti avrei $B \cap [0,\varepsilon) \neq \emptyset$, che contraddice le ipotesi. $B$ è chiuso ($A$ e $B$ sono entrambi aperti e chiusi), quindi $t_0 \in B$. Ma $B$ è anche aperto e $t_0 >0$, per cui $\exists \delta >0$ con $(t_0-\delta, t_0] \subseteq B$, e ciò contraddice il fatto che $t_0=\inf B$.
+\end{proof}
+
+\begin{defn}
+$X$ si dice \textsc{connesso per archi} se $\forall x_0,x_1 \in X$, \\
+$\exists \alpha:[0,1] \longrightarrow X$ continua tale che $\alpha (0)=x_0, \alpha (1)=x_1$.
+\end{defn}

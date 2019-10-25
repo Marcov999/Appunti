@@ -1,0 +1,61 @@
+Consideriamo $X$ spazio topologico e $G$ gruppo. Diciamo che $G$ agisce su $X$ tramite omeomorfismi, cioè:
+$$G \longrightarrow \text{Homeo}(X)$$
+è un omomorfismo di gruppi. Consideriamo allora $\faktor{X}{G}$ con la relazione di equivalenza di essere nella stessa orbita, cioè:
+$$x \sim y \Longleftrightarrow \exists g \in G: g \cdot x=y$$
+In altre parole, le classi di equivalenza sono le orbite di $G$ in $X$.
+\begin{ex}
+$\mathbb{Z}$ agisce su $\mathbb{R}$ per traslazione:
+$$n \cdot x=n+x$$
+Più in generale, $\mathbb{Q}$ agisce su $\mathbb{R}$ allo stesso modo.
+\end{ex}
+
+\begin{oss}(\emph{Osservazione notazionale})
+Il quoziente $\faktor{\mathbb{R}}{\mathbb{Z}}$ può indicare due cose ben distinte:
+\begin{nlist}
+\item $\mathbb{Z} \subset \mathbb{R}$ sottoinsieme $\Longrightarrow \faktor{\mathbb{R}}{\mathbb{Z}}$ bouquet infinito numerabile di circonferenze
+\item $\mathbb{Z}$ agisce su $\mathbb{R}$ come nell'esempio sopra $\Longrightarrow S^1$
+\end{nlist}
+\end{oss}
+
+\begin{prop}
+$\mathbb{Z}$ agisce su $\mathbb{R}$ come nell'esempio sopra $\Longrightarrow S^1$
+\end{prop}
+\begin{proof}
+Consideriamo:
+\begin{align*}
+f:\mathbb{R} &\longrightarrow S^1 \\
+t &\longmapsto (\cos(2\pi t), \sin (2\pi t))
+\end{align*}
+Se vediamo $f$ identificazione, allora abbiamo finito in quanto le fibre di $f$ sono proprio le orbite di $\mathbb{Z}$. Sappiamo inoltre che $f$ è continua e surgettiva, vediamo allora che è aperta. Ci basta guardare $f(I)$ con $I \subset \mathbb{R}$ intervallo aperto. Sia $a \in \mathbb{R}$ e osserviamo che, preso $I=(a,a+1)$ si ha che:
+$$f \restrict {(a,a+1)}:(a,a+1) \longrightarrow S^1 \smallsetminus \{f(a)\}$$
+è invertibile con inversa continua. Dunque $f \restrict {I}$ è un omeomorfismo. Segue allora che $f \restrict {I}$ è aperta per ogni aperto $A$. Infatti se $A$ è contenuto in un intervallo $I$ di ampiezza 1 allora $f(A)$ è aperto per l'osservazione. Altrimenti, più in generale, possiamo scrivere $A= \bigcup _{j \in J} A_j$ dove $A_j$ è un aperto contenuto in intervalli di ampiezza 1. Allora:
+$$f(A)=f\left(\bigcup A_j\right)=\bigcup f(A_j)$$
+che è aperto in quanto unione di aperti.
+\end{proof}
+
+\begin{prop}
+Sia $G$ gruppo che agisce su $X$ spazio topologico (per omeomorfismi). Allora la proiezione al quoziente $\pi:X \longrightarrow \faktor {X}{G}$ è aperta. Inoltre, se $G$ è finito, $\pi$ è anche chiusa.
+\end{prop}
+\begin{proof}
+Se $U \subset X$ è un aperto, allora $\pi (U)=\pi \left(\bigcup _{g \in G} gU\right)$ è un aperto saturo. Inoltre, poiché $G$ agisce tramite omeomorfismi, $gU$ è aperto $\forall g \in G$. Se $G$ è finito, il ragionamento è analogo per i chiusi:
+$$C \subset X \text{ chiuso } \Longrightarrow f(C)=f\left(\bigcup _{g \in G} gC\right) \Longrightarrow f(C) \text{ chiuso}$$
+\end{proof}
+
+\begin{oss}
+Se $G$ è infinito, in generale non è vero che $\pi$ è chiusa.
+\end{oss}
+
+\begin{oss}
+Siano $f_i:X_i \longrightarrow Y_i$ identificazioni per $i=1,2$. Allora l'applicazione:
+$$f_1 \times f_2:X_1 \times X_2 \longrightarrow Y_1 \times Y_2$$
+è continua e surgettiva, ma in generale non è un'identificazione. Inoltre il prodotto cartesiano di identificazioni aperte è un'identificazione aperta.
+\end{oss}
+
+\begin{prop}
+Sia $X$ spazio di Hausdorff e $G$ gruppo che agisce su $X$ tramite omeomorfismi. Sia $K=\{(x,gx) \mid x \in X, g \in G \} \subset X \times X$. Allora $\faktor {X}{G}$ è di Hausdorff se e solo se $K$ è chiuso in $X \times X$.
+\end{prop}
+\begin{proof}
+In altre parole, possiamo riformulare l'enunciato come:
+$$\faktor{X}{G} \text{ Hausdorff } \Longleftrightarrow \Delta_{\faktor{X}{G}} \subset \faktor{X}{G} \times \faktor{X}{G} \text{ chiusa}$$
+Sia $\pi:X \longrightarrow \faktor{X}{G}$ la proiezione, allora $\pi$ è un'identificazione aperta. Ma allora $\pi \times \pi$ è a sua volta identificazione aperta. Dunque $\Delta _{\faktor{X}{G}}$ è chiusa se e solo se $(\pi \times \pi)^{-1}(\Delta _{\faktor{X}{G}}) \subset X \times X$ è chiuso. D'altra parte $(\pi \times \pi)^{-1}(\Delta _{\faktor{X}{G}})=K$.
+\end{proof}

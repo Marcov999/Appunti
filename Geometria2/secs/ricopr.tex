@@ -1,0 +1,64 @@
+Sia $X$ spazio topologico e $\mathcal{U} \subset \mathcal{P}(X)$.
+
+\begin{defn}
+$\mathcal{U}$ è un \textsc{ricoprimento di $X$} se $X=\bigcup _{U \in \mathcal{U}}U$. Se tutti gli $U \in \mathcal{U}$ sono aperti [chiusi] allora diremo che $\mathcal{U}$ è un \textsc{ricoprimento aperto [ricoprimento chiuso]}.
+\end{defn}
+
+\begin{defn}
+$\mathcal{U} \subset \mathcal{P}(X)$ è detto \textsc{famiglia localmente finita} se $\forall x \in X, \exists V \in I(x)$ tale che $V \cap U \neq \emptyset$ solamente per un numero finito di $U \in \mathcal{U}$.
+\end{defn}
+
+\begin{ex}
+$\mathbb{R}=\bigcup _{n \in \mathbb{Z}}[n,n+1]$ è un ricoprimento chiuso localmente finito.
+\end{ex}
+
+\begin{defn}
+$\mathcal{U}$ ricoprimento di $X$ è detto \textsc{fondamentale} se, dato $A \subset X$, allora:
+\begin{align*}
+A \text{ aperto in }X &\Longleftrightarrow A \cap U \text{ aperto in }U \qquad &&\forall U \in \mathcal{U} \\
+(\underline{\text{Equivalentemente}} \qquad C \text{ chiuso in }X &\Longleftrightarrow C \cap U \text{ chiuso in }U \qquad &&\forall U \in \mathcal{U})
+\end{align*}
+\end{defn}
+
+\begin{ex}
+\begin{nlist}
+\item $\mathcal{U}$ ricoprimento aperto $\Longrightarrow \mathcal{U}$ ricoprimento fondamentale.
+\item $\mathbb{R}=\bigcup _{x \in \mathbb{R}} \{x\}$ è un ricoprimento chiuso. D'altra parte però, $A \cap \{x\}$ è aperto in $\{x\}$ $\forall x \in \mathbb{R}$, quindi il ricoprimento non è fondamentale.
+\end{nlist}
+\end{ex}
+
+\begin{prop}
+Sia $\mathcal{U}$ ricoprimento fondamentale di $X$, e sia $f:X \longrightarrow Y$ funzione tra spazi topologici. Allora $f$ è continua se e solo se $f \restrict {U}$ è continua $\forall U \in \mathcal{U}$.
+\end{prop}
+\begin{proof}
+
+\end{proof}
+
+Enunciamo ora un lemma che ci permetterà di dimostrare un teorema particolarmente importante.
+
+\begin{lm}
+Un'unione localmente finita di chiusi è chiusa.
+\end{lm}
+\begin{proof}
+Sia $\{C_i\}_{i \in I}$ una famiglia localmente finita di chiusi. $\forall x \in X$, $\exists U_x \subseteq X$ aperto, con $x \in U_x$ che interseca solo un numero finito di $C_i$. Sia $\mathcal{U}=\{U_x\}_{x \in X}$ il ricoprimento aperto così definito. $\mathcal{U}$ è fondamentale, per cui basta vedere che $\left(\bigcup _{i \in I} C_i\right) \cap U_x$ è chiuso in $U_x$, $\forall x \in X$. Ma, fissato $x$, esistono $i_1, \dots ,i_n$ tali che:
+$$U_x \cap \left(\bigcup _{i \in I} C_i\right) = U_x \cap (C_{i_1} \cup \cdots \cup C_{i_n})$$
+che è chiuso in $U_x$ in quanto $C_{i_1} \cup \cdots \cup C_{i_n}$ è unione finita di chiusi.
+\end{proof}
+
+\begin{cor}
+In generale, se $\{Y_i\}_{i \in I}$ è una famiglia localmente finita, allora:
+$$\overline{\bigcup _{i \in I} Y_i}=\bigcup _{i \in I} \overline{Y_i}$$
+\end{cor}
+\begin{proof}
+$$Y_{i_0} \subseteq \bigcup _{i \in I} Y_i \Longrightarrow \overline{Y_{i_0}} \subseteq \overline{\bigcup _{i \in I} Y_i} \quad \forall i_0 \Longrightarrow \bigcup _{i \in I} \overline{Y_i} \subseteq \overline{\bigcup _{i \in I} Y_i}$$
+Per il viceversa, si mostra prima che se gli $Y_i$ sono localmente finiti, anche gli $\overline{Y_i}$ lo sono. Dunque, per il lemma appena visto, $\bigcup _{i \in I} \overline{Y_i}$ è un chiuso che contiene $\bigcup _{i \in I} Y_i$. Per cui:
+$$\overline{\bigcup _{i \in I} Y_i} \subseteq \bigcup _{i \in I} \overline{Y_i}$$
+\end{proof}
+
+Possiamo adesso enunciare e dimostrare il seguente teorema:
+\begin{thm}
+Un ricoprimento chiuso localmente finito è fondamentale.
+\end{thm}
+\begin{proof}
+Sia $\{C_i\} _{i \in I}$ un ricoprimento chiuso localmente finito, e sia $Z \subseteq X$ tale che $Z \cap C_i$ sia chiuso in $C_i$, $\forall i \in I$. Poiché $C_i$ è chiuso, e un chiuso di un chiuso di $X$ è chiuso in $X$, allora $Z \cap C_i$ è chiuso in $X$ $\forall i \in I$. Dunque la famiglia $\{Z \cap C_i \} _{i \in I}$ è una famiglia localmente finita di chiusi. Allora, per il lemma, $Z=\bigcup _{i \in I} (Z \cap C_i)$ è chiuso in $X$, da cui la tesi.
+\end{proof}

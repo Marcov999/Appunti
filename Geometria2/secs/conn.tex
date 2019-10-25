@@ -1,0 +1,212 @@
+\begin{defn}
+Uno spazio topologico $X$ si dice \textsc{sconnesso} se vale una delle seguenti condizioni (equivalenti):
+\begin{nlist}
+\item $X=A \sqcup B$ (cioè $X=A \cup B$ con $A \cap B = \emptyset$) con $A,B$ aperti non vuoti. Allora in particolare $A$ e $B$ sono anche chiusi, in quanto sono uno il complementare dell'altro.
+\item $X=A \sqcup B$ con $A,B$ chiusi non vuoti
+\item $\exists A \subseteq X, A \neq \emptyset, A \neq X, A$ è sia aperto che chiuso
+\end{nlist}
+\end{defn}
+
+\begin{defn}
+$X$ si dice \textsc{connesso} se non è sconnesso. In altre parole, se: \\ $\forall A \subseteq X, A \neq \emptyset, A$ aperto e chiuso, allora $A=X$.
+\end{defn}
+
+\begin{ex}
+$\mathbb{R} \smallsetminus \{0\}$ è sconnesso in quanto unione degli aperti $(-\infty,0)$ e $(0,+\infty)$.
+\end{ex}
+
+\begin{thm}
+$[0,1] \subset \mathbb{R}$ è connesso.
+\end{thm}
+\begin{proof}
+Siano $A,B$ aperti non vuoti di [0,1], con $[0,1]=A \sqcup B$. Posso supporre $0 \in A$. Dunque, se $t_0=\inf B$ (esiste poiché $B$ è non vuoto e limitato inferiormente), allora $t_0 \ge \varepsilon >0$, perché altrimenti avrei $B \cap [0,\varepsilon) \neq \emptyset$, che contraddice le ipotesi. $B$ è chiuso ($A$ e $B$ sono entrambi aperti e chiusi), quindi $t_0 \in B$. Ma $B$ è anche aperto e $t_0 >0$, per cui $\exists \delta >0$ con $(t_0-\delta, t_0] \subseteq B$, e ciò contraddice il fatto che $t_0=\inf B$.
+\end{proof}
+
+\begin{defn}
+$X$ si dice \textsc{connesso per archi} se $\forall x_0,x_1 \in X$, \\
+$\exists \alpha:[0,1] \longrightarrow X$ continua tale che $\alpha (0)=x_0, \alpha (1)=x_1$.
+\end{defn}
+
+\begin{prop}
+$X$ connesso per archi $\Longrightarrow$ $X$ connesso.
+\end{prop}
+\begin{proof}
+Se $X$ fosse sconnesso, allora $X=A \sqcup B$ aperti non vuoti. Prendo allora $X_0 \in A, x_1 \in B$. Se $\alpha:[0,1] \longrightarrow X$ con $\alpha (0)=x_0, \alpha (1)=x_1$ fosse continua, avrei una partizione $[0,1]=\alpha ^{-1}(A) \sqcup \alpha ^{-1}(B)$ di [0,1] in aperti non vuoti, il che è assurdo.
+\end{proof}
+
+\begin{prop}
+Sia $f:X\longrightarrow Y$ continua. Allora:
+\begin{nlist}
+\item Se $X$ è connesso, $f(X)$ è connesso
+\item Se $X$ è connesso per archi, $f(X)$ è connesso per archi
+\end{nlist}
+\end{prop}
+\begin{proof}
+Se $f(X)=A \sqcup B$, allora $X=f^{-1}(A) \sqcup f^{-1}(B)$, quindi $X$ è sconnesso (abbiamo dimostrato la contronominale della (i)). \\
+Dati $y_0,y_1 \in f(X), \exists x_0, x_1 \in X$ con $f(x_0)=y_0, f(x_1)=y_1$, esiste $\alpha:[0,1]\longrightarrow X$ con $\alpha (0)=x_0, \alpha (1)=x_1$. Allora $f \circ \alpha:[0,1] \longrightarrow Y$ è un arco continuo che connette $y_0$ a $y_1$.
+\end{proof}
+
+\begin{lm}
+Siano $X$ spazio topologico, $Y \subseteq X$ connesso e $Z \subseteq X$ tale che $Y \subseteq Z \subseteq \overline{Y}$. Allora $Z$ è connesso.
+\end{lm}
+\begin{proof}
+Osserviamo inanzitutto che $Y$ è denso in $Z$, in quanto la chiusura di $Y$ in $Z$ è $Y \cap Z=Z$ poiché $Z \subseteq \overline{Y}$. Sia $A \neq \emptyset$ un aperto e chiuso di $Z$. Allora $A \cap Y$ è aperto e chiuso in $Y$ (per definizione di topologia di sottospazi), e $A \cap Y \neq \emptyset$ in quanto $Y$ è denso in $Z$ e $A$ è aperto in $Z$. Allora, per connessione di $Y$, si ha che $A \cap Y=Y$, cioè $Y \subseteq A$. Ma $Y$ è denso in $Z$, per cui anche $A$ lo è. Ma $A$ è anche chiuso in $Z$, per cui $A=Z$.
+\end{proof}
+
+\begin{lm}
+Siano $\{Y_i\}_{i \in I}$ sottospazi connessi di $X$, e sia $x_0 \in X$ tale che $x_0 \in Y_i$, $\forall i \in I$ (cioè $x_0 \in \bigcup _{i \in I} Y_i \neq \emptyset$). Allora $\bigcup _{i \in I} Y_i$ è connesso.
+\end{lm}
+\begin{proof}
+Sia $A \neq \emptyset$ aperto e chiuso di $Y=\bigcup Y_i$. A meno di sostituire $A$ con il suo complementare $Y \smallsetminus A$, posso supporre $x_0 \in A$. $\forall i \in I, A \cap Y_i$ è aperto e chiuso in $Y_i$, e non è vuoto perché contiene $x_0$. Per cui, $Y_i$ connesso implica che $A \cap Y_i=Y_i$, cioè $Y_i \subseteq A$. Ma allora $Y \subseteq A$, cioè $Y=A$, da cui la tesi.
+\end{proof}
+
+\begin{defn}
+Sia $x_0 \in X$. Allora esiste il più grande sottospazio connesso di $X$ che contiene $x_0$. Lo indicheremo con $C(x_0)$ e lo chiameremo \textsc{componente connessa} di $x_0$.
+\end{defn}
+\begin{proof}(\emph{Esistenza di $C(x_0)$})\\
+Pongo $C(x_0)=\bigcup \{Y \mid Y \subseteq X, Y \text{ connesso},x_0 \in Y\}$. Per il lemma appena visto, $C(x_0)$ è connesso, e contiene per costruzione qualsiasi connesso che contiene $x_0$, perciò è anche il più grande sottospazio connesso contenente $x_0$.
+\end{proof}
+
+\begin{prop}
+Le componenti connesse realizzano una partizione dello spazio in chiusi. 
+\end{prop}
+\begin{proof}
+$\forall x_0,x_1 \in X, x_0 \in C(x_0)$ poiché $\{x_0\}$ è connesso. Se $C(x_0) \cap C(x_1) \neq \emptyset$, per il lemma precedente $C(x_0) \cup C(x_1)$ è connesso $\Longrightarrow C(x_0) \cup C(x_1) \subseteq C(x_0)$ e $C(x_0) \cup C(x_1) \subseteq C(x_1) \Longrightarrow C(x_0)=C(x_1)$.\\
+Infine, $\overline{C(x_0)}$ è connesso per un lemma precedente e contiene $x_0$, dunque $\overline{C(x_0)} \subseteq C(x_0)$, per cui $C(x_0)=\overline{C(x_0)}$, ovvero $C(x_0)$ è chiuso.
+\end{proof}
+
+\begin{oss}
+$A \subseteq X$ aperto, chiuso e connesso $\Longrightarrow A$ è una componente connessa. Infatti, se $B \supseteq A$ è connesso, $A$ è aperto e chiuso in $B$ e non vuoto, allora $A=B$, per cui $A$ è un connesso massimale, ovvero è una componente connessa.
+\end{oss}
+
+\begin{oss}
+Le componenti connesse di $\mathbb{Q}$ sono i punti, cioè $C(x_0)=\{x_0\}$, $\forall x_0 \in \mathbb{Q}$. Si dice allora che $\mathbb{Q}$ è \textsc{totalmente sconnesso}. Infatti, supponiamo per assurdo che esista una componente connessa $C$ che contiene due punti $x_0,x_1 \in \mathbb{Q}$, con $x_0<x_1$, e sia $y \in \mathbb{R} \smallsetminus \mathbb{Q}$ con $x_0<y<x_1$. Allora $(C \cap (-\infty,y))\sqcup (C \cap (y,+\infty))$ è una partizione non banale di $C$ in aperti. Ma allora $C$ è sconnesso, il che contraddice l'ipotesi iniziale. \\
+Dunque, in generale, le componenti connesse non sono aperte.
+\end{oss}
+
+Studiamo adesso i connessi di $\mathbb{R}$:\\
+$A \subset \mathbb{R}$ è convesso se $\forall x,y \in A$ vale:
+$$tx+(1-t)y \in A \qquad \forall t \in [0,1]$$
+
+\begin{oss}
+\begin{align*}
+A \subset \mathbb{R} \text{ convesso } &\Longrightarrow A \text{ connesso per archi}\\
+&\Longrightarrow A \text{ connesso}
+\end{align*}
+\end{oss}
+
+\begin{prop}
+Se $I \subset \mathbb{R}$, sono equivalenti:
+\begin{nlist}
+\item $I$ è convesso ($I$ è un intervallo)
+\item $I$ è connesso per archi
+\item $I$ è connesso
+\end{nlist}
+\end{prop}
+\begin{proof}
+(i) $\Longrightarrow$ (ii) $\Longrightarrow$ (iii) lo sappiamo già per l'osservazione precedente.\\
+Vediamo allora (iii) $\Longrightarrow$ (i). Supponiamo $I$ non convesso. Allora $\exists a<b<c$ tali che $a,c \in I, b \notin I$. Allora:
+$$I=((-\infty,b) \cap I) \cup ((b,+\infty) \cap I)$$
+che è assurdo per ipotesi.
+\end{proof}
+
+\begin{ex}
+(0,1) non è omeomorfo a [0,1). Sia infatti $f:[0,1) \longrightarrow (0,1)$ omeomorfismo. Allora:\\
+$[0,1) \smallsetminus \{0\}$ è connesso\\
+$(0,1) \smallsetminus \{f(0)\}$ non è connesso.
+\end{ex}
+
+\begin{ex}(\emph{Connesso $\not\Rightarrow$ connesso per archi})\\
+Sia $Y=\{(x, \sin \frac{1}{x}) \mid x>0\} \subset \mathbb{R}^2$. Poiché $Y=F(0,+\infty)$ con:
+\begin{align*}
+F:(0,+\infty) &\longrightarrow \mathbb{R}^2 \\
+x &\longmapsto \left(x,\sin \frac{1}{x}\right)
+\end{align*}
+allora $Y$ è connesso per archi. Sia:
+$$X=\overline{Y}=Y \cup \{(0,t) \mid |x| \le 1\}$$
+che è connesso in quanto chiusura di un connesso. Vediamo allora che non è connesso per archi. Supponiamo che esista il cammino $\alpha$ definito come:
+$$\alpha:[0,1] \longrightarrow X \qquad \text{con} \qquad \alpha(0)=(0,0) \text{  e  } \alpha(1) \in Y$$
+Consideriamo allora:
+\begin{align*}
+\alpha(t)&=(x(t),y(t))\\
+x&:[0,1] \longrightarrow [0,+\infty]\\
+y&:[0,1] \longrightarrow [-1,1]
+\end{align*}
+Sia $\Omega=\{t \in [0,1] \mid x(t)=0\}$ chiuso, e sia $t_0 =\max \Omega, t_0<1$ per ipotesi. Supponiamo $y(t_0) \ge 0$ (l'altro caso è analogo). Per continuità:
+$$\exists \delta >0 : y(t) \ge -\dfrac{1}{2} \qquad \forall t \in [t_0,t_0+\delta]$$
+Vediamo che $x([t_0,t_0+\delta]) \subset [0,+\infty)$ è un connesso contenente $0=x(t_0)$ Allora $\exists \varepsilon >0$ tale che $[0,\varepsilon]\subset x([t_0,t_0+\delta])$. Cerchiamo allora $\lambda \in [0,\varepsilon]$ con $\sin \dfrac{1}{\lambda}=-1$:
+$$\lambda=\dfrac{1}{-\frac{\pi}{2}+2k\pi} \quad \text{ con } k\gg 0$$
+Allora $\sin \dfrac{1}{\lambda}=-1$, vale a dire che se $x(t)=\lambda$, allora $y(t)=\sin \dfrac{1}{\lambda}=-1$.
+\end{ex}
+
+Torniamo adesso ad un discorso generale sulle connessioni.
+
+\begin{defn}
+Dato $x \in X$, la \textsc{componente connessa per archi} di $x$ è il più grande connesso per archi che contiene $x$.\\
+\underline{Equivalentemente}: Dato $x \in X$, la sua componente connessa per archi $C_a(x)$ è:
+$$C_a(x)=\{y \in X \mid \exists \alpha:[0,1] \longrightarrow X \text{ con } \alpha(0)=x, \alpha(1)=y\}$$
+\end{defn}
+
+Definiamo una relazione $\sim$ su $X$:
+$$x \sim y \text{ se } \exists \alpha:[0,1] \longrightarrow X \text{ con } \alpha(0)=x, \alpha(1)=y$$
+Vediamo che $\sim$ è una relazione di equivalenza, dunque $C_a(x)=[x]$:
+\begin{nlist}
+\item $\sim$ è riflessiva. Sia:
+\begin{align*}
+\alpha:[0,1] &\longrightarrow X \\
+t &\longmapsto x
+\end{align*}
+Allora $x \sim x$.
+\item $\sim$ è simmetrica. Sia $\alpha:[0,1] \longrightarrow X$ continua con $\alpha(0)=x,\alpha(1)=y$. Definiamo allora $\beta:[0,1]\longrightarrow X$ tale che $\beta (t)=\alpha (1-t)$, e osserviamo che è continua in quanto composizione di funzioni continue. Allora, poiché $\beta (0)=y, \beta(1)=x$, si ha che $y \sim x$.
+\item $\sim$ è transitiva. Siano $\alpha,\beta :[0,1]\longrightarrow X$ continue con $\alpha(0)=x, \alpha(1)=\beta(0)=y, \beta(1)=z$. Definiamo allora la \textsc{giunzione} di $\alpha$ e $\beta$ nel seguente modo:
+$$
+(\alpha * \beta)(t)=\begin{cases} \alpha (2t) & \mbox{se }t \in [0, 1/2] \\ \beta (2t-1) & \mbox{se }t \in [1/2,1]
+\end{cases}
+$$
+Allora abbiamo che:
+\begin{align*}
+&(\alpha * \beta)(0) = \alpha (0) =x \\
+&(\alpha * \beta)\left(\dfrac{1}{2}\right) =\alpha (1) = \beta (0)=y\\
+&(\alpha * \beta)(1) = \beta (1) =z\\
+\end{align*}
+Allora $[0,1]=[0,1/2] \cup [1/2,1]$ è un ricoprimento chiuso localmente finito, di conseguenza è fondamentale, e quindi $\alpha * \beta$ è continua in quanto le sue restrizioni sono continue.
+\end{nlist}
+
+\begin{ex}
+$X=X_1 \cup X_2$ dove:
+$$ X_1=\{(0,t) \mid |t| \le 1\} \qquad X_2=\left\{ \left(x,\sin \dfrac{1}{x}\right) \mid x>0 \right\}$$
+$X$ ha due componenti connesse per archi: $X_1$ e $X_2$. Infatti:
+\begin{align*}
+X_2&=X \cap \{x>0\} \qquad \text{aperta, non chiusa}\\
+X_1&=X \cap \{x=0\} \qquad \text{chiusa, non aperta}
+\end{align*}
+Dunque in generale le componenti connesse per archi non sono né aperte né chiuse.
+\end{ex}
+
+\begin{prop}
+Supponiamo che ogni punto abbia un intorno connesso. Allora le componenti connesse sono aperte.
+\end{prop}
+\begin{proof}
+Sia $x \in X$, con $C(x)$ la sua componente connessa. Sia $y \in C(x)$, e sia $U \in I(y)$ intorno connesso. Allora $C(x) \cup U$ è unione di due connessi che si intersecano in $y$, e quindi $U \subset C(x)$.
+\end{proof}
+
+\begin{prop}
+Supponiamo che ogni punto abbia un intorno connesso per archi. Allora le componenti connesse per archi sono aperte, e coincidono con le componenti connesse.
+\end{prop}
+\begin{proof}
+Sia $x \in X$, con $C_a(x)$ la sua componente connessa per archi. Sia $y \in C_a(x)$, e sia $U \in I(y)$ intorno componente connessa per archi. Allora $C_a(x) \cup U$ è connesso per archi, e quindi $U \subset C_a(x)$. Vediamo adesso che $C_a(x)=C(x)$. Chiaramente, $C_a(x) \subset C(x)$ aperto, infatti:
+$$C(x)=\bigsqcup _{y \in C(x)} C_a(y)$$
+Allora $C(x) \smallsetminus C_a(x)$ è aperto e $C(x)$ è connesso, quindi $C_a(x)=C(x)$.
+\end{proof}
+
+\begin{defn}
+$X$ è detto \textsc{localmente connesso} se ogni punto ammette un sistema fondamentale di intorni connessi.
+\end{defn}
+
+\begin{defn}
+$X$ è detto \textsc{localmente connesso per archi} se ogni punto ammette un sistema fondamentale di intorni connessi per archi.
+\end{defn}
+
+\begin{ex}
+$(\mathbb{R}\times \{0\}) \cup (\mathbb{Q}\times \mathbb{R})$ è uno spazio connesso per archi non localmente connesso.
+\end{ex}
