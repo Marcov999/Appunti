@@ -138,6 +138,7 @@ blocchi non numerati.
     sospensione (`...`).
 - Committare spesso.
 - Tenere circa aggiornato questo README.
+- *SCRIVERE CIO` CHE SI FA SUL todo.txt*.
 
 ### Diagrammi commutativi cheat sheet
 __TODO__ inserire sezione.

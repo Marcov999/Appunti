@@ -5,5 +5,5 @@
 *.out
 *.synctex.gz
 tmp/*
-.DS_store/*
+*/.DS_store/*
 */build/*
