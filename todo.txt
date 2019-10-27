@@ -3,12 +3,12 @@ Lez 02: ok
 Lez 03: caratterizzazione chiusura in metrico. Continuita` distanza. d_1 e d_infty non sono eq. in C^0[0,1].  Topologia della semicontinuità su R.
 Lez 04: ok
 Lez 05: ok
-Lez 06: Fatto 2.6.12 da correggere
+Lez 06: ok
 Lez 07: ok
 Lez 08: ok
-Lez 09: chiusura dell'unione, etc..., chiusura/apertura/chiusura...
-Lez 10: Caratterizzazione dei punti come intersezione dei loro intorni in spazi T1 e T2?
-Lez. 11: ok
+Lez 09: ok
+Lez 10: ok
+Lez 11: ok
 Lez 12: esempi!!
 Lez 13: la parte sui quozienti
 Lez 14: ok

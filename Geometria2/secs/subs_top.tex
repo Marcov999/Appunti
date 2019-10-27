@@ -12,10 +12,16 @@
     $U \cap Y \in \tau \restrict{Y}$.
 
     Siccome $\sigma = \{U \cap Y \;|\; U \in \tau\}$ \`e una topologia su $Y$
-    che rende continua $i$ e ${\tau\restrict{Y} \subseteq \sigma}$, deve valere
+    che rende continua $i$ e $\sigma \subseteq \tau\restrict{Y}$, deve valere
     l'uguaglianza in quanto $\tau\restrict{Y}$ \`e la meno fine con tali
     proprietà.
+
+    Questo ci permette anche di caratterizzare gli aperti (rispettivamente chiusi) di $Y$ come l'intersezione degli aperti (rispettivamente chiusi) di $X$ con $Y$.
 \end{oss}
+
+\begin{exc}
+  Siano $A \subseteq Y \subseteq X$, allora la chiusura di $A$ in $Y$ con la topologia di sottospazio è $\overline{A} \cap Y$, dove con $\overline{A}$ s'intende la chiusura di $A$ in $X$.
+\end{exc}
 
 \begin{oss}
     Vale anche che se $\mathcal{B}$ \`e base per $\tau$, allora
@@ -30,7 +36,7 @@
     Sia $(X, d)$ uno spazio metrico e $Y \subseteq X$ un sottoinsieme generico.
     La distanza $d$ pu\`o essere ristretta a $Y \times Y$. In tal caso
     $d\restrict{Y \times Y}$, che verr\`a indicata anche come $d\restrict{Y}$
-    \`e una distanza su X.
+    \`e una distanza su $Y$.
 \end{defn}
 
 \begin{prop}
