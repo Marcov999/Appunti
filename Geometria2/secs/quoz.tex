@@ -97,8 +97,36 @@
 \end{defn}
 
 \begin{ex}
-    L'intervallo $[0, 1]$ quozientato sul suo sottoinsieme $\{0,1\}$ \`e isomorfo alla circonferenza $S^1$.
+    Il disco quozientato sulla sua frontiera \`e isomorfo alla sfera. Cio\`e
+    $D^n/\partial D^n\cong S^n$.
 \end{ex}
 \begin{proof}
-    % TODO: inserire dimostrazione.
+    Basta verificare che la funzione
+    \begin{align*}
+        f\colon D^n/\partial D^n & \longrightarrow S^n\\
+        x & \longrightarrow (2 \norm{x}^2-1,\; x \sqrt{1-\norm{x}^2})
+    \end{align*}
+    sia un omeomorfismo. Sicuramente si ha la continuit\`a. Per l'iniettivit\`a
+    si noti che il primo termine distingue i vettori con norma diversa, mentre
+    il secondo distingue i vettori con direzione diversa, con l'eccezione dei
+    punti di norma $1$, che per\`o sono identificati. Infine la funzione \`e
+    surgettiva, in quanto l'immagine \`e composta effettivamente di vettori di
+    lunghezza unitaria.
 \end{proof}
+
+\begin{ex}
+    Sia
+    \[
+        X = \{x \geq 0\} \cup \{y = 0\} \subseteq \mathbb{R}^2
+    \]
+    e sia $\pi\colon X \longrightarrow \mathbb{R}$ la proiezione sul primo
+    elemento. Allora $\pi$ \`e un'identificazione ma non \`e chiusa n\'e aperta.
+\end{ex}
+
+\begin{ex}
+    Sia
+    \[
+        A = \{(x, 0)\} \subseteq \mathbb{R}^2
+    \]
+    e sia $X = \mathbb{R}^2/A$. Allora $X$ non \`e primo numerabile.
+\end{ex}
