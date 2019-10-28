@@ -1,6 +1,6 @@
 Lez 01: ok
 Lez 02: ok
-Lez 03: caratterizzazione chiusura in metrico. Continuita` distanza. d_1 e d_infty non sono eq. in C^0[0,1].  Topologia della semicontinuità su R.
+Lez 03: ok
 Lez 04: ok
 Lez 05: ok
 Lez 06: ok

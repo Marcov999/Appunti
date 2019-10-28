@@ -1,6 +1,6 @@
 \begin{defn}
     Dati $p \in X, R>0$, ${B(p, R):=\{ x \in X \mid d(p, x)<R\}}$ è detta la
-    \textsc{palla aperta} di centro $p$ e raggio $R$.
+    \textsc{palla aperta} di centro $p$ e raggio $R$. Se al posto del minore si utilizza il minore o uguale, si ottiene la definizione di \textsc{palla chiusa} (nelle definizioni seguenti useremo le palle aperte).
 \end{defn}
 
 \begin{defn}
@@ -18,6 +18,14 @@
 \begin{oss}
     Gli embedding isometrici sono continui.
 \end{oss}
+
+\begin{ex}
+  Siano $(X, d)$ spazio metrico, $E \subseteq X$ e $x_0 \in X$ fissato. Allora la funzione $f:E \rightarrow \mathbb{R}$ definita come $f(x)=d(x, x_0)$ è continua.
+\end{ex}
+
+\begin{proof}
+  Sia $x \in E$ e $\epsilon>0$. Per avere la continuità, vogliamo trovare un $\delta>0$ t.c. $f(B(x, \delta)) \subseteq (f(x)-\epsilon, f(x)+\epsilon)$, cioè per ogni $y \in E$ t.c. $d(y, x)<\delta$ vogliamo $|f(y)-f(x)|<\epsilon$. Ma notiamo che $|f(y)-f(x)|=|d(y, x_0)-d(x, x_0)|$ che per la disuguaglianza triangolare (opportunamente rimaneggiata) è minore o uguale di $d(x, y)<\delta$, dunque basta prendere $\delta=\epsilon$.
+\end{proof}
 
 \begin{defn}
     Sia $X$ uno spazio metrico, $A \subseteq X$ è detto \textsc{aperto} se per
@@ -127,4 +135,13 @@ nelle metriche $d_1, d_2, d_{\infty}$.
 
 Nella dimostrazione del corollario era importante che lo spazio fosse di
 dimensione finita. Nello spazio delle funzioni continue da $[0, 1]$ a
-$\mathbb{R}$ le tre distanze non sono topologicamente equivalenti.
+$\mathbb{R}$ le tre distanze non sono topologicamente equivalenti. Dimostriamo ad esempio che due di esse non lo sono.
+
+\begin{prop}
+  Nello spazio delle funzioni continue da $[0, 1]$ in $\mathbb{R}$, $d_1$ e $d_{\infty}$ non sono topologicamente equivalenti.
+\end{prop}
+
+\begin{proof}
+  Se per assurdo fossero topologicamente equivalenti, l'identità da $C([0,1])$ in sé sarebbe continua. Sia dunque $f_0$ la funzione costantemente nulla, consideriamo la palla $B_{d_{\infty}}(f_0, 1)$ (che equivale alle funzioni continue limitate in modulo da $1$), se l'identità fosse continua potremmo trovare un $\delta>0$ t.c. $B_{d_1}(f_0, \delta) \subseteq B_{d_{\infty}}(f_0, 1)$.
+  Ma la funzione $f$ definita come segue sta in $B_{d_1}(f_0, \delta)$ ma non in $B_{d_{\infty}}(f_0, 1)$. Sia dunque $f(x)=0$ per $x=0$ o $x \ge \delta/2$, $f(\delta/4)=2$ e per il resto lineare a tratti. È un semplice esercizio verificare che fa quanto detto.
+\end{proof}

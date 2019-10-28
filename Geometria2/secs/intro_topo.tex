@@ -37,14 +37,15 @@
 
 \begin{ex}
     Ecco alcuni esempi di spazi topologici:
-    \begin{itemize}
+    \begin{nlist}
         \item tutte le topologie indotte da una metrica;
         \item la topologia discreta, cioè $\tau=\mathcal{P}(X)$, indotta dalla
         distanza discreta;
         \item la topologia indiscreta, cioè $\tau=\{ \emptyset, X \}$;
         \item la topologia cofinita, dove gli aperti sono l'insieme vuoto più
-        tutti e soli gli insiemi il cui complementare è un insieme finito.
-    \end{itemize}
+        tutti e soli gli insiemi il cui complementare è un insieme finito;
+        \item la topologia della semicontinuità (inferiore) su $\mathbb{R}$, $\tau=\{\emptyset, \mathbb{R}\} \cup \{\mathcal{O}_y | y \in \mathbb{R}\}$ dove $\mathcal{O}_y=\{x \in \mathbb{R} | x>y\}$.
+    \end{nlist}
 \end{ex}
 
 \begin{defn}
@@ -86,6 +87,22 @@ aperto è l'aperto stesso e la chiusura di un chiuso è il chiuso stesso.
     \item $\overline{A \cap B} \subseteq \overline{A} \cap \overline{B}$, ma prendendo $A=\mathbb{Q}, B=\mathbb{R} \setminus \mathbb{Q}$ otteniamo che può non valere l'uguaglianza;
     \item gli analoghi per la parte interna (attenzione: unione e intersezione si scambiano);
     \item $\left(\overline{(\overline{A})^{\circ}}\right)^{\circ}=(\overline{A})^{\circ}$ e $(\overline{\overline{A^{\circ}})^{\circ}}=\overline{A^{\circ}}$;
-    \item trovare un esempio di $X$ spazio topologico e $A \subseteq X$ t.c. $A, \overline{A}, (\overline{A})^{\circ}, \overline{(\overline{A})^{\circ}}, A^{\circ}, \overline{A^{\circ}}, (\overline{A^{\circ}})^{\circ}$ sono tutti diversi.
+    \item trovare un esempio di $X$ spazio topologico e $A \subseteq X$ t.c. \\ $A, \overline{A}, (\overline{A})^{\circ}, \overline{(\overline{A})^{\circ}}, A^{\circ}, \overline{A^{\circ}}, (\overline{A^{\circ}})^{\circ}$ sono tutti diversi.
   \end{nlist}
 \end{exc}
+
+Vediamo adesso la caratterizzazione della chiusura in spazi metrici. Premettiamo una definizione.
+
+\begin{defn}
+  Siano $(X, d)$ spazio metrico e $E \subseteq X$. Diremo che $x_0 \in X$ è \textit{aderente} a $E$ se per ogni $r>0$ vale che $E \cap B(x_0, r) \not= \emptyset$.
+\end{defn}
+
+Vale allora la seguente affermazione.
+
+\begin{prop}
+  Dato $E$ in uno spazio metrico, $\overline{E}$ è l'insieme dei punti aderenti a $E$.
+\end{prop}
+
+\begin{proof}
+  Sicuramente l'insieme dei punti aderenti contiene $E$, inoltre è un semplice esercizio verificare che è un insieme chiuso. Dobbiamo adesso dimostrare che è il più piccolo chiuso che contiene $E$. Sia dunque $C$ un chiuso che contiene $E$, è ancora una volta un semplice esercizio verificare che il suo complementare è disgiunto dall'insieme dei punti aderenti, che è dunque contenuto in $C$ e per minimalità della chiusura deve essere proprio $\overline{E}$.
+\end{proof}
