@@ -13,4 +13,4 @@ Lez 12: ok
 Lez 13: la parte sui quozienti
 Lez 14: ok
 Lez 15: Esempio: il pettine infinito. Prodotto di connessi per archi è connesso per archi, prodotto di connessi è connesso. Se n>1, allora R^n privato di un sottoinsieme numerabile è connesso per archi.
-Lez 16: Un sottospazio chiuso di un sottospazio compatto è compatto. In uno spazio dotato della topologia cofinita, tutti i sottospazi sono compatti. Esistono sottospazi compatti che non sono chiusi. Un sottospazio compatto di uno spazio di Hausdorff è compatto. Uno spazio compatto di Hausdorff è normale. (ROBERTO FRIGERIO) 
+Lez 16: ok

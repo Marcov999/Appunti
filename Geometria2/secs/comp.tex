@@ -45,3 +45,66 @@
   Sia $\{U_i\}$ un ricoprimento aperto di $f(X)$ con gli $U_i$ aperti di $f(X)$, allora esistono $\{V_i\}$ aperti di $Y$ t.c. $U_i=f(X) \cap V_i$.
   Allora $\{f^{-1}(U_i)\}$ è un ricoprimento di $X$ e $f^{-1}(U_i)=f^{-1}(f(X) \cap V_i)=f^{-1}(f(X)) \cap f^{-1}(V_i)=X \cap f^{-1}(V_i)$ (il penultimo uguale è vero perché $f^{-1}(V_i) \subseteq f^{-1}(f(X))$), dunque per la continuità di $f$ è un'intersezione di un aperto con tutto, cioè è aperto, dunque $\{f^{-1}(U_i)\}$ è un ricoprimento aperto di $X$, ne estraiamo un sottoricoprimento, prendiamo le immagini degli aperti così trovati e questi sono un sottoricoprimento finito di $f(X)$ estratto da $\{U_i\}$.
 \end{proof}
+
+\begin{ftt}
+  I seguenti sono fatti banali:
+  \begin{nlist}
+    \item ogni spazio finito è compatto;
+    \item unione finita di spazi compatti è compatta.
+  \end{nlist}
+\end{ftt}
+
+\begin{thm} \label{ccc}
+  $X$ compatto, $Y \subseteq X$ chiuso $\implies$ $Y$ compatto.
+\end{thm}
+
+\begin{proof}
+  Sia $\{U_i\}$ un ricoprimento di $Y$ con gli $U_i$ aperti di $Y$, allora per ogni $i$ esiste un $V_i$ aperto di $X$ t.c. $U_i=Y \cap V_i$ e $\{V_i\}$ è ancora un ricoprimento di $Y$. Notiamo che anche $W=X \setminus Y$ è un aperto e dunque $\{V_i\} \cup \{W\}$ è un ricoprimento aperto di $X$.
+  Allora, essendo $X$ compatto, esiste un sottoricoprimento finito $W, V_{i_0}, \dots V_{i_n}$ (a priori, $W$ potrebbe non essere necessario, ma aggiungerlo non cambia niente). Essendo $W \cap Y=\emptyset$ dev'essere che $V_{i_0}, \dots, V_{i_n}$ ricoprono $Y$, dunque i rispettivi $U_{i_0}, \dots, U_{i_n}$ sono il sottoricoprimento finito cercato.
+\end{proof}
+
+\begin{oss}
+  Abbiamo visto (e useremo ancora) che $Y \subseteq X$ è compatto se e solo se per ogni famiglia $\{U_i\}_{i \in I}$ di aperti di $X$ t.c. $\displaystyle Y \subseteq \bigcup_{i \in I} U_i$ esiste $\mathcal{I} \subseteq I$ finito con $\displaystyle Y \subseteq \bigcup_{i \in \mathcal{I}} U_i$.
+\end{oss}
+
+\begin{ex}
+  Sia $X$ un insieme con la topologia cofinita, allora ogni sottoinsieme di $X$ è compatto. Infatti, sia $Y \subseteq X$ e supponiamo $\displaystyle Y \subseteq \bigcup_{i \in I} U_i$, $U_i$ aperti di $X$. Se $Y=\emptyset$ allora è compatto, altrimenti esiste $y_0 \in Y$ e $y_0 \in U_{i_0}$ per qualche $i_0 \in I$.
+  Poiché $X \setminus U_{i_0}$ è finito, anche $Y \setminus U_{i_0}$ è finito, diciamo $Y \setminus U_{i_0}=\{y_1, \dots, y_n\}$, allora per ogni $j=1, \dots, n$ esiste $i_j$ con $y_j \in U_{i_j}$ e dunque $Y \subseteq U_{i_0} \cup U_{i_1} \dots \cup U_{i_n}$.
+
+  Ad esempio, se $X=\mathbb{Z}$ con la topologia cofinita, $\mathbb{N} \subseteq \mathbb{Z}$ è compatto ma non chiuso.
+\end{ex}
+
+\begin{thm} \label{chc}
+  Sia $X$ spazio topologico T2, $Y \subseteq X$, $Y$ compatto. Allora $Y$ è chiuso.
+\end{thm}
+
+\begin{proof}
+  Dimostriamo che $X \setminus Y$ è aperto. Sia $x \in X \setminus Y$. Dato che $X$ è T2, per ogni $y \in Y$ esistono due aperti disgiunti $U_y, V_y$ t.c. $x \in U_y, y \in V_y$.
+  $\{V_y\}_{y \in Y}$ è un ricoprimento aperto di $Y$, che è compatto, dunque esiste un sottoricoprimento finito $V_{y_1}, \dots V_{y_n}$. Notiamo allora che $V=V_{y_1} \cup \dots \cup V_{y_n}, U=U_{y_1} \cap \dots \cap U_{y_n}$ sono aperti disgiunti t.c. $Y \subseteq V, x \in U$.
+  In particolare, $U$ è un intorno aperto di $x$ disgiunto da $Y$ e, dato che lo possiamo trovare per ogni $x \in X \setminus Y$, possiamo concludere che $X \setminus Y$ è aperto e dunque $Y$ è chiuso.
+\end{proof}
+
+\begin{lm} \label{ch->r}
+  $X$ compatto T2 $\implies$ $X$ regolare.
+\end{lm}
+
+\begin{proof}
+  T2 $\implies$ T1, dobbiamo dimostrare T3. Siano $Y \subseteq X$ chiuso, $x_0 \in X \setminus Y$. Dal teorema \ref{ccc} $Y$ è compatto, prendendo gli aperti $U, V$ della dimostrazione del teorema \ref{chc} abbiamo esattamente quello che ci serve per soddisfare T3.
+\end{proof}
+
+\begin{thm} \label{ch->n}
+  $X$ compatto T2 $\implies$ $X$ normale.
+\end{thm}
+
+\begin{proof}
+  T2 $\implies$ T1, dobbiamo dimostrare T4. Siano $C$ e $D$ due chiusi disgiunti in $X$. Dal lemma \ref{ch->r} sappiamo che $X$ è regolare, dunque per ogni $x \in C$ esistono $U_x, V_x$ aperti disgiunti $x \in U_x, D \subseteq V_x$. $\{U_x\}_{x \in C}$ è un ricoprimento aperto di $C$, che per il teorema \ref{ccc} è compatto, dunque esiste un sottoricoprimento finito $U_{x_1}, \dots, U_{x_n}$.
+  Allora prendendo $U=U_{x_1} \cup \dots \cup U_{x_n}, V=V_{x_1} \cap \dots \cap V_{x_n}$ abbiamo che sono due aperti disgiunti t.c. $C \subseteq U, D \subseteq V$, che è esattamente quello che ci serve per dimostrare T3.
+\end{proof}
+
+\begin{prop}
+  $X$ T2, $C, D \subseteq X$ compatti e disgiunti, allora esistono $U, V$ aperti disgiunti con $C \subseteq U, D \subseteq V$.
+\end{prop}
+
+\begin{proof}
+  Dato che sfrutta le stesse idee delle dimostrazioni precedenti, è lasciata come esercizio al lettore.
+\end{proof}
