@@ -1,4 +1,4 @@
-cd s  Lez 01: ok
+Lez 01: ok
 Lez 02: ok
 Lez 03: ok
 Lez 04: ok
