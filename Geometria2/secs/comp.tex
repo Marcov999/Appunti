@@ -1,0 +1,47 @@
+\begin{defn}
+  Uno spazio topologico $X$ è \textsc{compatto} se ogni suo ricoprimento aperto ammette un sottoricoprimento finito, cioè se dato $\mathcal{U}=\{U_i\}_{i \in I}$ t.c. $\displaystyle X=\bigcup_{i \in I} U_i$ esistono $i_0, \dots, i_n$ t.c. $X=U_{i_0} \cup \dots \cup U_{i_n}$. Un sottospazio $Y \subseteq X$ è compatto se lo è con la topologia di sottospazio.
+\end{defn}
+
+\begin{defn}
+  Uno spazio metrico $X$ è \textsc{limitato} se esistono $X_0 \in X$ e $R>0$ t.c. $X=B(x_0, R)$ o equivalentemente se $diam(X)=\sup{\{d(x, y), x, y \in X\}}<+\infty$.
+\end{defn}
+
+\begin{lm}
+  Se $X$ è metrico compatto, allora $X$ è limitato.
+\end{lm}
+
+\begin{proof}
+  Scelto $x_0 \in X$, $U_n=B(x_0, n), n \in \mathbb{N}$ è un ricoprimento aperto di $X$. Esistono allora $i_0, \dots, i_n$ t.c. $X=U_{i_0} \cup \dots \cup U_{i_n}$. Poniamo allora $R=\max\{i_0, \dots, i_n\}$ e otteniamo $X=B(x_0, R)$.
+\end{proof}
+
+\begin{cor}
+  $\mathbb{R}$ non è compatto.
+\end{cor}
+
+\begin{oss}
+  La compattezza è invariante per omeomorfismo, dunque $(-1, 1)$ non è compatto in quanto omeomorfo a $\mathbb{R}$ tramite $x \longmapsto \tan{\frac{\pi}{2}x}$, con inversa $y \longmapsto \frac{2}{\pi}\tan^{-1}{y}$. Segue, per omeomorfismo affine con $(-1, 1)$, che nessun intervallo aperto $(a, b)$ è compatto.
+\end{oss}
+
+\begin{cor}
+  Metrico e limitato non implica compatto.
+\end{cor}
+
+\begin{thm}
+  $[0, 1]$ è compatto.
+\end{thm}
+
+\begin{proof}
+  Sia $\mathcal{U}=\{U_i\}_{i \in I}$ un ricoprimento aperto di $[0, 1]$ e consideriamo $t_0=\sup{A}$ dove $A=\{t \in [0, 1] \text{ t.c. c'è un sottoricoprimento finito che ricopre } [0, t]\}$.
+  Chiaramente l'insieme è non vuoto e contiene elementi maggiori di $0$, infatti c'è un aperto $U_{i_0}$ che contiene $0$ e dunque contiene un intervallo della forma $[0, \epsilon), \epsilon>0$: qualunque numero maggiore di $0$ e minore di $\epsilon$ sta dunque in $A$. Il $\sup$ di $A$ è anche un massimo: infatti esiste un aperto $U_{i_{t_0}}$ che contiene $t_0$, dunque contiene un intorno della forma $(t_0-\delta, t_0]$.
+  Prendendo allora un sottoricoprimento finito che ricopre $[0, t_0-\delta/2]$ è aggiungendoci $U_{i_{t_0}}$ otteniamo un sottoricoprimento finito che ricopre $[0, t_0]$, da cui $t_0 \in A$ e dunque è un massimo.
+  Supponiamo per assurdo che $t_0 \not=1$, cioè $0<t_0<1$, allora sempre in $U_{i_{t_0}}$ c'è un intorno della forma $[t_0, t_1)$ con $t_0<t_1<1$, quindi tutti i punti in $(t_0, t_1)$ stanno in $A$, contro la massimalità di $t_0$, assurdo.
+\end{proof}
+
+\begin{thm}
+  $f:X \rightarrow Y$ continua, $X$ compatto $\Rightarrow$ $f(X)$ compatto.
+\end{thm}
+
+\begin{proof}
+  Sia $\{U_i\}$ un ricoprimento aperto di $f(X)$ con gli $U_i$ aperti di $f(X)$, allora esistono $\{V_i\}$ aperti di $Y$ t.c. $U_i=f(X) \cap V_i$.
+  Allora $\{f^{-1}(U_i)\}$ è un ricoprimento di $X$ e $f^{-1}(U_i)=f^{-1}(f(X) \cap V_i)=f^{-1}(f(X)) \cap f^{-1}(V_i)=X \cap f^{-1}(V_i)$ (il penultimo uguale è vero perché $f^{-1}(V_i) \subseteq f^{-1}(f(X))$), dunque per la continuità di $f$ è un'intersezione di un aperto con tutto, cioè è aperto, dunque $\{f^{-1}(U_i)\}$ è un ricoprimento aperto di $X$, ne estraiamo un sottoricoprimento, prendiamo le immagini degli aperti così trovati e questi sono un sottoricoprimento finito di $f(X)$ estratto da $\{U_i\}$.
+\end{proof}
