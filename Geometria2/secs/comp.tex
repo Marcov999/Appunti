@@ -6,7 +6,7 @@
   Uno spazio metrico $X$ è \textsc{limitato} se esistono $X_0 \in X$ e $R>0$ t.c. $X=B(x_0, R)$ o equivalentemente se $diam(X)=\sup{\{d(x, y), x, y \in X\}}<+\infty$.
 \end{defn}
 
-\begin{lm}
+\begin{lm} \label{mc->l}
   Se $X$ è metrico compatto, allora $X$ è limitato.
 \end{lm}
 
@@ -37,7 +37,7 @@
   Supponiamo per assurdo che $t_0 \not=1$, cioè $0<t_0<1$, allora sempre in $U_{i_{t_0}}$ c'è un intorno della forma $[t_0, t_1)$ con $t_0<t_1<1$, quindi tutti i punti in $(t_0, t_1)$ stanno in $A$, contro la massimalità di $t_0$, assurdo.
 \end{proof}
 
-\begin{thm}
+\begin{thm} \label{cont_comp}
   $f:X \rightarrow Y$ continua, $X$ compatto $\Rightarrow$ $f(X)$ compatto.
 \end{thm}
 
@@ -152,3 +152,61 @@
 \begin{oss}
   Se $A \subseteq X, B \subseteq Y$, la topologia prodotto di $A \times B$, ciascuno dotato della topologia di sottospazio, coincide con la topologia di sottospazio di $X \times Y$. Dunque, per il teorema \ref{prod_comp}, se $A, B$ sono sottospazi compatti, $A \times B$ è un sottospazio compatto di $X \times Y$.
 \end{oss}
+
+\begin{prop}
+  $C \subseteq \mathbb{R}^n$ è compatto $\Leftrightarrow$ è chiuso e limitato.
+\end{prop}
+
+\begin{proof}
+  ($\implies$) Segue dal fatto che $\mathbb{R}^n$ è un metrico T2, dal lemma \ref{mc->l} e dal teorema \ref{chc}.
+
+  ($\Leftarrow$) Se $C$ è limitato, esiste $R>0$ t.c. $C \subseteq [-R, R]^n \subseteq \mathbb{R}^n$, e $[-R, R]^n$ è compatto in quanto prodotto finito di copie del compatto $[-R, R]$ (che è compatto perché isomorfo a $[0, 1]$), quindi $C$, essendo chiuso in un compatto, è compatto per il teorema \ref{ccc}.
+\end{proof}
+
+\begin{thm}
+  $f:X \rightarrow Y$ continua, $X$ compatto, $Y$ T2, allora $f$ è chiusa.
+\end{thm}
+
+\begin{proof}
+  Se $C \subseteq X$ è chiuso, allora è chiuso in un compatto, dunque per il teorema \ref{ccc} è compatto, quindi per il teorema \ref{cont_comp} $f(C)$ è compatto in $Y$, allora è compatto in un T2, dunque per il teorema \ref{chc} è chiuso.
+\end{proof}
+
+\begin{defn}
+  $X$ spazio topologico si dice \textsc{compattamente generato} se i compatti di $X$ formano un ricoprimento fondamentale.
+\end{defn}
+
+\begin{lm}
+  Se ogni $x \in X$ ha un intorno compatto, $X$ è compattamente generato.
+\end{lm}
+
+\begin{proof}
+  Basta far vedere che se $A \subseteq X$ è t.c. $A \cap K$ è aperto in $K$ per ogni compatto $K \subseteq X$, allora $A$ è aperto in $X$. Sia $p \in A$, basta mostrare che $p \in A^{\circ}$. Per ipotesi esiste un intorno compatto $K$ di $p$, cioè $p \in K^{\circ} \subseteq K$.
+  Ora, $A \cap K^{\circ}$ è aperto in $K^{\circ}$, ed è perciò aperto in $X$ in quanto aperti di aperti sono aperti, dunque $p \in A \cap K^{\circ} \subseteq A$, ma $A \cap K^{\circ}$ è un aperto, da cui $p \in A^{\circ}$ come voluto.
+\end{proof}
+
+\begin{defn}
+  $f:X \rightarrow Y$ continua è \textsc{propria} se $f^{-1}(K)$ è un compatto di $X$ per ogni $K \subseteq Y$ compatto.
+\end{defn}
+
+\begin{ex}
+  $f:\mathbb{R}^n \rightarrow \mathbb{R}^n$ continua è propria se e solo se per ogni successione $\{x_n\}_{n \in \mathbb{N}}$ con $\displaystyle \lim_{n \rightarrow +\infty} ||x_n||=+\infty$ si ha che $\displaystyle \lim_{n \rightarrow +\infty} ||f(x_n)||=+\infty$. La dimostrazione è lasciata per esercizio al lettore.
+\end{ex}
+
+\begin{thm}
+  $f:X \rightarrow Y$ continua e propria. Se $Y$ è T2 e compattamente generato, allora $f$ è chiusa.
+\end{thm}
+
+\begin{proof}
+  Sia $C \subseteq X$ chiuso. Poiché $Y$ è compattamente generato, basta vedere che $f(C) \cap K$ è chiuso in $K$ per ogni $K \subseteq Y$ compatto. Ora $f(C) \cap K=f(C \cap f^{-1}(K))$. Poiché $f$ è propria, $f^{-1}(K)$ è compatto, per cui $C \cap f^{-1}(K)$ è chiuso in compatto, perciò è compatto per il lemma \ref{ccc}, dunque $f(C \cap f^{-1}(K))$ è compatto in $Y$ che è T2, che è chiuso per il lemma \ref{chc}, da cui la tesi.
+\end{proof}
+
+\begin{ex}
+  Ogni punto di $\mathbb{R}^n$ ha un intorno compatto $\implies$ $\mathbb{R}^n$ è compattamente generato, dunque se $f:\mathbb{R}^n \rightarrow \mathbb{R}^m$ è propria, è chiusa.
+  Se invece consideriamo $\pi: \mathbb{R}^2 \rightarrow \mathbb{R}$ t.c. $\pi(x, y)=x$, non è propria poiché $\pi^{-1}(\{0\})=\{0\} \times \mathbb{R}$, che non è compatto, e infatti non è neanche chiusa (si consideri ad esempio l'iperbole).
+\end{ex}
+
+\begin{ex}
+  Nessun $p \in \mathbb{Q}$ ammette un intorno compatto (in $\mathbb{Q}$). Infatti se $U \subseteq \mathbb{Q}$ è un intorno di $p$ in $\mathbb{Q}$, esiste $V \subseteq \mathbb{Q}$ aperto di $\mathbb{Q}$ con $p \in V \subseteq U$,
+  perciò esiste $\epsilon>0$ t.c. $p \in ((p-\epsilon, p+\epsilon) \cap \mathbb{Q}) \subseteq U$. Se $U$ fosse compatto sarebbe compatto anche in $\mathbb{R}$ (ad esempio perché immagine della sua immersione, che è una funzione continua), dunque sarebbe chiuso in $\mathbb{R}$,
+  per cui avremmo $\overline{(p-\epsilon, p+\epsilon) \cap \mathbb{Q}}=[p-\epsilon, p+\epsilon] \subseteq U \subseteq \mathbb{Q}$ (dove la chiusura è in $\mathbb{R}$), assurdo.
+\end{ex}
