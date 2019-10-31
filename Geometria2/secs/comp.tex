@@ -108,3 +108,47 @@
 \begin{proof}
   Dato che sfrutta le stesse idee delle dimostrazioni precedenti, è lasciata come esercizio al lettore.
 \end{proof}
+
+\begin{thm}
+  $X$ spazio topologico, $Y_i, i \in I$ famiglia di sottoinsiemi chiusi con $Y_{i_0}$ compatto per qualche $i_0 \in I$. Se per ogni $J \subseteq I$ finito vale che $\displaystyle \bigcap_{i \in J} Y_i \not = \emptyset$ (\textsc{proprietà dell'intersezione finita}), allora $\displaystyle \bigcap_{i \in I} Y_i \not=\emptyset$.
+\end{thm}
+
+\begin{proof}
+  Per ogni $i \in I, i \not=i_0$, sia $Z_i=Y_{i_0} \cap Y_i$. $Z_i$ è un chiuso di $Y_{i_0}$, dunque $W_i=Y_{i_0} \setminus Z_i=Y_{i_0} \setminus Y_i$ è un aperto di $Y_{i_0}$. Quindi, se per assurdo $\displaystyle \bigcap_{i \in I} Y_i=\emptyset$, avremmo che $\{W_i, i \in I\}$ sarebbe un ricoprimento aperto di $Y_{i_0}$.
+  Allora, per compattezza di $Y_{i_0}$, esiste un sottoricoprimento finito $W_{i_1}, \dots, W_{i_n}$,
+  cioè $Y_{i_0}=W_{i_1} \cup \dots \cup W_{i_n}=(Y_{i_0} \setminus Y_{i_1}) \cup \dots \cup (Y_{i_0} \setminus Y_{i_n})=Y_{i_0} \setminus (Y_{i_1} \cap \dots \cap Y_{i_n}) \implies$
+  $\implies Y_{i_0} \cap Y_{i_1} \cap \dots \cap Y_{i_n}=\emptyset$, assurdo.
+\end{proof}
+
+\begin{ex}
+  Serve un $Y_i$ compatto: $X=\mathbb{R}, Y_n=[n, +\infty)$ è un controesempio. \marginpar\warningsign
+\end{ex}
+
+\begin{cor}
+  Se $Y_n, n \in \mathbb{N}$ è una famiglia di sottoinsiemi non vuoti di $X$ con $Y_0$ compatto, $Y_i$ chiuso per ogni $i \in \mathbb{N}$, $Y_{n+1} \subseteq Y_n$ per ogni $n \in \mathbb{N}$, allora $\displaystyle \bigcap_{n \in \mathbb{N}} Y_n \not= \emptyset$.
+\end{cor}
+
+\begin{lm} \label{comp_base}
+  Sia $X$ spazio topologico e $\mathcal{B}$ una base di $X$. Se ogni ricoprimento di $X$ con aperti di $\mathcal{B}$ ammette un sottoricoprimento finito, allora $X$ è compatto.
+\end{lm}
+
+\begin{proof}
+  Sia $\mathcal{U}=\{U_i\}_{i \in I}$ un qualsiasi ricoprimento aperto di $X$. Per definizione di ricoprimento si ha che per ogni $x \in X$ esiste $i(x) \in I$ t.c. $x \in U_{i(x)}$ e per definizione di base esiste $B_x \in \mathcal{B}$ t.c. $x \in B_x \subseteq U_{i(x)}$.
+  $\{B_x\}_{x \in X}$ è un ricoprimento di $X$ con aperti di $B$ (si dice che $\{B_x\}_{x \in X}$ è un \textit{raffinamento} di $\mathcal{U}$).
+  Per ipotesi esistono allora $x_1, \dots, x_n$ t.c. $X=B_{x_1} \cup \dots \cup B_{x_n} \subseteq U_{i(x_1)} \cup \dots \cup U_{i(x_n)}$, da cui la tesi.
+\end{proof}
+
+\begin{thm} \label{prod_comp}
+  $X, Y$ compatti $\implies$ $X \times Y$ compatto.
+\end{thm}
+
+\begin{proof}
+  Per il lemma \ref{comp_base}, possiamo partire da un ricoprimento $\mathcal{U}=\{U_i \times V_i\}_{i \in I}$ dove $U_i$ è aperto in $X$, $V_i$ è aperto in $Y$ per ogni $i \in I$.
+  Per ogni $x \in X$ il sottoinsieme $\{x\} \times Y \subseteq X \times Y$ è compatto in quanto omeomorfo a $Y$, per cui esiste $J_x \subseteq I$ finito t.c. $\displaystyle \{x\} \times Y \subseteq \bigcup_{i \in J_x} (U_i \times V_i)$. Poniamo $\displaystyle U_x= \bigcap_{i \in J_x} U_i$, è aperto in quanto intersezione finita di aperti e per costruzione
+  $\displaystyle U_x \times Y \subseteq \bigcup_{i \in J_x} (U_i \times V_i)$. Per compattezza di $X$ e poiché $\{U_x\}_{x \in X}$ è un ricoprimento aperto, abbiamo che $X=U_{x_1} \cup \dots \cup U_{x_n}$ per qualche $x_1, \dots, x_n$.
+  Allora $\displaystyle X \times Y=\bigcup_{k=1}^n (U_{x_k} \times Y) \subseteq \bigcup_{k=1}^n \bigcup_{i \in J_{x_k}} (U_i \times V_i)$, da cui la tesi.
+\end{proof}
+
+\begin{oss}
+  Se $A \subseteq X, B \subseteq Y$, la topologia prodotto di $A \times B$, ciascuno dotato della topologia di sottospazio, coincide con la topologia di sottospazio di $X \times Y$. Dunque, per il teorema \ref{prod_comp}, se $A, B$ sono sottospazi compatti, $A \times B$ è un sottospazio compatto di $X \times Y$.
+\end{oss}

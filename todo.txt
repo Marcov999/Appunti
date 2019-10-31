@@ -14,3 +14,4 @@ Lez 13: la parte sui quozienti
 Lez 14: ok
 Lez 15: Esempio: il pettine infinito. Prodotto di connessi per archi è connesso per archi, prodotto di connessi è connesso. Se n>1, allora R^n privato di un sottoinsieme numerabile è connesso per archi.
 Lez 16: ok
+Lez 17: Caratterizzazione dei compatti di R^n. Una funzione continua da uno spazio compatto ad uno spazio di Hausdorff è chiusa. Spazi compattamente generati. Se ogni punto di X ha un intorno compatto, X è compattamente generato. Nessun punto di Q ammette un intorno (in Q) compatto. Funzioni proprie. Una funzione da R^n in sé è propria se e solo se manda successioni divergenti in successioni divergenti. Una funzione propria a valori in uno spazio di Hausdorff compattamente generato è chiusa.
