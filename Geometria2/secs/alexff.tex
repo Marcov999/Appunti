@@ -1,0 +1,32 @@
+\begin{ex}
+    Sia $p=(1,0,\dots,0)$ un punto di $S^n$. Voglio far vedere che $S^n\setminus\{p\}$ \`e isomorfo a $\mathbb{R}^n$. In effetti la proiezione stereografica mi fornisce la mappa
+    \[
+        f\colon(x_0, \dots, x_n)\mapsto(\frac{x_1}{1-x_0}, \dots, \frac{x_n}{1-x_0})
+    \]
+    che \`e un isomorfismo.
+
+    Si ha anche che aggiungendo $p$ allo spazio di partenza si ha un compatto che contiene isomorficamente $\mathbb{R}^n$. Lo scopo della sezione \`e quello di generalizzare questa idea. Cio\`e ottenere un compatto che contiene uno spazio dato aggiungendo un punto.
+\end{ex}
+
+\begin{defn}
+    Sia $(X,\tau)$ uno spazio topologico. Sia anche $\hat{X} = X \cup \{\infty\}$. Definisco
+    \[
+        \hat{\tau} = \tau \cup \{\hat{X}\setminus K\; |\ K \subseteq \hat{X}\  \text{chiuso e compatto}\}
+    \]
+    Allora $(\hat{X}, \hat{\tau})$ \`e detta compattificazione di Alexandroff.
+\end{defn}
+
+\begin{oss}
+    $(\hat{X}, \hat{\tau})$ \`e uno spazio topologico compatto e vi \`e una naturale immersione aperta da $X$ a $\hat{X}$.
+\end{oss}
+
+\begin{defn}
+    Uno spazio topologico si dice compatto se ogni suo punto ammette un intorno compatto.
+\end{defn}
+
+\begin{prop}
+    La compattificazione di uno spazio $X$ \`e T2 se e solo se $X$ \`e T2 e localmente compatto.
+\end{prop}
+\begin{proof}
+    Hint: la dimostrazione, come molte di quelle che riguardano la compattificazione, si fa distinguendo il caso in cui si prende un punto di $X$ e quello in cui si prende il punto $\infty$.
+\end{proof}

@@ -48,3 +48,32 @@
         gruppo con la composizione, chiamato $\Isom (X,d)$.
     \end{itemize}
 \end{oss}
+
+\begin{defn}
+    Sia $V$ uno spazio vettoriale. Una norma su $V$ \`e una funzione ${\norm{\cdot}\colon V \longrightarrow [0, \infty)}$ che rispetta le seguenti propriet\`a, per ogni $x, y \in V$, $\lambda \in \mathbb{R}$:
+    \begin{nlist}
+        \item $\norm{x} = 0$ se e solo se $x=0$;
+        \item $\norm{\lambda x} = |\lambda|\norm{x}$;
+        \item $\norm{x+y} \leq \norm{x}+\norm{y}$.
+    \end{nlist}
+    Ogni norma induce una distanza $d$ sullo spazio definita come ${d(x,y)=\norm{x-y}}$.
+\end{defn}
+
+\begin{thm}
+Le norme su uno spazio vettoriale reale di dimensione finita inducono distanze topologicamente equivalenti.
+\end{thm}
+\begin{proof}
+    Sia $n$ la dimensione dello spazio. Poich\`e lo ogni spazio reale di tale dimensione \`e isomorfo a $\mathbb{R}^n$, assumo senza perdita di generalit\`a che $V=\mathbb{R}^n$. Sia allora $\{e_1, \dots, e_n\}$ la base canonica. Sia inoltre $M = \max_{i = 1, \dots, n}\norm{e_i}$. Si ha dunque che
+    \[
+        \norm{x}-\norm{y} \leq \norm{x-y} \leq M \sum_i |x_i-y_i| = M d_1(x,y)
+    \]
+    Ho ottenuto allora che $\norm{\cdot}$ \`e Lipschitziana nella distanza $d_1$, e dunque \`e anche continua. Poich\`e $d_1$ e $d_2$ sono equivalenti, la norma \`e continua anche con $d_2$. Allora ammette massimo e minimo sui compatti, e in particolare sulla sfera unitaria. Siano essi rispettivamente $M$ e $m$. Per ogni vettore $v$ dello spazio, vale allora
+    \[
+        \norm{v} = \norm{\norm{v}_2 \frac{v}{\norm{v}_2}} = \norm{v}_2 \norm{\frac{v}{\norm{v}_2}}
+    \]
+    che porta a
+    \[
+        m\norm{v}_2 \leq \norm{v} \leq M\norm{v}_2
+    \]
+    Passando alle distanze indotte si ottiene l'equivalenza desiderata.
+\end{proof}
