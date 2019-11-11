@@ -30,3 +30,57 @@
 \begin{proof}
     Hint: la dimostrazione, come molte di quelle che riguardano la compattificazione, si fa distinguendo il caso in cui si prende un punto di $X$ e quello in cui si prende il punto $\infty$.
 \end{proof}
+
+\begin{prop}
+    Sia $f\colon X \longrightarrow Y$ un'immersione aperta tra spazi T2. Si definisca $g\colon Y \longrightarrow \hat{X}$ con
+    \[
+        g(y) =
+        \begin{cases}
+            x\quad \text{se}\ f^{-1}(y) = \{x\}\\
+            \infty \quad\text{se}\ f^{-1}(y) = \emptyset
+        \end{cases}
+    \]
+    Allora $g$ \`e continua.
+\end{prop}
+\begin{proof}
+    Hint: si prende un aperto nello spazio compattificato e si cerca di dire che la sua controimmagine \`e aperta. Per farlo si distingue il caso in cui l'infinito \`e nell'aperto da quello in cui non \`e nell'aperto.
+\end{proof}
+
+\begin{cor}
+    Dato uno spazio $X$ T2 compatto, esso \`e isomorfo alla compattificazione di $X$ privato di un punto.
+\end{cor}
+
+\begin{prop}
+    Sia $f\colon X \longrightarrow Y$ continua con $Y$ T2. Si prenda ${\hat{f}\colon \hat{X}\longrightarrow\hat{Y}}$ che manda $x$ in $f(x)$ e l'infinito nell'infinito. Allora $\hat{f}$ \`e continua se e solo se $f$ \`e propria.
+\end{prop}
+
+\begin{defn}
+    Sia $X$ uno spazio topologico. Un'esaustione in compatti di $X$ \`e una famiglia ${\{K_n\}_{n\in\mathbb{N}}}$ di compatti di $X$ tali che ${K_n\subseteq\ \open{K_{n+1}}}$ e $\bigcup_nK_n = X$.
+\end{defn}
+
+\begin{prop}
+    Sia $K_n$ un'esaustione in compatti e $H$ un compatto. Allora $H$ \`e contenuto in $K_i$ per qualche $i$.
+\end{prop}
+\begin{proof}
+    Poich\'e $H\subseteq \bigcup_n\open{K_n}$, $H$ \`e contenuto in un'unione finita di $K_i$, allora \`e contenuto nel pi\`u grande di questi.
+\end{proof}
+
+\begin{ex}
+    $\mathbb{R}\times(0,1)$ non\`e isomorfo a $\mathbb{R}\times[0,1]$.
+\end{ex}
+\begin{proof}
+    Si ha che $K_n = [-n,n]\times[\frac{1}{n}, 1-\frac{1}{n}]$ \`e un esaustione in compatti di $\mathbb{R}\times(0,1)$, mentre $H=\{0\}\times[0,1]$ \`e un compatto dell'altro spazio. Per\`o l'immagine isomorfa di $H$ non \`e contenuta in alcun $K$. Quindi si ha un assurdo.
+\end{proof}
+
+\begin{defn}
+    Dato $X$ spazio topologico, $\pi_0(X)$ \`e l'insieme delle componenti connesse per archi di $X$.
+\end{defn}
+
+\begin{ex}
+    $\mathbb{R}^n$ privato di $s$ punti non \`e isomorfo a $\mathbb{R}^n$
+    privato di $t$ punti per $s\ne t$.
+\end{ex}
+\begin{proof}
+    L'idea di base \`e quella di prendere esaustioni in compatti dei due spazi.
+    Allora i compatti delle esaustioni (almeno definitivamente) avranno un buco per ogni punto tolto. Per ottenere un assurdo, basta contare le componenti connesse delle esaustioni.
+\end{proof}
