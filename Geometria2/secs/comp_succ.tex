@@ -1,0 +1,40 @@
+Sia $\{a_n\}$ una successione a valori in $X$ spazio topologico, allora una sottosuccessione di $\{a_n\}$ è una sottofamiglia $\{a_{n_i}\}$, dove $n_i, i=1, 2, \dots$ è una successione strettamente crescente in $\mathbb{N}$ (si tratta di una successione indicizzata da $i$).
+
+\begin{defn}
+  Uno spazio topologico $X$ si dice \textsc{compatto per successioni} se ogni successione in $X$ ammette una sottosuccessione convergente.
+\end{defn}
+
+\begin{prop} \label{N1->(c->cs)}
+  Sia $X$ spazio topologico primo numerabile. Se $X$ è compatto, allora è anche compatto per successioni.
+\end{prop}
+
+\begin{proof}
+  Sia $\{x_n\} \subseteq X$ una successione. Per ogni $m \in \mathbb{N}$ sia $C_m=\overline{\{x_n, n \ge m\}}$. Per ogni $m$, $C_m$ è chiuso e $C_{m+1} \subseteq C_m$. Per il teorema \ref{pif}, $\displaystyle \bigcap_{m \in \mathbb{N}} C_m \not=\emptyset$.
+  Sia $\displaystyle \bar{x} \in \bigcap_{m \in \mathbb{N}} C_m \not$, cerchiamo una sottosuccessione che tende a $\bar{x}$. Sia $\{U_i\}_{i \in \mathbb{N}}$ un sistema fondamentale numerabile di intorni di $\bar{x}$ e supponiamo senza perdita di generalità $U_{i+1} \subseteq U_i$ per ogni $i \in \mathbb{N}$. Costruiamo la sottosuccessione per induzione:
+  $\bar{x} \in C_0=\overline{\{x_n\}} \implies$ esiste $n_0$ t.c. $x_{n_0} \in U_0$. Per ogni $i \ge 0$, $\bar{x} \in C_{n_i+1}=\overline{\{x_n, n \ge n_i+1\}} \implies$ esiste $n_{i+1}>n_i$ t.c.
+  $x_{n_{i+1}} \in U_{i+1}$. È un semplice esercizio verificare che $\{x_{n_i}\}$ funziona.
+\end{proof}
+
+\begin{thm}
+  Sia $X$ a base numerabile. Allora $X$ è compatto $\Leftrightarrow$ è compatto per successioni.
+\end{thm}
+
+\begin{proof}
+  ($\implies$) Per la proposizione \ref{N1->(c->cs)} e il teorema \ref{N2power} abbiamo immediatamente quest'implicazione.
+
+  ($\leftarrow$) Mostriamo la contronominale. Sia $X$ non compatto e sia $\mathcal{U}$ un ricoprimento aperto di $X$ che non ammette sottoricoprimenti finiti. $X$ a base numerabile $\implies$ $\mathcal{U}$ ammette un raffinamente numerabile, dunque un sottoricoprimento numerabile. In alternativa, per il lemma \label{comp_base} potevamo dire che esiste un ricoprimento con aperti di base che non ammette sottoricoprimenti finiti, ed essendo $X$ a base numerabile potevamo scegliere quello come $\mathcal{U}$.
+  Dunque senza perdita di generalità $\mathcal{U}=\{U_i\}_{i \in \mathcal{N}}$. Sia $x_i \in  X \setminus (U_0 \cup U_1 \cup \dots \cup U_i)$, che è ben definita in quanto $\mathcal{U}$ non ammette sottoricoprimenti finiti. Per assurdo, sia $\bar{x}$ il limite di una sottosuccessione di $\{x_i\}$.
+  Poiché $\displaystyle X=\bigcup_{i \in \mathbb{N}} U_i$, $\bar{x} \in U_{i_0}$ per qualche $i_0 \in \mathbb{N}$. $U_{i_0}$ aperto $\implies$ è intorno di
+  $\bar{x}$ $\implies$ $|\{i \in \mathbb{N} | x_i \in U_{i_0} \}|=|\mathbb{N}|$, dove l'ultima implicazione segue dal fatto che $\bar{x}$ è il limite di una sottosuccessione, ma $x_i \not\in U_{i_0}$ per ogi $i \ge i_0$ per definizione, assurdo.
+\end{proof}
+
+\begin{ex}
+  \begin{ftt}
+    $Fun([0, 1], [0, 1])$ con la topologia della convergenza puntuale è compatto ma non compatto per successioni.
+  \end{ftt}
+  \begin{proof}
+    È compatto per il teorema di Tychonoff \ref{tychonoff}.
+
+    Siano $f_n:[0, 1] \rightarrow [0, 1]$ definite da $f_n(x)=10^nx-\lfloor 10^nx \rfloor$. Allora $\{f_n\}$ non ha sottosuccessioni puntualmente convergenti.
+  \end{proof}
+\end{ex}

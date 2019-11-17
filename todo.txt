@@ -18,5 +18,5 @@ Lez 17: ok
 Lez 18: Definizione di norma su uno spazio vettoriale reale e di distanza associata a una norma, norme topologicamente equivalenti. Tutte le norme su uno spazio vettoriale reale di dimensione finita sono topologicamente equivalenti, e controesempio nel caso di dimensione infinita.
 Lez 19: ok
 Lez 20: ok
-Lez 21: Compattezza per successioni. Uno spazio primo numerabile compatto è compatto per successioni. Uno spazio a base numerabile è compatto se e solo se è compatto per successioni. Ancora sulla topologia della convergenza puntuale. Uno spazio compatto che non è compatto per successioni.
+Lez 21: ok
 Lez 22: Successioni di Cauchy, completezza. Una successione di Cauchy che ammette una sottosuccessione convergente converge. Un sottospazio di uno spazio completo è completo se e solo se è chiuso. R^n è completo. Q non è completo. Totale limitatezza e suoi legami con la limitatezza. Uno spazio totalmente limitato è a base numerabili. Per uno spazio metrico, sono fatti equivalenti la compattezza, la compattezza per successioni, e l'essere totalmente limitato e completo.
