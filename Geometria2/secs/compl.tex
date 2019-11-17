@@ -1,0 +1,39 @@
+All'interno di tutto questo paragrafo, $(X, d)$ indica una spazio metrico.
+
+\begin{defn}
+  $\{x_n\} \subseteq X$ è \textsc{di Cauchy} se per ogni $\epsilon>0$ esiste $n_0$ t.c. $d(x_n, x_m) \le \epsilon$ per ogni $n, m \ge n_0$.
+\end{defn}
+
+\begin{lm}
+  Se $\{x_n\}$ è convergente, allora è di Cauchy.
+\end{lm}
+
+\begin{proof}
+  Sia $x \in X$ il limite a cui converge $\{x_n\}$ e sia $\epsilon>0$, allora esiste $n_0$ t.c. per ogni $n \ge n_0$ $d(x_n, x) < \epsilon/2$. Allora per la disuguaglianza triangolare si ha che per ogni $m, n \ge n_0$ vale che $d(x_n, x_m) \le d(x_n, x)+d(x, x_m)<\epsilon/2+\epsilon/2=\epsilon$, da cui la tesi.
+\end{proof}
+
+\begin{defn}
+  $(X, d)$ è \textsc{completo} se ogni successione di Cauchy in $X$ converge.
+\end{defn}
+
+\begin{ex}
+  $\mathbb{Q}$ non è completo.
+\end{ex}
+
+\begin{lm}
+  Sia $\{x_n\}$ di Cauchy, se ha una sottosuccessione convergente allora è convergente.
+\end{lm}
+
+\begin{proof}
+  Sia $\{x_{n_i}\}$ la sottosuccessione che converge al limite $x \in X$ e sia $\epsilon>0$. Allora esiste $i_0$ t.c. per ogni $i \ge i_0$ $d(x_{n_i}, x) < \epsilon/2$. Inoltre, esiste $\bar{n}$ t.c. per ogni $n, m \ge \bar{n}$ $d(x_n, x_m) \le \epsilon/2$.
+  Poniamo $n^*=\max{\{n_{\bar{n}}, n_{i_0}\}}$ dove abbiamo usato $n_{\bar{n}} \ge \bar{n}$ al posto di $\bar{n}$ stesso per assicurarci che $n^*$ faccia parte degli indici della sottosuccessione convergente.
+  Si ha allora che per ogni $n \ge n^*$ $d(x_n, x) \le d(x_n, x_{n^*})+d(x_{n^*} , x)<\epsilon/2+\epsilon/2=\epsilon$, da cui la tesi.
+\end{proof}
+
+\begin{cor}
+  $(X, d)$ compatto per successioni $\implies$ $(X, d)$ completo.
+\end{cor}
+
+\begin{ex}
+  $\mathbb{R}^n$ non è completo.
+\end{ex}
