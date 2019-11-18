@@ -4,7 +4,7 @@ All'interno di tutto questo paragrafo, $(X, d)$ indica una spazio metrico.
   $\{x_n\} \subseteq X$ è \textsc{di Cauchy} se per ogni $\epsilon>0$ esiste $n_0$ t.c. $d(x_n, x_m) \le \epsilon$ per ogni $n, m \ge n_0$.
 \end{defn}
 
-\begin{lm}
+\begin{lm} \label{conv->cauchy}
   Se $\{x_n\}$ è convergente, allora è di Cauchy.
 \end{lm}
 
@@ -15,6 +15,10 @@ All'interno di tutto questo paragrafo, $(X, d)$ indica una spazio metrico.
 \begin{defn}
   $(X, d)$ è \textsc{completo} se ogni successione di Cauchy in $X$ converge.
 \end{defn}
+
+\begin{ex}
+  $\mathbb{R}^n$ è completo.
+\end{ex}
 
 \begin{ex}
   $\mathbb{Q}$ non è completo.
@@ -30,10 +34,63 @@ All'interno di tutto questo paragrafo, $(X, d)$ indica una spazio metrico.
   Si ha allora che per ogni $n \ge n^*$ $d(x_n, x) \le d(x_n, x_{n^*})+d(x_{n^*} , x)<\epsilon/2+\epsilon/2=\epsilon$, da cui la tesi.
 \end{proof}
 
-\begin{cor}
+\begin{cor} \label{cs->compl}
   $(X, d)$ compatto per successioni $\implies$ $(X, d)$ completo.
 \end{cor}
 
+\begin{lm}
+  Siano $(X, d)$ spazio metrico completo, $Y \subseteq X$ con la metrica indotta, allora $Y$ è completo $\Leftrightarrow$ $Y$ è chiuso in $X$.
+\end{lm}
+
+\begin{proof}
+  Per il fatto \ref{metr-N1} e la proposizione \ref{chiusoxsucc}, possiamo fare la dimostrazione supponendo o dimostrando (a seconda della freccia) $Y$ chiuso per successioni.
+
+  ($\implies$) Sia $\{y_n\}$ una successione in $Y$ convergente a un elemento di $X$. Per il lemma \ref{conv->cauchy} sappiamo che $\{y_n\}$ è di Cauchy, ma stiamo supponendo $Y$ completo, dunque $\{y_n\}$ converge in $Y$, dunque $Y$ è chiuso per successioni. Notiamo che per quest'implicazione non era necessaria l'ipotesi $(X, d)$ completo.
+
+  ($\Leftarrow$) Sia $\{y_n\}$ una successione di Cauchy in $Y$. Dato che $X$ è completo, questa converge a un elemento di $X$, ma $Y$ è chiuso per successioni, dunque l'elemento appartiene anche a $Y$ e la successione converge in $Y$.
+\end{proof}
+
+\begin{defn}
+  $(X, d)$ è \textsc{totalmente limitato} se per ogni $\epsilon>0$ esiste un ricoprimento finito di $X$ fatto con palle di raggio $\epsilon$.
+\end{defn}
+
+\begin{lm}
+  $(X, d)$ totalmente limitato implica $(X, d)$ limitato.
+\end{lm}
+
+\begin{proof}
+  Prendiamo $\epsilon=1$, fissiamo il centro $x_0$ di una delle palle e sia $D$ la massima distanza tra $x_0$ e uno qualsiasi degli altri centri, che esiste perché le palle, dunque anche i loro centri, sono in numero finito. Allora è una banale applicazione della disuguaglianza triangolare verificare che la palla di centro $x_0$ e raggio $D+1$ ricopre tutto $X$.
+\end{proof}
+
 \begin{ex}
-  $\mathbb{R}^n$ non è completo.
+  Consideriamo su $\mathbb{R}$ la distanza $d(x, y)=\min{\{|x-y|, 1\}}$, allora $(\mathbb{R}, d)$ è limitato ma non totalmente limitato.
 \end{ex}
+
+\begin{prop} \label{tl->bn}
+  $(X, d)$ totalmente limitato implica $(X, d)$ a base numerabile.
+\end{prop}
+
+\begin{proof}
+  Per la proposizione \ref{metr-num} basta vedere che $X$ è separabile. Per la totale limitatezza, per ogni $n \ge 1$ esiste $F_n \subseteq X$ finito con $\displaystyle X=\bigcup_{p \in F_n} B(p, 1/n)$. Allora $\displaystyle \bigcup_{n \ge 1} F_n$ è numerabile, mostriamo dunque che è denso. Sia dunque $U \subseteq X$ aperto non vuoto, allora esiste $n_0 \ge 1, z \in U$ con $B(z, 1/n_0) \subseteq U$.
+  Abbiamo che $z \in B(p, 1/n_0)$ per qualche $p \in F_{n_0} \implies d(p, z)<1/n_0 \implies p \in B(z, 1/n_0) \implies p \in U$, da cui la tesi.
+\end{proof}
+
+\begin{thm}
+  Sia $(X, d)$ uno spazio metrico. Allora le seguenti sono equivalenti:
+  \begin{nlist}
+    \item $X$ è compatto;
+    \item $X$ è compatto per successioni;
+    \item $X$ è totalmente limitato e completo.
+  \end{nlist}
+\end{thm}
+
+\begin{proof}
+  ((i) $\implies$ (ii)) $(X, d)$ è metrico, dunque per il fatto \ref{metr-N1} è primo numerabile, allora per la proposizione \ref{N1->(c->cs)} otteniamo che (i) $\implies$ (ii).
+
+  ((ii) $\implies$ (iii)) Per il corollario \ref{cs->compl} abbiamo che $X$ è completo. Supponiamo per assurdo che non sia totalmente limitato. Allora esiste $\epsilon>0$ tale che non è possibile ricoprire $X$ con un numero finito di palle di raggio $\epsilon$. Fissiamo $x_0 \in X$ e definiamo $\{x_n\}$ induttivamente fissando $x_{n+1} \in X \setminus (B(x_0, \epsilon) \cup B(x_1, \epsilon) \cup \dots \cup B(x_n, \epsilon))$, che esiste per l'ipotesi assurda.
+  Allora dati due naturali qualsiasi $m \not= n$ abbiamo che $d(x_n, x_m) \ge \epsilon$, quindi non si possono estrarre da $\{x_n\}$ sottosuccessioni di Cauchy, in particolare non si possono estrarre sottosuccessoni convergenti, assurdo perché siamo sotto l'ipotesi (ii).
+
+  ((iii) $\implies$ (i)) Per la proposizione \ref{tl->bn} e per il teorema \ref{bn->(c_sse_cs)}, sotto l'ipotesi (iii) abbiamo che (i) $\Leftrightarrow$ (ii). Dimostriamo allora (ii). Sia $\{x_n\}$ una successione in $X$. $X$ è completo per ipotesi, quindi basta trovare una sottosuccessione di Cauchy.
+  Per totale limitatezza eiste un ricoprimento con un numero finito di palle di raggio $2^{-0}$. Allora esiste una di queste palle che contiene infiniti $\{x_n\}$. Fissiamo $n_0$ come il minimo indice tale che $x_{n_0}$ sta in questa palla e procediamo induttivamente.
+  Abbiamo $x_{n_i}$ che appartiene a una palla di raggio $2^{-i}$ contenente infiniti $x_n$ (in particolare, infiniti di indice maggiore di $n_i$). Ricopriamo $X$ con un numero finito di palle di raggio $2^{-(i+1)}$. Allora ce ne dev'essere una che contiene infiniti di quegli $x_n$ che stavano nella palla di raggio $2^{-i}$ contenete $x_{n_i}$. Prendiamo dunque $n_{i+1}$ come il minimo indice maggiore di $n_i$ tale che $x_{n_{i+1}}$ sta nella palla di raggio $2^{-(i+1)}$ trovata. È una semplice verifica dimostrare che la sottosuccessione $\{x_{n_i}\}$ è di Cauchy.
+\end{proof}
