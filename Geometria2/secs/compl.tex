@@ -94,3 +94,59 @@ All'interno di tutto questo paragrafo, $(X, d)$ indica una spazio metrico.
   Per totale limitatezza eiste un ricoprimento con un numero finito di palle di raggio $2^{-0}$. Allora esiste una di queste palle che contiene infiniti $\{x_n\}$. Fissiamo $n_0$ come il minimo indice tale che $x_{n_0}$ sta in questa palla e procediamo induttivamente.
   Abbiamo $x_{n_i}$ che appartiene a una palla di raggio $2^{-i}$ contenente infiniti $x_n$ (in particolare, infiniti di indice maggiore di $n_i$). Ricopriamo $X$ con un numero finito di palle di raggio $2^{-(i+1)}$. Allora ce ne dev'essere una che contiene infiniti di quegli $x_n$ che stavano nella palla di raggio $2^{-i}$ contenete $x_{n_i}$. Prendiamo dunque $n_{i+1}$ come il minimo indice maggiore di $n_i$ tale che $x_{n_{i+1}}$ sta nella palla di raggio $2^{-(i+1)}$ trovata. È una semplice verifica dimostrare che la sottosuccessione $\{x_{n_i}\}$ è di Cauchy.
 \end{proof}
+
+\begin{thm}(\emph{del numero di Lebesgue}) Sia $(X,d)$ spazio metrico compatto, e sia $\mathcal{U}$ ricoprimento aperto di $X$. Allora esiste $\varepsilon >0$ tale che $\forall x \in X$, $\exists U \in \mathcal{U}$, con $B(x, \varepsilon) \subset U$.
+\end{thm}
+\begin{proof}
+Sia $X_n=\{ x \in X \mid \exists U \in \mathcal{U} \text{ con } B(x, 2^{-n}) \subset U \}$. Vogliamo mostrare che esiste $n$ tale che $X=X_n$. Vediamo le proprietà degli $X_n$:
+\begin{nlist}
+\item $\displaystyle X=\bigcup _{n \in \mathbb{N}} X_n$
+\item $X_n \subset X_{n+1}$
+\end{nlist}
+Vediamo che vale che $X_n \subset {\mathop X\limits^ \circ} _{n+1}$:\\
+$\displaystyle X=\bigcup _{n \in \mathbb{N}} {\mathop X\limits^ \circ}_n \Longrightarrow X={\mathop X\limits^ \circ}_n$ se $n \gg 0$ in quanto per compattezza posso estrarre un sottoricoprimento finito. Sia $x \in X_n$, dunque $\exists U \in \mathcal{U}$ tale che $B(x, 2^{-n}) \subset U$. Vediamo allora che $B(x, 2^{-(n+1)}) \subset X_{n+1} \Longrightarrow X_n \subset {\mathop X\limits^ \circ}_{n+1}$. Sia $y \in B(x, 2^{-(n+1)})$, allora mostro che $B(y, 2^{-(n+1)}) \subset U$ (e che dunque $y \in X_{n+1}$ per definizione): data
+$$d(y,x)< \dfrac{1}{2^{n+1}}$$
+prendiamo $z \in B(y,2^{-(n+1)})$. Allora:
+$$d(z,y)<\dfrac{1}{2^{n+1}} \qquad d(z,x)<\dfrac{2}{2^{n+1}}=\dfrac{1}{2^n} \Longrightarrow z \in B(x,2^{-n}) \subset U$$
+\end{proof}
+
+\begin{defn}
+Dati $(X,d_X)$, $(Y,d_Y)$ spazi metrici e $f:X \longrightarrow Y$, allora $f$ è \textsc{uniformemente continua} se $\forall \varepsilon >0$ esiste $\delta >0$ tale che $d_Y(f(x),f(x'))<\varepsilon$ se $d_X(x,x')<\delta$.
+\end{defn}
+
+\begin{oss}
+Uniformemente continua $\Longrightarrow$ continua.
+\end{oss}
+
+\begin{thm}(\emph{di Heine-Cantor})
+Siano $(X,d_X)$ e $(Y,d_Y)$ spazi metrici con $X$ compatto. Allora se $f:X \longrightarrow Y$ è continua, è anche uniformemente continua.
+\end{thm}
+\begin{proof}
+Sia $\varepsilon>0$. Cerchiamo $\delta$ tale che $f(B(x,\delta)) \subset B(f(x), \varepsilon)$ per ogni $x \in X$. Vale a dire che $B(x,\delta) \subset f^{-1}(B(f(x),\varepsilon))$. Applichiamo il teorema del numero di Lebesgue al ricoprimento aperto
+$$\mathcal{U}=\{f^{-1}(B(f(x),\varepsilon))\}$$
+Quindi $\exists \delta >0$ tale che $\exists U \in \mathcal{U}: B(x,\delta) \subset U$. Dunque $\forall x \in X, \exists x' \in X$ con $B(x,\delta) \subset f^{-1}(B(f(x'),\varepsilon))$. Sia $y \in B(x, \delta)$, allora 
+$$f(y) \in B(f(x'),\varepsilon) \ni f(x) \Longrightarrow d_Y(f(x),f(y))<2\varepsilon$$
+\end{proof}
+
+Vediamo quindi alcuni esempi di spazi metrici completi.
+
+\begin{ex}
+Sia $X$ insieme arbitrario e $Y$ spazio metrico completo, e sia:
+$$\mathcal{B}(X,Y)=\{f:X \longrightarrow Y \mid f \text{ è limitata}\}$$
+Allora $\mathcal{B}(X,Y)$ è uno spazio metrico completo con la distanza
+$$d_\infty (f,g)=\sup _{x \in X} d_Y(f(x),g(x))$$
+Vediamo quindi che $(\mathcal{B}(X,Y),d_\infty)$ è completo.\\
+Sia $\{f_n\} \subset \mathcal{B}(X,Y)$ di Cauchy, allora $\displaystyle \lim _{n \rightarrow \infty} f_n=f \in \mathcal{B}(X,Y)$. Definiamo $f(x)$ per ogni $x \in X$. Abbiamo che $\{f_n\}_N \in \mathbb{N}$ di Cauchy in $\mathcal{B}(X,Y)$ implica che $\forall x \in X, \{f_n(x)\} \subset Y \Longrightarrow f_n(x)$ ammette limite in $Y$ (infatti $Y$ è completo), e definiamo allora $\displaystyle f(x):=\lim _{n \rightarrow \infty} f_n(x)$. Rimane da vedere che:
+\begin{nlist}
+\item $f$ è limitata
+\item $f_n \longrightarrow f$ nella distanza $d_\infty$
+\end{nlist}
+i) $d_Y(f(x),f(x')) \le d_Y(f(x),f_n(x))+d_Y(f_n(x),f_n(x'))+d_Y(f_n(x'),f(x'))$\\
+ii) $\displaystyle d_Y(f(x),f_n(x))=d_Y(\lim _{m \rightarrow \infty} f_m(x), f_n(x))=\lim _{m \rightarrow \infty} d_Y(f_m(x),f_n(x))<\varepsilon$
+\end{ex}
+
+\begin{ex}
+Supponiamo adesso $X$ spazio topologico, e poniamo:
+$$\mathcal{C}_{\mathcal{B}}(X,Y)=\{f \in \mathcal{B}(X,Y) \mid f \text{ è continua}\} \subset \mathcal{B}(X,Y)$$
+Vediamo che $\mathcal{C}_\mathcal{B}(X,Y) \subset \mathcal{B}(X,Y)$ è chiuso, dunque $\mathcal{C}_\mathcal{B}(X,Y)$ è completo con $d_\infty$.
+\end{ex}

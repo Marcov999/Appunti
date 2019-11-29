@@ -1,0 +1,124 @@
+\begin{defn}
+Sia $\mathbb{K}$ un campo, e sia $V$ un $\mathbb{K}$-spazio vettoriale. Definiamo su $V$ la relazione di equivalenza:
+$$v \sim w \Longleftrightarrow \exists \lambda \in \mathbb{K}^*=\mathbb{K}\smallsetminus \{0\} : v=\lambda w$$
+Allora chiamiamo \textsc{spazio proiettivo} associato a $V$ lo spazio:
+$$\mathbb{P}(V)=\faktor {V \smallsetminus \{0\}}{\sim}=\faktor{V \smallsetminus \{0\}}{G} \qquad \text{ con }G=\{\lambda \id \mid \lambda \neq 0\}$$
+$\mathbb{P}(V)$ è lo spazio delle rette di $V$.
+\end{defn}
+
+\begin{defn}
+$W \subseteq \mathbb{P}(V)$ è un \textsc{sottospazio} di dimensione $k$ se $W=\pi (H\smallsetminus \{0\})$, con $H$ sottospazio di $V$ di dimensione $k+1$ e $\pi :V\smallsetminus \{0\} \longrightarrow \mathbb{P}(V)$. In particolare, $\dim \mathbb{P}(V)=\dim V -1$. Se $V=\mathbb{K}^n$, $\mathbb{P}(\mathbb{K}^n)$ si indica con $\mathbb{P}^{n-1}(\mathbb{K})$.
+\end{defn}
+
+Considereremo adesso in particolare i casi $\mathbb{K}=\mathbb{R}$ oppure $\mathbb{K}=\mathbb{C}$. In questi casi assumiamo $\mathbb{P}^n(\mathbb{K})$ dotato della topologia quoziente di $\mathbb{R}^{n+1}\smallsetminus \{0\}$.
+
+\begin{oss}
+$\mathbb{C}^{n+1} \smallsetminus \{0\} \simeq \mathbb{R}^{2(n+1)} \smallsetminus \{0\}$
+\end{oss}
+
+\begin{oss}
+Se $S^n \subseteq \mathbb{R}^{n+1}$ è la sfera unitaria, $S^n$ interseca ogni retta in due punti della forma $\pm v$, per cui, come insieme:
+$$\mathbb{P}^n(\mathbb{R})=\faktor{S^n}{\pm \id}$$
+Vediamo che $\mathbb{P}^n(\mathbb{R})$ è omeomorfo a $\faktor{S^n}{\pm \id}$. Infatti abbiamo il diagramma:
+\begin{center}
+\begin{tikzcd}
+S^n \arrow[r, "i", hook] \arrow[d] & \mathbb{R}^{n+1} \smallsetminus \{0\} \arrow[d, "\pi"]\\
+\faktor{S^n}{\pm \id} \arrow[r, "\bar{i}"] & \mathbb{P}^n(\mathbb{R})
+\end{tikzcd}
+\end{center}
+Poiché $i \circ \pi$ è continua, per la proprietà universale della topologia quoziente, $\bar{i}$ è continua. Consideriamo allora il diagramma:
+\begin{center}
+\begin{tikzcd}
+\mathbb{R}^{n+1} \smallsetminus \{0\} \arrow[r, "r"] \arrow[d, "\pi"] & S^n \arrow[d]\\
+\mathbb{P}^n(\mathbb{R}) \arrow[r, "\bar{r}"] & \faktor{S^n}{\pm \id}
+\end{tikzcd}
+\end{center}
+con $r(x)=\frac{x}{||x||}$. Analogamente, $\bar{r}$ è continua e $\bar{r}$ e $\bar{i}$ sono una l'inversa dell'altra, dunque sono omeomorfismi.
+\end{oss}
+
+\begin{oss}
+$\mathbb{P}^n(\mathbb{R})$ è compatto T2. Infatti è quoziente di $S^n$ (che è compatto T2) per l'azione di un gruppo finito, azione che perciò è sicuramente propria (in realtà è propriamente discontinua).
+\end{oss}
+
+\begin{prop}
+Sia $D^n=\{x \in \mathbb{R}^n \mid ||x|| \le 1 \}$, e sia $\sim _D$ definita da:
+$$x \sim _D y \Longleftrightarrow x=y \text{ o } (||x||=||y|| \text{ e } x=-y)$$
+Allora $\mathbb{P}^n(\mathbb{R}) \simeq \faktor{D^n}{\sim _D}$.
+\end{prop}
+\begin{proof}
+Sia $H=\{(x_0,\dots,x_n) \in S^n \mid x_0 \ge 0 \}$ e sia $\sim _H$ data da:
+$$v \sim _H w \Longleftrightarrow v=w \text{ o } (v=-w \text{ e } x_0(v)=x_0(w)=0)$$
+La composizione $H \longrightarrow S^n \longrightarrow \mathbb{P}^n(\mathbb{R})$ induce una bigezione continua $\faktor{H}{\sim _H} \longrightarrow \mathbb{P}^n(\mathbb{R})$, continua per la proprietà universale, mentre la bigezione deriva da ragioni insiemistiche.\\
+$H$ compatto $\Longrightarrow \faktor{H}{\sim _H}$ compatto. Inoltre $\mathbb{P}^n(\mathbb{R})$ è T2, dunque $\mathbb{P}^n(\mathbb{R}) \simeq \faktor{H}{\sim _H}$. Infine, l'omeomorfismo 
+\begin{align*}
+H &\longrightarrow D^n \\
+(x_0,\dots,x_n) &\longmapsto (x_1,\dots,x_n)
+\end{align*} 
+con inversa $(x_1,\dots,x_n) \longmapsto (\sqrt{1-x_1^2-\cdots-x_n^2},x_1,\dots,x_n)$ induce un omeomorfismo $\faktor{H}{\sim _H} \simeq \faktor{D}{\sim _D}$.
+\end{proof}
+
+\begin{oss}
+$\mathbb{P}^1(\mathbb{R}) \simeq S^1$ in quanto:
+$$ \mathbb{P}^1(\mathbb{R})=\faktor{D^2}{\sim}=\faktor{[-1,1]}{\{-1,1\}}=S^1 $$
+\end{oss}
+
+\begin{oss}
+$\mathbb{P}^2(\mathbb{R})=\faktor{D^2}{\sim}$ dove $x\sim y \Longleftrightarrow x=y \text{ o } ||x||=||y||=1$ è il nastro di Moebius.
+\end{oss}
+
+In generale, l'inclusione $\mathbb{R}^n \smallsetminus \{0\} \longrightarrow \mathbb{R}^{n+1} \smallsetminus \{0\}$ induce un'inclusione $\mathbb{P}^{n-1}(\mathbb{R}) \hookrightarrow \mathbb{P}^n(\mathbb{R})$, tale che $\mathbb{P}^n(\mathbb{R})\smallsetminus \mathbb{P}^{n-1}(\mathbb{R}) \simeq (\mathop D\limits ^\circ)^n$.
+
+\begin{defn}
+Un punto di $\mathbb{P}^n(\mathbb{K})$ è descritto da una $(n+1)$-upla a meno di multipli. La classe di $(x_0,\dots,x_n)$ si denota con $[x_0: \dots:x_n]$ (\textsc{coordinate omogenee}).
+\end{defn}
+
+\begin{oss}
+Se $p \in \mathbb{K}[x_0,\dots,x_n]$ è un polinomio, non ha senso chiedersi quanto vale $p([x_0: \dots:x_n])$. Inoltre, se $p$ è omogeneo di grado $d,\ \forall \lambda \in \mathbb{K}^*$, vale:
+$$p(\lambda x_0,\dots,\lambda x_n)=\lambda ^d p(x_0,\dots,x_n)$$
+dunque, perlomeno, è ben definito il fatto che $p$ si annulli su $[x_0: \dots:x_n]$, cosa che avviene per definizione.
+\end{oss} 
+
+Torniamo adesso ad esaminare il caso generale. Prendiamo $\mathbb{P}^n(\mathbb{K})$, e siano $x_0,\dots,x_n$ le coordinate di $\mathbb{K}^{n+1}$. Poniamo allora
+$$U_i=\{x_i \neq 0\}=\{[x_0: \dots : x_n] \in \mathbb{P}^n(\mathbb{K}) \mid x_i \neq 0\}$$
+
+\begin{prop}
+Esiste una bigezione naturale tra $U_i$ e $\mathbb{K}^n$ che, nel caso $\mathbb{K}=\mathbb{R}$, è un omeomorfismo.
+\end{prop}
+\begin{proof}
+Siano $\varphi :U_i \rightarrow \mathbb{K}^n,\ \psi :\mathbb{K}^n \rightarrow U_i$ definite da:
+\begin{align*}
+\varphi ([x_0: \dots :x_n]) &= \left( \dfrac{x_0}{x_i},\cdots,\dfrac{x_{i-1}}{x_i},\dfrac{x_{i+1}}{x_i},\cdots,\dfrac{x_n}{x_i}\right) \\
+\psi ((x_1,\dots,x_n)) &=[x_1: \dots :x_{i-1}:1:x_{i+1}: \dots :x_n]
+\end{align*}
+Allora
+\begin{align*}
+&\varphi (\psi ((x_1,\dots,x_n)))=(x_1,\dots,x_n) \\
+&\psi (\varphi ([x_0: \dots :x_n])=\psi \left( \left( \dfrac{x_0}{x_i},\cdots,\dfrac{x_n}{x_i}\right) \right) \\&=\left[\dfrac{x_0}{x_i}: \dots :\dfrac{x_{i-1}}{x_i}:1:\dfrac{x_{i+1}}{x_i}: \dots :\dfrac{x_n}{x_i}\right]=[x_0: \dots :x_n]
+\end{align*}
+Dunque $\varphi$ e $\psi$ sono una l'inversa dell'altra, e dunque sono bigezioni. Rimane da vedere che, se $\mathbb{K}=\mathbb{R}$, sono continue. $\psi$ è ovviamente continua, in quanto composizione delle mappe continue $\mathbb{R}^n \hookrightarrow \mathbb{R}^{n+1} \smallsetminus \{0\} \rightarrow \mathbb{P}^n(\mathbb{R})$. Inoltre $\varphi$ si ottiene per passaggio al quoziente da $\tilde{\varphi} : \pi ^{-1} (U_i) \rightarrow \mathbb{R}^n$, dove:
+$$\tilde{\varphi}(x_0,\dots,x_n)=\left( \dfrac{x_0}{x_i},\cdots,\dfrac{x_{i-1}}{x_i},\dfrac{x_{i+1}}{x_i},\cdots,\dfrac{x_n}{x_i}\right)$$
+con $\pi ^{-1}(U_i)=\{x \in \mathbb{R}^{n+1} \mid x_i \neq 0\}$. Allora $\tilde{\varphi}$ è chiaramente continua, e dunque lo è anche $\varphi$ (infatti la topologia quoziente di $\faktor {\pi ^{-1} (U_i)}{\sim}$ coincide con quella di $U_i \subseteq \mathbb{P}^n (\mathbb{R})$ come sottospazio, in quanto $\pi ^{-1} (U_i)$ è saturo. Dunque $\forall p \in \mathbb{P}^n (\mathbb{R}),\ \exists U$ aperto in $\mathbb{P}^n (\mathbb{R})$ con $p \in U$ e $U$ omeomorfo a $\mathbb{R}^n$.
+\end{proof}
+
+\begin{defn}
+Sia $X$ spazio topologico. Allora $X$ si dice \textsc{varietà} $n$-dimensionale se:
+\begin{nlist}
+\item $X$ è T2
+\item $\forall p \in X,\ \exists$ aperto $U$ con $p \in U$ con $U$ omeomorfo a un aperto $V$ di $\mathbb{R}^n$
+\item $X$ è a base numerabile
+\end{nlist}
+\end{defn}
+
+\begin{oss}
+Poiché le palle aperte sono una base della topologia di $\mathbb{R}^n$ e una palla aperta è omeomorfa a $\mathbb{R}^n$, (ii) è equivalente a richiedere che esista $U$ aperto con $p \in U$ e $U$ omeomorfo ad una palla (o a $\mathbb{R}^n$).
+\end{oss}
+
+\begin{oss}
+Poiché $\mathbb{P}^n(\mathbb{R})$ è a base numerabile, $\mathbb{P}^n(\mathbb{R})$ è una $n$-varietà.
+\end{oss}
+
+\begin{oss}
+(i), (ii), (iii), sono indipendenti. Ad esempio:
+$$\faktor{\mathbb{R} \times \{-1,1\}}{\sim} \quad \text{con} \quad (x,t) \sim (y,s) \Leftrightarrow (x,t)=(y,s) \text{ o } (x=y \text{ e }x,y \neq 0)$$
+Verifica (ii) poiché è localmente euclidea, ma non è T2.
+\end{oss}

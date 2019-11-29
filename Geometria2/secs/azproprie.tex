@@ -1,0 +1,165 @@
+Sia $G$ gruppo che agisce tramite omeomorfismi su $X$ spazio topologico. Sia quindi $\phi$ definita come:
+\begin{align*}
+\phi:G \times X &\longrightarrow X \times X\\
+(g,x) &\longmapsto (x, g\cdot x)
+\end{align*}
+Dotiamo allora $G$ della topologia discreta, e osserviamo che $\phi$ è continua se e solo se, date $\phi _1$ e $\phi _2$ come:
+\begin{align*}
+\phi _1:G \times X & \longrightarrow X & \phi _2:G \times X &\longrightarrow X \\
+(g,x) &\longmapsto x & (g,x) &\longmapsto g \cdot x
+\end{align*}
+sono entrambe continue. In particolare:
+\begin{itemize}
+\item $\phi _1$ è continua perché proiezione
+\item $\phi _2 ^{-1}(U)=\{(g,x) \mid g \cdot x \in U\}=\displaystyle \bigcup _{g \in G} \{g\} \times g^{-1}U$ aperto se $U \subset X$ aperto
+\end{itemize}
+
+Indichiamo che $G$ agisce su $X$ con $G \curvearrowright X$.
+
+\begin{defn}
+L'azione $G \curvearrowright X$ è \textsc{propria} se $\phi$ è un'applicazione propria (cioè per cui $\phi ^{-1} (K)$ è compatto se $K \subset X \times X$ è compatto).
+\end{defn}
+
+\begin{defn}
+Sia $G \curvearrowright X$. Dati $Z,Y \subset X$, il \textsc{trasportatore} di $Y$ in $Z$ è:
+$$(Y|Z)_G=\{g \in G \mid gY \cap Z \neq \emptyset\}$$
+\end{defn}
+
+\begin{thm}
+Sia $G \curvearrowright X$ tramite omeomorfismi con $X$ spazio di Hausdorff localmente compatto. Allora sono equivalenti:
+\begin{nlist}
+\item L'azione è propria
+\item $(K|K)_G$ è finito $\forall K \subset X$ compatto
+\item $\forall x,y \in X, \exists U \in I(x), V \in I(y)$ tali che $(U|V)_G$ è finito
+\end{nlist}
+\end{thm}
+\begin{proof}
+(i) $\Longrightarrow$ (ii): Sia $K \subset X$ compatto. Allora:
+$$K \times K \subset X \times X \text{ compatto } \Longrightarrow \phi ^{-1} (K \times K) \times G \times X$$
+Dove $\phi ^{-1}(K \times K)=\{(g,x) \mid x \in K, gx \in K\}$. Allora $p_1(\phi ^{-1}(K \times K))=(K|K)_G$ (ricordando che $p_1$ è la proiezione $G\times X \longrightarrow G$) è compatto in quanto immagine di compatto. $G$ discreto $\Longrightarrow$ $(K|K)_G$ compatto e discreto $\Longrightarrow$ $(K|K)_G$ finito.\\
+(ii) $\Longrightarrow$ (iii): Siano $x,y \in X$ e $U \in I(x), V \in I(y)$ intorni compatti $\Longrightarrow$ $U \cup V$ compatto $\Longrightarrow$ $(U \cup V | U \cup V)_G \supset (U|V)_G$ è finito.\\
+(iii) $\Longrightarrow$ (i): Manca
+\end{proof}
+
+\begin{ex}
+$\mathbb{Z}^2 \curvearrowright \mathbb{R}^2$ per traslazione con:
+$$(a,b) \cdot (x,y)=(x+a,y+b)$$
+L'azione è propria. Vediamo ora (ii). Sia $D_{a,b}=[a,a+1] \times [b,b+1]$. Allora $(a,b) \cdot D_{0,0}$, e inoltre
+$$\mathbb{R}^2=\bigcup _{a,b \in \mathbb{Z}} D_{a,b}$$
+In generale, $\exists ! g \in \mathbb{Z}^2 \mid gD_{a,b}=D_{n,m}$ dati $a,b,m,n \in \mathbb{Z}$. Sia $K \subset \mathbb{R}^2$ compatto, allora esistono finiti $D_{a,b}$ tali che $K \cap D_{a,b} \neq \emptyset$. Siano $D_{a_1,b_1}, \dots ,D_{a_n,b_n}$, e sia $gK \cap K \neq \emptyset$ tale che $g \in G$ permuta i $D_{a_i,b_i}$. Allora $\exists i$ tale che $gD_{a_i,b_i}=D_{a_j,b_j}$, ma questo determina unicamente $g$, e quindi $(K|K)_G$ è finito.
+\end{ex}
+
+\begin{defn}
+L'azione $G \curvearrowright X$ (con $X$ Hausdorff e localmente compatto) è detta \textsc{vagante} se $\forall x \in X, \exists U \in I(x)$ tale che $(U|U)_G$ è finito.
+\end{defn}
+
+\begin{defn}
+L'azione $G \curvearrowright X$, nelle solite ipotesi, si dice \textsc{propriamente discontinua} se $\forall x \in X, \exists U \in I(x)$ tale che $(U|U)_G=\{1\}$.
+\end{defn}
+
+\begin{defn}
+L'azione $G \curvearrowright X$, nelle solite ipotesi, si dice \textsc{libera} se $\forall g 	\in G,g \neq 1, \forall x \in X$ vale che $gx \neq x$.
+\end{defn}
+
+\begin{prop}
+Sempre nelle stesse ipotesi:
+\begin{nlist}
+\item Le azioni proprie sono vaganti
+\item Un'azione è propriamente discontinua se e solo se è vagante e libera
+\end{nlist}
+\end{prop}
+
+\begin{proof}
+(i): Per quanto visto precedentemente, $\forall K \subseteq X$ compatto, $(K|K)_G$ è finito, e quindi abbiamo finito poiché $X$ è localmente compatto.\\
+(ii): Propriamente discontinua $\Longrightarrow$ vagante e libera.\\
+Supponiamo $gx=x$. Allora $\forall U \in I(x), g \in (U|U)_G \Longrightarrow g=1$.\\
+($\Longleftarrow$) Per esercizio.
+\end{proof}
+
+\begin{oss}
+Abbiamo dunque mostrato che propria $\Longrightarrow$ vagante, propriamente discontinua $\Longrightarrow$ vagante.
+\end{oss}
+
+\begin{ex}
+$\mathbb{Z} \curvearrowright \mathbb{R}^2$, con:
+$$n \cdot (x,y)=(2^nx,2^{-n}y)$$
+Per $\mathbb{R}^2 \smallsetminus \{0\}$, l'azione è libera. Vediamo che $\forall x,y \in \mathbb{R}^2 \smallsetminus \{0\}, \exists U \in I(x)$ tale che $(U|U)_G=\{1\}$. Supponiamo $U \in I(x,y)$ con $x \neq 0$, e consideriamo il disco di centro $(x,y)$ e raggio $\frac{|x|}{4}$. Allora $nU \cap U \neq [=] \emptyset \quad \forall n \neq 0 [\forall n=0]$.\\
+Vediamo che l'azione non è propria: consideriamo $p=(0,1)$ e $q=(1,0)$. Siano $U \in I(p), V \in I(q)$. Allora $\exists n_0$ tale che $\forall n \ge n_0$ vale $(2^{-n},1) \in U, (1,2^{-n}) \in V$, ma $n(2^{-n},1)=(1,2^{-n})$, ovvero l'azione di $n$ li scambia. Allora $n \in (U|V)_G, \forall n \ge n_0$.
+\end{ex}
+
+\begin{defn}
+$Z \subset X$ è \textsc{$G$-stabile} se $\forall x \in Z, \forall g \in G, gx \in Z$.
+\end{defn}
+
+\begin{thm}
+Sia $G \curvearrowright X$ un'azione vagante. Allora $G \curvearrowright X$ è propria se e solo se $\faktor {X}{G}$ è di Hausdorff.
+\end{thm}
+\begin{proof}
+($\Longrightarrow$) $\faktor{X}{G}$ è di Hausdorff se e solo se $\forall x,y \in X$ con $Gx \neq Gy,\ \exists U_1 \in I(x),\ V_1 \in I(y)$ $G$-stabili con $U_1 \cap V_1 =\emptyset$. Per ipotesi esistono $U \in I(x),\ V \in I(y)$ tali che $(U|V)_G$ è finito, fissati $x,y \in X$. Poniamo allora:
+$$(U|V)_G=\{g_1,\dots,g_n\}$$
+e consideriamo $g_ix$ e $y$. Poiché $X$ è di Hausdorff, quindi possiamo separarli $\forall i=1,\dots,n$. Siano allora $U_i \in I(g_ix)$ e $V_i \in I(y)$ tali che $U_i \cap V_i = \emptyset$. Definiamo inoltre:
+$$U'=U \cap \bigcap _{i=1}^n g_i ^{-1} (U_i) \qquad \qquad V'=V \cap \bigcap _{i=1}^n V_i$$
+Allora $U' \in I(x),\ V' \in I(y)$ e vediamo che $(U'|V')_G=\emptyset$. Infatti, supponiamo:
+$$gU' \cap V' \neq \emptyset \Longrightarrow g \in (U|V)_G \Longrightarrow g \in \{g_1,\dots,g_n\}$$
+Ma allora, $g_iU' \cap V' \subset U_i \cap V_i =\emptyset \Longrightarrow (U'|V')_G=\emptyset$. \\
+Poniamo adesso $U''=A=\displaystyle \bigcap _{g \in G}gU'$ e $B=\displaystyle \bigcap _{g \in G}gV'$, dunque $A$ e $B$ sono aperti e $G$-stabili. Vediamo che sono disgiunti: abbiamo che $A \cap B= \displaystyle \bigcap _{g,h \in G} gU' \cap hV'$, e d'altra parte $gU' \cap hV' \neq \emptyset$ se e solo se $h^{-1}gU' \cap V' \neq \emptyset$. Ma $h^{-1}g \notin (U'|V')_G=\emptyset$. Dunque $gU' \cap hV'=\emptyset,\ \forall g,h \in G$. Dunque $\faktor {X}{G}$ è di Hausdorff.
+\end{proof}
+
+\begin{ex}
+$\mathbb{Z}^n \curvearrowright \mathbb{R}^n$ per traslazione $\Longrightarrow \faktor {\mathbb{R}^n}{\mathbb{Z}^n} \simeq (S^1)^n$\\
+Osserviamo che il prodotto di identificazioni aperte è un'identificazione aperta, e quindi:
+$$\faktor {\mathbb{R}^n}{\mathbb{Z}^n} \simeq \left(\faktor {\mathbb{R}}{\mathbb{Z}}\right) ^n \simeq (S^1)^n$$
+Consideriamo, per semplicità, il caso $n=2$:\\
+Sia $D=[0,1] \times [0,1]$, allora $D$ interseca tutte le orbite di $\mathbb{Z}^2 \curvearrowright \mathbb{R}^2$. Posso vedere $\faktor {\mathbb{R}^2}{\mathbb{Z}^2}$ come quoziente del quadrato?\\
+Definiamo una relazione indotta su $D$: $x \sim y \Longleftrightarrow \exists g \in G : gx=y$. Otteniamo il diagramma:\\
+\begin{center}
+\begin{tikzcd}
+D \arrow[r, "i"] \arrow[d, "\pi _1"]
+& \mathbb{R}^2 \arrow[d, "\pi _2"] \\
+\faktor {D}{\sim} \arrow[r, "f"]
+& \faktor {\mathbb{R}^2}{\mathbb{Z}^2}
+\end{tikzcd}
+\end{center}
+Osserviamo che $f$ è continua, vediamo che è un omeomorfismo. \\
+$\faktor {D}{\sim} \simeq S^1 \times S^1$, $f$ è continua e biunivoca, ma $\faktor {D}{\sim}$ è compatto perché immagine di un compatto. Allora $\faktor {\mathbb{R}^2}{\mathbb{Z}^2}$ Hausdorff implica che $f$ è un omeomorfismo.
+\end{ex}
+
+\begin{defn}
+Sia $G \curvearrowright X$ tramite omeomorfismo. Un \textsc{dominio fondamentale} per l'azione è un chiuso $D \subset X$ tale che:
+\begin{nlist}
+\item $D=\overline{\mathop D\limits ^\circ}$
+\item $g \neq 1$, allora $g\mathop D\limits ^\circ \cap \mathop D\limits ^\circ =\emptyset$ (infatti $(\mathop D\limits ^\circ|\mathop D\limits ^\circ)_G=\emptyset$)
+\item $X=\displaystyle \bigcup _{g \in G} gD$ è un ricoprimento localmente finito
+\end{nlist}
+\end{defn}
+
+\begin{ex}
+$\mathbb{Z}^n \curvearrowright \mathbb{R}^n$ per traslazione. Allora $[0,1]^n$ è un dominio fondamentale.
+\end{ex}
+
+\begin{ex}
+$\faktor {\mathbb{Z}}{n\mathbb{Z}} \curvearrowright \mathbb{R}^2$ per rotazione di angolo $\frac{2\pi}{n}$. Allora il cono di angolo $\frac{2\pi}{n}$ è un dominio fondamentale.
+\end{ex}
+
+\begin{thm}
+Sia $G \curvearrowright X$ tramite omeomorfismo, $X$ Hausdorff e localmente compatto, e $D \subset X$ un dominio fondamentale. Allora $\faktor {D}{\sim} \simeq \faktor {X}{G}$. Inoltre l'azione di $G$ su $X$ è propria.
+\end{thm}
+\begin{proof}
+Consideriamo il seguente diagramma:
+\begin{center}
+\begin{tikzcd}
+D \arrow[r, "i", hook] \arrow[d, "\pi _2"]
+& X \arrow[d, "\pi _1"] \\
+\faktor {D}{\sim} \arrow[r, "f"] & \faktor {X}{G}
+\end{tikzcd}
+\end{center}
+dove $\sim$ è una relazione indotta dall'azione di $G$ su $D$. Come nell'esempio precedente, $f$ è continua e biunivoca, vediamo allora che è anche aperta (e che dunque è un omeomorfismo). Sia $A \subseteq X$ aperto, allora $f(A) \subset \faktor {X}{G}$ è aperto se e solo se $\pi _1 ^{-1} (f(A)) \subseteq X$ è aperto e $\pi _2 ^{-1} (A) \subseteq D,\ \exists B \subseteq D : \pi _2 ^{-1} (A)=B \cap D$ aperto. Allora:
+$$\pi _1 ^{-1} (f(A))=\bigcup _{g \in G} g(B \cap D)=V$$
+Mostriamo che $V$ è aperto. Per fare ciò, è sufficiente vedere che $\forall x \in B \cap D,\ \exists U \subset X$ aperto con $U \subset V$ (cioé $x \in U$). Allora, poiché $\{gD\}$ è un ricoprimento localmente finito di $X$, esiste $U' \in I(x)$ aperto tale che $U' \cap gD \neq \emptyset$ per un numero finito di $g$.\\
+Assumendo allora che $U' \cap gD \neq \emptyset \Longrightarrow x \in gD$, basta sostituire $U'$ con $\displaystyle U' \smallsetminus \bigcup _{x \notin gD} gD$, ed ottengo ancora un intorno aperto di $x$ con le stesse proprietà. Siano adesso $g_1,\dots,g_n \in G$ gli elementi per cui $x \in g_iD$, allora $U' \subset g_1D \cup \cdots \cup g_nD$. Per ogni $i$ abbiamo che:
+$$g_i^{-1}x \in D \Longrightarrow g_i^{-1}x \in \pi _2 ^{-1}(x) \Longrightarrow g_i^{-1}(x) \in B \subset \pi _2^{-1}(A) \Longrightarrow x \in g_iB$$
+Poniamo:
+$$U=U' \cap \bigcap _{i=1}^n g_iB \Longrightarrow  x \in U$$
+intorno aperto di $x$. Vediamo che $U \subseteq V$. Infatti:
+$$y \in U \Longrightarrow y \in U' \Longrightarrow y \in g_iD, \exists g_i :x \in g_iD \Longrightarrow y \in g_i(D \cap B) \subset V$$
+\end{proof}

@@ -1,0 +1,50 @@
+Con dimostrazioni analoghe, si mostra che $\mathbb{P}^n(\mathbb{C})$ è compatto, T2, ed è ricoperto da aperti $U_i=\{z_i \neq 0\}$ omeomorfi a $\mathbb{C}^n \simeq \mathbb{R}^{2n}$. Essendo a base numerabile, $\mathbb{P}^n(\mathbb{C})$ è una varietà di dimensione $2n$.
+
+\begin{prop}
+$\mathbb{P}^1(\mathbb{C}) \simeq S^2$
+\end{prop}
+\begin{proof}
+Infatti:
+$$\mathbb{P}^1(\mathbb{C})=\{z_0=0\} \cup \{z_0 \neq 0\}=\{[0:1]\} \cup U_0$$
+Poiché $\mathbb{P}^1(\mathbb{C}$ è compatto T2, per l'unicità della compattificazione di Alexandroff, $\mathbb{P}^1(\mathbb{C})=\hat{U}_0=\hat{\mathbb{R}}^2=S^2$.
+\end{proof}
+
+In generale:
+$$\mathbb{P}^n(\mathbb{K})=\{x_0=0\} \cup \{x_0 \neq 0\} \simeq \mathbb{P}^{n-1}(\mathbb{K}) \cup U_0 \simeq \mathbb{P}^{n-1}(\mathbb{K}) \cup \mathbb{K}^n$$
+
+\begin{ex}
+La restrizione di $\pi :\mathbb{C}^{n+1} \smallsetminus \{0\} \rightarrow \mathbb{P}^n(\mathbb{C})$ a:
+$$S^{n+1}=\{v \in \mathbb{C}^{n+1}=\mathbb{R}^{2n+2} \mid ||v||=1\}$$
+è surgettiva, perché $\pi(v)=\pi(\frac{v}{||v||})$ e ciò implica $\mathbb{P}^n(\mathbb{C})$ compatto. Tuttavia, $\forall \theta \in \mathbb{R},\ \pi(e^{i\theta}v)=\pi(v) \ \forall v \in \mathbb{C}^{n+1} \smallsetminus \{0\}$. Consideriamo la mappa $f: S^{2n+1} \rightarrow \mathbb{P}^n(\mathbb{C})$ ottenuta restringendo $\pi$. Allora, $\forall p \in \mathbb{P}^n(\mathbb{C}),\ f^{-1}(p) \subseteq S^{2n+1}$ è omeomorfo a $S^1$. Infatti, se $v \in f^{-1}(p)$ scelto a caso, allora:
+$$f^{-1}(p)=\{\lambda v \mid \lambda \in \mathbb{C},\ |\lambda|=1\}$$
+per cui la mappa 
+\begin{align*}
+i:S^1=\{\lambda \in \mathbb{C} \mid |\lambda|=1\} &\longrightarrow f^{-1}(p) \\
+\lambda &\longmapsto \lambda v
+\end{align*}
+è bigettiva e omeomorfismo (infatti va da un compatto a un T2).\\
+Perciò, se $n=1,\ \exists f:S^3 \rightarrow S^2$ surgettiva tale che $f^{-1}(p) \simeq S^1$ per ogni $p$ in $S^2$. Si ottiene che $S^3 \simeq S^2 \times S^1$. Questa $f$ si chiama \textsc{fibrato di Lefschetz}, ed è un esempio di fibrato non banale.
+\end{ex}
+
+\begin{ex}(\emph{Uno spazio compatto per successioni non compatto})\\
+Sia $X=[0,1]^{[0,1]}$ con la topologia prodotto, cioè la topologia della convergenza puntuale. Sia inoltre, $\forall f \in X$:
+$$\text{supp}(f)=\{x \in [0,1] \mid f(x) \neq 0\}$$
+il supporto di $f$. Prendiamo allora:
+$$Y=\{f \in X \mid \#\text{supp}(f) \le \#\mathbb{N}\}$$
+Allora:
+\begin{nlist}
+\item $Y$ è denso in $X$
+\item $X$ è T2
+\item $Y$ non è compatto (compatto in T2 $\Rightarrow$ chiuso)
+\item $Y$ è compatto per successioni
+\end{nlist}
+Sia $f_n$ una successione in $Y$, ne devo trovare una estratta puntualmente convergente a una $f \in Y$. Sia:
+$$A=\bigcup _{n \in N} \text{supp}(f)$$
+Allora $\#A \le \#\mathbb{N}$, quindi posso scrivere anche $A=\{a_0,\dots,a_n,\dots\}$. La successione $\{f_n(a_0)\}_{n \in \mathbb{N}}$ è contenuta in [0,1] che è compatto, dunque esiste una scelta crescente di indice $k_0(n)$ tale che $f_{k_0(n)} (a_0) \longrightarrow \ell _0$ per $n \longrightarrow +\infty$.\\
+Analogamente $\{f_{k_0(n)}(a_1)\}_{n \in \mathbb{N}} \subseteq [0,1]$, dunque esiste una sottosuccessione $k_1(n)$ estratta da $k_0(n)$ con $f_{k_1(n)}(a_1) \longrightarrow \ell _1 \in [0,1]$. Procedendo così, $\forall m$ costruisco una sottosuccessione $k_m(n)$ con $k_{m+1}(n)$ estratta da $k_m(n)$ e tali che
+$$\lim _{n \rightarrow +\infty} f_{k_m(n)}(a_m)=\ell _m \in [0,1]$$
+Segue che, $\forall m \in \mathbb{N},\ \displaystyle \lim _{i \rightarrow +\infty} f_{k_i(i)} (a_m)=\ell _m$.\\
+Infatti $f_{k_i(i)}$ è definitivamente una sottosuccessione di $f_{k_i(n)}$, con $n \in \mathbb{N}$. Poniamo allora:
+$$f(x)=\begin{cases} \ell _i & \mbox{se }x=a_i \in A \\ 0 & \mbox{se }x \notin A \end{cases}$$
+Allora $f \in Y$ ($\text{supp}(f)$ è numerabile) e $f_{k_i(i)} \longrightarrow f$ puntualmente.
+\end{ex}
