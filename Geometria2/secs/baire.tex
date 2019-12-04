@@ -1,0 +1,32 @@
+\begin{defn}
+    Un sottoinsieme di uno spazio topologico \`e raro se l'apertura della chiusura \`e vuota. Un sottoinsieme si dice magro se \`e unione numerabile di rari. Uno spazio si dice di Baire se le aperture dei magri sono vuote.
+\end{defn}
+\begin{prop}
+    Sono equivalenti:
+    \begin{nlist}
+        \item X \`e di Baire
+        \item Unione numerabile di chiusi rari ha parte interna vuota
+        \item Intersezione numerabile di aperti densi \`e densa
+    \end{nlist}
+\end{prop}
+\begin{proof}
+    Le ultime due sono equivalenti per passaggio al complementare. La seconda \`e la definizione dell'essere di Baire. Per fare vedere che la seconda implica la prima, sia $Y\subseteq X$ magro, $Y=\bigcup_{n\in\mathbb{N}}Y_n$ con gli $Y_n$ rari. Allora
+    \[
+    \open{Y}=\open{(\bigcup Y_n)}\subseteq\open{\bigcup \bar{Y_n}}=\emptyset
+    \]
+\end{proof}
+\begin{thm}(Versione debole del teorema di Baire)
+    Ogni $X$ metrico completo \`e di Baire.
+\end{thm}
+\begin{proof}
+    La dimostrazione \`e uguale uguale a quella fatta da Manetti a pagina 115.
+\end{proof}
+
+\begin{defn}
+    Un sottoinsieme di uno spazio si dice perfetto se \`e chiuso e privo di punti isolati.
+\end{defn}
+\begin{prop} Un sottoinsieme $Y\subseteq\mathbb{R}$ perfetto \`e pi\`u che numerabile
+\end{prop}
+\begin{proof}
+    $Y$ \`e completo, quindi di Baire. Allora scrivendo per assurdo $Y=\bigcup_{n\in\mathbb{N}}\{y_n\}$ e $\open{Y}=\emptyset$, non posso avere $\open{\bar{\{y_n\}}}=\open{\{y_n\}}=\emptyset$
+\end{proof}
