@@ -98,7 +98,7 @@
 
 \begin{proof}
   T2 $\implies$ T1, dobbiamo dimostrare T4. Siano $C$ e $D$ due chiusi disgiunti in $X$. Dal lemma \ref{ch->r} sappiamo che $X$ è regolare, dunque per ogni $x \in C$ esistono $U_x, V_x$ aperti disgiunti $x \in U_x, D \subseteq V_x$. $\{U_x\}_{x \in C}$ è un ricoprimento aperto di $C$, che per il teorema \ref{ccc} è compatto, dunque esiste un sottoricoprimento finito $U_{x_1}, \dots, U_{x_n}$.
-  Allora prendendo $U=U_{x_1} \cup \dots \cup U_{x_n}, V=V_{x_1} \cap \dots \cap V_{x_n}$ abbiamo che sono due aperti disgiunti t.c. $C \subseteq U, D \subseteq V$, che è esattamente quello che ci serve per dimostrare T3.
+  Allora prendendo $U=U_{x_1} \cup \dots \cup U_{x_n}, V=V_{x_1} \cap \dots \cap V_{x_n}$ abbiamo che sono due aperti disgiunti t.c. $C \subseteq U, D \subseteq V$, che è esattamente quello che ci serve per dimostrare T4.
 \end{proof}
 
 \begin{prop}
@@ -251,7 +251,7 @@ Si ha che $f(X)$ \`e un compatto di $\mathbb{R}$, dunque chiuso e limitato. Dall
     (di Alexander). Sia $X$ uno spazio topologico e sia $\mathcal{P}$ una sua prebase. Se da ogni ricoprimento di $X$ con elementi di $\mathcal{P}$ si pu\`o estrarre un sottoricoprimento finito, allora $X$ \`e compatto.
 \end{thm}
 \begin{proof}
-    Per asurdo, si $X$ non compatto. Definiamo
+    Per asurdo, sia $X$ non compatto. Definiamo
     \[
         \Omega = \{\mathcal{F} \text{ ricoprimento di $X$ da cui non si pu\`o estrarre un sottoricoprimento finito}\}
     \]
