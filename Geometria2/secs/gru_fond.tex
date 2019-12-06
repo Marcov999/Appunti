@@ -1,0 +1,43 @@
+Siano $X$ spazio topologico e $a, b \in X$. $\Omega(a, b):=\{\gamma:[0, 1] \rightarrow X \text{ continuo t.c. } \gamma(0)=a, \gamma(1)=b\}$.
+
+\begin{defn}
+  $\alpha, \beta \in \Omega(a, b)$ sono \textsc{omotopi} (\textsc{come cammini} o \textsc{a estremi fissi}) se esiste $H:[0, 1] \times I \rightarrow X$ omotopia tra $\alpha$ e $\beta$ e t.c. $H(0, t)=a, H(1, t)=b$ per ogni $t \in I$. Essere omotopi è una relazione di equivalenza $\sim$ tra cammini.
+\end{defn}
+
+\begin{defn}
+  Come insieme, il \textsc{gruppo fondamentale di $X$ con punto base $a$} è $\pi_1(X, a)=\faktor{\Omega(a, a)}{\sim}$.
+\end{defn}
+
+Il nostro prossimo obiettivo sarà quello di mettere su $\pi_1(X, a)$ una struttura di gruppo.
+
+Se $\alpha, \beta \in \Omega(a, a)$, è ben definita $\alpha \star \beta \in \Omega(a, a)$ data da $\alpha \star \beta (t)=\begin{cases} \alpha(2t) \text{ se } 0 \le t \le 1/2 \\
+\beta(2t-1) \text{ se } 1/2 \le t \le 1 \end{cases}$.
+
+Notazione: $1_a \in \Omega(a, a)$ è il cammino costante in $a$. Se $\alpha \in \Omega(a, b)$, $\bar{\alpha} \in \Omega(b, a)$ è $\bar{\alpha}(t)=\alpha(1-t)$.
+
+È vero che se $\alpha, \beta, \gamma \in \Omega(a, a)$, allora $(\alpha \star \beta) \star \gamma=\alpha \star (\beta \star \gamma)$? No! Però sono omotopi. \marginpar{\warningsign}
+
+\begin{lm}
+  Sia $\varphi:[0, 1] \rightarrow [0, 1]$ continua e t.c. $\varphi(0)=0, \varphi(1)=1$ e sia $\gamma \in \Omega(a, b)$, allora $\gamma \sim \gamma \circ \varphi$.
+\end{lm}
+
+\begin{proof}
+  L'omotopia cercata è data da $H(t, s)=\gamma(st+(1-s)\varphi(t))$.
+\end{proof}
+
+\begin{cor}
+  $\alpha \in \Omega(a, b), \beta \in \Omega(b, c), \gamma \in \Omega(c, d)$, allora $(\alpha \star \beta) \star \gamma \sim \alpha \star (\beta \star \gamma)$ in quanto sono uno riparametrizzazione dell'altro.
+\end{cor}
+
+\begin{lm}
+  $\alpha, \alpha' \in \Omega(a, b), \beta, \beta' \in \Omega(b, c), \alpha \sim \alpha', \beta \sim \beta' \implies \alpha \star \beta \sim \alpha' \star \beta'$ in $\Omega(a, c)$.
+\end{lm}
+
+\begin{proof}
+  Sia $H$ l'omotopia tra $\alpha$ e $\alpha'$ e $K$ quella tra $\beta$ e $\beta'$, allora la mappa
+  $$(t, s) \mapsto \begin{cases} H(2t, s) \text{ se } 0 \le t \le 1/2 \\ K(2t-1, s) \text{ se } 1/2 \le t \le 1 \end{cases}$$ è l'omotopia cercata.
+\end{proof}
+
+\begin{cor}
+  L'operazione $\pi_1(X, a) \times \pi_1(X, a) \rightarrow \pi_1(X, a)$ t.c. $([\alpha], [\beta]) \mapsto [\alpha \star \beta]$ è ben definita e associativa.
+\end{cor}
