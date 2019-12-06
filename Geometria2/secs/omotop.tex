@@ -1,1 +1,38 @@
-aaa
+\begin{defn}
+  Siano $f, g:X \rightarrow Y$ continue. Una \textsc{omotopia} tra $f$ e $g$ è una mappa continua $H:X \times [0, 1] \rightarrow Y$ t.c. $H(x, 0)=f(x), H(x, 1)=g(y)$ per ogni $x \in X$.
+\end{defn}
+
+\begin{ftt}
+  Per ogni $t \in [0, 1]$, $H_t(x)=H(x, t), H_t:X \rightarrow Y$ è continua, per cui $H$ descrive un'interpolazione tra $f$ e $g$: deformo $f$ in $g$.
+\end{ftt}
+
+Nel seguito, $I=[0, 1]$.
+
+\begin{defn}
+  $f$ si dice \textsc{omotopa} a $g$ (e si scrive $f \sim g$) se esiste un'omotopia tra $f$ e $g$.
+\end{defn}
+
+\begin{ftt}
+  \begin{nlist}
+    \item $f \sim f$;
+    \item $f \sim g \implies g \sim f$;
+    \item $f \sim g$ e $g \sim h \implies f \sim h$.
+  \end{nlist}
+  Dunque l'omotopia è una relazione di equivalenza su $C(X, Y)$ (le funzioni continue da $X$ in $Y$). L'insieme delle classi di omotopia si denota con $[X, Y]$.
+\end{ftt}
+
+\begin{ex}
+  Se $Y$ è un convesso di $\mathbb{R}^n$, $|[X, Y]|=1$, cioè tutte le mappe $f:X \rightarrow Y$ sono omotope fra loro. Infatti, date $f$ e $g$, basta prendere $H(x, t)=tf(x)+(1-t))g(x)$. In realtà, dato che l'omotopia è una relazione di equivalenza, otteniamo di più: ci basta che $Y$ sia "stellato" rispetto a un punto, cioè che esista $p \in Y$ t.c. per ogni $y \in Y, t \in [0, 1]$, $ty+(1-t)p \in Y$. Allora si dimostra che tutte le funzioni sono omotope alla funzione che vale costantemente $p$.
+\end{ex}
+
+\begin{defn}
+  Sia $X$ spazio topologico, $\pi_0(X)$ è l'insieme delle componente connesse per archi di $X$.
+\end{defn}
+
+\begin{lm}
+  $f:X \rightarrow Y$ continua induce una funzione ben definita $f_{\star}:\pi_0(X) \rightarrow \pi_0(Y)$ definita dalla richiesta che $f(C) \subseteq f_{\star}(C)$ per ogni $C \in \pi_0(X)$. Allora il lemma dice questo: se $f \sim g$, $f_{\star}=g_{\star}$.
+\end{lm}
+
+\begin{proof}
+  Da scrivere.
+\end{proof}
