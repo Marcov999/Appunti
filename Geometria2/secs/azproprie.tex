@@ -35,7 +35,7 @@ Sia $G \curvearrowright X$ tramite omeomorfismi con $X$ spazio di Hausdorff loca
 \end{thm}
 \begin{proof}
 (i) $\Longrightarrow$ (ii): Sia $K \subset X$ compatto. Allora:
-$$K \times K \subset X \times X \text{ compatto } \Longrightarrow \phi ^{-1} (K \times K) \times G \times X$$
+$$K \times K \subset X \times X \text{ compatto } \Longrightarrow \phi ^{-1} (K \times K) \subseteq G \times X \text{ compatto}$$
 Dove $\phi ^{-1}(K \times K)=\{(g,x) \mid x \in K, gx \in K\}$. Allora $p_1(\phi ^{-1}(K \times K))=(K|K)_G$ (ricordando che $p_1$ è la proiezione $G\times X \longrightarrow G$) è compatto in quanto immagine di compatto. $G$ discreto $\Longrightarrow$ $(K|K)_G$ compatto e discreto $\Longrightarrow$ $(K|K)_G$ finito.\\
 (ii) $\Longrightarrow$ (iii): Siano $x,y \in X$ e $U \in I(x), V \in I(y)$ intorni compatti $\Longrightarrow$ $U \cup V$ compatto $\Longrightarrow$ $(U \cup V | U \cup V)_G \supset (U|V)_G$ è finito.\\
 (iii) $\Longrightarrow$ (i): Manca
@@ -132,7 +132,7 @@ $\faktor {D}{\sim} \simeq S^1 \times S^1$, $f$ è continua e biunivoca, ma $\fak
 Sia $G \curvearrowright X$ tramite omeomorfismo. Un \textsc{dominio fondamentale} per l'azione è un chiuso $D \subset X$ tale che:
 \begin{nlist}
 \item $D=\overline{\mathop D\limits ^\circ}$
-\item $g \neq 1$, allora $g\mathop D\limits ^\circ \cap \mathop D\limits ^\circ =\emptyset$ (infatti $(\mathop D\limits ^\circ|\mathop D\limits ^\circ)_G=\emptyset$)
+\item $g \neq \id$, allora $g\mathop D\limits ^\circ \cap \mathop D\limits ^\circ =\emptyset$ (cioè $(\mathop D\limits ^\circ|\mathop D\limits ^\circ)_G=\{\id\}$)
 \item $X=\displaystyle \bigcup _{g \in G} gD$ è un ricoprimento localmente finito
 \end{nlist}
 \end{defn}
