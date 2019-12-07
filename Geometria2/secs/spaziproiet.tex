@@ -42,18 +42,18 @@ $\mathbb{P}^n(\mathbb{R})$ è compatto T2. Infatti è quoziente di $S^n$ (che è
 
 \begin{prop}
 Sia $D^n=\{x \in \mathbb{R}^n \mid ||x|| \le 1 \}$, e sia $\sim _D$ definita da:
-$$x \sim _D y \Longleftrightarrow x=y \text{ o } (||x||=||y|| \text{ e } x=-y)$$
+$$x \sim _D y \Longleftrightarrow x=y \text{ o } (||x||=||y||=1 \text{ e } x=-y)$$
 Allora $\mathbb{P}^n(\mathbb{R}) \simeq \faktor{D^n}{\sim _D}$.
 \end{prop}
 \begin{proof}
 Sia $H=\{(x_0,\dots,x_n) \in S^n \mid x_0 \ge 0 \}$ e sia $\sim _H$ data da:
 $$v \sim _H w \Longleftrightarrow v=w \text{ o } (v=-w \text{ e } x_0(v)=x_0(w)=0)$$
 La composizione $H \longrightarrow S^n \longrightarrow \mathbb{P}^n(\mathbb{R})$ induce una bigezione continua $\faktor{H}{\sim _H} \longrightarrow \mathbb{P}^n(\mathbb{R})$, continua per la proprietà universale, mentre la bigezione deriva da ragioni insiemistiche.\\
-$H$ compatto $\Longrightarrow \faktor{H}{\sim _H}$ compatto. Inoltre $\mathbb{P}^n(\mathbb{R})$ è T2, dunque $\mathbb{P}^n(\mathbb{R}) \simeq \faktor{H}{\sim _H}$. Infine, l'omeomorfismo 
+$H$ compatto $\Longrightarrow \faktor{H}{\sim _H}$ compatto. Inoltre $\mathbb{P}^n(\mathbb{R})$ è T2, dunque $\mathbb{P}^n(\mathbb{R}) \simeq \faktor{H}{\sim _H}$. Infine, l'omeomorfismo
 \begin{align*}
 H &\longrightarrow D^n \\
 (x_0,\dots,x_n) &\longmapsto (x_1,\dots,x_n)
-\end{align*} 
+\end{align*}
 con inversa $(x_1,\dots,x_n) \longmapsto (\sqrt{1-x_1^2-\cdots-x_n^2},x_1,\dots,x_n)$ induce un omeomorfismo $\faktor{H}{\sim _H} \simeq \faktor{D}{\sim _D}$.
 \end{proof}
 
@@ -76,7 +76,7 @@ Un punto di $\mathbb{P}^n(\mathbb{K})$ è descritto da una $(n+1)$-upla a meno d
 Se $p \in \mathbb{K}[x_0,\dots,x_n]$ è un polinomio, non ha senso chiedersi quanto vale $p([x_0: \dots:x_n])$. Inoltre, se $p$ è omogeneo di grado $d,\ \forall \lambda \in \mathbb{K}^*$, vale:
 $$p(\lambda x_0,\dots,\lambda x_n)=\lambda ^d p(x_0,\dots,x_n)$$
 dunque, perlomeno, è ben definito il fatto che $p$ si annulli su $[x_0: \dots:x_n]$, cosa che avviene per definizione.
-\end{oss} 
+\end{oss}
 
 Torniamo adesso ad esaminare il caso generale. Prendiamo $\mathbb{P}^n(\mathbb{K})$, e siano $x_0,\dots,x_n$ le coordinate di $\mathbb{K}^{n+1}$. Poniamo allora
 $$U_i=\{x_i \neq 0\}=\{[x_0: \dots : x_n] \in \mathbb{P}^n(\mathbb{K}) \mid x_i \neq 0\}$$
