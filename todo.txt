@@ -29,4 +29,4 @@ Lez 27: esercitazione
 Lez 28: Gli spazi metrici completi sono spazi di Baire (per piacere, scrivila). Gli spazi di Hausdorff localmente compatti sono spazi di Baire (solo enunciato) (dobbiamo scrivere l'enunciato). Esistenza di funzioni continue dall'intervallo [0,1] in R non derivabili in alcun punto (forse la metteremo... fa un po' schifo).
 Lez 29: Il bouquet di due spazi topologici: compattezza, connessione, proprietà di separazione (T_1,T_2). Il bouquet di due spazi T_4 non è necessariamente T_4. Il quoziente di uno spazio topologico normale per un suo sottospazio chiuso è normale. Il bouquet di due spazi topologici normali è normale. (da decidere se texare o no, secondo noi era più un'esercitazione)
 Lez 30: ok
-Lez 31:
+Lez 31: ok
