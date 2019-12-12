@@ -30,3 +30,5 @@ Lez 28: Gli spazi metrici completi sono spazi di Baire (per piacere, scrivila). 
 Lez 29: Il bouquet di due spazi topologici: compattezza, connessione, proprietà di separazione (T_1,T_2). Il bouquet di due spazi T_4 non è necessariamente T_4. Il quoziente di uno spazio topologico normale per un suo sottospazio chiuso è normale. Il bouquet di due spazi topologici normali è normale. (da decidere se texare o no, secondo noi era più un'esercitazione)
 Lez 30: ok
 Lez 31: ok
+
+C'è un problema con la reference al lemma precedente nel teorema 4.3.21, in teoria dovrebbe dare il link giusto, in pratica no.
