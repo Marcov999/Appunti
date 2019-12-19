@@ -1,0 +1,75 @@
+Sia $f:X \rightarrow Y$ continua. Se $\alpha: [0, 1] \rightarrow X$ è continua, lo è anche $f \circ \alpha$, per cui $f$ induce $f_{\star}: \Omega(a, a) \rightarrow \Omega(f(a), f(a))$. Se $\alpha \sim \beta$ in $\Omega(a, a)$ e $H: I^2 \rightarrow X$ è un'omotopia di cammini tra $\alpha$ e $\beta$,
+$f \circ H: I^2 \rightarrow Y$ è un'omotopia di cammini tra $f_{\star}(\alpha)$ e $f_{\star}(\beta)$. Dunque $f_{\star}$ induce $f_{\star}: \pi_1(X, a) \rightarrow \pi_1(Y, f(a))$.
+\begin{nlist}
+  \item $f_{\star}$ è un omomorfismo di gruppi: $f_{\star}([\alpha][\beta])=f_{\star}([\alpha * \beta])=[f \circ (\alpha \star \beta)]=[(f \circ \alpha) * (f \circ \beta)]=$
+  $[f \circ \alpha][f \circ \beta]=f_{\star}([\alpha]) \cdot f_{\star}([\beta])$.
+  \item Se $g: Y \rightarrow Z$, $g_{\star} \circ f_{\star}=(g \circ f)_{\star}: \pi_1(X, a) \rightarrow \pi_1(Z, g(f(a)))$.
+  Infatti, $(g \circ f)_{\star}([\alpha])=[g \circ f \circ \alpha]=g_{\star}([f \circ \alpha])=g_{\star}(f_{\star}([\alpha]))=(g_{\star} \circ f_{\star})([\alpha])$.
+  \item Data $\id: X \rightarrow X$, $\id_{\star}: \pi_1(X, a) \rightarrow \pi_1(X, a)$ è, ovviamente, l'identità.
+\end{nlist}
+Le proprietà appena elencate ci dicono che abbiamo trovato un funtore tra la categoria degli spazi topologici e quella dei gruppi.
+
+\begin{cor}
+  $f:X \rightarrow Y$ omeomorfismo $\implies$ $f_{\star}: \pi_1(X, a) \rightarrow \pi_1(Y, f(a))$ isomorfismo di gruppi.
+\end{cor}
+
+\begin{proof}
+  Sia $g: X \rightarrow Y$ l'inversa continua di $f$, $g_{\star}: \pi_1(Y, f(a)) \rightarrow \pi_1(X, a)$. $\id_{\pi_1(X, a)}=(\id_X)_{\star}=(g \circ f)_{\star}=g_{\star} \circ f_{\star}$.
+  $\id_{\pi_1(Y, f(a))}=(\id_Y)_{\star}=(f \circ g)_{\star}=f_{\star} \circ g_{\star}$. Questo implica che $f_{\star}$ e $g_{\star}$ sono isomorfismi e sono uno l'inverso dell'altro.
+\end{proof}
+
+\begin{oss}
+  $X$ omeomorfo a $Y$ implica $X$ omotopicamente equivalente a $Y$. Domanda: $X$ omotopicamente equivalente a $Y$ implica $\pi_1(X) \cong \pi_1(Y)$?
+\end{oss}
+
+\begin{prop} \label{id->gamma}
+  Sia $f:X \rightarrow X$ omotopa all'identità tramite $H: X \times I \rightarrow X$ e sia $\gamma: [0, 1] \rightarrow X$ t.c. $\gamma(s)=H(a, s)$. Allora le mappe $f_{\star}: \pi_1(X, a) \rightarrow \pi_1(X, f(a))$ e $\gamma_{\sharp}: \pi_1(X, a) \rightarrow \pi_1(X, f(a))$ coincidono.
+\end{prop}
+
+\begin{proof}
+  Per ogni $\alpha \in \Omega(a, a)$ definisco $K: I^2 \rightarrow X, K(t, s)=H(\alpha(t), s)$. Dunque la giunzione $\alpha * \gamma * \bar{f_{\star}(\alpha)} * \bar{\gamma}$ è omotopa all'identità (esercizio; hint: "disegnate" $K$, poi al tempo $t$ fermatevi prima lungo $\gamma$), dunque per il corollario \ref{pol_est} si estende da $\partial I^2$ a $I^2$. Lo stesso vale per
+  $f_{\star}(\alpha) * \bar{\gamma} * \bar{\alpha} * \gamma$ che è perciò omotopo come cammino a $1_{f(a)}$ e ciò implica che
+  $1_{\pi_1(X, f(a))}=[f_{\star}(\alpha) * (\bar{\gamma} * \bar{\alpha} * \gamma)]=[f_{\star}(\alpha)][\bar{\gamma} * \bar{\alpha} * \gamma)]$, cioè
+  $f_{\star}([\alpha])=[\bar{\gamma} * \bar{\alpha} * \gamma)]^{-1}=[\bar{\gamma} * \alpha * \gamma]=\gamma_{\sharp}([\alpha])$.
+\end{proof}
+
+\begin{thm} \label{eq_omo->iso}
+  $f: X \rightarrow Y$ equivalenza omotopica $\implies$ $f_{\star}: \pi_1(X, a) \rightarrow \pi_1(Y, f(a))$ è un isomorfismo.
+\end{thm}
+
+\begin{proof}
+  Sia $g: Y \rightarrow X$ un'inversa omotopica di $f$. Poiché $g \circ f \sim \id_X$, per la proposizione \ref{id->gamma} $(g \circ f)_{\star}=g_{\star} \circ f_{\star}: \pi_1(X, a) \rightarrow \pi_1(X, g(f(a)))$ coincide con $\gamma_{\sharp}$ per qualche $\gamma \in \Omega(a, g(f(a)))$, dunque è un isomorfismo.
+  Analogamente, $f_{\star} \circ g_{\star}$ è un isomorfismo. Dunque $f_{\star}$ è iniettiva e suriettiva, da cui la tesi.
+\end{proof}
+
+\begin{defn}
+  $X$ è \textsc{semplicemente connesso} se $X$ è connesso per archi e $\pi_1(X, a)={1}$ per ogni $a \in X$.
+\end{defn}
+
+\begin{cor}
+  Se $X$ è contrattile, $X$ è semplicemente connesso.
+\end{cor}
+
+\begin{prop}
+  $A \subseteq X$ retratto, con inclusione $i: A \rightarrow X$ e retrazione $r: X \rightarrow A$. Allora
+  \begin{nlist}
+    \item $i_{\star}$ è iniettiva e $r_{\star}$ è suriettiva (per qualsiasi scelta del punto base in $A$);
+    \item se la retrazione è per deformazione, $i_{\star}$ e $r_{\star}$ sono isomorfismi.
+  \end{nlist}
+\end{prop}
+
+\begin{proof}
+  \begin{nlist}
+    \item Dato $a \in A$, $r \circ i= \id_A \implies r_{\star} \circ i_{\star}=\id_{\pi_1(A, a)}$, da cui la tesi.
+    \item Segue dal fatto che $i$ e $r$ sono equivalenze omotopiche e dal teorema \ref{eq_omo->iso}.
+  \end{nlist}
+\end{proof}
+
+\begin{oss}
+  Se $A \subseteq X$, $i_{\star}: \pi_1(A, a) \rightarrow \pi_1(X, a)$ può non essere iniettiva. Vedremo che è così per $X=D^2$ e $A=S^1$.
+\end{oss}
+
+\begin{exc}
+  Abbiamo studiato la mappa $\Omega(a, a) \rightarrow \Omega(S^1, a)$ t.c. $\alpha \mapsto \hat{\alpha}$ e abbiamo osservato che se $[\alpha]=[\beta]$ in $\pi_1(X, a)$ allora $\hat{\alpha} \sim \hat{\beta}$ come mappe $S^1 \rightarrow X$. Perciò è ben definita la mappa $\psi: \pi_1(X, a) \rightarrow [S^1, X]$ t.c.
+  $\psi([\alpha])=[\hat{\alpha}]$. Dimostrare che, se $X$ è connesso per archi, $\psi$ è suriettiva e $\psi([\alpha])=\psi([\beta])$ $\Leftrightarrow$ $[\alpha]$ è coniugato a $[\beta]$ in $\pi_1(X, a)$ (dunque $[S^1, X]$ è in bigezione con le classi di coniugio di $\pi_1(X, a)$).
+\end{exc}

@@ -89,12 +89,12 @@ Siano $a, b \in X$ e $\gamma \in \Omega(a, b)$. Poniamo $\gamma_{\sharp}: \pi_1(
 
 \begin{proof}
   ($\implies$) Se $\alpha \sim 1_a$, esiste $H:Q \rightarrow X$ t.c. $H(t, 0)=\alpha(t), H(C)=\{a\}$ data dall'omotopia. $H$ definisce per passaggio al quoziente una funzione continua. $\hat{H}: \faktor{Q}{C} \rightarrow X$, cioè tramite l'identificazione del lemma \ref{Q/C=D^2} $\hat{H}: D^2 \rightarrow X$. Per costruzione,
-  $\hat{H} \restrict(S^1)=\hat{\alpha}$, che dunque si estende come voluto.
+  $\hat{H} \restrict{S^1}=\hat{\alpha}$, che dunque si estende come voluto.
 
   ($\Leftarrow$) Viceversa, se $\hat{\alpha}$ si estende a $f:D^2 \rightarrow X$, la mappa $H: Q \rightarrow X$ data da $H=f \circ \pi$, dove $\pi: \faktor{Q}{C} \rightarrow D^2$ è l'identificazione, dà un'omotopia tra $\alpha$ e $1_a$.
 \end{proof}
 
-\begin{cor}
+\begin{cor} \label{pol_est}
   Sia $P \subseteq \mathbb{R}^2$ un poligono convesso con lati $e_1, \dots, e_n$ parametrizzati da $\phi_i: [0, 1] \rightarrow e_i$ e siano $\gamma: \partial P=e_1 \cup \dots \cup e_n \rightarrow X, \alpha_1=\gamma \circ \phi_i$ per ogni $i$. Allora
   $\alpha_1 * \alpha_2 * \dots * \alpha_n \sim 1_{\alpha_1(0)}$ $\Leftrightarrow$ $\gamma$ si estende a $P$ in maniera continua.
 \end{cor}

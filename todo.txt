@@ -30,6 +30,6 @@ Lez 29: Il bouquet di due spazi topologici: compattezza, connessione, proprietà
 Lez 30: ok
 Lez 31: ok
 Lez 32: ok
-Lez 33:  Il gruppo fondamentale come funtore. Spazi omeomorfi hanno gruppo fondamentale isomorfo. Mappa indotta da una funzione omotopa all'identità. Un'equivalenza omotopica induce un isomorfismo a livello di gruppo fondamentale. Uno spazio contraibile è semplicemente connesso. L'immersione di Segre da P^1(R)xP^1(R) in P^3(R).
+Lez 33: L'immersione di Segre da P^1(R)xP^1(R) in P^3(R) (non so se fosse un esercizio e quindi me ne sono andato prima o se me la sono proprio persa, fatto sta che non ce l'ho negli appunti, se qualcuno ce l'ha cancelli questa parentesi inutile).
 
 C'è un problema con la reference al lemma precedente nel teorema 4.3.21, in teoria dovrebbe dare il link giusto, in pratica no.
