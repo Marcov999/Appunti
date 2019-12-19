@@ -10,12 +10,12 @@ Siano $X$ spazio topologico e $a, b \in X$. $\Omega(a, b):=\{\gamma:[0, 1] \righ
 
 Il nostro prossimo obiettivo sarà quello di mettere su $\pi_1(X, a)$ una struttura di gruppo.
 
-Se $\alpha, \beta \in \Omega(a, a)$, è ben definita $\alpha \star \beta \in \Omega(a, a)$ data da $\alpha \star \beta (t)=\begin{cases} \alpha(2t) \text{ se } 0 \le t \le 1/2 \\
+Se $\alpha, \beta \in \Omega(a, a)$, è ben definita $\alpha * \beta \in \Omega(a, a)$ data da $\alpha * \beta (t)=\begin{cases} \alpha(2t) \text{ se } 0 \le t \le 1/2 \\
 \beta(2t-1) \text{ se } 1/2 \le t \le 1 \end{cases}$.
 
 Notazione: $1_a \in \Omega(a, a)$ è il cammino costante in $a$. Se $\alpha \in \Omega(a, b)$, $\bar{\alpha} \in \Omega(b, a)$ è $\bar{\alpha}(t)=\alpha(1-t)$.
 
-È vero che se $\alpha, \beta, \gamma \in \Omega(a, a)$, allora $(\alpha \star \beta) \star \gamma=\alpha \star (\beta \star \gamma)$? No! Però sono omotopi. \marginpar{\warningsign}
+È vero che se $\alpha, \beta, \gamma \in \Omega(a, a)$, allora $(\alpha * \beta) * \gamma=\alpha * (\beta * \gamma)$? No! Però sono omotopi. \marginpar{\warningsign}
 
 \begin{lm}
   Sia $\varphi:[0, 1] \rightarrow [0, 1]$ continua e t.c. $\varphi(0)=0, \varphi(1)=1$ e sia $\gamma \in \Omega(a, b)$, allora $\gamma \sim \gamma \circ \varphi$.
@@ -26,11 +26,11 @@ Notazione: $1_a \in \Omega(a, a)$ è il cammino costante in $a$. Se $\alpha \in 
 \end{proof}
 
 \begin{cor}
-  $\alpha \in \Omega(a, b), \beta \in \Omega(b, c), \gamma \in \Omega(c, d)$, allora $(\alpha \star \beta) \star \gamma \sim \alpha \star (\beta \star \gamma)$ in quanto sono uno riparametrizzazione dell'altro.
+  $\alpha \in \Omega(a, b), \beta \in \Omega(b, c), \gamma \in \Omega(c, d)$, allora $(\alpha * \beta) * \gamma \sim \alpha * (\beta * \gamma)$ in quanto sono uno riparametrizzazione dell'altro.
 \end{cor}
 
 \begin{lm}
-  $\alpha, \alpha' \in \Omega(a, b), \beta, \beta' \in \Omega(b, c), \alpha \sim \alpha', \beta \sim \beta' \implies \alpha \star \beta \sim \alpha' \star \beta'$ in $\Omega(a, c)$.
+  $\alpha, \alpha' \in \Omega(a, b), \beta, \beta' \in \Omega(b, c), \alpha \sim \alpha', \beta \sim \beta' \implies \alpha * \beta \sim \alpha' * \beta'$ in $\Omega(a, c)$.
 \end{lm}
 
 \begin{proof}
@@ -39,5 +39,66 @@ Notazione: $1_a \in \Omega(a, a)$ è il cammino costante in $a$. Se $\alpha \in 
 \end{proof}
 
 \begin{cor}
-  L'operazione $\pi_1(X, a) \times \pi_1(X, a) \rightarrow \pi_1(X, a)$ t.c. $([\alpha], [\beta]) \mapsto [\alpha \star \beta]$ è ben definita e associativa.
+  L'operazione $\pi_1(X, a) \times \pi_1(X, a) \rightarrow \pi_1(X, a)$ t.c. $([\alpha], [\beta]) \mapsto [\alpha * \beta]$ è ben definita e associativa.
 \end{cor}
+
+Notazione: con un abuso, d'ora in poi indicheremo con $\alpha * \beta * \gamma$ il cammino $(\alpha * \beta) * \gamma$ o $\alpha * (\beta * \gamma)$, che non dà problemi a meno di riparametrizzazione/omotopia. Stessa cosa per $\alpha_1 * \alpha_2 * \dots * \alpha_n$.
+
+Elemento neutro: $1_a$ è il cammino costante. Allora $1_a * \alpha$ e $\alpha * 1_a$ sono riparametrizzazioni di $\alpha$ per ogni $\alpha \in \Omega(a, a)$, per cui $[1_a]\cdot[\alpha]=[1_a * \alpha]=[\alpha]=[\alpha * 1_a]=[\alpha]\cdot[1_a]$.
+
+Inverso: vogliamo dire che $[\bar{\alpha}]\cdot[\alpha]=[\alpha]\cdot[\bar{\alpha}]=[1_a]=1$ per ogni $\alpha \in \pi_1(X, a)$. Mostriamo che $\alpha * \bar{\alpha} \sim 1_a$, che lo stesso vale per $\bar{\alpha} * \alpha$ è analogo.
+$$H(t, s)=\begin{cases} \alpha(2t) \text{ se } t \le s/2 \\ \alpha(s) \text{ se } s/2 \le t \le 1-s/2 \\ \bar{\alpha(2t-1)}=\alpha(2-2t) \text{ se } t \ge 1-s/2 \end{cases}$$ è l'omotopia cercata.
+
+Abbiamo così dimostrato che $\pi_1(X, a)$ è un gruppo con l'operazione $[\alpha]\dots[\beta]=[\alpha * \beta]$. Vogliamo adesso studiare la dipendenza di  $\pi_1(X, a)$ da $a$. D'ora in poi, se non detto diversamenenvte, assumeremo $X$ connesso per archi (se $Y$ è la componente connessa per archi di $a$ in $X$, $\pi_1(X,a ) \cong \pi_1(Y, a)$).
+
+Siano $a, b \in X$ e $\gamma \in \Omega(a, b)$. Poniamo $\gamma_{\sharp}: \pi_1(X, a) \rightarrow \pi_1(X, b)$ t.c. $\gamma_{\sharp}([\alpha])=[\bar{\gamma} * \alpha * \gamma]$. Osserviamo che è ben definita.
+
+\begin{thm}
+  $\gamma_{\sharp}: \pi_1(X, a) \rightarrow \pi_1(X, b)$ è un isomorfismo di gruppi.
+  \begin{proof}
+    $\gamma_{\sharp}$ è un omomorfismo in quanto $\gamma_{\sharp}([\alpha][\beta])=\gamma_{\sharp}([\alpha * \beta])=[\bar{\gamma} * \alpha * \beta * \gamma]=[\bar{\gamma} * \alpha * \gamma * \bar{\gamma} * \beta * \gamma]=$
+    $[\bar{\gamma} * \alpha * \gamma][\bar{\gamma} * \beta * \gamma]=\gamma_{\sharp}([\alpha]) \cdot \gamma_{\sharp}([\beta])$.
+
+    È un isomorfismo con inversa $\bar{\gamma}_{\sharp}$. Infatti,
+    $\bar{\gamma}_{\sharp}(\gamma_{\sharp}([\alpha]))=\bar{\gamma}_{\sharp}([\bar{\gamma} * \alpha * \gamma])=[\bar{\bar{\gamma}} * \bar{\gamma} * \alpha * \gamma * \bar{\gamma}]=[\alpha]$.
+    Analogamente, $\gamma_{\sharp}(\bar{\gamma}_{\sharp}([\beta]))=[\beta]$.
+  \end{proof}
+\end{thm}
+
+\begin{cor}
+  Il tipo di isomorfismo di $\pi_1(X, a)$ non dipende da $a$, per cui a volte si parla del gruppo fondamentale di $X$, $\pi_1(X)$.
+\end{cor}
+
+\begin{defn}
+  Sia $\Omega(S^1, a)=\{ \gamma: Sì1 \rightarrow X \text{ con } \gamma(1)=a\}$ ($S^1$ lo vediamo in $\mathbb{C}$, cioè $1 \in S^1$ è $(1, 0)$). C'è una bigezione canonica tra $\Omega(a, a)$ e $\Omega(S^1, a)$ data da: se $\alpha \in \Omega(a, a)$, poiché
+  $\alpha(0)=\alpha(1)$, $\alpha$ definisce una $\hat{\alpha}: \faktor{[0, 1]}{\{0, 1\}} \rightarrow X$ continua. Identifichiamo d'ora in poi $\faktor{[0, 1]}{\{0, 1\}}$ tramite l'identificazione $\pi: [0, 1] \rightarrow S^1, \pi(t)=e^{2 \pi i t}$, per cui
+  $\hat{\alpha}:S^1 \rightarrow X$ e $\hat{\alpha}(1)=\gamma(1)=a$. L'inverso della mappa $\alpha \mapsto \hat{\alpha}$ è $\alpha(t)=\hat{\alpha}(\pi(t))$.
+\end{defn}
+
+\begin{lm} \label{Q/C=D^2}
+  $Q=[0, 1] \times [0, 1], C \subseteq Q, C=\{s=1\} \cup \{t=0\} \cup \{t=1\}$. Allora $\faktor{Q}{C} \cong D^2$ tramite un omeomorfismo che manda $[t, 0]$ in $e^{2 \pi i t}$ per ogni $t \in [0, 1]$.
+\end{lm}
+
+\begin{proof}
+  Non è stata fatta esplicitamente perché i conti sono orrendamente schifosi, per cui vi chiediamo di fare uno sforzo di immaginazione cercando di vedere la dimostrazione con "l'occhio della mente" (aiutatevi con un disegno e attenzione a non sbagliare con i bordi).
+\end{proof}
+
+\begin{prop}
+  $\alpha \in \Omega(a, a)$, allora $[\alpha]=1$ in $\pi_1(X, a)$ $\Leftrightarrow$ $\hat{\alpha}: S^1 \rightarrow X$ si estende in maniera continua a $D^2$.
+\end{prop}
+
+\begin{proof}
+  ($\implies$) Se $\alpha \sim 1_a$, esiste $H:Q \rightarrow X$ t.c. $H(t, 0)=\alpha(t), H(C)=\{a\}$ data dall'omotopia. $H$ definisce per passaggio al quoziente una funzione continua. $\hat{H}: \faktor{Q}{C} \rightarrow X$, cioè tramite l'identificazione del lemma \ref{Q/C=D^2} $\hat{H}: D^2 \rightarrow X$. Per costruzione,
+  $\hat{H} \restrict(S^1)=\hat{\alpha}$, che dunque si estende come voluto.
+
+  ($\Leftarrow$) Viceversa, se $\hat{\alpha}$ si estende a $f:D^2 \rightarrow X$, la mappa $H: Q \rightarrow X$ data da $H=f \circ \pi$, dove $\pi: \faktor{Q}{C} \rightarrow D^2$ è l'identificazione, dà un'omotopia tra $\alpha$ e $1_a$.
+\end{proof}
+
+\begin{cor}
+  Sia $P \subseteq \mathbb{R}^2$ un poligono convesso con lati $e_1, \dots, e_n$ parametrizzati da $\phi_i: [0, 1] \rightarrow e_i$ e siano $\gamma: \partial P=e_1 \cup \dots \cup e_n \rightarrow X, \alpha_1=\gamma \circ \phi_i$ per ogni $i$. Allora
+  $\alpha_1 * \alpha_2 * \dots * \alpha_n \sim 1_{\alpha_1(0)}$ $\Leftrightarrow$ $\gamma$ si estende a $P$ in maniera continua.
+\end{cor}
+
+\begin{proof}
+  Esiste un omeomorfismo $f: P \rightarrow D^2$ con $f(\partial P)=S^1$, per cui la tesi segue da quanto già visto.
+\end{proof}
