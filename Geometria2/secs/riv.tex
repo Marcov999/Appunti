@@ -1,0 +1,36 @@
+manca la prima lezione, la aggiungo stasera/domattina
+
+\begin{prop}
+  Sia $p:E \rightarrow X$ un rivestimento, $x_0, x_1 \in X$. Allora esiste una bigezione tra $p^{-1}(\{x_0\})$ e $p^{-1}(\{x_1\})$. La cardinalità di $p^{-1}(\{x_0\})$ si dice \textit{grado} del rivestimento e si indica con $\deg{p}$.
+\end{prop}
+
+\begin{proof}
+  $X$ connesso per archi $\implies$ esiste $\gamma \in \Omega(x_0, x_1)$ e, dato $\tilde{x}_0 \in p^{-1}(\{x_0\})$, esiste un sollevamento $\tilde{\gamma}_{\tilde{x}_0}: [0, 1] \rightarrow E$ con punto iniziale $\tilde{x}_0$. È ben definita
+  \begin{align*}
+  \psi:p^{-1}(\{x_0\}) &\longrightarrow p^{-1}(\{x_1\}) \\
+  \tilde{x}_0 &\longmapsto \tilde{\gamma}_{\tilde{x}_0}(1)
+  \end{align*}
+  che ammette inversa ottenuta da $\bar{\gamma} \in \Omega(x_1, x_0)$.
+\end{proof}
+
+\begin{defn}
+  (Sezione) Dato $U \subseteq X$, una \textsc{sezione} $s:U \rightarrow E$ di un rivestimento $p:E \rightarrow X$ è una mappa continua t.c. $p(s(x))=x$ per ogni $x \in U$. Si dice \textit{locale} se $U$ è un aperto di $X$, \textit{globale} se $U=X$.
+\end{defn}
+
+\begin{oss}
+  Per definizione, se $p$ è un rivestimento, per ogni $x \in X$ esiste $U \subseteq X$ aperto con sezione locale definita su $U$.
+\end{oss}
+
+\begin{thm}
+  (Sollevamento delle omotopie) Siano $p:E \rightarrow X$ un rivestimento, $f:Y \rightarrow X$ continua con $Y$ localmente connesso per archi. Sia $F:Y \times[0, 1] \rightarrow X$ t.c. $F(y, 0)=f(y)$ per ogni $y \in Y$. Sia $\tilde{f}:Y \rightarrow E$ un sollevamento di $f$, cioè $p \circ \tilde{f}=f$.
+  Allora esiste $\tilde{F}:Y \times [0, 1] \rightarrow E$ che solleva $F$, cioè $p \circ \tilde{F}=F$, ed estende $\tilde{f}$, cioè $\tilde{F}(y, 0)=\tilde{f}(y)$ per ogni $y \in Y$.
+\end{thm}
+
+\begin{proof}
+  Poniamo, per ogni $y_0 \in Y$, $\gamma_{y_0}:[0, 1] \rightarrow X$ il cammino $\gamma_{y_0}(t)=F(y_0, t)$. Sia $\tilde{\gamma}_{y_0}$ il sollevamento di $\gamma_{y_0}$ a partire da $\tilde{f}(y_0)$. Poniamo infine $\tilde{F}(y_0, t)=\tilde{\gamma}{y_0}(t)$.
+  È chiaro che $p \circ \tilde{F}=F$. Serve $\tilde{F}$ continua, basta vedere che per ogni $(y_0, t) \in Y \times [0, 1]$ esiste un intorno $U$ in $Y \times [0, 1]$ t.c. $\tilde{F}\restrict{U}=s \circ F\restrict{U}$ dove $s$ è una sezione locale (continua) del rivestimento.
+  Poiché $[0, 1]$ è compatto, analizzando il ricoprimento $\{F^{-1}(W) | W \text{ aperto ben rivestito di } X\}$ otteniamo un numero finito di aperti $Z_1, \dots, Z_n$ di $Y \times [0, 1]$ che ricoprono $y_0 \times [0, 1] \cong [0, 1]$ e sono t.c. $F(Z_i)$ è contenuto in un intorno ben rivestito di $X$ per ogni $i$.
+  Possiamo supporre $Z_i=A_i \times B_i$, $A_i$ aperto di $Y$ e $B_i$ aperto di $[0, 1]$, $y_0 \in A_i$ per ogni $i$. Sia $\displaystyle A= \bigcap_{i=1}^n A_i$ aperto di $Y$ con $y_0 \in A$ e osserviamo che $\displaystyle \bigcup_{i=1}^n B_i=[0, 1]$.
+  Sia $1/k<$ numero di Lebesgue di $\{B_1, \dots, B_n\}$. Allora per ogni $j=0, 1, \dots, k-1$ $A \times [j/k, (j+1)/k] \subseteq A_i \times B_i$ per qualche $i$, perciò $F(A \times [j/k, (j+1)/k]) \subseteq U_j$ con $U_j$ aperto ben rivestito.
+  Ora, per definizione di sollevamenti di cammini, $\tilde{F} \restrict{A \times [0, 1/k]}=s_0 \circ F$ dove $s_0: U_0 \rightarrow E$ è una sezione locale (si suppone $A$ connesso per archi). Induttivamente $\tilde{F} \restrict{A \times [j, (j+1)/k]}=s_j \circ F$ con $s_j: U_j \rightarrow E$ sezione locale per ogni $j$, da cui la tesi.
+\end{proof}
