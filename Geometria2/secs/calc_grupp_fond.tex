@@ -3,3 +3,88 @@ Abbiamo adesso gli strumenti per poter determinare il gruppo fondamentale di alc
 \begin{thm}
   $\pi_1(S^1) \simeq \mathbb{Z}$.
 \end{thm}
+
+\begin{proof}
+  Analizziamo il rivestimento
+  \begin{align*}
+    p: \mathbb{R} &\longrightarrow S^1 \\
+    t &\longmapsto (\cos{2\pi t}, \sin{2\pi t}),
+  \end{align*}
+  $F=p^{-1}(1, 0)=\mathbb{Z}$. Poniamo $\psi:\pi_1(S^1, (1, 0)) \rightarrow \mathbb{Z}$, $\psi([\gamma])=0 \cdot [\gamma]$. $\mathbb{R}$ è semplicemente connesso, quindi basta vedere che $\psi$ è un omeomorfismo.
+  Dati $[\alpha], [\beta] \in \pi_1(S^1, x_0), x_0=(1, 0)$,
+  abbiamo che $\psi([\alpha] \cdot [\beta])=\psi([\alpha * \beta])=\widetilde{(\alpha * \beta)}_0(1)=\tilde{\alpha}_0*\tilde{\beta}_{\tilde{\alpha}_0(1)}(1)=\tilde{\beta}_{\tilde{\alpha}_0(1)}(1)$.
+  Ora, $\tilde{\beta}_{\tilde{\alpha}_0(1)}$ e $\tilde{\alpha}_0(1)+\tilde{\beta}_0$ sono entrambi sollevamenti di $\beta$ a partire dallo stesso punto iniziale.
+  Dunque $\psi([\alpha] \cdot [\beta])=(\tilde{\alpha}_0(1)+\tilde{\beta}_0)(1)=\tilde{\alpha}_0(1)+\tilde{\beta}_0(1)=\psi([\alpha])+\psi([\beta])$, da cui la tesi.
+\end{proof}
+
+\begin{prop}
+  $R \subseteq X$ retratto, allora per ogni $x_0 \in R$ $i_{\star}: \pi_1(R, x_0) \rightarrow \pi_1(X, x_0)$ è iniettiva e $r_{\star}: \pi_1(X, x_0) \rightarrow \pi_1(R, x_0)$ è suriettiva.
+\end{prop}
+
+\begin{proof}
+  Poiché $r \circ i$ è l'identità di $R$, $r_{\star} \circ i_{\star}=\id_{\pi_1(R, x_0)}$, da cui segue la tesi.
+\end{proof}
+
+\begin{cor}
+  $S^1=\partial D^2$ non è un retratto di $D^2$.
+\end{cor}
+
+\begin{thm}
+  (Teorema del punto fisso di Brouwer) $f:D^2 \rightarrow D^2$ continua $\implies$ $f$ ha almeno un punto fisso.
+\end{thm}
+
+\begin{proof}
+  Se $f(x)\not=x$ per ogni $x \in D^2$, costruiamo una retrazione \\
+  $r:D^2 \rightarrow S^1$ come segue:
+  \begin{center}
+  \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+    \clip(2.99,-4.05) rectangle (10.59,2.55);
+    \draw(6.82,-0.66) circle (2.8cm);
+    \draw [domain=2.99:10.59] plot(\x,{(-4.53--0.68*\x)/1.6});
+    \begin{scriptsize}
+      \fill [color=black] (9.06,1.02) circle (1.5pt);
+      \draw[color=black] (9.14,1.35) node {r(x)};
+      \fill [color=black] (7.46,0.34) circle (1.5pt);
+      \draw[color=black] (7.54,0.65) node {x};
+      \fill [color=black] (5.68,-0.42) circle (1.5pt);
+      \draw[color=black] (5.7,-0.09) node {f(x)};
+    \end{scriptsize}
+  \end{tikzpicture}
+\end{center}
+cerchiamo $t>0$ t.c. $\|f(x)+t(x-f(x))\|^2=1$, poniamo poi $r(x)=f(x)+t(x-f(x))$ per cui basta vedere che $t$ dipende in modo continuo da $x$. Risolviamo $1=\|f(x)\|^2+2t\left \langle f(x), x-f(x) \right \rangle+t^2\|(x-f(x))\|^2$ e prendiamo $t>0$.
+\end{proof}
+
+\begin{oss}
+  Tramite $\pi_1(S^1) \simeq \mathbb{Z}$, l'elemento $n \in \mathbb{Z}$ è identificato da $\gamma(t)=(\cos{2\pi t}, \sin{2\pi t})$ in quanto $\tilde{\gamma}_0(t)=nt$ e $\tilde{\gamma}_0(1)=n$.
+\end{oss}
+
+\begin{exc}
+  \begin{align*}
+    f:\mathbb{C} \setminus \{0\} &\longrightarrow \mathbb{C} \setminus \{0\} \\
+    z &\longmapsto z^n
+  \end{align*}
+  è un rivestimento di grado $n$.
+\end{exc}
+
+\begin{thm}
+  Dati $X, Y$ e $x_0 \in X, y_0 \in Y$, \\ $\pi_1(X \times Y, (x_0, y_0))=\pi_1(X, x_0) \times \pi_1(Y, y_0)$.
+\end{thm}
+
+\begin{proof}
+  È lasciata come esercizio per il lettore. Traccia: $\pi_X:X \times Y \rightarrow X, \pi_Y:X \times Y \rightarrow Y$ le proiezioni,
+  \begin{align*}
+    i:X &\longrightarrow X \times Y \\
+    x &\longmapsto (x, y_0), \\
+    j:Y &\longrightarrow X \times Y \\
+    y &\longmapsto (x_0, y).
+  \end{align*}
+  Poniamo $\psi:\pi_1(X \times Y, (x_0, y_0)) \rightarrow \pi_1(X, x_0) \times \pi_1(Y, y_0)$, $\psi(\alpha)=((\pi_X)_{\star}(\alpha), (\pi_Y)_{\star}(\alpha))$. Si verifica che funziona.
+\end{proof}
+
+\begin{cor}
+  $\pi_1(S^1 \times S^1)=\mathbb{Z} \oplus \mathbb{Z}$.
+\end{cor}
+
+\begin{exc}
+  Siano $\alpha$ che genera $\mathbb{Z} \times \{0\}$ e $\beta$ che genera $\{0\} \times \mathbb{Z}$ sul toro. Visualizzare l'omotopia di cammini tra $\alpha * \beta$ e $\beta * \alpha$.
+\end{exc}
