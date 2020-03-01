@@ -1,4 +1,63 @@
-manca la prima lezione, la aggiungo stasera/domattina
+\begin{defn}
+  $f:X \rightarrow Y$ è un \textit{omeomorfismo locale} se per ogni $p \in X$ esistono $U$ aperto con $p \in U$ e $V$ aperto di $Y$ con $f(p) \in V$ t.c. $f(U)=V$ e $f \restrict{U}:U \rightarrow V$ è un omeomorfismo.
+\end{defn}
+
+\begin{ftt}
+  \begin{nlist}
+    \item Un omeomorfismo locale è una mappa aperta;
+    \item $f$ omeomorfismo locale $\implies$ $f^{-1}(y)$ è discreto per ogni $y \in Y$.
+  \end{nlist}
+\end{ftt}
+
+\begin{defn}
+  Una mappa continua $p:E \rightarrow X$ è un \textsc{rivestimento} se $X$ è connesso per archi e per ogni $x \in X$ esiste $U$ aperto di $X$, $x \in U$ t.c. $\displaystyle p^{-1}(U)=\bigsqcup_{i \in I} V_i$, $I \not=\emptyset$ e $V_i$ aperto in $E$ e $p \restrict{V_i}:V_i \rightarrow U$ è un omeomorfismo per ogni $i \in I$.
+\end{defn}
+
+\begin{ftt}
+  \begin{nlist}
+    \item Un rivestimento è anche un omeomorfismo locale;
+    \item un rivestimento è suriettivo;
+    \item un intorno $U$ come quello dato dalla definizione di rivestimento si dice \textit{ben rivestito}.
+  \end{nlist}
+\end{ftt}
+
+\begin{ex}
+  \begin{nlist}
+    \item $p: \mathbb{R} \rightarrow S^1$, $p(t)=(\cos{2\pi t}, \sin{2\pi t})$ è un rivestimento;
+    \item $p: (-1, 1) \rightarrow S^1$, $p(t)=(\cos{2\pi t}, \sin{2\pi t})$ è un omeomorfismo locale suriettivo, ma non un rivestimento;
+    \item $\pi: \faktor{ \mathbb{R} \times \{ -1, 1 \} }{\sim} \rightarrow \mathbb{R}$, $(x, \epsilon) \sim (y, \epsilon') \Leftrightarrow (x, \epsilon)=(y, \epsilon') \lor x=y \not=0, \pi([x, \epsilon])=x$ è un omeomorfismo locale suriettivo, ma non un rivestimento;
+    \item $\pi: S^n \rightarrow \mathbb{P}^n(\mathbb{R})$, $\pi(x)=[x]$ è un rivestimento.\
+  \end{nlist}
+\end{ex}
+
+\begin{prop} \label{unic_soll}
+  Sia $p: E \rightarrow X$ un rivestimento, $Y$ connesso, $f: Y \rightarrow X$. Siano $\tilde{f}, \tilde{g}: Y \rightarrow E$ con $p \circ \tilde{f}=p \circ \tilde{g}=f$. Se esiste $y_0 \in Y$ con $\tilde{f}(y_0)=\tilde{g}(y_0)$, allora $\tilde{f}=\tilde{g}$.
+\end{prop}
+
+\begin{proof}
+  Basta vedere che $\Omega=\{ y \in Y | \tilde{f}(y)=\tilde{g}(y)\} \subseteq Y$ è sia aperto che chiuso. Per ipotesi $\Omega \not= \emptyset$ e $Y$ è connesso, per cui avremmo necessariamente $\Omega=Y$, da cui la tesi.
+
+  $\Omega$ è aperto: sia $y \in Omega$. Allora $\tilde{f}(y)=\tilde{g}(y)=\tilde{x}_0$. Siano $x_0=p(\tilde{x}_0)=f(y)$ e $U$ un intorno di $x_0$ ben rivestito.
+  $\displaystyle p^{-1}(U)=\bigsqcup_{i \in I} V_i$. Sia $i_0 \in I$ t.c. $\tilde{x}_0 \in V_{i_0}$.
+  $\tilde{f}, \tilde{g}$ continue $\implies$ esiste un intorno $W$ di $y$ t.c. $\tilde{f}(W) \subseteq V_{i_0}, \tilde{g}(W) \subseteq V_{i_0}$.
+  $p \restrict{V_{i_0}}$ è iniettiva, dunque da $p \circ \tilde{f}=p \circ \tilde{g}$ ne deduciamo che $\tilde{f} \restrict{W}=\tilde{g} \restrict{W} \implies W \subseteq \Omega$.
+
+  $\Omega$ chiuso: $\Omega^C=Y \setminus \Omega$ è aperto. Sia $y \in \Omega^C \implies \tilde{f}(y) \not= \tilde{g}(y)$. Tuttavia $(p \circ \tilde{f})(y)=(p \circ \tilde{g})(y)=x_0$.
+  Se $U$ è un intorno ben rivestito di $x_0$, $\displaystyle p^{-1}(U)=\bigsqcup_{i \in I} V_i$ e da $\tilde{f}(y) \not= \tilde{g}(y)$ ne deduciamo che $\tilde{f}(y) \in V_{i_0}, \tilde{g}(y)=V_{i_1}, i_0 \not= i_1$. Per continuità di $\tilde{f}$ e $\tilde{g}$ si conclude.
+\end{proof}
+
+\begin{thm}
+  Sia $p:E \rightarrow X$ un rivestimento, $\gamma:[0, 1] \rightarrow X$ un cammino continuo. Siano $x_0=\gamma(0)$ e $\tilde{x}_0 \in p^{-1}(x_0)$.
+  Allora esiste un unico $\tilde{\gamma}:[0, 1] \rightarrow E$ cammino continuo con $\tilde{\gamma}(0)=\tilde{x}_0$ e $p \circ \tilde{\gamma}=\gamma$.
+\end{thm}
+
+\begin{proof}
+  L'unicità segue dalla proposizione \ref{unic_soll}. Ricopriamo adesso $X$ con aperti ben rivestiti $\{U_i\}_{i \in I}$ e sia $\epsilon>0$ numero di Lebesgue per il ricoprimento $\{\gamma^{-1}(U_i), i \in I\}$ di $[0, 1]$.
+  Perciò, se $1/n < \epsilon$, per ogni $k=0, 1, \dots, n-1$, $\gamma([k/n, (k+1)/n]) \subseteq U_{i_k}$ ben rivestito.
+  Definiamo induttivamente $\tilde{\gamma}$ su $[k/n, (k+1)/n]$ come segue: per definizione di rivestimento esiste $V_{i_0}$ aperto di $E$ t.c. $\tilde{x}_0 \in V_{i_0}$ e $p_0=p \restrict{V_{i_0}} V_{i_0} \rightarrow U_{i_0}$ è un omeomorfismo;
+  per ogni $t \in [0, 1/n]$, $\tilde{\gamma}(t)=p_0^{-1}(\gamma(t))$. Una volta definito $\tilde{\gamma}$ continuo su $[0, k/n]$, troviamo $V_{i_k} \subseteq E$ t.c. $\tilde{\gamma}(k/n) \in V_{i_k}$ e $p_k=p \restrict{V_{i_k}}: V_{i_k} \rightarrow U_{i_k}$ è un omeomorfismo.
+  Poniamo dunque $\tilde{\gamma}(t)=p_k^{-1}(\gamma(t))$ per ogni $t \in [k/n, (k+1)/n]$. È ora facile verificare che questa definizione soddisfa le condizioni richieste.
+\end{proof}
 
 \begin{prop}
   Sia $p:E \rightarrow X$ un rivestimento, $x_0, x_1 \in X$. Allora esiste una bigezione tra $p^{-1}(\{x_0\})$ e $p^{-1}(\{x_1\})$. La cardinalità di $p^{-1}(\{x_0\})$ si dice \textit{grado} del rivestimento e si indica con $\deg{p}$.
@@ -21,7 +80,7 @@ manca la prima lezione, la aggiungo stasera/domattina
   Per definizione, se $p$ è un rivestimento, per ogni $x \in X$ esiste $U \subseteq X$ aperto con sezione locale definita su $U$.
 \end{oss}
 
-\begin{thm}
+\begin{thm} \label{soll_omo}
   (Sollevamento delle omotopie) Siano $p:E \rightarrow X$ un rivestimento, $f:Y \rightarrow X$ continua con $Y$ localmente connesso per archi. Sia $F:Y \times[0, 1] \rightarrow X$ t.c. $F(y, 0)=f(y)$ per ogni $y \in Y$. Sia $\tilde{f}:Y \rightarrow E$ un sollevamento di $f$, cioè $p \circ \tilde{f}=f$.
   Allora esiste $\tilde{F}:Y \times [0, 1] \rightarrow E$ che solleva $F$, cioè $p \circ \tilde{F}=F$, ed estende $\tilde{f}$, cioè $\tilde{F}(y, 0)=\tilde{f}(y)$ per ogni $y \in Y$.
 \end{thm}
@@ -30,7 +89,53 @@ manca la prima lezione, la aggiungo stasera/domattina
   Poniamo, per ogni $y_0 \in Y$, $\gamma_{y_0}:[0, 1] \rightarrow X$ il cammino $\gamma_{y_0}(t)=F(y_0, t)$. Sia $\tilde{\gamma}_{y_0}$ il sollevamento di $\gamma_{y_0}$ a partire da $\tilde{f}(y_0)$. Poniamo infine $\tilde{F}(y_0, t)=\tilde{\gamma}{y_0}(t)$.
   È chiaro che $p \circ \tilde{F}=F$. Serve $\tilde{F}$ continua, basta vedere che per ogni $(y_0, t) \in Y \times [0, 1]$ esiste un intorno $U$ in $Y \times [0, 1]$ t.c. $\tilde{F}\restrict{U}=s \circ F\restrict{U}$ dove $s$ è una sezione locale (continua) del rivestimento.
   Poiché $[0, 1]$ è compatto, analizzando il ricoprimento $\{F^{-1}(W) | W \text{ aperto ben rivestito di } X\}$ otteniamo un numero finito di aperti $Z_1, \dots, Z_n$ di $Y \times [0, 1]$ che ricoprono $y_0 \times [0, 1] \cong [0, 1]$ e sono t.c. $F(Z_i)$ è contenuto in un intorno ben rivestito di $X$ per ogni $i$.
-  Possiamo supporre $Z_i=A_i \times B_i$, $A_i$ aperto di $Y$ e $B_i$ aperto di $[0, 1]$, $y_0 \in A_i$ per ogni $i$. Sia $\displaystyle A= \bigcap_{i=1}^n A_i$ aperto di $Y$ con $y_0 \in A$ e osserviamo che $\displaystyle \bigcup_{i=1}^n B_i=[0, 1]$.
+  Possiamo supporre $Z_i=A_i \times B_i$, $A_i$ aperto di $Y$ e $B_i$ aperto di $[0, 1]$, $y_0 \in A_i$ per ogni $i$. Sia $A= \bigcap_{i=1}^n A_i$ aperto di $Y$ con $y_0 \in A$ e osserviamo che $\bigcup_{i=1}^n B_i=[0, 1]$.
   Sia $1/k<$ numero di Lebesgue di $\{B_1, \dots, B_n\}$. Allora per ogni $j=0, 1, \dots, k-1$ $A \times [j/k, (j+1)/k] \subseteq A_i \times B_i$ per qualche $i$, perciò $F(A \times [j/k, (j+1)/k]) \subseteq U_j$ con $U_j$ aperto ben rivestito.
   Ora, per definizione di sollevamenti di cammini, $\tilde{F} \restrict{A \times [0, 1/k]}=s_0 \circ F$ dove $s_0: U_0 \rightarrow E$ è una sezione locale (si suppone $A$ connesso per archi). Induttivamente $\tilde{F} \restrict{A \times [j, (j+1)/k]}=s_j \circ F$ con $s_j: U_j \rightarrow E$ sezione locale per ogni $j$, da cui la tesi.
+\end{proof}
+
+\begin{cor}
+  Siano $\gamma_1, \gamma_2:[0, 1] \rightarrow X$ cammini omotopi (a estremi fissi), $\gamma_1(0)=\gamma_2(0)=x_0$.
+  Allora, se $\tilde{x}_0 \in p^{-1}(x_0)$, $(\tilde{\gamma}_1)_{\tilde{x}_0}$ è omotopo a $(\tilde{\gamma}_2)_{\tilde{x}_0}$ (a estremi fissi).
+  In particolare, $(\tilde{\gamma}_1)_{\tilde{x}_0}(1)=(\tilde{\gamma}_2)_{\tilde{x}_0}(1)$.
+\end{cor}
+
+\begin{proof}
+  Si prenda come $F$ l'omotopia tra i due cammini. Bisogna verificare che $\tilde{F}$ data dal teorema \ref{soll_omo} è un'omotopia tra i sollevamenti dei due cammini, cioè che è a estremi fissi e solleva le cose giuste. Tutto ciò segue dall'unicità del sollevamento data dalla proposizione \ref{unic_soll}.
+\end{proof}
+
+\begin{cor}
+  Sia $p:E \rightarrow X$ un rivestimento. Allora $p_{\star}:\pi_1(E, \tilde{x}_0) \rightarrow \pi_1(X, x_0)$ è iniettiva.
+\end{cor}
+
+\begin{proof}
+  $\alpha=[\gamma] \in \ker{p_{\star}} \implies p \circ \gamma \sim c_{x_0}$ (cammino costante)
+  $\implies \gamma=\widetilde{(p \circ \gamma)}_{\tilde{x}_0} \sim \widetilde{(c_{x_0})}_{\tilde{x}_0}=c_{\tilde{x}_0} \implies [\gamma]=1 \in \pi_1(E, \tilde{x}_0)$.
+\end{proof}
+
+\begin{defn}
+  (Azione di monodromia) Siano $p:E \rightarrow X$ un rivestimento, $x_0 \in X$, $F=p^{-1}(x_0)$. Allora esiste un'azione destra di $\pi_1(X, x_0)$ su $F$ definita così:
+  \begin{align*}
+    F \times \pi_1(X, x_0) &\longrightarrow F \\
+    (\tilde{x}, [\gamma]) &\longmapsto \tilde{x} \cdot [\gamma]=\tilde{\gamma}_{\tilde{x}}(1),
+  \end{align*}
+  detta \textsc{azione di monodromia}.
+\end{defn}
+
+\begin{oss}
+  Sia $p:E \rightarrow X$ un rivestimento, $F=p^{-1}(x_0) \subseteq E, x_0 \in X$. La monodromia $F \times \pi_1(X, x_0)$ è transitiva se e solo se $E$ è connesso per archi.
+\end{oss}
+
+\begin{defn}
+  Un rivestimento $p:E \rightarrow X$ si dice \textsc{universale} se $E$ è semplicemente connesso, in particolare connesso per archi.
+\end{defn}
+
+\begin{prop}
+  Sia $p:E \rightarrow X$ un rivestimento universale, $x_0 \in X$, $\tilde{x}_0 \in F=p^{-1}(x_0)$. La mappa $\psi:\pi_1(X, x_0) \rightarrow F, \psi([\gamma])=\tilde{x}_0 \cdot [\gamma]$ è bigettiva, per cui $|\pi_1(X, x_0)|=|F|$.
+\end{prop}
+
+\begin{proof}
+  $E$ connesso per archi $\implies$ la suriettività viene dal fatto che l'azione è transitiva.
+  Se $\psi([\gamma_1])=\psi([\gamma_2])$, $\tilde{x}_0 \cdot [\gamma_1]=\tilde{x}_0 \cdot [\gamma_2] \implies (\tilde{\gamma}_1)_{\tilde{x}_0}(1)=(\tilde{\gamma}_2)_{\tilde{x}_0}(1)$.
+  Poiché $E$ è semplicemente connesso, $(\tilde{\gamma}_1)_{\tilde{x}_0}=(\tilde{\gamma}_2)_{\tilde{x}_0} \implies \gamma_1=p \circ \tilde{\gamma}_1 \sim p \circ \tilde{\gamma}_2=\gamma_2 \implies [\gamma_1]=[\gamma_2]$, da cui l'iniettività.
 \end{proof}
