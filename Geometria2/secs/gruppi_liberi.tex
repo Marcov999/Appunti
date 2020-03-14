@@ -1,0 +1,82 @@
+Si fa un po' di algebra perch\'e s\`i.
+
+\begin{defn}
+    Siano $\{G_i\}$ con $i\in I$ dei gruppi. Il loro prodotto libero \`e una coppia $(G, \{\phi_i\}_{i\in I})$ con $G$ gruppo e i $\phi_i\colon G_i\longrightarrow G$ omomorfismi tali che per ogni gruppo $H$ e famiglia di omomorfismi $\psi_i\colon G_i \longrightarrow H$ esista unico un omomrfismo $\psi\colon G\longrightarrow H$ con la propriet\`a che $\psi\phi_i = \psi_i$ per ogni $i\in I$.
+    Spesso si indicher\`a il prodotto libero con il simbolo $\Conv_i G_i$.
+\end{defn}
+
+\begin{prop}
+    Il prodotto libero \`e unico a meno di isomorfisimi.
+\end{prop}
+\begin{proof}
+    Siano $(G, \phi_i)$ e $(G', \phi'_i)$ prodotti liberi dei $G_i$. La dimostrazione segue lo schema che si \`e sempre fatto con le propriet\`a universali. Inizio con lo scrivere la definizione del prodotto libero $G$, utilizzando $H=G'$ e $\psi_i=\phi'_i$. Dunque ho garantita un'unica funzione $\phi'\colon G \longrightarrow G'$ tale che $\phi'\phi_i=\phi'_i$.
+    Analogamente trovo una funzione $\phi\colon G' \longrightarrow G$.
+    Allora $\phi_i = \phi\phi'\phi_i$ e $\phi'_i=\phi'\phi\phi'_i$, da cui si ricava che $\phi\phi'$ e $\phi'\phi$ sono identit\`a, e dunque $\phi$ e $\phi'$ sono gli isomorfisimi tra $G$ e $G'$.
+\end{proof}
+
+
+\begin{prop}
+    Il prodotto libero dei $G_i$ esiste.
+\end{prop}
+\begin{proof}
+    Sia $W = \cup_{i\in I}(G_i\setminus \{e_i\})$, dove gli $e_i$ sono le unit\`a nei rispettivi gruppi. Sia $W^*$ l'insieme delle parole finite (eventualmente vuote) sull'alfabeto $W$. Definisco anche
+        \[
+        G = \{g \in W^* \quad | \quad \forall k \in \mathbb{N},\quad g_k\in G_i \Rightarrow g_{k+1} \notin G_i\}
+        \]
+        Su $G$ voglio definire un'operazione che lo renda un gruppo. Lo faccio con una concatenazione pi\`u un'eventuale riduzione cio\`e:
+        \[
+        (g_1, \dots, g_i)(h_1,\dots, h_j) =
+        \begin{cases}
+            (g_1, \dots, g_i, h_1, \dots, h_j) & \text{se $G_i \neq H_1$}\\
+            (g_1, \dots, g_ih_1, \dots, h_j) & \text{se $G_i = H_1$ e $g_ih_1 \neq e$}\\
+            (g_1, \dots, g_{i-1})(h_2, \dots, h_j) & \text{altrimenti}
+
+        \end{cases}
+        \]
+
+        Questa \`e un one\textit{f}to gruppo, con elemento neutro, con elemento neutro la parola vuota $()$. Bisogna trovare degli omomorfismi e poi far vedere che rispettano la propriet\`a universale per essere il prodotto libero cercato.
+
+        Possiamo equipaggiare ogni gruppo con una funzione $\phi_i\colon G_i\longrightarrow G$ che associa $\phi_i(x)=(x)$ la parola di una lettera. Si prenda un gruppo $H$ e degli omomorfismi $\psi\colon G_i\longrightarrow H$. Pongo allora $\psi\colon G\longrightarrow H$ come
+        \[
+            \psi((g_1, \dots, g_n)) = \psi_{i_1}(g_1)\cdots\psi_{i_n}(g_n)
+        \]
+        Si verifica che tale $\psi$ \`e effettivamente l'omomorfismo cercato, unico per costruzione.
+\end{proof}
+
+\begin{defn}
+    Dato $S=\{x_i\}$ l'insieme $F(S)=\Conv_i G_i$ \`e il gruppo libero generato da $S$, dove $G_i=\{x_i^m \ |\ m\in\mathbb{Z}\}\cong \mathbb{Z}$.
+\end{defn}
+
+\begin{oss}
+    Si ha canonicamente un'immersione $i\colon S\hookrightarrow F(S)$, tale per cui, preso un gruppo $H$ e una funzione $\psi\colon S \rightarrow H$, esiste unico un omomrfismo $\phi\colon F(S)\rightarrow H$ tale che $\phi i = \psi$.
+\end{oss}
+
+\begin{defn}
+    Dato un gruppo $G$ e un sottoinsieme $S\subseteq G$, la chiusura normale di $S$, detta $N(S)$, \`e il pi\`u piccolo sottgruppo normale contenente $S$.
+\end{defn}
+
+\begin{oss}
+    Ogni chiusura normale si pu\`o esprimere come Span dei coniugati.
+\end{oss}
+
+\begin{defn}
+    Dato un insieme $S$ e un sottoinsieme $R\subseteq F(S)$, si definisce la presentazione come $\langle S \ |\ R\rangle = F(S)/N(R)$.
+\end{defn}
+
+\begin{ex}
+    \begin{nlist}
+        \item $\mathbb{Z} \cong \langle 1 \rangle$;
+        \item $\mathbb{Z}*\mathbb{Z}\cong F(\{a,b\})$;
+        \item $\mathbb{Z}\times\mathbb{Z}\cong\langle a,b\ |\ aba^{-1}b^{-1}\rangle$.
+    \end{nlist}
+\end{ex}
+
+\begin{prop}
+    Sia $R\subseteq F(S)$, $\psi\colon F(S)\rightarrow H$ un omomrfismo. Se $\psi(R)=\{e\}$, allora esiste un omomorfismo $\bar{\psi}\colon \langle S\ |\ R \rightarrow H$ tale che $\bar{\psi}([s])=\psi(s)$ per ogni $s\in F(S)$.
+\end{prop}
+
+\begin{prop}
+    Sia $G_i = \langle S_i\ |\ R_i\rangle$ $i=1,2,3$, $\phi_1\colon G_0 \rightarrow G_1$, $\phi_2\colon G_0\rightarrow G_2$. Sia $G = G_1 * G_2 /N$ con $N = N(\{\phi_1(g)\phi_2(g)^{-1}\ |\ g\in G_0\})$.
+
+    Allora $$G\cong \langle S_1 \cup S_2\ |\ R_1\cup R_2\cup R\rangle$$ con $R =\{\tilde{\phi_1}(s)\tilde{\phi_2}(s)^{-1}\ |\ s\in S_0\}$, $\tilde{\phi_i}\colon F(S_0)\rightarrow F(S_i)$ le estensioni naturali di $\phi_i$.
+\end{prop}

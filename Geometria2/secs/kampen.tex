@@ -1,0 +1,95 @@
+\begin{thm}(di Van Kampen)
+    Sia $X$ uno spazio topologico con $X=A\cup B$ dove $A$, $B$ e $A\cap B$ sono aperti connessi per archi. Si considerino le inclusioni:
+    \begin{align*}
+        \alpha\colon& A\cap B \longrightarrow A\\
+        \beta\colon& A\cap B \longrightarrow B\\
+        f\colon& A \longrightarrow X\\
+        g\colon& B \longrightarrow X
+    \end{align*}
+    Sia inoltre $G$ un gruppo e si considerino ancora gli omomorfismi
+    \begin{align*}
+        h\colon& \pi_1(A)\longrightarrow G\\
+        k\colon& \pi_1(B)\longrightarrow G
+    \end{align*}
+    tali per cui $h\ \alpha_* = k\ \beta_*$.
+
+    Allora esiste unico un omomorfismo $\phi\colon\pi_1(X)\longrightarrow G$ tale che $\phi\ f_* = h$ e $\phi\ g_*=k$.
+\end{thm}
+
+\begin{proof}
+    La dimostrazione \`e una cosa bestiale in termini di grafici e disegni.
+
+     Arriver\`a.
+\end{proof}
+
+\begin{cor}
+    Nelle notazioni del teorema precedente, si ha che
+    \[
+        \pi_1(X)\cong \frac{\pi_1(A) * \pi_1(B)}{N}
+    \]
+    con $N = N(\{i\alpha_*(g)\ j \beta_*(G)^{-1}\ |\ g\in\pi_1(A\cap B)\})$, dove $i$ e $j$ sono le immersioni dei $\pi_1$.
+\end{cor}
+\begin{proof}
+    Applico la definizione del prodotto libero con gli omomorfismi $f_*$ e $g_*$. Questo mi d\`a un omomorfismo $\psi$ che fa commutare il diagramma.
+    \begin{center}\begin{tikzcd}
+    \pi_1(A) \arrow[rd, "i"'] \arrow[rrrd, "f_*"] &                                      &  &          \\
+                                                  & \pi_1(A)*\pi_1(B) \arrow[rr, "\psi"] &  & \pi_1(X) \\
+    \pi_1(B) \arrow[ru, "j"] \arrow[rrru, "g_*"]  &                                      &  &
+\end{tikzcd}\end{center}
+    Con un po' di conti si mostra che $\psi(N)=\{e\}$, il che mi permette di applicare una proposizione sui prodotti liberi che mi garantisce l'esistenza di un omomorfismo
+    \[
+        \bar{\psi}\colon\pi_1(X)\longrightarrow \frac{\pi_1(A) * \pi_1(B)}{N}
+    \]
+    Per esercizio si verifichi che la funzione data da Van Kampen (utilizzando come $G$ il quoziente di gruppi cercato, $h=i$ e $k=j$) \`e un'inversa di $\psi$.
+\end{proof}
+
+\begin{ex}
+    $\pi_1(S^n)=\{e\}$ per $n\geq 2$.
+\end{ex}
+\begin{proof}
+    Prendo $A=S^n\setminus\{(1,0,\dots,0)\}$ e $A=S^n\setminus\{(1,0,\dots,0)\}$. La proiezione stereografica mostra che sono entrambi semplicemente connessi, e dunque anche $S^n$ lo \`e.
+\end{proof}
+
+\begin{ex}
+    $\pi_1(\mathbb{P}^n(\mathbb{C}))$ \`e banale per ogni $n$.
+\end{ex}
+\begin{proof}
+    Per induzione, il caso $n=0$ funziona. Prendiamo $H = \{[x_0:\dots:x_n]\ | \ x_0=0\}$, $A = \mathbb{P}^n\setminus H$ e $B= \mathbb{P}^n\setminus \{[1:0:\dots:0]\}$. Si ha che $A\cong \mathbb{C}^n$ con
+    \[
+        [x_0:\dots:x_n]\mapsto(\frac{x_1}{x_0},\dots, \frac{x_n}{x_0})
+    \]
+    Quindi $A$ \`e semplicemente connesso.
+    $A\cap B$ \`e semplicemente connesso perch\'e \`e isomorfo a tutto $\mathbb{C}^n$ tolta l'origine.
+
+    Sia $r\subseteq\mathbb{C}^{n+1}$ la retta generata da $(1,0,\dots, 0)$.
+    Sia $h\colon\mathbb{C}^{n+1}\setminus \times [0,1] r\longrightarrow \mathbb{C}^{n+1}$ con $h((x_0, \dots, x_n), t)=(tx_0, \dots, x_n)$.
+    Si ha che $h$ passa al quoziente che definisce lo spazio proiettivo, e ho ottenuto che $B$ \`e omotopo a $\mathbb{P}^{n-1}$. Quindi per ipotesi induttiva si conclude.
+\end{proof}
+
+\begin{defn}
+    $\Sigma_g$ \`e la superficie con $g$ buchi. Per esempio $\Sigma_0$ \`e la sfera e $\Sigma_1$ \`e il toro.
+\end{defn}
+
+\begin{ex}
+    Vogliamo calcolare il gruppo fondamentale di $\Sigma_g$. Sia $P$ un $4g$-agono, con i lati indicati con $a_1$, $b_1$, $a_1$, $b_1$, $a_2$, \dots
+    Allora $\Sigma_g$ \`e $P$ quozientato l'identificazione dei lati con lo stesso nome, in modo simile alla costruzione del toro. Non abbiamo formalizzato questo passaggio, basta soltanto essere in grado di vederlo.
+
+    Sia $p$ un punto interno a $P$. Chiamo $A = \pi(P\setminus\{p\})$ e $B=\pi(P\setminus\partial P)$, dove $\pi$ \`e la proiezione al quoziente.  Si ha innanzi tutto che $B$ ha gruppo fondamentale banale.
+
+    Inoltre $A$ si retrae (radialmente) su $\pi(\partial P)$. Ora un altro passaggio di cui si richiede solo l'intuito geometrico: $\pi(\partial P)$ \`e il wedge di $2g$ cerchi. Dunque $\pi_1(A)$ \`e il prodotto libero di $2g$ copie di $\mathbb{Z}$. Infine $A\cap B$ \`e omotopo a una circonferenza. Un rappresentante $\alpha$ del generatore del gruppo fondamentale \`e la proiezione di un laccio che fa un giro intorno a $p$.
+    Allora dentro $\pi_1(A)$ l'immagine di $\alpha$ \`e $\prod_{i=1}^g a_ib_ia_i^{-1}b_i^{-1}$.
+    Allora
+    \[
+        \pi_1(\Sigma_g)=\langle a_1, \dots, b_g\ |\ \prod_{i=1}^ga_ib_ia_i^{-1}b_i^{-1}
+    \]
+\end{ex}
+\begin{prop}
+    Detto $\Gamma_g = \pi_1(\Sigma_g)$, si ha che $\Gamma_g /[\Gamma_g, \Gamma_g] \cong \mathbb{Z}^{2g}$.
+\end{prop}
+\begin{proof}
+    Costruisco una funzione $\phi\colon \Gamma_g\longrightarrow \mathbb{Z}^{2g}$ che manda $a_1$ e $b_i$ distinti in generatori distinti. Si verifica che $\psi$ \`e un omomorfismo surgettivo. Si mostra con rapido conto che $[\Gamma_g, \Gamma_g]\subseteq Ker\ \psi$. Infine si costruisce a mano l'inversa di $\bar{\psi}\colon \Gamma_g /[\Gamma_g, \Gamma_g]\rightarrow \mathbb{Z}^{2g}$.
+\end{proof}
+
+\begin{cor}
+    Si ha che $\Sigma_m \sim \Sigma_n$ se e solo se $\Sigma_m \cong \Sigma_n$ se e solo se $n=m$.
+\end{cor}
