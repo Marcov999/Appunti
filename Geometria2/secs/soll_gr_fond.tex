@@ -47,3 +47,44 @@ D'ora in poi tutti gli spazi saranno localmente connessi per archi.
 \begin{cor}
   Siano $p:E \rightarrow X$ rivestimento connesso, $x_0 \in X$, $\tilde{x}_0 \in p^{-1}(x_0)$, $f:Y \rightarrow X$ con $f(y_0)=x_0$. Se $Y$ è semplicemente connesso, esiste un unico sollevamente $\tilde{f}:Y \rightarrow E$ di $f$ con $\tilde{f}(y_0)=\tilde{x}_0$.
 \end{cor}
+
+\begin{thm}
+  (Borsuk-Ulam) Non esistono mappe continue $f:S^2 \rightarrow S^1$ t.c. $f(-x)=-f(x)$.
+\end{thm}
+
+\begin{proof}
+  Per assurdo, sia $f:S^2 \rightarrow S^1$ continua t.c. $f(-x)=-f(x)$. Siano $p:S^2 \rightarrow \mathbb{P}^2(\mathbb{R}), q:S^1 \rightarrow \mathbb{P}^1(\mathbb{R})$ le proiezioni. Abbiamo un diagramma commutativo di funzioni continue
+  \begin{center}
+    \begin{tikzcd}
+            S^2 \arrow[d, "p"] \arrow[r, "f"] & S^1 \arrow[d, "q"]\\
+            \mathbb{P}^2(\mathbb{R}) \arrow[r, "\bar{f}"] & \mathbb{P}^1(\mathbb{R})
+     \end{tikzcd}
+   \end{center}
+  Si noti che il diagramma commuta perché $q(f(x_0))=q(f(-x_0))$. Sappiamo che $\pi_1(\mathbb{P}^2(\mathbb{R}))=\mathbb{Z}_2$ e dato che $\mathbb{P}^1(\mathbb{R}) \cong S^1$ abbiamo che $\pi_1(\mathbb{P}^1(\mathbb{R}))=\mathbb{Z}$.
+  Allora $\bar{f}_{\star}:\pi_1(\mathbb{P}^2(\mathbb{R})) \rightarrow \pi_1(\mathbb{P}^1(\mathbb{R}))$ è la mappa banale.
+  \begin{center}
+    \begin{tikzcd}
+            & & S^1 \arrow[d, "q"]\\
+            S^2 \arrow[rru, bend left, "f"] \arrow[r, "p"] & \mathbb{P}^2(\mathbb{R}) \arrow[ru, "h"] \arrow[r, "\bar{f}"] & \mathbb{P}^1(\mathbb{R})
+    \end{tikzcd}
+  \end{center}
+  Per il teorema di sollevamento, esiste $h:\mathbb{P}^2(\mathbb{R}) \rightarrow S^1$ con $q \circ h=\bar{f}$ (attenzione: non sappiamo che $h \circ p=f$). Scegliamo $x_0 \in S^2$. Sappiamo che $q(h(p(x_0)))=\bar{f}(p(x_0))=q(f(x_0))$, dunque $h \circ p$ e $f$ sono entrambi sollevamenti di $\bar{f} \circ p$.
+  Dato $x_0 \in S^2$, sia $z_0 \in \mathbb{P}^1(\mathbb{R}), z_0=\bar{f}(p(x_0))$. $q^{-1}(z_0)=\{y_0, -y_0\}$. Dunque $f(x_0) \in \{y_0, -y_0\}$. Supponiamo $f(x_0)=y_0$. Allora $f(-x_0)=-f(x_0)=-y_0$.
+  Anche $h(p(x_0)), h(p(-x_0)) \in \{y_0, -y_0\}$, ma $p(x_0)=p(-x_0) \implies h(p(x_0))=h(p(-x_0))$. Dunque o $h(p(x_0))=y_0=f(x_0)$ o $h(p(-x_0))=-y_0=f(-x_0)$. Perciò $f$ e $h \circ p$ sono sollevamenti che coincidono in un punto e per unicità (e connessione di $S^2$) $f=h \circ p$, assurdo perché $f(x_0) \not=f(-x_0)$ ma $h(p(x_0))=h(p(-x_0))$.
+\end{proof}
+
+\begin{cor}
+  Sia $f: S^2 \rightarrow \mathbb{R}^2$ continua, allora esiste $x \in S^2$ t.c. $f(x)=f(-x)$.
+\end{cor}
+
+\begin{proof}
+  Se $f(x) \not=f(-x)$ per ogni $x \in S^2$, $g:S^2 \rightarrow S^1, g(x)=\dfrac{f(x)-f(-x)}{\|f(x)-f(-x)\|}$ è ben definita e continua e t.c. $g(x)=-g(-x)$, assurdo.
+\end{proof}
+
+\begin{cor}
+  In ogni dato istante, esistono due punti antipodali sulla superficie della Terra che hanno uguali temperatura e pressione.
+\end{cor}
+
+\begin{proof}
+  Assumiamo che la superficie terrestre sia una sfera e che temperatura e pressione siano funzioni continue del punto in cui vengono calcolate. Allora basta applicare il corollario precedente la funzione che associa a ogni punto sulla superficie la coppia (temperatura, pressione).
+\end{proof}
