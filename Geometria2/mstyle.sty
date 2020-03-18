@@ -37,6 +37,7 @@
 \newcommand\restrict[1]{\raisebox{-.5ex}{$|$}_{#1}}
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\Isom}{Isom}
+\DeclareMathOperator{\Ima}{Im}
 
 \newcommand{\hooklongrightarrow}{\lhook\joinrel\longrightarrow}
 \newcommand{\hooklongleftarrow}{\longleftarrow\joinrel\rhook}
@@ -57,6 +58,21 @@
 
 \newcommand{\warningsign}{\tikz[baseline=-.75ex] \node[shape=regular polygon,
 regular polygon sides=3, inner sep=0pt, draw, thick] {\textbf{!}};}
+
+\makeatletter
+\DeclareRobustCommand*{\mfaktor}[3][]
+{
+   { \mathpalette{\mfaktor@impl@}{{#1}{#2}{#3}} }
+}
+\newcommand*{\mfaktor@impl@}[2]{\mfaktor@impl#1#2}
+\newcommand*{\mfaktor@impl}[4]{
+   \settoheight{\faktor@zaehlerhoehe}{\ensuremath{#1#2{#3}}}%
+   \settoheight{\faktor@nennerhoehe}{\ensuremath{#1#2{#4}}}%
+      \raisebox{-0.5\faktor@zaehlerhoehe}{\ensuremath{#1#2{#3}}}%
+      \mkern-4mu\diagdown\mkern-5mu%
+      \raisebox{0.5\faktor@nennerhoehe}{\ensuremath{#1#2{#4}}}%
+}
+\makeatother
 
 \newenvironment{thm}{\begin{block}[Teorema]}{\end{block}}
 \newenvironment{lm}{\begin{block}[Lemma]}{\end{block}}
