@@ -5,5 +5,16 @@
 Questa proprietà è verificata ad esempio se ogni punto ha un intorno semplicemente connesso (per esempio le varietà).
 
 \begin{oss}
-  Se $X$ ammette un rivestimento universale, allora è semilocalmente semplicemente connesso.
+  Se $X$ ammette un rivestimento universale, allora è semilocalmente semplicemente connesso. Infatti, dato $x \in X$, ne possiamo prendere un intorno connesso per archi e ben rivestito $U$. Se $p:E \rightarrow X$ è il rivestimento universale e $V \subseteq p^{-1}(U)$ è un aperto con $p\restrict{V}:V \rightarrow U$ omeomorfismo,
+  \begin{center}
+    \begin{tikzcd}
+      V \arrow[r, hook, "j"] \arrow[d, shift left, swap, "p\restrict{V}" right] & E \arrow[d, "p"]\\
+      U \arrow[r, hook, "i"] \arrow[u, shift left, "s"] & X
+    \end{tikzcd}
+  \end{center}
+  $i=p \circ j \circ s$ $\implies$ $i_{\star}=p_{\star} \circ j_{\star} \circ s_{\star}$, ma $j_{\star}$ è banale perché $\pi_1(E) \cong \{1\}$, dunque $i_{\star}:\pi_1(U, x) \rightarrow \pi_1(X, x)$ è banale.
 \end{oss}
+
+\begin{lm}
+  Quando esiste, il rivestimento universale è unico a meno di isomorfismo.
+\end{lm}
