@@ -134,7 +134,7 @@ Fissiamo un rivestimento connesso $p:E \rightarrow X$.
   \end{nlist}
 \end{proof}
 
-\begin{thm}
+\begin{thm} \label{mon_comm}
   Sia $F=p^{-1}(x_0)$. Per ogni $\varphi \in \text{Aut}(E), \alpha \in \pi_1(X, x_0), \tilde{x} \in F$ si ha $\varphi(\tilde{x} \cdot \alpha)=\varphi(\tilde{x}) \cdot \alpha$.
 \end{thm}
 
@@ -148,3 +148,60 @@ Fissiamo un rivestimento connesso $p:E \rightarrow X$.
 \begin{defn}
   $p:E \rightarrow X$ rivestimento connesso si dice \textsc{regolare} se per ogni fibra $F \subseteq E$ l'azione di $\text{Aut}(E)$ su $F$ è transitiva.
 \end{defn}
+
+\begin{thm}
+  Sono fatti equivalenti:
+  \begin{nlist}
+    \item $p$ è regolare;
+    \item esiste una fibra $F \subseteq E$ t.c. l'azione di $\text{Aut}(E)$ su $F$ sia transitiva;
+    \item per ogni $\tilde{x} \in E$, $p_{\star}(\pi_1(E, \tilde{x})) \vartriangleleft \pi_1(X, p(\tilde{x}))$;
+    \item esiste $\tilde{x} \in E$ t.c. $p_{\star}(\pi_1(E, \tilde{x})) \vartriangleleft \pi_1(X, p(\tilde{x}))$.
+  \end{nlist}
+\end{thm}
+
+\begin{proof}
+  (iii) $\implies$ (iv) è ovvia.
+
+  (iv) $\implies$ (iii). Supponiamo che valga per $\tilde{x} \in E$ e sia $\tilde{y} \in E, \tilde{\gamma} \in \Omega(\tilde{x}, \tilde{y})$. Sia $\gamma=p \circ \tilde{\gamma}$, $\gamma \in \Omega(x, y)$, $x=p(\tilde{x}), y=p(\tilde{y})$.
+  Abbiamo due isomorfismi $\tilde{\gamma}_{\sharp}: \pi_1(E, \tilde{x}) \rightarrow \pi_1(E, \tilde{y})$ e $\gamma_{\sharp}:\pi_1(X, x) \rightarrow \pi_1(X, y)$. Si vede che il seguente diagramma commuta:
+  \begin{center}
+    \begin{tikzcd}
+      \pi_1(E, \tilde{x}) \arrow[r, "\tilde{\gamma}_{\sharp}"] \arrow[d, "p_{\star}"] & \pi_1(E, \tilde{y}) \arrow[d, "p_{\star}"]\\
+      \pi_1(X, x) \arrow[r, "\gamma_{\sharp}"] & \pi_1(X, y)
+    \end{tikzcd}
+  \end{center}
+  Dunque $p_{\star}(\pi_1(E, \tilde{x})) \vartriangleleft \pi_1(X, x) \iff p_{\star}(\pi_1(E, \tilde{y})) \vartriangleleft \pi_1(X, y)$.
+
+  Per concludere, basta vedere che se $F=p^{-1}(x)$ è una fibra e $\tilde{x} \in F$, allora l'azione di $\text{Aut}(E)$ su $F$ è transitiva $\iff$ $p_{\star}(\pi_1(E, \tilde{x})) \vartriangleleft \pi_1(X, x)$.
+  Dati $\tilde{x}, \tilde{y} \in F$, abbiamo visto che esiste $\varphi \in \text{Aut}(E)$ con $\varphi(\tilde{x})=\tilde{y}$ $\iff$ $p_{\star}(\pi_1(E, \tilde{x}))=p_{\star}(\pi_1(E, \tilde{y}))$.
+  Abbiamo anche visto che al variare di $\tilde{y} \in F$ i gruppi $p_{\star}(\pi_1(E, \tilde{y}))$ sono tutti e soli i coniugati di $p_{\star}(\pi_1(E, \tilde{x}))$. Dunque l'azione su $F$ è transitiva $\iff$ $p_{\star}(\pi_1(E, \tilde{x}))$ coincide con tutti i suoi coniugati, cioè se è normale.
+\end{proof}
+
+\begin{thm}
+  Sia $p:E \rightarrow X$ regolare. Allora
+  $$\text{Aut}(E) \cong \faktor{\pi_1(X, x)}{p_{\star}(\pi_1(E, \tilde{x}))}$$
+  dove l'isomorfismo è un isomorfismo di gruppi e $x=p(\tilde{x})$. Ciò vale per ogni $\tilde{x} \in E$.
+\end{thm}
+
+\begin{proof}
+  Ricordiamo che $p_{\star}(\pi_1(E, \tilde{x})) \vartriangleleft \pi_1(X, x)$, dunque in effetti il quoziente è un gruppo.
+  Sia $\vartheta:\pi_1(X, x) \rightarrow \text{Aut}(E)$ t.c. per ogni $\alpha \in \pi_1(X, x)$ $\vartheta(\alpha)$ sia l'unico elemento di $\text{Aut}(E)$ t.c. $\vartheta(\alpha)(\tilde{x})=\tilde{x} \cdot \alpha$.
+  Tale $\vartheta(\alpha)$ esiste perché il rivestimento è regolare ed è unico perché $\text{Aut}(E)$ agisce liberamente su $E$.
+  \begin{nlist}
+    \item $\vartheta$ è un omomorfismo: ($\vartheta(\alpha_1) \circ \vartheta(\alpha_2))(\tilde{x})=\vartheta(\alpha_1)(\vartheta(\alpha_2)(\tilde{x}))=\vartheta(\alpha_1)(\tilde{x} \cdot \alpha_2)$,
+    ma per il teorema \ref{mon_comm} $\vartheta(\alpha_1)(\tilde{x} \cdot \alpha_2)=(\vartheta(\alpha_1)(\tilde{x}))\cdot\alpha_2=(\tilde{x}\cdot\alpha_1)\cdot\alpha_2)=\tilde{x}\cdot(\alpha_1\cdot\alpha_2)=\vartheta(\alpha_1 \cdot \alpha_2)(\tilde{x}))$
+    $\implies$ $\vartheta(\alpha_1)\circ\vartheta(\alpha_2)=\vartheta(\alpha_1 \cdot \alpha_2)$.
+    \item $\vartheta$ è suriettivo. Se $\varphi \in \text{Aut}(E)$, poiché l'azione di monodromia è transitiva, esiste $\alpha \in \pi_1(X, x)$ con $\tilde{x} \cdot \alpha=\varphi(\tilde{x})$. Dunque $\vartheta(\alpha)=\varphi$ in quanto $\vartheta(\alpha)$ e $\varphi$ coincidono su $\tilde{x}$ e sono perciò uguali (sempre perché $\text{Aut}(E)$ agiscono liberamente).
+    \item $\ker{\vartheta}=p_{\star}(\pi_1(E, \tilde{x}))$. Infatti, poiché $\text{Aut}(E)$ agisce liberamente, $\vartheta(\alpha)=\id \iff \vartheta(\alpha)(\tilde{x})=\tilde{x} \iff \tilde{x} \cdot \alpha=x \iff \alpha \in p_{\star}(\pi_1(E, \tilde{x}))$.
+  \end{nlist}
+\end{proof}
+
+\begin{cor}
+  $p:E \rightarrow X$ regolare $\implies$ $X \cong \faktor{E}{\text{Aut}(E)}$ (cioè sono omeomorfi).
+\end{cor}
+
+\begin{proof}
+  Essendo aperta e suriettiva, $p:E \rightarrow X$ è un'identificazione, per cui $X \cong \faktor{E}{\sim}$ dove $\tilde{x} \sim \tilde{y} \iff p(\tilde{x})=p(\tilde{y}) \iff \tilde{x}=\varphi(\tilde{y})$ per qualche $\varphi \in \text{Aut}(E)$, in quanto $\text{Aut}(E)$ agiscono transitivamente sulle fibre.
+\end{proof}
+
+Vale una sorta di viceversa.
