@@ -90,5 +90,61 @@ D'ora in poi tutti gli spazi saranno localmente connessi per archi.
 \end{proof}
 
 \begin{defn}
-  Dati $p_1:E_1 \rightarrow X, p_2:E_2 \rightarrow X$ rivestimenti, un \textsc{morfismo} tra $p_1$ e $p_2$ è una mappa continua $\phi:E_1 \rightarrow E_2$ t.c. $p_2 \circ \phi=p_1$.
+  Dati $p_1:E_1 \rightarrow X, p_2:E_2 \rightarrow X$ rivestimenti, un \textsc{morfismo} tra $p_1$ e $p_2$ è una mappa continua $\varphi:E_1 \rightarrow E_2$ t.c. $p_2 \circ \varphi=p_1$. Il seguente diagramma commuta:
+  \begin{center}
+    \begin{tikzcd}
+      E_1 \arrow[rr, "\varphi"] \arrow[rd, "p_1"] & & E_2 \arrow[ld, "p_2"]\\
+      & X
+    \end{tikzcd}
+  \end{center}
+  $\varphi$ è un isomorfismo se e solo se esiste $\psi:E_2 \rightarrow E_1$ continua con $\varphi \circ \psi=\id_{E_2}, \psi \circ \varphi=\id_{E_1}$.
+\end{defn}
+
+Composizione di morfismi è un morfismo e l'identità è un morfismo, per cui $\text{Aut}(E)=\text{Aut}(E, p)=\{\varphi:E \rightarrow E \mid \varphi \text{ è un isomorfismo}\}$ è un gruppo con la composizione.
+
+Fissiamo un rivestimento connesso $p:E \rightarrow X$.
+
+\begin{thm}
+  \begin{nlist}
+    \item $\text{Aut}(E)$ agiscono su $E$ in maniera propriamente discontinua (in particolare, libera);
+    \item $\text{Aut}(E)$ agisce sulle fibre di $E$;
+    \item se $F$ è una fibra di $E$ e $\tilde{x}_0, \tilde{x}_1 \in F$, esiste $\varphi \in \text{Aut}(E)$ con $\varphi(\tilde{x}_0)=\tilde{x}_1$ $\iff$ $p_{\star}(\pi_1(E, \tilde{x}_0))=p_{\star}(\pi_1(E, \tilde{x}_1))$
+    (entrambi sottogruppi di $\pi_1(X, p(\tilde{x}_0))=\pi_1(X, p(\tilde{x}_1))$).
+  \end{nlist}
+\end{thm}
+
+\begin{proof}
+  \begin{nlist}
+    \item Dato $\tilde{x} \in E$, sia $U$ un intorno ben rivestito connesso per archi di $p(\tilde{x}) \in X$. $\displaystyle p^{-1}(U)=\bigsqcup_{i \in I} V_i$ e sia $i_0$ t.c. $\tilde{x} \in V_{i_0}$.
+    Basta vedere che se $\varphi \in \text{Aut}(E)$ e $\varphi(V_{i_0})\cap V_{i_0} \not=\emptyset$, allora $\varphi=\id$. Se $\varphi(V_{i_0})\cap V_{i_0} \not=\emptyset$, esiste $z \in V_{i_0}$ t.c. $\varphi(z) \in V_{i_0}$.
+    Poiché $p \circ \varphi=p$, $p(\varphi(z))=p(z)$, ma $p\restrict{V_{i_0}}$ è iniettiva $\implies$ $\varphi(z)=z$. Ora, sia $\varphi$ sia $\id$ sono sollevamenti di $p$ (a partire da $E$) e coincidono in $z$. Per unicità del sollevamento, $\varphi=\id$.
+    \item Se $F=p^{-1}(x_0)$ e $\tilde{x} \in F$, $p(\varphi(\tilde{x}))=p(\tilde{x})=x_0$ $\implies$ $\varphi(\tilde{x}) \in F$.
+    \item ($\implies$) Se $\varphi \in \text{Aut}(E)$ verifica $\varphi(\tilde{x}_0)=\tilde{x}_1$, poiché $p \circ \varphi=p$, $p_{\star} \circ \varphi_{\star}=p_{\star}$ come mappe da $\pi_1(E, \tilde{x}_0)$ in $\pi_1(X, x_0)$.
+    In particolare, $p_{\star}(\varphi_{\star}(\pi_1(E, \tilde{x}_0)))=p_{\star}(\pi_1(E, \tilde{x}_0))$, ma $\varphi_{\star}(\pi_1(E, \tilde{x}_0))=\pi_1(E, \tilde{x}_1)$ perché $\varphi:E \rightarrow E$ è un omeomorfismo, dunque $\varphi_{\star}:\pi_1(E, \tilde{x}_0) \rightarrow \pi_1(E, \tilde{x}_1)$ è un isomorfismo.
+
+    ($\Leftarrow$) Se $p_{\star}(\pi_1(E, \tilde{x}_0))=p_{\star}(\pi_1(E, \tilde{x}_1))$, applichiamo il teorema di sollevamento al seguente diagramma:
+    \begin{center}
+      \begin{tikzcd}
+        & (E, \tilde{x}_1) \arrow[d, "p"]\\
+        (E, \tilde{x}_0) \arrow[r, "p"] & (X, x_0)
+      \end{tikzcd}
+    \end{center}
+    Applichiamolo prima considerando come rivestimento quello a partire da $(E, \tilde{x}_1)$ per ottenere $\varphi:E \rightarrow E$ con $\varphi(\tilde{x}_0)=\tilde{x}_1$ e $p \circ \varphi=p$. Analogamente, considerando invece $(E, \tilde{x}_0)$, troviamo $\psi:E \rightarrow E$ con $\psi(\tilde{x}_1)=\tilde{x}_0$ e $p \circ \psi=p$.
+    Ora $\varphi \circ \psi$ e $\psi \circ \varphi$ sollevano $p$, così come l'identità, e sono t.c. $\varphi(\psi(\tilde{x}_1))=\tilde{x}_1$ e $\psi(\varphi(\tilde{x}_0))=\tilde{x}_0$, per cui per unicità dei sollevamenti $\varphi \circ \psi=\psi \circ \varphi=\id_E$.
+  \end{nlist}
+\end{proof}
+
+\begin{thm}
+  Sia $F=p^{-1}(x_0)$. Per ogni $\varphi \in \text{Aut}(E), \alpha \in \pi_1(X, x_0), \tilde{x} \in F$ si ha $\varphi(\tilde{x} \cdot \alpha)=\varphi(\tilde{x}) \cdot \alpha$.
+\end{thm}
+
+\begin{proof}
+  Sia $\alpha=[\gamma]$.
+  Allora $\varphi \circ \tilde{\gamma}_{\tilde{x}}$ è un sollevamento di $\gamma$ ($p \circ \varphi \circ \tilde{\gamma}_{\tilde{x}}=p \circ \tilde{\gamma}_{\tilde{x}}=\gamma$) e ha come punto iniziale $\varphi(\tilde{\gamma}_{\tilde{x}}(0))=\varphi(\tilde{x})$.
+  Dunque $\varphi \circ \tilde{\gamma}_{\tilde{x}}=\tilde{\gamma}_{\varphi(\tilde{x})}$.
+  Quindi $\varphi(\tilde{x}) \cdot \alpha=\tilde{\gamma}_{\varphi(\tilde{x})}(1)=(\varphi \circ \tilde{\gamma}_{\tilde{x}})(1)=\varphi(\tilde{\gamma}_{\tilde{x}}(1))=\varphi(\tilde{x} \cdot \alpha)$.
+\end{proof}
+
+\begin{defn}
+  $p:E \rightarrow X$ rivestimento connesso si dice \textsc{regolare} se per ogni fibra $F \subseteq E$ l'azione di $\text{Aut}(E)$ su $F$ è transitiva.
 \end{defn}
