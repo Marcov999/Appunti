@@ -205,3 +205,34 @@ Fissiamo un rivestimento connesso $p:E \rightarrow X$.
 \end{proof}
 
 Vale una sorta di viceversa.
+
+\begin{prop}
+  Se $G$ agisce in maniera propriamente discontinua su uno spazio connesso $E$, allora la proiezione $p:E \rightarrow \faktor{E}{G}$ è un rivestimento regolare e $G=\text{Aut}(E, p)$.
+\end{prop}
+
+\begin{proof}
+  Dato $x \in \faktor{E}{G}$, dobbiamo costruire un intorno $U \ni x$ ben rivestito. Scegliamo $\tilde{x} \in E$ con $p(\tilde{x})=x$; per definizione di azione propriamente discontinua, esiste un aperto $V$ di $E$ t.c. $\tilde{x} \in V$ e $\gamma(V)\cap V=\emptyset$ per ogni $\gamma \in G\setminus\{\id\}$. Poniamo $U=p(V)$. Le proiezioni al quoziente per azioni di gruppo sono aperte, per cui $U$ è aperto.
+  Per costruzione, $\displaystyle p^{-1}(U)=\bigcup_{\gamma \in G} \gamma(V)$.
+  Ogni $\gamma(V)$ è aperto (i $\gamma$ sono omeomorfismi) e l'unione è disgiunta poiché $\gamma_1(V) \cap \gamma_2(V) \not=\emptyset \implies V \cap (\gamma_1^{-1}\gamma_2)(V) \not=\emptyset \implies \gamma_1^{-1}\gamma_2=\id \implies \gamma_1=\gamma_2$.
+  Infine, $p\restrict{\gamma(V)}$ è un omeomorfismo su $U$ per ogni $\gamma \in G$ (è continua, aperta e suriettiva; l'iniettività segue ancora dal fatto che $V \cap \gamma(V)=\emptyset$ per ogni $\gamma\not=\id$).
+\end{proof}
+
+\begin{oss}
+  Un rivestimento universale è regolare. Infatti, $p_{\star}(\{1\})=\{1\} \vartriangleleft \pi_1(X, x)$.
+\end{oss}
+
+\begin{cor}
+  Se $p:E \rightarrow X$ è un rivestimento universale, $\text{Aut}(E)\cong\pi_1(X, x)$.
+\end{cor}
+
+\begin{cor}
+  Se $E$ è semplicemente connesso e $G$ agisce su $E$ in maniera propriamente discontinua, allora $\pi_1(\faktor{E}{G}) \cong G$.
+\end{cor}
+
+\begin{ex}
+  \begin{nlist}
+    \item $S^1=\faktor{\mathbb{R}}{\mathbb{Z}}$, $\mathbb{R}$ semplicemente connesso $\implies$ $\pi_1(S^1)=\mathbb{Z}$.
+    \item $\underbrace{S^1 \times S^1 \times \dots \times S^1}_{n \text{ volte}}=\faktor{\mathbb{R}^n}{\mathbb{Z}^n}$, $\mathbb{R}^n$ semplicemente connesso $\implies$ $\pi_1((S^1)^n)=\mathbb{Z}^n$.
+    \item $\mathbb{P}^n(\mathbb{R})=\faktor{S^n}{G}, G=\{\pm\id\}$. Se $n \ge 2$, $S^n$ semplicemente connesso $\implies$ $\pi_1(\mathbb{P}^n(\mathbb{R})) \cong G=\mathbb{Z}_2$.
+  \end{nlist}
+\end{ex}
