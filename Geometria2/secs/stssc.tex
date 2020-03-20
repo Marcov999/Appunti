@@ -18,3 +18,15 @@ Questa proprietà è verificata ad esempio se ogni punto ha un intorno semplicem
 \begin{lm}
   Quando esiste, il rivestimento universale è unico a meno di isomorfismo.
 \end{lm}
+
+\begin{proof}
+  Siano $p_1:E_1 \rightarrow X, p_2:E_2 \rightarrow X$ rivestimenti universali di $X$. Consideriamo il seguente diagramma:
+  \begin{center}
+    \begin{tikzcd}
+      & E_2 \arrow[d, "p_2"]\\
+      E_1 \arrow[r, "p_1"] \arrow[ru, dashed, "\varphi"] & X
+    \end{tikzcd}
+  \end{center}
+  Poiché $E$ è semplicemente connesso, per il corollario \ref{soll_conn} il diagramma si completa con $\varphi:E_1 \rightarrow E_2$ t.c. $p_2 \circ \varphi=p_1$. Fissati $\tilde{x}_1 \in p_1^{-1}(x)$ e $\tilde{x}_2 \in p_2^{-1}(x)$, possiamo anche richiedere $\varphi(\tilde{x}_1)=\tilde{x}_2$.
+  Analogamente, esiste $\psi:E_2 \rightarrow E_1$ con $p_1 \circ \psi=p_2$ e $\psi(\tilde{x}_2)=\tilde{x}_1$. Segue facilmente che $\varphi$ e $\psi$ sono isomorfismi, uno l'inverso dell'altro.
+\end{proof}
