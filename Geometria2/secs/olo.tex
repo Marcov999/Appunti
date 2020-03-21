@@ -1,0 +1,105 @@
+Adesso studiamo le funzioni complesse.
+
+Sia $U \subset \mathbb{C}$ aperto, $f:U \rightarrow \mathbb{C}$. Possiamo scrivere $f(z)=u(z)+iv(z)$ per ogni $z \in U$. Chiamiamo $u(z)$ la parte reale di $f$, $u:U \rightarrow \mathbb{R}$, $v(z)$ la parte immaginaria di $f$, $v:U \rightarrow \mathbb{R}$.
+
+\begin{ftt}
+  $f:U \rightarrow \mathbb{C}$ è continua in $z_0 \in U$ (rispettivamente in tutto $U$) se e solo se $u$ e $v$ sono continue in $z_0 \in U$ (rispettivamente in tutto $U$).
+\end{ftt}
+
+Importante: dal punto di vista della continuità le funzioni di $U$ a valori complessi possono essere semplicemente viste come funzioni da $U \subseteq \mathbb{R}^2$ a valori reali. Domanda: vale la stessa cosa quando parliamo di derivabilità?
+
+\begin{defn}
+  (Differenziabilità) La funzione $f:U \rightarrow \mathbb{C}$ è \textit{differenziabile in $z_0 \in U$} se esiste $A:\mathbb{C} \rightarrow \mathbb{C}$ applicazione $\mathbb{R}$-lineare t.c.
+  \begin{nlist}
+    \item $f(z)=f(z_0)+A(z-z_0)+r(z)$;
+    \item $\dfrac{|r(z)|}{|z-z_0|} \xrightarrow[]{z \rightarrow z_0} 0$.
+  \end{nlist}
+  In questo caso, chiamiamo l'applicazione $A$ \textit{jacobiano di $f$}, $A=: Jf_{z_0}$.
+\end{defn}
+
+\begin{oss}
+  $f$ differenziabile in $z_0$ $\implies$ $f$ continua in $z_0$.
+\end{oss}
+
+Fissiamo la base $\{1, i\}$ di $\mathbb{C}$ come $\mathbb{R}$-spazio vettoriale.
+\begin{align*}
+  f:U &\rightarrow \mathbb{C}\\
+  z=x+iy &\mapsto u(x, y)+iv(x, y)
+\end{align*}
+
+\begin{ftt}
+  \begin{nlist}
+    \item Se $f$ è differenziabile in $x_0+iy_0=z_0 \in U$, esistono le derivate parziali di $f$ in $z_0$ e $Jf_{z_0}=\begin{pmatrix}
+      \dfrac{\partial u}{\partial x}(x_0, y_0) & \dfrac{\partial u}{\partial y}(x_0, y_0)\\
+      \dfrac{\partial v}{\partial x}(x_0, y_0) & \dfrac{\partial v}{\partial y}(x_0, y_0)
+  \end{pmatrix}$;
+  \item (teorema del differenziale totale): se esistono $\dfrac{\partial u}{\partial x}, \dfrac{\partial u}{\partial y}, \dfrac{\partial v}{\partial x}, \dfrac{\partial v}{\partial y}$ in un intorno di $z_0$ e sono continue in $z_0$, allora $f$ è differenziabile in $z_0$.
+  \end{nlist}
+\end{ftt}
+
+\begin{exc}
+  \begin{align*}
+    f:\mathbb{R}^2 &\rightarrow \mathbb{R}\\
+    (x, y) &\mapsto \begin{cases} x & \mbox{se }y\not=x^2 \\ 0 & \mbox{se }y=x^2 \end{cases}
+  \end{align*}
+  è differenziabile in $(0, 0)$?
+\end{exc}
+
+\begin{defn}
+  (Funzione olomorfa) Siano $U \subseteq \mathbb{C}$ aperto, $f:U \rightarrow \mathbb{C}$ continua. Diciamo che $f$ è \textsc{olomorfa in $z_0 \in \mathbb{C}$} se esiste $\displaystyle \lim_{\substack{h \rightarrow 0 \\ h\not=0}} \frac{f(z_0+h)-f(z_0)}{h}$. Se tale limite esiste, lo chiamiamo derivata di $f$ in $z_0$ e lo denotiamo con $f'(z_0)$.
+  Diciamo che $f$ è \textsc{olomorfa in $U$} se è olomorfa per ogni $z_0 \in U$. Diciamo che $f$ è \textsc{intera} se è definita su tutto $\mathbb{C}$ ed è olomorfa in $\mathbb{C}$.
+\end{defn}
+
+\begin{prop}
+  Sia $U \subset \mathbb{C}$ aperto, $f, g:U \rightarrow \mathbb{C}$ olomorfe in $z_0 \in U$.
+  \begin{nlist}
+    \item $f+g$ è olomorfa in $z_0$ e $(f+g)'(z_0)=f'(z_0)+g'(z_0)$;
+    \item $f \cdot g$ è olomorfa in $z_0$ e $(f \cdot g)'(z_0)=f'(z_0)g(z_0)+f(z_0)g'(z_0)$;
+    \item se $g(z_0) \not=0$, $\dfrac{f}{g}$ è olomorfa in $z_0$ e $\left(\dfrac{f}{g}\right)9(z_0)=\dfrac{f'(z_0)g(z_0)-f(z_0)g'(z_0)}{g(z_0)^2}$.
+  \end{nlist}
+\end{prop}
+
+\begin{prop}
+  Siano $U, V$ aperti di $\mathbb{C}$, $f:U \rightarrow V$, $g:V \rightarrow \mathbb{C}$, $f$ olomorfa in $z_0 \in U$ è $g$ olomorfa in $f(z_0)$. Allora $g \circ f$ è olomorfa in $z_0$ e $(g \circ f)'(z_0)=g'(f(z_0))\cdot f'(z_0)$.
+\end{prop}
+
+\begin{ex}
+  \begin{nlist}
+    \item $f(z)=z$ è una funzione intera. Infatti, $\dfrac{f(z+h)-f(z)}{h}=\dfrac{z+h-z}{h}=1$ $\implies$ $f$ è olomorfa in $z \in \mathbb{C}$ e $f'(z)=1$;
+    \item $f(z)=z^n, n \ge 1$ è intera.
+    Infatti, $\displaystyle \frac{f(z+h)-f(z)}{h}=\frac{(z+h)^n-z^n}{h}=\frac{\sum_{k=0}^n \binom{n}{k}z^kh^{n-k}-z^n}{h}=\sum_{k=0}^{n-1} \binom{n}{k}z^kh^{n-k-1} \xrightarrow[\substack{h \rightarrow 0 \\ h\not=0}]{} \binom{n}{n-1} z^{n-1}=$\\
+    $=nz^{n-1}=:f'(z)$.
+  \end{nlist}
+\end{ex}
+
+\begin{exc}
+  Provare che $f(z)=z^n, n<0$ è olomorfa in $\mathbb{C}\setminus\{0\}$.
+\end{exc}
+
+\begin{oss}
+  I polinomi sono funzioni intere. Le funzioni razionali $\dfrac{P(z)}{Q(z)}$ con $P$ e $Q$ polinomi sono olomorfe in $\mathbb{C} \setminus \{z \in \mathbb{C} \mid Q(z)=0\}$.
+\end{oss}
+
+\begin{ex}
+  (Una funzione non olomorfa) $f(z)=\bar{z}$ non è olomorfa. $\dfrac{f(z+h)-f(z)}{h}=\dfrac{\bar{z}+\bar{h}-\bar{z}}{h}=\dfrac{\bar{h}}{h}$ per $h \in \mathbb{C}, h \not=0$. Se esiste $f'(z)$, allora il limite dovrebbe esistere per ogni possibile direzione per cui $h \rightarrow 0, h\not=0$. Se esiste $f'(z)$, dobbiamo per esempio avere che
+  \begin{align*}
+    1=\lim_{\substack{h \rightarrow 0 \\ h\not=0 \\ \mathfrak{Im}(h)=0}} \frac{\bar{h}}{h}=\lim_{\substack{h \rightarrow 0 \\ h\not=0 \\ \mathfrak{Im}(h)=0}} \frac{f(z+h)-f(z)}{h}=\\
+    =\lim_{\substack{h \rightarrow 0 \\ h\not=0 \\ \mathfrak{Re}(h)=0}} \frac{f(z+h)-f(z)}{h}=\lim_{\substack{h \rightarrow 0 \\ h\not=0 \\ \mathfrak{Re}(h)=0}} \frac{\bar{h}}{h}=-1,
+  \end{align*}
+  assurdo $\implies$ non può esistere $f'(z)$.
+\end{ex}
+
+Domanda: qual è il legame tra l'olomorficità di $f:U \rightarrow \mathbb{C}$ e la differenziabilità di $f$ vista come funzione da $U \subset \mathbb{R}^2$ in $\mathbb{R}^2$?
+
+\begin{oss}
+  Come nel caso della differenziabilità in ambito reale, $f$ olomorfa in $z_0$ $\implies$ $f$ continua in $z_0$. Infatti, $f(z)-f(z_0)=\dfrac{f(z)-f(z_0)}{z-z_0}(z-z_0)$; al limite per $z \rightarrow z_0$, abbiamo che tende  $\displaystyle f'(z_0) \cdot \lim_{z \rightarrow z_0} (z-z_0)=f'(z_0) \cdot 0=0$.
+\end{oss}
+
+\begin{ex}
+  $g(z)=\bar{z}$ non è olomorfa ma bella base $\{1, i\}$ di $\mathbb{C}$
+  \begin{align*}
+    g: \mathbb{R}^2 &\rightarrow \mathbb{R}^2\\
+    (x, y) &\mapsto (x, -y)
+  \end{align*}
+  ed è differnziabile.
+\end{ex}
