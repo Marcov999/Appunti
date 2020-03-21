@@ -1,0 +1,24 @@
+Sia $\Gamma$ un grafo finito connesso con $V$ vertici e $E$ lati. Diciamo che $\Gamma$ è un albero se non contiene cicli, cioè loop iniettivi.
+
+\begin{ftt}
+  \begin{nlist}
+    \item Un albero è contraibile (per induzione sul numero di vertici).
+    \item Se $\Gamma$ è un albero, $V-E=1$ (induzione).
+    \item $\Gamma$ connesso $\implies$ $\Gamma$ contiene un albero massimale $\Gamma'$ e $\Gamma'$ contiene tutti i vertici di $\Gamma$ $\implies$ $\Gamma=\Gamma'\cup\{\text{qualche lato}\}$.
+    \item Definiamo $\chi(\Gamma)=\text{caratteristica di Eulero di }\Gamma=V-E$. Se $\Gamma' \subseteq \Gamma$ ($\Gamma$ connesso) è un albero massimale, $\chi(\Gamma')=1$ $\implies$ $\Gamma=\Gamma'\cup\{(1-\chi(\Gamma))\text{ lati}\}$.
+    \item Dunque $\Gamma$ è ottenuto da un albero massimale aggiungendo $1-\chi(\Gamma)$ lati. Usando induttivamente Van Kampen, otteniamo il seguente teorema, di cui omettiamo la dimostrazione.
+  \end{nlist}
+\end{ftt}
+
+\begin{thm}
+  $\pi_1(\Gamma) \cong F_{1-\chi(\Gamma)}$, il gruppo libero su $1-\chi(\Gamma)$ generatori.
+\end{thm}
+
+\begin{thm}
+  Sia $F$ il gruppo libero su $n$ generatori, $H<F$ sottogruppo di indice $k$. Allora $H$ è un gruppo libero su $k(n-1)+1$ generatori (in particolare, il rango di $H$ è spesso maggiore di quello di $F$).
+\end{thm}
+
+\begin{proof}
+  $F=\pi_1(\Gamma), \chi(\Gamma)=1-n$ per il teorema appena visto. Sia $\widetilde{\Gamma}$ il rivestimento di $\Gamma$ associato ad $H$.
+  Poiché vertici e lati sono semplicemente connessi, se $V, E$ sono vertici e lati di $\widetilde{\Gamma}$, allora i vertici e lati di $\widetilde{\Gamma}$ sono $k \cdot V, k \cdot E$, in quanto $\deg{(\text{rivestimento})}=[F:H]=k \implies H=\pi_1(\widetilde{\Gamma})=F_{1-\chi(\widetilde{\Gamma})}=F_{1-k\chi(\Gamma)}=F_{1-k(1-n)}=F_{k(n-1)+1}$.
+\end{proof}

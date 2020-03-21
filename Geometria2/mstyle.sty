@@ -12,6 +12,35 @@
 \usepackage{enumitem}% http://ctan.org/pkg/enumitem
 \usepackage{graphicx}
 \usepackage[bookmarks]{hyperref}
+\usetikzlibrary{lindenmayersystems,arrows.meta}
+\newcount\quadrant
+\pgfdeclarelindenmayersystem{cayley}{
+  \rule{A -> B [ R [A] [+A] [-A] ]}
+  \symbol{R}{ \pgflsystemstep=0.5\pgflsystemstep }
+  \symbol{-}{
+    \pgfmathsetcount\quadrant{Mod(\quadrant+1,4)}
+    \tikzset{rotate=90}
+  }
+  \symbol{+}{
+    \pgfmathsetcount\quadrant{Mod(\quadrant-1,4)}
+    \tikzset{rotate=-90}
+  }
+  \symbol{B}{
+    \ifnumodd{\quadrant}{%true
+        \tikzset{dot-cayley/.append style={draw=black}}
+    }{%false
+        \tikzset{dot-cayley/.append style={draw=black}}
+    }
+    \draw [dot-cayley] (0,0) -- (\pgflsystemstep,0)
+       node [font=\footnotesize, midway,
+         anchor={270-mod(\the\quadrant,2)*90}, inner sep=.5ex]
+           {};
+    \tikzset{xshift=\pgflsystemstep}
+  }
+}
+\tikzset{
+  dot/.tip={Circle[sep=-1.5pt,length=3pt]}, cayley/.tip={dot[]}
+}
 
 \usetikzlibrary{arrows}
 \usetikzlibrary{shapes.geometric}
