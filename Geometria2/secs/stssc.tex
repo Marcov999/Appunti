@@ -1,18 +1,18 @@
 \begin{defn}
-  Uno spazio topologico $X$ localmente connesso per archi si dice \textsc{semilocalmente semplicemente connesso} se per ogni $x \in X$ esiste $U \subseteq X$ aperto con $x \in U$ t.c. l'inclusione $i:U \rightarrow X$ induce il morfismo banale $i_{\star}:\pi_1(U, x) \rightarrow \pi_1(X, x)$. Ovvero, per ogni $x \in X$ esiste un intorno $U$ di $x$ t.c. tutti i lacci basati in $x$ e contenuti in $U$ sono banali in $X$.
+  Uno spazio topologico $X$ localmente connesso per archi si dice \textsc{semilocalmente semplicemente connesso} se per ogni $x \in X$ esiste $U \subseteq X$ aperto con $x \in U$ t.c. l'inclusione $i:U \longrightarrow X$ induce il morfismo banale $i_{\star}:\pi_1(U, x) \longrightarrow \pi_1(X, x)$. Ovvero, per ogni $x \in X$ esiste un intorno $U$ di $x$ t.c. tutti i lacci basati in $x$ e contenuti in $U$ sono banali in $X$.
 \end{defn}
 
 Questa proprietà è verificata ad esempio se ogni punto ha un intorno semplicemente connesso (per esempio le varietà).
 
 \begin{oss}
-  Se $X$ ammette un rivestimento universale, allora è semilocalmente semplicemente connesso. Infatti, dato $x \in X$, ne possiamo prendere un intorno connesso per archi e ben rivestito $U$. Se $p:E \rightarrow X$ è il rivestimento universale e $V \subseteq p^{-1}(U)$ è un aperto con $p\restrict{V}:V \rightarrow U$ omeomorfismo,
+  Se $X$ ammette un rivestimento universale, allora è semilocalmente semplicemente connesso. Infatti, dato $x \in X$, ne possiamo prendere un intorno connesso per archi e ben rivestito $U$. Se $p:E \longrightarrow X$ è il rivestimento universale e $V \subseteq p^{-1}(U)$ è un aperto con $p\restrict{V}:V \longrightarrow U$ omeomorfismo,
   \begin{center}
     \begin{tikzcd}
       V \arrow[r, hook, "j"] \arrow[d, shift left, swap, "p\restrict{V}" right] & E \arrow[d, "p"]\\
       U \arrow[r, hook, "i"] \arrow[u, shift left, "s"] & X
     \end{tikzcd}
   \end{center}
-  $i=p \circ j \circ s$ $\implies$ $i_{\star}=p_{\star} \circ j_{\star} \circ s_{\star}$, ma $j_{\star}$ è banale perché $\pi_1(E) \cong \{1\}$, dunque $i_{\star}:\pi_1(U, x) \rightarrow \pi_1(X, x)$ è banale.
+  $i=p \circ j \circ s$ $\implies$ $i_{\star}=p_{\star} \circ j_{\star} \circ s_{\star}$, ma $j_{\star}$ è banale perché $\pi_1(E) \cong \{1\}$, dunque $i_{\star}:\pi_1(U, x) \longrightarrow \pi_1(X, x)$ è banale.
 \end{oss}
 
 \begin{lm}
@@ -20,15 +20,15 @@ Questa proprietà è verificata ad esempio se ogni punto ha un intorno semplicem
 \end{lm}
 
 \begin{proof}
-  Siano $p_1:E_1 \rightarrow X, p_2:E_2 \rightarrow X$ rivestimenti universali di $X$. Consideriamo il seguente diagramma:
+  Siano $p_1:E_1 \longrightarrow X, p_2:E_2 \longrightarrow X$ rivestimenti universali di $X$. Consideriamo il seguente diagramma:
   \begin{center}
     \begin{tikzcd}
       & E_2 \arrow[d, "p_2"]\\
       E_1 \arrow[r, "p_1"] \arrow[ru, dashed, "\varphi"] & X
     \end{tikzcd}
   \end{center}
-  Poiché $E$ è semplicemente connesso, per il corollario \ref{soll_conn} il diagramma si completa con $\varphi:E_1 \rightarrow E_2$ t.c. $p_2 \circ \varphi=p_1$. Fissati $\tilde{x}_1 \in p_1^{-1}(x)$ e $\tilde{x}_2 \in p_2^{-1}(x)$, possiamo anche richiedere $\varphi(\tilde{x}_1)=\tilde{x}_2$.
-  Analogamente, esiste $\psi:E_2 \rightarrow E_1$ con $p_1 \circ \psi=p_2$ e $\psi(\tilde{x}_2)=\tilde{x}_1$. Segue facilmente che $\varphi$ e $\psi$ sono isomorfismi, uno l'inverso dell'altro.
+  Poiché $E$ è semplicemente connesso, per il corollario \ref{soll_conn} il diagramma si completa con $\varphi:E_1 \longrightarrow E_2$ t.c. $p_2 \circ \varphi=p_1$. Fissati $\tilde{x}_1 \in p_1^{-1}(x)$ e $\tilde{x}_2 \in p_2^{-1}(x)$, possiamo anche richiedere $\varphi(\tilde{x}_1)=\tilde{x}_2$.
+  Analogamente, esiste $\psi:E_2 \longrightarrow E_1$ con $p_1 \circ \psi=p_2$ e $\psi(\tilde{x}_2)=\tilde{x}_1$. Segue facilmente che $\varphi$ e $\psi$ sono isomorfismi, uno l'inverso dell'altro.
 \end{proof}
 
 \begin{thm}
@@ -41,15 +41,15 @@ Questa proprietà è verificata ad esempio se ogni punto ha un intorno semplicem
   Unicità: già vista.
 
   ($\Leftarrow$) (Idea della dimostrazione) Si fissa $x \in X$. Si definisce $\displaystyle E= \faktor{\bigcup_{y \in X}\Omega(x, y)}{\sim}$ dove $\gamma_1 \sim \gamma_2$ $\iff$ sono omotopi a estremi fissi.
-  Si topologizza $\displaystyle \bigcup_{y \in X} \Omega(x, y)$ con la topologia compatta-aperta (se $X$ è metrico, è la topologia della convergenza uniforme), si dota $E$ della topologia quoziente e si definisce $p:E \rightarrow X$, $p([\gamma])=\gamma(1)$. Bisogna verificare che $E$ è semplicemente connesso e che $p$ è un rivestimento.
+  Si topologizza $\displaystyle \bigcup_{y \in X} \Omega(x, y)$ con la topologia compatta-aperta (se $X$ è metrico, è la topologia della convergenza uniforme), si dota $E$ della topologia quoziente e si definisce $p:E \longrightarrow X$, $p([\gamma])=\gamma(1)$. Bisogna verificare che $E$ è semplicemente connesso e che $p$ è un rivestimento.
 \end{proof}
 
 \begin{thm}
-  Sia $X$ connesso e semilocalmente semplicemente connesso, $x \in X$. Allora per ogni $H<\pi_1(X, x)$ esiste un rivestimento $p:E \rightarrow X$ t.c. $p_{\star}(\pi_1(E, \tilde{x}))=H$, dove $\tilde{x} \in p^{-1}(x)$. Tale rivestimento è unico a meno di isomorfismo.
+  Sia $X$ connesso e semilocalmente semplicemente connesso, $x \in X$. Allora per ogni $H<\pi_1(X, x)$ esiste un rivestimento $p:E \longrightarrow X$ t.c. $p_{\star}(\pi_1(E, \tilde{x}))=H$, dove $\tilde{x} \in p^{-1}(x)$. Tale rivestimento è unico a meno di isomorfismo.
 \end{thm}
 
 \begin{proof}
-  Sia $q:\widetilde{X} \rightarrow X$ il rivestimento universale di $X$ e fissiamo $\tilde{\tilde{x}} \in q^{-1}(x)$. Abbiamo $\pi_1(X, x) \cong \text{Aut}(\widetilde{X})$, denotiamo con $H$ anche il sottogruppo di $\text{Aut}(\widetilde{X})$ corrispondente a $H<\pi_1(X, x)$. Pongo $E=\faktor{\widetilde{X}}{H}$.
+  Sia $q:\widetilde{X} \longrightarrow X$ il rivestimento universale di $X$ e fissiamo $\tilde{\tilde{x}} \in q^{-1}(x)$. Abbiamo $\pi_1(X, x) \cong \text{Aut}(\widetilde{X})$, denotiamo con $H$ anche il sottogruppo di $\text{Aut}(\widetilde{X})$ corrispondente a $H<\pi_1(X, x)$. Pongo $E=\faktor{\widetilde{X}}{H}$.
   \begin{center}
     \begin{tikzcd}
       \widetilde{X} \arrow[rr, bend right, "q"] \arrow[r, "\pi"] & \faktor{\widetilde{x}}{H}=E \arrow[r, "p"] & \faktor{\widetilde{X}}{\pi_1(X, x)}=X
@@ -89,7 +89,7 @@ Questa proprietà è verificata ad esempio se ogni punto ha un intorno semplicem
       \filldraw (0,0) circle (1pt);
     \end{tikzpicture}
   \end{center}
-  Non è omogeneo: se $\varphi:E \rightarrow E$ è un omeomorfismo, $\varphi(\text{loop})=\text{loop} \implies \varphi(\tilde{x}_0)=\tilde{x}_0 \implies \text{Aut}(E)=\{1\}$. In effetti $\langle a \rangle$ è molto lontano dall'essere normale in $\pi_1(X, x)=\mathbb{Z} * \mathbb{Z}$.
+  Non è omogeneo: se $\varphi:E \longrightarrow E$ è un omeomorfismo, $\varphi(\text{loop})=\text{loop} \implies \varphi(\tilde{x}_0)=\tilde{x}_0 \implies \text{Aut}(E)=\{1\}$. In effetti $\langle a \rangle$ è molto lontano dall'essere normale in $\pi_1(X, x)=\mathbb{Z} * \mathbb{Z}$.
   Se $N(a)$ è il sottogruppo normale generato da $a$ in $\pi_1(X)$, il rivestimento associato a $N$ come sarà fatto?
   $N$ normale $\implies$ il rivestimento associato $E \xrightarrow[]{p} X$ sarà regolare e $\text{Aut}(E)=\faktor{\pi_1(X, x)}{p_{\star}(\pi_1(E, \tilde{x}))}=\faktor{\mathbb{Z} * \mathbb{Z}}{N}=\langle a, b \mid a \rangle \overset{\psi}{\cong} \mathbb{Z}$,
   \begin{align*}

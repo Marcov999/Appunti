@@ -1,7 +1,7 @@
-Siano $X$ spazio topologico e $a, b \in X$. $\Omega(a, b):=\{\gamma:[0, 1] \rightarrow X \text{ continuo t.c. } \gamma(0)=a, \gamma(1)=b\}$.
+Siano $X$ spazio topologico e $a, b \in X$. $\Omega(a, b):=\{\gamma:[0, 1] \longrightarrow X \text{ continuo t.c. } \gamma(0)=a, \gamma(1)=b\}$.
 
 \begin{defn}
-  $\alpha, \beta \in \Omega(a, b)$ sono \textsc{omotopi} (\textsc{come cammini} o \textsc{a estremi fissi}) se esiste $H:[0, 1] \times I \rightarrow X$ omotopia tra $\alpha$ e $\beta$ e t.c. $H(0, t)=a, H(1, t)=b$ per ogni $t \in I$. Essere omotopi è una relazione di equivalenza $\sim$ tra cammini.
+  $\alpha, \beta \in \Omega(a, b)$ sono \textsc{omotopi} (\textsc{come cammini} o \textsc{a estremi fissi}) se esiste $H:[0, 1] \times I \longrightarrow X$ omotopia tra $\alpha$ e $\beta$ e t.c. $H(0, t)=a, H(1, t)=b$ per ogni $t \in I$. Essere omotopi è una relazione di equivalenza $\sim$ tra cammini.
 \end{defn}
 
 \begin{defn}
@@ -18,7 +18,7 @@ Notazione: $1_a \in \Omega(a, a)$ è il cammino costante in $a$. Se $\alpha \in 
 È vero che se $\alpha, \beta, \gamma \in \Omega(a, a)$, allora $(\alpha * \beta) * \gamma=\alpha * (\beta * \gamma)$? No! Però sono omotopi. \marginpar{\warningsign}
 
 \begin{lm}
-  Sia $\varphi:[0, 1] \rightarrow [0, 1]$ continua e t.c. $\varphi(0)=0, \varphi(1)=1$ e sia $\gamma \in \Omega(a, b)$, allora $\gamma \sim \gamma \circ \varphi$.
+  Sia $\varphi:[0, 1] \longrightarrow [0, 1]$ continua e t.c. $\varphi(0)=0, \varphi(1)=1$ e sia $\gamma \in \Omega(a, b)$, allora $\gamma \sim \gamma \circ \varphi$.
 \end{lm}
 
 \begin{proof}
@@ -35,11 +35,11 @@ Notazione: $1_a \in \Omega(a, a)$ è il cammino costante in $a$. Se $\alpha \in 
 
 \begin{proof}
   Sia $H$ l'omotopia tra $\alpha$ e $\alpha'$ e $K$ quella tra $\beta$ e $\beta'$, allora la mappa
-  $$(t, s) \mapsto \begin{cases} H(2t, s) \text{ se } 0 \le t \le 1/2 \\ K(2t-1, s) \text{ se } 1/2 \le t \le 1 \end{cases}$$ è l'omotopia cercata.
+  $$(t, s) \longmapsto \begin{cases} H(2t, s) \text{ se } 0 \le t \le 1/2 \\ K(2t-1, s) \text{ se } 1/2 \le t \le 1 \end{cases}$$ è l'omotopia cercata.
 \end{proof}
 
 \begin{cor}
-  L'operazione $\pi_1(X, a) \times \pi_1(X, a) \rightarrow \pi_1(X, a)$ t.c. $([\alpha], [\beta]) \mapsto [\alpha * \beta]$ è ben definita e associativa.
+  L'operazione $\pi_1(X, a) \times \pi_1(X, a) \longrightarrow \pi_1(X, a)$ t.c. $([\alpha], [\beta]) \longmapsto [\alpha * \beta]$ è ben definita e associativa.
 \end{cor}
 
 Notazione: con un abuso, d'ora in poi indicheremo con $\alpha * \beta * \gamma$ il cammino $(\alpha * \beta) * \gamma$ o $\alpha * (\beta * \gamma)$, che non dà problemi a meno di riparametrizzazione/omotopia. Stessa cosa per $\alpha_1 * \alpha_2 * \dots * \alpha_n$.
@@ -51,10 +51,10 @@ $$H(t, s)=\begin{cases} \alpha(2t) \text{ se } t \le s/2 \\ \alpha(s) \text{ se 
 
 Abbiamo così dimostrato che $\pi_1(X, a)$ è un gruppo con l'operazione $[\alpha]\dots[\beta]=[\alpha * \beta]$. Vogliamo adesso studiare la dipendenza di  $\pi_1(X, a)$ da $a$. D'ora in poi, se non detto diversamente, assumeremo $X$ connesso per archi (se $Y$ è la componente connessa per archi di $a$ in $X$, $\pi_1(X,a ) \cong \pi_1(Y, a)$).
 
-Siano $a, b \in X$ e $\gamma \in \Omega(a, b)$. Poniamo $\gamma_{\sharp}: \pi_1(X, a) \rightarrow \pi_1(X, b)$ t.c. $\gamma_{\sharp}([\alpha])=[\bar{\gamma} * \alpha * \gamma]$. Osserviamo che è ben definita.
+Siano $a, b \in X$ e $\gamma \in \Omega(a, b)$. Poniamo $\gamma_{\sharp}: \pi_1(X, a) \longrightarrow \pi_1(X, b)$ t.c. $\gamma_{\sharp}([\alpha])=[\bar{\gamma} * \alpha * \gamma]$. Osserviamo che è ben definita.
 
 \begin{thm}
-  $\gamma_{\sharp}: \pi_1(X, a) \rightarrow \pi_1(X, b)$ è un isomorfismo di gruppi.
+  $\gamma_{\sharp}: \pi_1(X, a) \longrightarrow \pi_1(X, b)$ è un isomorfismo di gruppi.
   \begin{proof}
     $\gamma_{\sharp}$ è un omomorfismo in quanto $\gamma_{\sharp}([\alpha][\beta])=\gamma_{\sharp}([\alpha * \beta])=[\bar{\gamma} * \alpha * \beta * \gamma]=[\bar{\gamma} * \alpha * \gamma * \bar{\gamma} * \beta * \gamma]=$
     $[\bar{\gamma} * \alpha * \gamma][\bar{\gamma} * \beta * \gamma]=\gamma_{\sharp}([\alpha]) \cdot \gamma_{\sharp}([\beta])$.
@@ -70,9 +70,9 @@ Siano $a, b \in X$ e $\gamma \in \Omega(a, b)$. Poniamo $\gamma_{\sharp}: \pi_1(
 \end{cor}
 
 \begin{defn}
-  Sia $\Omega(S^1, a)=\{ \gamma: Sì1 \rightarrow X \text{ con } \gamma(1)=a\}$ ($S^1$ lo vediamo in $\mathbb{C}$, cioè $1 \in S^1$ è $(1, 0)$). C'è una bigezione canonica tra $\Omega(a, a)$ e $\Omega(S^1, a)$ data da: se $\alpha \in \Omega(a, a)$, poiché
-  $\alpha(0)=\alpha(1)$, $\alpha$ definisce una $\hat{\alpha}: \faktor{[0, 1]}{\{0, 1\}} \rightarrow X$ continua. Identifichiamo d'ora in poi $\faktor{[0, 1]}{\{0, 1\}}$ tramite l'identificazione $\pi: [0, 1] \rightarrow S^1, \pi(t)=e^{2 \pi i t}$, per cui
-  $\hat{\alpha}:S^1 \rightarrow X$ e $\hat{\alpha}(1)=\gamma(1)=a$. L'inverso della mappa $\alpha \mapsto \hat{\alpha}$ è $\alpha(t)=\hat{\alpha}(\pi(t))$.
+  Sia $\Omega(S^1, a)=\{ \gamma: Sì1 \longrightarrow X \text{ con } \gamma(1)=a\}$ ($S^1$ lo vediamo in $\mathbb{C}$, cioè $1 \in S^1$ è $(1, 0)$). C'è una bigezione canonica tra $\Omega(a, a)$ e $\Omega(S^1, a)$ data da: se $\alpha \in \Omega(a, a)$, poiché
+  $\alpha(0)=\alpha(1)$, $\alpha$ definisce una $\hat{\alpha}: \faktor{[0, 1]}{\{0, 1\}} \longrightarrow X$ continua. Identifichiamo d'ora in poi $\faktor{[0, 1]}{\{0, 1\}}$ tramite l'identificazione $\pi: [0, 1] \longrightarrow S^1, \pi(t)=e^{2 \pi i t}$, per cui
+  $\hat{\alpha}:S^1 \longrightarrow X$ e $\hat{\alpha}(1)=\gamma(1)=a$. L'inverso della mappa $\alpha \longmapsto \hat{\alpha}$ è $\alpha(t)=\hat{\alpha}(\pi(t))$.
 \end{defn}
 
 \begin{lm} \label{Q/C=D^2}
@@ -84,21 +84,21 @@ Siano $a, b \in X$ e $\gamma \in \Omega(a, b)$. Poniamo $\gamma_{\sharp}: \pi_1(
 \end{proof}
 
 \begin{prop}
-  $\alpha \in \Omega(a, a)$, allora $[\alpha]=1$ in $\pi_1(X, a)$ $\Leftrightarrow$ $\hat{\alpha}: S^1 \rightarrow X$ si estende in maniera continua a $D^2$.
+  $\alpha \in \Omega(a, a)$, allora $[\alpha]=1$ in $\pi_1(X, a)$ $\Leftrightarrow$ $\hat{\alpha}: S^1 \longrightarrow X$ si estende in maniera continua a $D^2$.
 \end{prop}
 
 \begin{proof}
-  ($\implies$) Se $\alpha \sim 1_a$, esiste $H:Q \rightarrow X$ t.c. $H(t, 0)=\alpha(t), H(C)=\{a\}$ data dall'omotopia. $H$ definisce per passaggio al quoziente una funzione continua. $\hat{H}: \faktor{Q}{C} \rightarrow X$, cioè tramite l'identificazione del lemma \ref{Q/C=D^2} $\hat{H}: D^2 \rightarrow X$. Per costruzione,
+  ($\implies$) Se $\alpha \sim 1_a$, esiste $H:Q \longrightarrow X$ t.c. $H(t, 0)=\alpha(t), H(C)=\{a\}$ data dall'omotopia. $H$ definisce per passaggio al quoziente una funzione continua. $\hat{H}: \faktor{Q}{C} \longrightarrow X$, cioè tramite l'identificazione del lemma \ref{Q/C=D^2} $\hat{H}: D^2 \longrightarrow X$. Per costruzione,
   $\hat{H} \restrict{S^1}=\hat{\alpha}$, che dunque si estende come voluto.
 
-  ($\Leftarrow$) Viceversa, se $\hat{\alpha}$ si estende a $f:D^2 \rightarrow X$, la mappa $H: Q \rightarrow X$ data da $H=f \circ \pi$, dove $\pi: \faktor{Q}{C} \rightarrow D^2$ è l'identificazione, dà un'omotopia tra $\alpha$ e $1_a$.
+  ($\Leftarrow$) Viceversa, se $\hat{\alpha}$ si estende a $f:D^2 \longrightarrow X$, la mappa $H: Q \longrightarrow X$ data da $H=f \circ \pi$, dove $\pi: \faktor{Q}{C} \longrightarrow D^2$ è l'identificazione, dà un'omotopia tra $\alpha$ e $1_a$.
 \end{proof}
 
 \begin{cor} \label{pol_est}
-  Sia $P \subseteq \mathbb{R}^2$ un poligono convesso con lati $e_1, \dots, e_n$ parametrizzati da $\phi_i: [0, 1] \rightarrow e_i$ e siano $\gamma: \partial P=e_1 \cup \dots \cup e_n \rightarrow X, \alpha_1=\gamma \circ \phi_i$ per ogni $i$. Allora
+  Sia $P \subseteq \mathbb{R}^2$ un poligono convesso con lati $e_1, \dots, e_n$ parametrizzati da $\phi_i: [0, 1] \longrightarrow e_i$ e siano $\gamma: \partial P=e_1 \cup \dots \cup e_n \longrightarrow X, \alpha_1=\gamma \circ \phi_i$ per ogni $i$. Allora
   $\alpha_1 * \alpha_2 * \dots * \alpha_n \sim 1_{\alpha_1(0)}$ $\Leftrightarrow$ $\gamma$ si estende a $P$ in maniera continua.
 \end{cor}
 
 \begin{proof}
-  Esiste un omeomorfismo $f: P \rightarrow D^2$ con $f(\partial P)=S^1$, per cui la tesi segue da quanto già visto.
+  Esiste un omeomorfismo $f: P \longrightarrow D^2$ con $f(\partial P)=S^1$, per cui la tesi segue da quanto già visto.
 \end{proof}

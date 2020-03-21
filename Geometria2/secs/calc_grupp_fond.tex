@@ -10,7 +10,7 @@ Abbiamo adesso gli strumenti per poter determinare il gruppo fondamentale di alc
     p: \mathbb{R} &\longrightarrow S^1 \\
     t &\longmapsto (\cos{2\pi t}, \sin{2\pi t}),
   \end{align*}
-  $F=p^{-1}(1, 0)=\mathbb{Z}$. Poniamo $\psi:\pi_1(S^1, (1, 0)) \rightarrow \mathbb{Z}$, $\psi([\gamma])=0 \cdot [\gamma]$. $\mathbb{R}$ è semplicemente connesso, quindi basta vedere che $\psi$ è un omeomorfismo.
+  $F=p^{-1}(1, 0)=\mathbb{Z}$. Poniamo $\psi:\pi_1(S^1, (1, 0)) \longrightarrow \mathbb{Z}$, $\psi([\gamma])=0 \cdot [\gamma]$. $\mathbb{R}$ è semplicemente connesso, quindi basta vedere che $\psi$ è un omeomorfismo.
   Dati $[\alpha], [\beta] \in \pi_1(S^1, x_0), x_0=(1, 0)$,
   abbiamo che $\psi([\alpha] \cdot [\beta])=\psi([\alpha * \beta])=\widetilde{(\alpha * \beta)}_0(1)=\tilde{\alpha}_0*\tilde{\beta}_{\tilde{\alpha}_0(1)}(1)=\tilde{\beta}_{\tilde{\alpha}_0(1)}(1)$.
   Ora, $\tilde{\beta}_{\tilde{\alpha}_0(1)}$ e $\tilde{\alpha}_0(1)+\tilde{\beta}_0$ sono entrambi sollevamenti di $\beta$ a partire dallo stesso punto iniziale.
@@ -18,7 +18,7 @@ Abbiamo adesso gli strumenti per poter determinare il gruppo fondamentale di alc
 \end{proof}
 
 \begin{prop}
-  $R \subseteq X$ retratto, allora per ogni $x_0 \in R$ $i_{\star}: \pi_1(R, x_0) \rightarrow \pi_1(X, x_0)$ è iniettiva e $r_{\star}: \pi_1(X, x_0) \rightarrow \pi_1(R, x_0)$ è suriettiva.
+  $R \subseteq X$ retratto, allora per ogni $x_0 \in R$ $i_{\star}: \pi_1(R, x_0) \longrightarrow \pi_1(X, x_0)$ è iniettiva e $r_{\star}: \pi_1(X, x_0) \longrightarrow \pi_1(R, x_0)$ è suriettiva.
 \end{prop}
 
 \begin{proof}
@@ -30,12 +30,12 @@ Abbiamo adesso gli strumenti per poter determinare il gruppo fondamentale di alc
 \end{cor}
 
 \begin{thm}
-  (Teorema del punto fisso di Brouwer) $f:D^2 \rightarrow D^2$ continua $\implies$ $f$ ha almeno un punto fisso.
+  (Teorema del punto fisso di Brouwer) $f:D^2 \longrightarrow D^2$ continua $\implies$ $f$ ha almeno un punto fisso.
 \end{thm}
 
 \begin{proof}
   Se $f(x)\not=x$ per ogni $x \in D^2$, costruiamo una retrazione \\
-  $r:D^2 \rightarrow S^1$ come segue:
+  $r:D^2 \longrightarrow S^1$ come segue:
   \begin{center}
   \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
     \clip(2.99,-4.05) rectangle (10.59,2.55);
@@ -71,14 +71,14 @@ cerchiamo $t>0$ t.c. $\|f(x)+t(x-f(x))\|^2=1$, poniamo poi $r(x)=f(x)+t(x-f(x))$
 \end{thm}
 
 \begin{proof}
-  È lasciata come esercizio per il lettore. Traccia: $\pi_X:X \times Y \rightarrow X, \pi_Y:X \times Y \rightarrow Y$ le proiezioni,
+  È lasciata come esercizio per il lettore. Traccia: $\pi_X:X \times Y \longrightarrow X, \pi_Y:X \times Y \longrightarrow Y$ le proiezioni,
   \begin{align*}
     i:X &\longrightarrow X \times Y \\
     x &\longmapsto (x, y_0), \\
     j:Y &\longrightarrow X \times Y \\
     y &\longmapsto (x_0, y).
   \end{align*}
-  Poniamo $\psi:\pi_1(X \times Y, (x_0, y_0)) \rightarrow \pi_1(X, x_0) \times \pi_1(Y, y_0)$, $\psi(\alpha)=((\pi_X)_{\star}(\alpha), (\pi_Y)_{\star}(\alpha))$. Si verifica che funziona.
+  Poniamo $\psi:\pi_1(X \times Y, (x_0, y_0)) \longrightarrow \pi_1(X, x_0) \times \pi_1(Y, y_0)$, $\psi(\alpha)=((\pi_X)_{\star}(\alpha), (\pi_Y)_{\star}(\alpha))$. Si verifica che funziona.
 \end{proof}
 
 \begin{cor}

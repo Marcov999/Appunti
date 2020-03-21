@@ -1,7 +1,7 @@
 D'ora in poi tutti gli spazi saranno localmente connessi per archi.
 
 \begin{prop}
-  Sia $p:E \rightarrow X$ rivestimento con $E$ connesso e siano $\tilde{x}_0 \in p^{-1}(x_0)=F$ e $\psi:\pi_1(X, x_0) \rightarrow F$, $\psi(\alpha)=\tilde{x}_0 \cdot \alpha$.
+  Sia $p:E \longrightarrow X$ rivestimento con $E$ connesso e siano $\tilde{x}_0 \in p^{-1}(x_0)=F$ e $\psi:\pi_1(X, x_0) \longrightarrow F$, $\psi(\alpha)=\tilde{x}_0 \cdot \alpha$.
   $\psi$ induce una bigezione $\mfaktor{p_{\star}(\pi_1(E, \tilde{x}_0))}{\pi_1(X, x_0)} \cong F$.
   In particolare, $stab(\tilde{x}_0)=p_{\star}(\pi_1(E, \tilde{x}_0))$ e, al variare di $\tilde{x} \in F$, i gruppi $p_{\star}(\pi_1(E, \tilde{x}))=stab(\tilde{x})$ sono tutti e soli i coniugati di $p_{\star}(\pi_1(E, \tilde{x}_0))=stab(\tilde{x}_0)$.
 \end{prop}
@@ -17,8 +17,8 @@ D'ora in poi tutti gli spazi saranno localmente connessi per archi.
 \end{proof}
 
 \begin{thm}
-  Teorema di sollevamento. Sia $p:E \rightarrow X$ un rivestimento connesso (cioè $E$ è connesso), $x_0 \in X, \tilde{x}_0 \in p^{-1}(x_0)$ e sia $f:Y \rightarrow X$ continua, $Y$ connesso, $y_0 \in Y$.
-  Allora esiste un sollevamento $\tilde{f}:Y \rightarrow E$ di $f$ con $\tilde{f}(y_0)=\tilde{x}_0$ $\iff$ $f_{\star}(\pi_1(Y, y_0)) \subseteq p_{\star} (\pi_1(E, \tilde{x}_0))$.
+  Teorema di sollevamento. Sia $p:E \longrightarrow X$ un rivestimento connesso (cioè $E$ è connesso), $x_0 \in X, \tilde{x}_0 \in p^{-1}(x_0)$ e sia $f:Y \longrightarrow X$ continua, $Y$ connesso, $y_0 \in Y$.
+  Allora esiste un sollevamento $\tilde{f}:Y \longrightarrow E$ di $f$ con $\tilde{f}(y_0)=\tilde{x}_0$ $\iff$ $f_{\star}(\pi_1(Y, y_0)) \subseteq p_{\star} (\pi_1(E, \tilde{x}_0))$.
 \end{thm}
 
 \begin{proof}
@@ -38,22 +38,22 @@ D'ora in poi tutti gli spazi saranno localmente connessi per archi.
   Perciò $\widetilde{(f \circ \gamma)}_{\tilde{x}_0}(1)=\widetilde{((f \circ \alpha)*(f \circ \beta))}_{\tilde{x}_0}(1)=\widetilde{(f \circ \alpha)}_{\tilde{x}_0}*\widetilde{(f \circ \beta)}_{\widetilde{(f \circ \alpha)}_{\tilde{x}_0}(1)}(1)=\widetilde{(f \circ \alpha)}_{\tilde{x}_0}*\widetilde{(f \circ \beta)}_{\tilde{x}_0}(1)=\widetilde{(f \circ \beta)}_{\tilde{x}_0}(1)$
   $\implies$ $\tilde{f}$ è ben definita.
 
-  Continuità di $\tilde{f}$: dato $y \in Y$, sia $U$ un intorno aperto connesso per archi e ben rivestito di $f(y)$ in $X$ e sia $W=f^{-1}(U)$, che è aperto. $\displaystyle p^{-1}=\bigsqcup_{i \in I} V_i$ con i $V_i$ aperti in $E$. Scegliamo $i_0$ t.c. $\tilde{f}(y) \in V_{i_0}$. Sia anche $s:U \rightarrow V_{i_0}$ l'inversa continua di $p\restrict{V_{i_0}}$.
+  Continuità di $\tilde{f}$: dato $y \in Y$, sia $U$ un intorno aperto connesso per archi e ben rivestito di $f(y)$ in $X$ e sia $W=f^{-1}(U)$, che è aperto. $\displaystyle p^{-1}=\bigsqcup_{i \in I} V_i$ con i $V_i$ aperti in $E$. Scegliamo $i_0$ t.c. $\tilde{f}(y) \in V_{i_0}$. Sia anche $s:U \longrightarrow V_{i_0}$ l'inversa continua di $p\restrict{V_{i_0}}$.
   Basta vedere che $\tilde{f}\restrict{W}=s \circ f\restrict{W}$, così avremmo $\tilde{f}\restrict{W}$ continua, dunque $\tilde{f}$ continua. Sia $\gamma \in \Omega(y_0, y)$ e per ogni $z \in U$ sia $\gamma_z \in \Omega(y, z)$. Scegliamo $\alpha_z=\gamma*\gamma_z$.
   $\tilde{f}(z)=\widetilde{(f \circ \alpha_z)}_{\tilde{x}_0}(1)=\widetilde{((f \circ \gamma)*(f \circ \gamma_z))}_{\tilde{x}_0}(1)=\widetilde{(f \circ \gamma)}_{\tilde{x}_0}*\widetilde{(f \circ \gamma_z)}_{\widetilde{(f \circ \gamma)}_{\tilde{x}_0}(1)}(1)=\widetilde{(f \circ \gamma)}_{\tilde{x}_0}*\widetilde{(f \circ \gamma_z)}_{\tilde{f}(y)}(1)=\widetilde{(f \circ \gamma_z)}_{\tilde{f}(y)}(1)$.
   Adesso notiamo che $s \circ f \circ \gamma_z$ solleva $f \circ \gamma_z$ a partire da $\tilde{f}(y)$, dunque per unicità del sollevamento dev'essere uguale a $\widetilde{(f \circ \gamma_z)}_{\tilde{f}(y)}$, perciò $\widetilde{(f \circ \gamma_z)}_{\tilde{f}(y)}(1)=(s \circ f \circ \gamma_z)(1)=s(f(z))$.
 \end{proof}
 
 \begin{cor} \label{soll_conn}
-  Siano $p:E \rightarrow X$ rivestimento connesso, $x_0 \in X$, $\tilde{x}_0 \in p^{-1}(x_0)$, $f:Y \rightarrow X$ con $f(y_0)=x_0$. Se $Y$ è semplicemente connesso, esiste un unico sollevamento $\tilde{f}:Y \rightarrow E$ di $f$ con $\tilde{f}(y_0)=\tilde{x}_0$.
+  Siano $p:E \longrightarrow X$ rivestimento connesso, $x_0 \in X$, $\tilde{x}_0 \in p^{-1}(x_0)$, $f:Y \longrightarrow X$ con $f(y_0)=x_0$. Se $Y$ è semplicemente connesso, esiste un unico sollevamento $\tilde{f}:Y \longrightarrow E$ di $f$ con $\tilde{f}(y_0)=\tilde{x}_0$.
 \end{cor}
 
 \begin{thm}
-  (Borsuk-Ulam) Non esistono mappe continue $f:S^2 \rightarrow S^1$ t.c. $f(-x)=-f(x)$.
+  (Borsuk-Ulam) Non esistono mappe continue $f:S^2 \longrightarrow S^1$ t.c. $f(-x)=-f(x)$.
 \end{thm}
 
 \begin{proof}
-  Per assurdo, sia $f:S^2 \rightarrow S^1$ continua t.c. $f(-x)=-f(x)$. Siano $p:S^2 \rightarrow \mathbb{P}^2(\mathbb{R}), q:S^1 \rightarrow \mathbb{P}^1(\mathbb{R})$ le proiezioni. Abbiamo un diagramma commutativo di funzioni continue
+  Per assurdo, sia $f:S^2 \longrightarrow S^1$ continua t.c. $f(-x)=-f(x)$. Siano $p:S^2 \longrightarrow \mathbb{P}^2(\mathbb{R}), q:S^1 \longrightarrow \mathbb{P}^1(\mathbb{R})$ le proiezioni. Abbiamo un diagramma commutativo di funzioni continue
   \begin{center}
     \begin{tikzcd}
             S^2 \arrow[d, "p"] \arrow[r, "f"] & S^1 \arrow[d, "q"]\\
@@ -61,24 +61,24 @@ D'ora in poi tutti gli spazi saranno localmente connessi per archi.
      \end{tikzcd}
    \end{center}
   Si noti che il diagramma commuta perché $q(f(x_0))=q(f(-x_0))$. Sappiamo che $\pi_1(\mathbb{P}^2(\mathbb{R}))=\mathbb{Z}_2$ e dato che $\mathbb{P}^1(\mathbb{R}) \cong S^1$ abbiamo che $\pi_1(\mathbb{P}^1(\mathbb{R}))=\mathbb{Z}$.
-  Allora $\bar{f}_{\star}:\pi_1(\mathbb{P}^2(\mathbb{R})) \rightarrow \pi_1(\mathbb{P}^1(\mathbb{R}))$ è la mappa banale.
+  Allora $\bar{f}_{\star}:\pi_1(\mathbb{P}^2(\mathbb{R})) \longrightarrow \pi_1(\mathbb{P}^1(\mathbb{R}))$ è la mappa banale.
   \begin{center}
     \begin{tikzcd}
             & & S^1 \arrow[d, "q"]\\
             S^2 \arrow[rru, bend left, "f"] \arrow[r, "p"] & \mathbb{P}^2(\mathbb{R}) \arrow[ru, "h"] \arrow[r, "\bar{f}"] & \mathbb{P}^1(\mathbb{R})
     \end{tikzcd}
   \end{center}
-  Per il teorema di sollevamento, esiste $h:\mathbb{P}^2(\mathbb{R}) \rightarrow S^1$ con $q \circ h=\bar{f}$ (attenzione: non sappiamo che $h \circ p=f$). Scegliamo $x_0 \in S^2$. Sappiamo che $q(h(p(x_0)))=\bar{f}(p(x_0))=q(f(x_0))$, dunque $h \circ p$ e $f$ sono entrambi sollevamenti di $\bar{f} \circ p$.
+  Per il teorema di sollevamento, esiste $h:\mathbb{P}^2(\mathbb{R}) \longrightarrow S^1$ con $q \circ h=\bar{f}$ (attenzione: non sappiamo che $h \circ p=f$). Scegliamo $x_0 \in S^2$. Sappiamo che $q(h(p(x_0)))=\bar{f}(p(x_0))=q(f(x_0))$, dunque $h \circ p$ e $f$ sono entrambi sollevamenti di $\bar{f} \circ p$.
   Dato $x_0 \in S^2$, sia $z_0 \in \mathbb{P}^1(\mathbb{R}), z_0=\bar{f}(p(x_0))$. $q^{-1}(z_0)=\{y_0, -y_0\}$. Dunque $f(x_0) \in \{y_0, -y_0\}$. Supponiamo $f(x_0)=y_0$. Allora $f(-x_0)=-f(x_0)=-y_0$.
   Anche $h(p(x_0)), h(p(-x_0)) \in \{y_0, -y_0\}$, ma $p(x_0)=p(-x_0) \implies h(p(x_0))=h(p(-x_0))$. Dunque o $h(p(x_0))=y_0=f(x_0)$ o $h(p(-x_0))=-y_0=f(-x_0)$. Perciò $f$ e $h \circ p$ sono sollevamenti che coincidono in un punto e per unicità (e connessione di $S^2$) $f=h \circ p$, assurdo perché $f(x_0) \not=f(-x_0)$ ma $h(p(x_0))=h(p(-x_0))$.
 \end{proof}
 
 \begin{cor}
-  Sia $f: S^2 \rightarrow \mathbb{R}^2$ continua, allora esiste $x \in S^2$ t.c. $f(x)=f(-x)$.
+  Sia $f: S^2 \longrightarrow \mathbb{R}^2$ continua, allora esiste $x \in S^2$ t.c. $f(x)=f(-x)$.
 \end{cor}
 
 \begin{proof}
-  Se $f(x) \not=f(-x)$ per ogni $x \in S^2$, $g:S^2 \rightarrow S^1, g(x)=\dfrac{f(x)-f(-x)}{\|f(x)-f(-x)\|}$ è ben definita e continua e t.c. $g(x)=-g(-x)$, assurdo.
+  Se $f(x) \not=f(-x)$ per ogni $x \in S^2$, $g:S^2 \longrightarrow S^1, g(x)=\dfrac{f(x)-f(-x)}{\|f(x)-f(-x)\|}$ è ben definita e continua e t.c. $g(x)=-g(-x)$, assurdo.
 \end{proof}
 
 \begin{cor}
@@ -90,19 +90,19 @@ D'ora in poi tutti gli spazi saranno localmente connessi per archi.
 \end{proof}
 
 \begin{defn}
-  Dati $p_1:E_1 \rightarrow X, p_2:E_2 \rightarrow X$ rivestimenti, un \textsc{morfismo} tra $p_1$ e $p_2$ è una mappa continua $\varphi:E_1 \rightarrow E_2$ t.c. $p_2 \circ \varphi=p_1$. Il seguente diagramma commuta:
+  Dati $p_1:E_1 \longrightarrow X, p_2:E_2 \longrightarrow X$ rivestimenti, un \textsc{morfismo} tra $p_1$ e $p_2$ è una mappa continua $\varphi:E_1 \longrightarrow E_2$ t.c. $p_2 \circ \varphi=p_1$. Il seguente diagramma commuta:
   \begin{center}
     \begin{tikzcd}
       E_1 \arrow[rr, "\varphi"] \arrow[rd, "p_1"] & & E_2 \arrow[ld, "p_2"]\\
       & X
     \end{tikzcd}
   \end{center}
-  $\varphi$ è un isomorfismo se e solo se esiste $\psi:E_2 \rightarrow E_1$ continua con $\varphi \circ \psi=\id_{E_2}, \psi \circ \varphi=\id_{E_1}$.
+  $\varphi$ è un isomorfismo se e solo se esiste $\psi:E_2 \longrightarrow E_1$ continua con $\varphi \circ \psi=\id_{E_2}, \psi \circ \varphi=\id_{E_1}$.
 \end{defn}
 
-Composizione di morfismi è un morfismo e l'identità è un morfismo, per cui $\text{Aut}(E)=\text{Aut}(E, p)=\{\varphi:E \rightarrow E \mid \varphi \text{ è un isomorfismo}\}$ è un gruppo con la composizione.
+Composizione di morfismi è un morfismo e l'identità è un morfismo, per cui $\text{Aut}(E)=\text{Aut}(E, p)=\{\varphi:E \longrightarrow E \mid \varphi \text{ è un isomorfismo}\}$ è un gruppo con la composizione.
 
-Fissiamo un rivestimento connesso $p:E \rightarrow X$.
+Fissiamo un rivestimento connesso $p:E \longrightarrow X$.
 
 \begin{thm}
   \begin{nlist}
@@ -120,7 +120,7 @@ Fissiamo un rivestimento connesso $p:E \rightarrow X$.
     Poiché $p \circ \varphi=p$, $p(\varphi(z))=p(z)$, ma $p\restrict{V_{i_0}}$ è iniettiva $\implies$ $\varphi(z)=z$. Ora, sia $\varphi$ sia $\id$ sono sollevamenti di $p$ (a partire da $E$) e coincidono in $z$. Per unicità del sollevamento, $\varphi=\id$.
     \item Se $F=p^{-1}(x_0)$ e $\tilde{x} \in F$, $p(\varphi(\tilde{x}))=p(\tilde{x})=x_0$ $\implies$ $\varphi(\tilde{x}) \in F$.
     \item ($\implies$) Se $\varphi \in \text{Aut}(E)$ verifica $\varphi(\tilde{x}_0)=\tilde{x}_1$, poiché $p \circ \varphi=p$, $p_{\star} \circ \varphi_{\star}=p_{\star}$ come mappe da $\pi_1(E, \tilde{x}_0)$ in $\pi_1(X, x_0)$.
-    In particolare, $p_{\star}(\varphi_{\star}(\pi_1(E, \tilde{x}_0)))=p_{\star}(\pi_1(E, \tilde{x}_0))$, ma $\varphi_{\star}(\pi_1(E, \tilde{x}_0))=\pi_1(E, \tilde{x}_1)$ perché $\varphi:E \rightarrow E$ è un omeomorfismo, dunque $\varphi_{\star}:\pi_1(E, \tilde{x}_0) \rightarrow \pi_1(E, \tilde{x}_1)$ è un isomorfismo.
+    In particolare, $p_{\star}(\varphi_{\star}(\pi_1(E, \tilde{x}_0)))=p_{\star}(\pi_1(E, \tilde{x}_0))$, ma $\varphi_{\star}(\pi_1(E, \tilde{x}_0))=\pi_1(E, \tilde{x}_1)$ perché $\varphi:E \longrightarrow E$ è un omeomorfismo, dunque $\varphi_{\star}:\pi_1(E, \tilde{x}_0) \longrightarrow \pi_1(E, \tilde{x}_1)$ è un isomorfismo.
 
     ($\Leftarrow$) Se $p_{\star}(\pi_1(E, \tilde{x}_0))=p_{\star}(\pi_1(E, \tilde{x}_1))$, applichiamo il teorema di sollevamento al seguente diagramma:
     \begin{center}
@@ -129,7 +129,7 @@ Fissiamo un rivestimento connesso $p:E \rightarrow X$.
         (E, \tilde{x}_0) \arrow[r, "p"] & (X, x_0)
       \end{tikzcd}
     \end{center}
-    Applichiamolo prima considerando come rivestimento quello a partire da $(E, \tilde{x}_1)$ per ottenere $\varphi:E \rightarrow E$ con $\varphi(\tilde{x}_0)=\tilde{x}_1$ e $p \circ \varphi=p$. Analogamente, considerando invece $(E, \tilde{x}_0)$, troviamo $\psi:E \rightarrow E$ con $\psi(\tilde{x}_1)=\tilde{x}_0$ e $p \circ \psi=p$.
+    Applichiamolo prima considerando come rivestimento quello a partire da $(E, \tilde{x}_1)$ per ottenere $\varphi:E \longrightarrow E$ con $\varphi(\tilde{x}_0)=\tilde{x}_1$ e $p \circ \varphi=p$. Analogamente, considerando invece $(E, \tilde{x}_0)$, troviamo $\psi:E \longrightarrow E$ con $\psi(\tilde{x}_1)=\tilde{x}_0$ e $p \circ \psi=p$.
     Ora $\varphi \circ \psi$ e $\psi \circ \varphi$ sollevano $p$, così come l'identità, e sono t.c. $\varphi(\psi(\tilde{x}_1))=\tilde{x}_1$ e $\psi(\varphi(\tilde{x}_0))=\tilde{x}_0$, per cui per unicità dei sollevamenti $\varphi \circ \psi=\psi \circ \varphi=\id_E$.
   \end{nlist}
 \end{proof}
@@ -146,7 +146,7 @@ Fissiamo un rivestimento connesso $p:E \rightarrow X$.
 \end{proof}
 
 \begin{defn}
-  $p:E \rightarrow X$ rivestimento connesso si dice \textsc{regolare} se per ogni fibra $F \subseteq E$ l'azione di $\text{Aut}(E)$ su $F$ è transitiva.
+  $p:E \longrightarrow X$ rivestimento connesso si dice \textsc{regolare} se per ogni fibra $F \subseteq E$ l'azione di $\text{Aut}(E)$ su $F$ è transitiva.
 \end{defn}
 
 \begin{thm}
@@ -163,7 +163,7 @@ Fissiamo un rivestimento connesso $p:E \rightarrow X$.
   (iii) $\implies$ (iv) è ovvia.
 
   (iv) $\implies$ (iii). Supponiamo che valga per $\tilde{x} \in E$ e sia $\tilde{y} \in E, \tilde{\gamma} \in \Omega(\tilde{x}, \tilde{y})$. Sia $\gamma=p \circ \tilde{\gamma}$, $\gamma \in \Omega(x, y)$, $x=p(\tilde{x}), y=p(\tilde{y})$.
-  Abbiamo due isomorfismi $\tilde{\gamma}_{\sharp}: \pi_1(E, \tilde{x}) \rightarrow \pi_1(E, \tilde{y})$ e $\gamma_{\sharp}:\pi_1(X, x) \rightarrow \pi_1(X, y)$. Si vede che il seguente diagramma commuta:
+  Abbiamo due isomorfismi $\tilde{\gamma}_{\sharp}: \pi_1(E, \tilde{x}) \longrightarrow \pi_1(E, \tilde{y})$ e $\gamma_{\sharp}:\pi_1(X, x) \longrightarrow \pi_1(X, y)$. Si vede che il seguente diagramma commuta:
   \begin{center}
     \begin{tikzcd}
       \pi_1(E, \tilde{x}) \arrow[r, "\tilde{\gamma}_{\sharp}"] \arrow[d, "p_{\star}"] & \pi_1(E, \tilde{y}) \arrow[d, "p_{\star}"]\\
@@ -178,14 +178,14 @@ Fissiamo un rivestimento connesso $p:E \rightarrow X$.
 \end{proof}
 
 \begin{thm}
-  Sia $p:E \rightarrow X$ regolare. Allora
+  Sia $p:E \longrightarrow X$ regolare. Allora
   $$\text{Aut}(E) \cong \faktor{\pi_1(X, x)}{p_{\star}(\pi_1(E, \tilde{x}))}$$
   dove l'isomorfismo è un isomorfismo di gruppi e $x=p(\tilde{x})$. Ciò vale per ogni $\tilde{x} \in E$.
 \end{thm}
 
 \begin{proof}
   Ricordiamo che $p_{\star}(\pi_1(E, \tilde{x})) \vartriangleleft \pi_1(X, x)$, dunque in effetti il quoziente è un gruppo.
-  Sia $\vartheta:\pi_1(X, x) \rightarrow \text{Aut}(E)$ t.c. per ogni $\alpha \in \pi_1(X, x)$ $\vartheta(\alpha)$ sia l'unico elemento di $\text{Aut}(E)$ t.c. $\vartheta(\alpha)(\tilde{x})=\tilde{x} \cdot \alpha$.
+  Sia $\vartheta:\pi_1(X, x) \longrightarrow \text{Aut}(E)$ t.c. per ogni $\alpha \in \pi_1(X, x)$ $\vartheta(\alpha)$ sia l'unico elemento di $\text{Aut}(E)$ t.c. $\vartheta(\alpha)(\tilde{x})=\tilde{x} \cdot \alpha$.
   Tale $\vartheta(\alpha)$ esiste perché il rivestimento è regolare ed è unico perché $\text{Aut}(E)$ agisce liberamente su $E$.
   \begin{nlist}
     \item $\vartheta$ è un omomorfismo: ($\vartheta(\alpha_1) \circ \vartheta(\alpha_2))(\tilde{x})=\vartheta(\alpha_1)(\vartheta(\alpha_2)(\tilde{x}))=\vartheta(\alpha_1)(\tilde{x} \cdot \alpha_2)$,
@@ -197,17 +197,17 @@ Fissiamo un rivestimento connesso $p:E \rightarrow X$.
 \end{proof}
 
 \begin{cor}
-  $p:E \rightarrow X$ regolare $\implies$ $X \cong \faktor{E}{\text{Aut}(E)}$ (cioè sono omeomorfi).
+  $p:E \longrightarrow X$ regolare $\implies$ $X \cong \faktor{E}{\text{Aut}(E)}$ (cioè sono omeomorfi).
 \end{cor}
 
 \begin{proof}
-  Essendo aperta e suriettiva, $p:E \rightarrow X$ è un'identificazione, per cui $X \cong \faktor{E}{\sim}$ dove $\tilde{x} \sim \tilde{y} \iff p(\tilde{x})=p(\tilde{y}) \iff \tilde{x}=\varphi(\tilde{y})$ per qualche $\varphi \in \text{Aut}(E)$, in quanto $\text{Aut}(E)$ agiscono transitivamente sulle fibre.
+  Essendo aperta e suriettiva, $p:E \longrightarrow X$ è un'identificazione, per cui $X \cong \faktor{E}{\sim}$ dove $\tilde{x} \sim \tilde{y} \iff p(\tilde{x})=p(\tilde{y}) \iff \tilde{x}=\varphi(\tilde{y})$ per qualche $\varphi \in \text{Aut}(E)$, in quanto $\text{Aut}(E)$ agiscono transitivamente sulle fibre.
 \end{proof}
 
 Vale una sorta di viceversa.
 
 \begin{prop}
-  Se $G$ agisce in maniera propriamente discontinua su uno spazio connesso $E$, allora la proiezione $p:E \rightarrow \faktor{E}{G}$ è un rivestimento regolare e $G=\text{Aut}(E, p)$.
+  Se $G$ agisce in maniera propriamente discontinua su uno spazio connesso $E$, allora la proiezione $p:E \longrightarrow \faktor{E}{G}$ è un rivestimento regolare e $G=\text{Aut}(E, p)$.
 \end{prop}
 
 \begin{proof}
@@ -222,7 +222,7 @@ Vale una sorta di viceversa.
 \end{oss}
 
 \begin{cor}
-  Se $p:E \rightarrow X$ è un rivestimento universale, $\text{Aut}(E)\cong\pi_1(X, x)$.
+  Se $p:E \longrightarrow X$ è un rivestimento universale, $\text{Aut}(E)\cong\pi_1(X, x)$.
 \end{cor}
 
 \begin{cor}

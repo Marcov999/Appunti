@@ -1,9 +1,9 @@
 \begin{defn}
-  Siano $f, g:X \rightarrow Y$ continue. Una \textsc{omotopia} tra $f$ e $g$ è una mappa continua $H:X \times [0, 1] \rightarrow Y$ t.c. $H(x, 0)=f(x), H(x, 1)=g(y)$ per ogni $x \in X$.
+  Siano $f, g:X \longrightarrow Y$ continue. Una \textsc{omotopia} tra $f$ e $g$ è una mappa continua $H:X \times [0, 1] \longrightarrow Y$ t.c. $H(x, 0)=f(x), H(x, 1)=g(y)$ per ogni $x \in X$.
 \end{defn}
 
 \begin{ftt}
-  Per ogni $t \in [0, 1]$, $H_t(x)=H(x, t), H_t:X \rightarrow Y$ è continua, per cui $H$ descrive un'interpolazione tra $f$ e $g$: deformo $f$ in $g$.
+  Per ogni $t \in [0, 1]$, $H_t(x)=H(x, t), H_t:X \longrightarrow Y$ è continua, per cui $H$ descrive un'interpolazione tra $f$ e $g$: deformo $f$ in $g$.
 \end{ftt}
 
 Nel seguito, $I=[0, 1]$.
@@ -22,7 +22,7 @@ Nel seguito, $I=[0, 1]$.
 \end{ftt}
 
 \begin{ex}
-  Se $Y$ è un convesso di $\mathbb{R}^n$, $\left|[X, Y]\right|=1$, cioè tutte le mappe $f:X \rightarrow Y$ sono omotope fra loro. Infatti, date $f$ e $g$, basta prendere $H(x, t)=tf(x)+(1-t))g(x)$. In realtà, dato che l'omotopia è una relazione di equivalenza, otteniamo di più: ci basta che $Y$ sia "stellato" rispetto a un punto, cioè che esista $p \in Y$ t.c. per ogni $y \in Y, t \in I$, $ty+(1-t)p \in Y$. Allora si dimostra che tutte le funzioni sono omotope alla funzione che vale costantemente $p$.
+  Se $Y$ è un convesso di $\mathbb{R}^n$, $\left|[X, Y]\right|=1$, cioè tutte le mappe $f:X \longrightarrow Y$ sono omotope fra loro. Infatti, date $f$ e $g$, basta prendere $H(x, t)=tf(x)+(1-t))g(x)$. In realtà, dato che l'omotopia è una relazione di equivalenza, otteniamo di più: ci basta che $Y$ sia "stellato" rispetto a un punto, cioè che esista $p \in Y$ t.c. per ogni $y \in Y, t \in I$, $ty+(1-t)p \in Y$. Allora si dimostra che tutte le funzioni sono omotope alla funzione che vale costantemente $p$.
 \end{ex}
 
 \begin{defn}
@@ -30,11 +30,11 @@ Nel seguito, $I=[0, 1]$.
 \end{defn}
 
 \begin{lm}
-  $f:X \rightarrow Y$ continua induce una funzione ben definita $f_{\star}:\pi_0(X) \rightarrow \pi_0(Y)$ definita dalla richiesta che $f(C) \subseteq f_{\star}(C)$ per ogni $C \in \pi_0(X)$. Allora il lemma dice questo: se $f \sim g$, $f_{\star}=g_{\star}$.
+  $f:X \longrightarrow Y$ continua induce una funzione ben definita $f_{\star}:\pi_0(X) \longrightarrow \pi_0(Y)$ definita dalla richiesta che $f(C) \subseteq f_{\star}(C)$ per ogni $C \in \pi_0(X)$. Allora il lemma dice questo: se $f \sim g$, $f_{\star}=g_{\star}$.
 \end{lm}
 
 \begin{proof}
-  Sia $C \in \pi_0(X)$ e sia $x_0 \in C$. Se $H$ è un'omotopia tra $f$ e $g$, la mappa $\gamma:[0, 1] \rightarrow Y, \gamma(t)=H(x_0, t)$ è un arco continuo in $Y$ che congiunge $f(x_0)$ con $g(x_0)$.
+  Sia $C \in \pi_0(X)$ e sia $x_0 \in C$. Se $H$ è un'omotopia tra $f$ e $g$, la mappa $\gamma:[0, 1] \longrightarrow Y, \gamma(t)=H(x_0, t)$ è un arco continuo in $Y$ che congiunge $f(x_0)$ con $g(x_0)$.
 \end{proof}
 
 \begin{ftt}
@@ -42,12 +42,12 @@ Nel seguito, $I=[0, 1]$.
 \end{ftt}
 
 \begin{proof}
-  $X$ stellato $\implies$ $X$ connesso per archi $\implies$ $|\pi_0(X)|=1$. Dunque possiamo definire $\psi:C(X, Y) \rightarrow \pi_0(Y)$ data da $\psi(f)=f_{\star}(X)$. Per il lemma, $\psi$ induce al quoziente una ben definita $\varphi:[X, Y] \rightarrow \pi_0(Y)$. $\varphi$ è ovviamente suriettiva (basta considerare le funzioni costanti). Per l'iniettività: $f \in C(X, Y)$ è omotopa alla costante $f(p)$ tramite l'omotopia $H(x, t)=f(tx+(1-t)p)$.
+  $X$ stellato $\implies$ $X$ connesso per archi $\implies$ $|\pi_0(X)|=1$. Dunque possiamo definire $\psi:C(X, Y) \longrightarrow \pi_0(Y)$ data da $\psi(f)=f_{\star}(X)$. Per il lemma, $\psi$ induce al quoziente una ben definita $\varphi:[X, Y] \longrightarrow \pi_0(Y)$. $\varphi$ è ovviamente suriettiva (basta considerare le funzioni costanti). Per l'iniettività: $f \in C(X, Y)$ è omotopa alla costante $f(p)$ tramite l'omotopia $H(x, t)=f(tx+(1-t)p)$.
   Se prendiamo $f$ e $g$ t.c. $\varphi([f])=\varphi([g])$, allora dev'essere che $f(p)$ e $g(p)$ stanno nella stessa componente connessa per archi di $Y$, dunque le costanti $f(p)$ e $g(p)$ sono omotope tramite $K(x, t)=\gamma(t)$ dove $\gamma$ è il cammino che congiunge i due punti, da cui $[f]=[g]$ e quindi $\varphi$ è iniettiva.
 \end{proof}
 
 \begin{defn}
-  $f:X \rightarrow Y$ continua è un'\textsc{equivalenza omotopica} se ammetta un'\textsc{inversa omotopica}, cioè $g:Y \rightarrow X$ continua t.c. $f \circ g \sim \id_Y, g \circ f \sim \id_X$. $X$ e $Y$ si dicono \textsc{omotopicamente equivalenti} (o \textsc{omotopi}) se esiste un'equivalenza omotopica tra loro.
+  $f:X \longrightarrow Y$ continua è un'\textsc{equivalenza omotopica} se ammetta un'\textsc{inversa omotopica}, cioè $g:Y \longrightarrow X$ continua t.c. $f \circ g \sim \id_Y, g \circ f \sim \id_X$. $X$ e $Y$ si dicono \textsc{omotopicamente equivalenti} (o \textsc{omotopi}) se esiste un'equivalenza omotopica tra loro.
 \end{defn}
 
 \begin{exc}
@@ -55,11 +55,11 @@ Nel seguito, $I=[0, 1]$.
 \end{exc}
 
 \begin{lm}
-  $f_0, f_1:X \rightarrow Y, g_0, g_1:Y \rightarrow Z$ continue, $f_0 \sim f_1, g_0 \sim g_1 \implies g_0 \circ f_0 \sim g_1 \circ f_1$.
+  $f_0, f_1:X \longrightarrow Y, g_0, g_1:Y \longrightarrow Z$ continue, $f_0 \sim f_1, g_0 \sim g_1 \implies g_0 \circ f_0 \sim g_1 \circ f_1$.
 \end{lm}
 
 \begin{proof}
-  $(x, t) \mapsto K(H(x, t), t)$, dove $H$ è l'omotopia tra $f_0$ e $f_1$ e $K$ quella tra $g_0$ e $g_1$, è l'omotopia cercata.
+  $(x, t) \longmapsto K(H(x, t), t)$, dove $H$ è l'omotopia tra $f_0$ e $f_1$ e $K$ quella tra $g_0$ e $g_1$, è l'omotopia cercata.
 \end{proof}
 
 \begin{defn}
@@ -71,17 +71,17 @@ Nel seguito, $I=[0, 1]$.
 \end{prop}
 
 \begin{proof}
-  Sia $Y=\{q\}$ un punto. Siano $f: X \rightarrow Y$ la costante e $g:Y \rightarrow X$ t.c. $g(q)=x_0 \in X$ (a caso, non necessariamente il punto rispetto a cui $X$ è stellato). $f$ e $g$ sono continue e $f \circ g$ è ovviamente l'identità. $g \circ f:X \rightarrow Y$ è omotopa a $\id_X$ perché $X$ stellato $\implies$ $\left|[X, X]\right|=1$.
+  Sia $Y=\{q\}$ un punto. Siano $f: X \longrightarrow Y$ la costante e $g:Y \longrightarrow X$ t.c. $g(q)=x_0 \in X$ (a caso, non necessariamente il punto rispetto a cui $X$ è stellato). $f$ e $g$ sono continue e $f \circ g$ è ovviamente l'identità. $g \circ f:X \longrightarrow Y$ è omotopa a $\id_X$ perché $X$ stellato $\implies$ $\left|[X, X]\right|=1$.
 \end{proof}
 
 \begin{oss}
-  $X$ contrattile $\implies$ $X$ connesso per archi. Infatti, se $f:X \rightarrow Y$ è un'equivalenza omotopica, $f_{\star}: \pi_0(X) \rightarrow \pi_0(Y)$ è bigettiva. Lo si dimostra considerando l'inversa $g$ e facendo vedere che $(f \circ g)_{\star}=f_{\star} \circ g_{\star}$.
+  $X$ contrattile $\implies$ $X$ connesso per archi. Infatti, se $f:X \longrightarrow Y$ è un'equivalenza omotopica, $f_{\star}: \pi_0(X) \longrightarrow \pi_0(Y)$ è bigettiva. Lo si dimostra considerando l'inversa $g$ e facendo vedere che $(f \circ g)_{\star}=f_{\star} \circ g_{\star}$.
 \end{oss}
 
 \begin{defn}
-  $X$ spazio topologico, $C \subseteq X$ si dice \textsc{retratto} se esiste una mappa $r$ (detta \textit{retrazione}), $r:X \rightarrow C$ continua t.c. $r(x)=x$ per ogni $x \in C$.
+  $X$ spazio topologico, $C \subseteq X$ si dice \textsc{retratto} se esiste una mappa $r$ (detta \textit{retrazione}), $r:X \longrightarrow C$ continua t.c. $r(x)=x$ per ogni $x \in C$.
 
-  $C$ si dice \textsc{retratto di deformazione} se esiste $r:X \rightarrow C$ come sopra e t.c. sei $i:C \rightarrow X$ è l'inclusione, esiste un omotopia $H$ tra $\id_X$ e $i \circ r$ t.c. $H(x, t)=x$ per ogni $x \in C, t \in I$.
+  $C$ si dice \textsc{retratto di deformazione} se esiste $r:X \longrightarrow C$ come sopra e t.c. sei $i:C \longrightarrow X$ è l'inclusione, esiste un omotopia $H$ tra $\id_X$ e $i \circ r$ t.c. $H(x, t)=x$ per ogni $x \in C, t \in I$.
 \end{defn}
 
 Segue che se $Y$ è un retratto di deformazione $X$ e $Y$ sono omotopicamente equivalenti ($i$ e $r$ sono equivalenze omotopiche).
@@ -91,13 +91,13 @@ Segue che se $Y$ è un retratto di deformazione $X$ e $Y$ sono omotopicamente eq
 \end{ex}
 
 \begin{ex}
-  $S^n$ è un retratto di deformazione di $X=\mathbb{R}^{n+1} \setminus \{0\}$. Basta prendere $r: X \rightarrow S^n$ definita da $r(x)=x/\left\|x\right\|$, l'omotopia tra $\id_X$ e $i \circ r$ è $H(x, t)=(1-t)x+tx/\left\|x\right\|$.
+  $S^n$ è un retratto di deformazione di $X=\mathbb{R}^{n+1} \setminus \{0\}$. Basta prendere $r: X \longrightarrow S^n$ definita da $r(x)=x/\left\|x\right\|$, l'omotopia tra $\id_X$ e $i \circ r$ è $H(x, t)=(1-t)x+tx/\left\|x\right\|$.
 \end{ex}
 
 \begin{ex}
   $GL^+(n, \mathbb{R})$ (le matrici con determinante positivo) si ritrae per deformazione a $SL(n, \mathbb{R})=\{ A \in GL(n, \mathbb{R}) | \det{A}=1\}$. Infatti, se $A \in GL^+(n, \mathbb{R})$, $\det{A}>0$, per cui
   $tA+\frac{1-t}{\sqrt[n]{\det{A}}}A=\left(t+\frac{1-t}{\sqrt[n]{\det{A}}}\right)A \in GL^+(n, \mathbb{R})$ per ogni $t \in I$ dato che $t+\frac{1-t}{\sqrt[n]{\det{A}}}>0$ per ogni $t \in I$.
-  Allora è un semplice esercizio verificare che la funzione $H:GL^+(n, \mathbb{R}) \times I \rightarrow GL^+(n, \mathbb{R})$ data da $H(A, t)=\left(t+\frac{1-t}{\sqrt[n]{\det{A}}}\right)A$ è l'omotopia che cerchiamo.
+  Allora è un semplice esercizio verificare che la funzione $H:GL^+(n, \mathbb{R}) \times I \longrightarrow GL^+(n, \mathbb{R})$ data da $H(A, t)=\left(t+\frac{1-t}{\sqrt[n]{\det{A}}}\right)A$ è l'omotopia che cerchiamo.
 \end{ex}
 
 Si può dimostrare analogamente che $GL^+(n, \mathbb{R})$ si retrae per deformazione su $SO(n, \mathbb{R})$ (le matrici ortonormali con determinante $1$), ma la dimostrazione è difficile (più che altro lunga, secondo Frigerio) ed è lasciata al corso di geometria e topologia differenziale.
@@ -113,8 +113,8 @@ Si può dimostrare analogamente che $GL^+(n, \mathbb{R})$ si retrae per deformaz
 \begin{sol}
   \begin{nlist}
     \item Hint: prima schiacciare il "pettine" sulla retta, poi la retta sul punto.
-    \item Per assurdo sia $H:X \times I \rightarrow X$ tra $\id$ e la costante $(0, 1)$ t.c. $H((0,1), t)=(0, 1)$ per ogni $t \in I$. Per ogni $x \not=0$, i punti $(0, 1)$ e $(x, 1)$ giacciono in componenti connesse distinte di $X \setminus \{y=0\}$, ma l'arco $\gamma_x:[0, 1] \rightarrow X$ dato da
-    $\gamma_x(t)=H((x, 1), t)$ è continuo e congiunge $(x, 1)$ a $(0, 1)$, dunque deve passare per $\{y=0\}$. Allora per ogni $x \not=0$ esiste $t(x) \in I$ t.c. $H((x, 1), t(x))$ ha ordinata nulla. Consideriamo la successione $(1/n, 1)$. Chiamando $t_n=t(1/n)$ e sfruttando la compattezza di $I$, a meno di estrarre una sottosuccessione possiamo supporre senza perdita di generalità $t_n \rightarrow \bar{t}$.
-    Per continuità, se $\pi_y: \mathbb{R}^2 \rightarrow \mathbb{R}$ è la proiezione alla seconda coordinata, per continuità di $H$ e $\pi_y$ otteniamo che $\displaystyle 0=\lim_{n \rightarrow +\infty} \pi_y(H((1/n, 1), t_n))=\pi_y(H((0, 1), \bar{t}))=\pi_y((0, 1))=1$, assurdo.
+    \item Per assurdo sia $H:X \times I \longrightarrow X$ tra $\id$ e la costante $(0, 1)$ t.c. $H((0,1), t)=(0, 1)$ per ogni $t \in I$. Per ogni $x \not=0$, i punti $(0, 1)$ e $(x, 1)$ giacciono in componenti connesse distinte di $X \setminus \{y=0\}$, ma l'arco $\gamma_x:[0, 1] \longrightarrow X$ dato da
+    $\gamma_x(t)=H((x, 1), t)$ è continuo e congiunge $(x, 1)$ a $(0, 1)$, dunque deve passare per $\{y=0\}$. Allora per ogni $x \not=0$ esiste $t(x) \in I$ t.c. $H((x, 1), t(x))$ ha ordinata nulla. Consideriamo la successione $(1/n, 1)$. Chiamando $t_n=t(1/n)$ e sfruttando la compattezza di $I$, a meno di estrarre una sottosuccessione possiamo supporre senza perdita di generalità $t_n \longrightarrow \bar{t}$.
+    Per continuità, se $\pi_y: \mathbb{R}^2 \longrightarrow \mathbb{R}$ è la proiezione alla seconda coordinata, per continuità di $H$ e $\pi_y$ otteniamo che $\displaystyle 0=\lim_{n \longrightarrow +\infty} \pi_y(H((1/n, 1), t_n))=\pi_y(H((0, 1), \bar{t}))=\pi_y((0, 1))=1$, assurdo.
   \end{nlist}
 \end{sol}

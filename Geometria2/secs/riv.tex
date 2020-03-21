@@ -1,5 +1,5 @@
 \begin{defn}
-  $f:X \rightarrow Y$ è un \textit{omeomorfismo locale} se per ogni $p \in X$ esistono $U$ aperto con $p \in U$ e $V$ aperto di $Y$ con $f(p) \in V$ t.c. $f(U)=V$ e $f \restrict{U}:U \rightarrow V$ è un omeomorfismo.
+  $f:X \longrightarrow Y$ è un \textit{omeomorfismo locale} se per ogni $p \in X$ esistono $U$ aperto con $p \in U$ e $V$ aperto di $Y$ con $f(p) \in V$ t.c. $f(U)=V$ e $f \restrict{U}:U \longrightarrow V$ è un omeomorfismo.
 \end{defn}
 
 \begin{ftt}
@@ -10,7 +10,7 @@
 \end{ftt}
 
 \begin{defn}
-  Una mappa continua $p:E \rightarrow X$ è un \textsc{rivestimento} se $X$ è connesso per archi e per ogni $x \in X$ esiste $U$ aperto di $X$, $x \in U$ t.c. $\displaystyle p^{-1}(U)=\bigsqcup_{i \in I} V_i$, $I \not=\emptyset$ e $V_i$ aperto in $E$ e $p \restrict{V_i}:V_i \rightarrow U$ è un omeomorfismo per ogni $i \in I$.
+  Una mappa continua $p:E \longrightarrow X$ è un \textsc{rivestimento} se $X$ è connesso per archi e per ogni $x \in X$ esiste $U$ aperto di $X$, $x \in U$ t.c. $\displaystyle p^{-1}(U)=\bigsqcup_{i \in I} V_i$, $I \not=\emptyset$ e $V_i$ aperto in $E$ e $p \restrict{V_i}:V_i \longrightarrow U$ è un omeomorfismo per ogni $i \in I$.
 \end{defn}
 
 \begin{ftt}
@@ -23,20 +23,20 @@
 
 \begin{ex}
   \begin{nlist}
-    \item $p: \mathbb{R} \rightarrow S^1$, $p(t)=(\cos{2\pi t}, \sin{2\pi t})$ è un rivestimento;
-    \item $p: (-1, 1) \rightarrow S^1$, $p(t)=(\cos{2\pi t}, \sin{2\pi t})$ è un omeomorfismo locale suriettivo, ma non un rivestimento;
-    \item $\pi: \faktor{ \mathbb{R} \times \{ -1, 1 \} }{\sim} \rightarrow \mathbb{R}$, $(x, \epsilon) \sim (y, \epsilon') \Leftrightarrow (x, \epsilon)=(y, \epsilon') \lor x=y \not=0, \pi([x, \epsilon])=x$ è un omeomorfismo locale suriettivo, ma non un rivestimento;
-    \item $\pi: S^n \rightarrow \mathbb{P}^n(\mathbb{R})$, $\pi(x)=[x]$ è un rivestimento.\
+    \item $p: \mathbb{R} \longrightarrow S^1$, $p(t)=(\cos{2\pi t}, \sin{2\pi t})$ è un rivestimento;
+    \item $p: (-1, 1) \longrightarrow S^1$, $p(t)=(\cos{2\pi t}, \sin{2\pi t})$ è un omeomorfismo locale suriettivo, ma non un rivestimento;
+    \item $\pi: \faktor{ \mathbb{R} \times \{ -1, 1 \} }{\sim} \longrightarrow \mathbb{R}$, $(x, \epsilon) \sim (y, \epsilon') \Leftrightarrow (x, \epsilon)=(y, \epsilon') \lor x=y \not=0, \pi([x, \epsilon])=x$ è un omeomorfismo locale suriettivo, ma non un rivestimento;
+    \item $\pi: S^n \longrightarrow \mathbb{P}^n(\mathbb{R})$, $\pi(x)=[x]$ è un rivestimento.\
   \end{nlist}
 \end{ex}
 
 \begin{defn}
-  Siano $p: E \rightarrow X$ un rivestimento e $f: Y \rightarrow X$ una funzione continua. $\tilde{f}: Y \rightarrow E$ si dice \textsc{sollevamento di $f$ rispetto a $p$} se $p \circ \tilde{f}=f$.
+  Siano $p: E \longrightarrow X$ un rivestimento e $f: Y \longrightarrow X$ una funzione continua. $\tilde{f}: Y \longrightarrow E$ si dice \textsc{sollevamento di $f$ rispetto a $p$} se $p \circ \tilde{f}=f$.
 \end{defn}
 
 \begin{prop} \label{unic_soll}
   (Unicità del sollevamento)
-  Sia $p: E \rightarrow X$ un rivestimento, $Y$ connesso, $f: Y \rightarrow X$ continua. Siano $\tilde{f}, \tilde{g}$ sollevamenti di $f$ rispetto a $p$. Se esiste $y_0 \in Y$ con $\tilde{f}(y_0)=\tilde{g}(y_0)$, allora $\tilde{f}=\tilde{g}$.
+  Sia $p: E \longrightarrow X$ un rivestimento, $Y$ connesso, $f: Y \longrightarrow X$ continua. Siano $\tilde{f}, \tilde{g}$ sollevamenti di $f$ rispetto a $p$. Se esiste $y_0 \in Y$ con $\tilde{f}(y_0)=\tilde{g}(y_0)$, allora $\tilde{f}=\tilde{g}$.
 \end{prop}
 
 \begin{proof}
@@ -52,24 +52,24 @@
 \end{proof}
 
 \begin{thm}
-  Sia $p:E \rightarrow X$ un rivestimento, $\gamma:[0, 1] \rightarrow X$ un cammino continuo. Siano $x_0=\gamma(0)$ e $\tilde{x}_0 \in p^{-1}(x_0)$.
-  Allora esiste un unico $\tilde{\gamma}:[0, 1] \rightarrow E$ cammino continuo con $\tilde{\gamma}(0)=\tilde{x}_0$ e $p \circ \tilde{\gamma}=\gamma$.
+  Sia $p:E \longrightarrow X$ un rivestimento, $\gamma:[0, 1] \longrightarrow X$ un cammino continuo. Siano $x_0=\gamma(0)$ e $\tilde{x}_0 \in p^{-1}(x_0)$.
+  Allora esiste un unico $\tilde{\gamma}:[0, 1] \longrightarrow E$ cammino continuo con $\tilde{\gamma}(0)=\tilde{x}_0$ e $p \circ \tilde{\gamma}=\gamma$.
 \end{thm}
 
 \begin{proof}
   L'unicità segue dalla proposizione \ref{unic_soll}. Ricopriamo adesso $X$ con aperti ben rivestiti $\{U_i\}_{i \in I}$ e sia $\epsilon>0$ numero di Lebesgue per il ricoprimento $\{\gamma^{-1}(U_i), i \in I\}$ di $[0, 1]$.
   Perciò, se $1/n < \epsilon$, per ogni $k=0, 1, \dots, n-1$, $\gamma([k/n, (k+1)/n]) \subseteq U_{i_k}$ ben rivestito.
-  Definiamo induttivamente $\tilde{\gamma}$ su $[k/n, (k+1)/n]$ come segue: per definizione di rivestimento esiste $V_{i_0}$ aperto di $E$ t.c. $\tilde{x}_0 \in V_{i_0}$ e $p_0=p \restrict{V_{i_0}} V_{i_0} \rightarrow U_{i_0}$ è un omeomorfismo;
-  per ogni $t \in [0, 1/n]$, $\tilde{\gamma}(t)=p_0^{-1}(\gamma(t))$. Una volta definito $\tilde{\gamma}$ continuo su $[0, k/n]$, troviamo $V_{i_k} \subseteq E$ t.c. $\tilde{\gamma}(k/n) \in V_{i_k}$ e $p_k=p \restrict{V_{i_k}}: V_{i_k} \rightarrow U_{i_k}$ è un omeomorfismo.
+  Definiamo induttivamente $\tilde{\gamma}$ su $[k/n, (k+1)/n]$ come segue: per definizione di rivestimento esiste $V_{i_0}$ aperto di $E$ t.c. $\tilde{x}_0 \in V_{i_0}$ e $p_0=p \restrict{V_{i_0}} V_{i_0} \longrightarrow U_{i_0}$ è un omeomorfismo;
+  per ogni $t \in [0, 1/n]$, $\tilde{\gamma}(t)=p_0^{-1}(\gamma(t))$. Una volta definito $\tilde{\gamma}$ continuo su $[0, k/n]$, troviamo $V_{i_k} \subseteq E$ t.c. $\tilde{\gamma}(k/n) \in V_{i_k}$ e $p_k=p \restrict{V_{i_k}}: V_{i_k} \longrightarrow U_{i_k}$ è un omeomorfismo.
   Poniamo dunque $\tilde{\gamma}(t)=p_k^{-1}(\gamma(t))$ per ogni $t \in [k/n, (k+1)/n]$. È ora facile verificare che questa definizione soddisfa le condizioni richieste.
 \end{proof}
 
 \begin{prop}
-  Sia $p:E \rightarrow X$ un rivestimento, $x_0, x_1 \in X$. Allora esiste una bigezione tra $p^{-1}(\{x_0\})$ e $p^{-1}(\{x_1\})$. La cardinalità di $p^{-1}(\{x_0\})$ si dice \textit{grado} del rivestimento e si indica con $\deg{p}$.
+  Sia $p:E \longrightarrow X$ un rivestimento, $x_0, x_1 \in X$. Allora esiste una bigezione tra $p^{-1}(\{x_0\})$ e $p^{-1}(\{x_1\})$. La cardinalità di $p^{-1}(\{x_0\})$ si dice \textit{grado} del rivestimento e si indica con $\deg{p}$.
 \end{prop}
 
 \begin{proof}
-  $X$ connesso per archi $\implies$ esiste $\gamma \in \Omega(x_0, x_1)$ e, dato $\tilde{x}_0 \in p^{-1}(\{x_0\})$, esiste un sollevamento $\tilde{\gamma}_{\tilde{x}_0}: [0, 1] \rightarrow E$ con punto iniziale $\tilde{x}_0$. È ben definita
+  $X$ connesso per archi $\implies$ esiste $\gamma \in \Omega(x_0, x_1)$ e, dato $\tilde{x}_0 \in p^{-1}(\{x_0\})$, esiste un sollevamento $\tilde{\gamma}_{\tilde{x}_0}: [0, 1] \longrightarrow E$ con punto iniziale $\tilde{x}_0$. È ben definita
   \begin{align*}
   \psi:p^{-1}(\{x_0\}) &\longrightarrow p^{-1}(\{x_1\}) \\
   \tilde{x}_0 &\longmapsto \tilde{\gamma}_{\tilde{x}_0}(1)
@@ -78,7 +78,7 @@
 \end{proof}
 
 \begin{defn}
-  (Sezione) Dato $U \subseteq X$, una \textsc{sezione} $s:U \rightarrow E$ di un rivestimento $p:E \rightarrow X$ è una mappa continua t.c. $p(s(x))=x$ per ogni $x \in U$. Si dice \textit{locale} se $U$ è un aperto di $X$, \textit{globale} se $U=X$.
+  (Sezione) Dato $U \subseteq X$, una \textsc{sezione} $s:U \longrightarrow E$ di un rivestimento $p:E \longrightarrow X$ è una mappa continua t.c. $p(s(x))=x$ per ogni $x \in U$. Si dice \textit{locale} se $U$ è un aperto di $X$, \textit{globale} se $U=X$.
 \end{defn}
 
 \begin{oss}
@@ -86,21 +86,21 @@
 \end{oss}
 
 \begin{thm} \label{soll_omo}
-  (Sollevamento delle omotopie) Siano $p:E \rightarrow X$ un rivestimento, $f:Y \rightarrow X$ continua con $Y$ localmente connesso per archi. Sia $F:Y \times[0, 1] \rightarrow X$ t.c. $F(y, 0)=f(y)$ per ogni $y \in Y$. Sia $\tilde{f}:Y \rightarrow E$ un sollevamento di $f$, cioè $p \circ \tilde{f}=f$.
-  Allora esiste $\tilde{F}:Y \times [0, 1] \rightarrow E$ che solleva $F$, cioè $p \circ \tilde{F}=F$, ed estende $\tilde{f}$, cioè $\tilde{F}(y, 0)=\tilde{f}(y)$ per ogni $y \in Y$.
+  (Sollevamento delle omotopie) Siano $p:E \longrightarrow X$ un rivestimento, $f:Y \longrightarrow X$ continua con $Y$ localmente connesso per archi. Sia $F:Y \times[0, 1] \longrightarrow X$ t.c. $F(y, 0)=f(y)$ per ogni $y \in Y$. Sia $\tilde{f}:Y \longrightarrow E$ un sollevamento di $f$, cioè $p \circ \tilde{f}=f$.
+  Allora esiste $\tilde{F}:Y \times [0, 1] \longrightarrow E$ che solleva $F$, cioè $p \circ \tilde{F}=F$, ed estende $\tilde{f}$, cioè $\tilde{F}(y, 0)=\tilde{f}(y)$ per ogni $y \in Y$.
 \end{thm}
 
 \begin{proof}
-  Poniamo, per ogni $y_0 \in Y$, $\gamma_{y_0}:[0, 1] \rightarrow X$ il cammino $\gamma_{y_0}(t)=F(y_0, t)$. Sia $\tilde{\gamma}_{y_0}$ il sollevamento di $\gamma_{y_0}$ a partire da $\tilde{f}(y_0)$. Poniamo infine $\tilde{F}(y_0, t)=\tilde{\gamma}{y_0}(t)$.
+  Poniamo, per ogni $y_0 \in Y$, $\gamma_{y_0}:[0, 1] \longrightarrow X$ il cammino $\gamma_{y_0}(t)=F(y_0, t)$. Sia $\tilde{\gamma}_{y_0}$ il sollevamento di $\gamma_{y_0}$ a partire da $\tilde{f}(y_0)$. Poniamo infine $\tilde{F}(y_0, t)=\tilde{\gamma}{y_0}(t)$.
   È chiaro che $p \circ \tilde{F}=F$. Serve $\tilde{F}$ continua, basta vedere che per ogni $(y_0, t) \in Y \times [0, 1]$ esiste un intorno $U$ in $Y \times [0, 1]$ t.c. $\tilde{F}\restrict{U}=s \circ F\restrict{U}$ dove $s$ è una sezione locale (continua) del rivestimento.
   Poiché $[0, 1]$ è compatto, analizzando il ricoprimento $\{F^{-1}(W) | W \text{ aperto ben rivestito di } X\}$ otteniamo un numero finito di aperti $Z_1, \dots, Z_n$ di $Y \times [0, 1]$ che ricoprono $y_0 \times [0, 1] \cong [0, 1]$ e sono t.c. $F(Z_i)$ è contenuto in un intorno ben rivestito di $X$ per ogni $i$.
   Possiamo supporre $Z_i=A_i \times B_i$, $A_i$ aperto di $Y$ e $B_i$ aperto di $[0, 1]$, $y_0 \in A_i$ per ogni $i$. Sia $A= \bigcap_{i=1}^n A_i$ aperto di $Y$ con $y_0 \in A$ e osserviamo che $\bigcup_{i=1}^n B_i=[0, 1]$.
   Sia $1/k<$ numero di Lebesgue di $\{B_1, \dots, B_n\}$. Allora per ogni $j=0, 1, \dots, k-1$ $A \times [j/k, (j+1)/k] \subseteq A_i \times B_i$ per qualche $i$, perciò $F(A \times [j/k, (j+1)/k]) \subseteq U_j$ con $U_j$ aperto ben rivestito.
-  Ora, per definizione di sollevamenti di cammini, $\tilde{F} \restrict{A \times [0, 1/k]}=s_0 \circ F$ dove $s_0: U_0 \rightarrow E$ è una sezione locale (si suppone $A$ connesso per archi). Induttivamente $\tilde{F} \restrict{A \times [j, (j+1)/k]}=s_j \circ F$ con $s_j: U_j \rightarrow E$ sezione locale per ogni $j$, da cui la tesi.
+  Ora, per definizione di sollevamenti di cammini, $\tilde{F} \restrict{A \times [0, 1/k]}=s_0 \circ F$ dove $s_0: U_0 \longrightarrow E$ è una sezione locale (si suppone $A$ connesso per archi). Induttivamente $\tilde{F} \restrict{A \times [j, (j+1)/k]}=s_j \circ F$ con $s_j: U_j \longrightarrow E$ sezione locale per ogni $j$, da cui la tesi.
 \end{proof}
 
 \begin{cor}
-  Siano $\gamma_1, \gamma_2:[0, 1] \rightarrow X$ cammini omotopi (a estremi fissi), $\gamma_1(0)=\gamma_2(0)=x_0$.
+  Siano $\gamma_1, \gamma_2:[0, 1] \longrightarrow X$ cammini omotopi (a estremi fissi), $\gamma_1(0)=\gamma_2(0)=x_0$.
   Allora, se $\tilde{x}_0 \in p^{-1}(x_0)$, $(\tilde{\gamma}_1)_{\tilde{x}_0}$ è omotopo a $(\tilde{\gamma}_2)_{\tilde{x}_0}$ (a estremi fissi).
   In particolare, $(\tilde{\gamma}_1)_{\tilde{x}_0}(1)=(\tilde{\gamma}_2)_{\tilde{x}_0}(1)$.
 \end{cor}
@@ -110,7 +110,7 @@
 \end{proof}
 
 \begin{cor}
-  Sia $p:E \rightarrow X$ un rivestimento. Allora $p_{\star}:\pi_1(E, \tilde{x}_0) \rightarrow \pi_1(X, x_0)$ è iniettiva.
+  Sia $p:E \longrightarrow X$ un rivestimento. Allora $p_{\star}:\pi_1(E, \tilde{x}_0) \longrightarrow \pi_1(X, x_0)$ è iniettiva.
 \end{cor}
 
 \begin{proof}
@@ -119,7 +119,7 @@
 \end{proof}
 
 \begin{defn}
-  (Azione di monodromia) Siano $p:E \rightarrow X$ un rivestimento, $x_0 \in X$, $F=p^{-1}(x_0)$. Allora esiste un'azione destra di $\pi_1(X, x_0)$ su $F$ definita così:
+  (Azione di monodromia) Siano $p:E \longrightarrow X$ un rivestimento, $x_0 \in X$, $F=p^{-1}(x_0)$. Allora esiste un'azione destra di $\pi_1(X, x_0)$ su $F$ definita così:
   \begin{align*}
     F \times \pi_1(X, x_0) &\longrightarrow F \\
     (\tilde{x}, [\gamma]) &\longmapsto \tilde{x} \cdot [\gamma]=\tilde{\gamma}_{\tilde{x}}(1),
@@ -128,15 +128,15 @@
 \end{defn}
 
 \begin{oss}
-  Sia $p:E \rightarrow X$ un rivestimento, $F=p^{-1}(x_0) \subseteq E, x_0 \in X$. La monodromia $F \times \pi_1(X, x_0)$ è transitiva se e solo se $E$ è connesso per archi.
+  Sia $p:E \longrightarrow X$ un rivestimento, $F=p^{-1}(x_0) \subseteq E, x_0 \in X$. La monodromia $F \times \pi_1(X, x_0)$ è transitiva se e solo se $E$ è connesso per archi.
 \end{oss}
 
 \begin{defn}
-  Un rivestimento $p:E \rightarrow X$ si dice \textsc{universale} se $E$ è semplicemente connesso, in particolare connesso per archi.
+  Un rivestimento $p:E \longrightarrow X$ si dice \textsc{universale} se $E$ è semplicemente connesso, in particolare connesso per archi.
 \end{defn}
 
 \begin{prop}
-  Sia $p:E \rightarrow X$ un rivestimento universale, $x_0 \in X$, $\tilde{x}_0 \in F=p^{-1}(x_0)$. La mappa $\psi:\pi_1(X, x_0) \rightarrow F, \psi([\gamma])=\tilde{x}_0 \cdot [\gamma]$ è bigettiva, per cui $|\pi_1(X, x_0)|=|F|$.
+  Sia $p:E \longrightarrow X$ un rivestimento universale, $x_0 \in X$, $\tilde{x}_0 \in F=p^{-1}(x_0)$. La mappa $\psi:\pi_1(X, x_0) \longrightarrow F, \psi([\gamma])=\tilde{x}_0 \cdot [\gamma]$ è bigettiva, per cui $|\pi_1(X, x_0)|=|F|$.
 \end{prop}
 
 \begin{proof}
