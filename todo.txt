@@ -36,4 +36,6 @@ Lez 36: ok
 Lez 37:
 Lez 38:
 
-C'è un problema con la reference al lemma precedente nel teorema 4.3.21, in teoria dovrebbe dare il link giusto, in pratica no. Ci sono anche problemi con altre reference ipertestuali.
+C'è un problema con la reference al lemma precedente nel teorema 4.3.21, in teoria dovrebbe dare il link giusto, in pratica no. Ci sono anche problemi con altre reference ipertestuali. (Nota: ricontrollarle tutte con diversi pdfviewer: quello che ho usato io potrebbe scazzare un po')
+
+Sistemare il todo stesso

@@ -1,0 +1,145 @@
+Vediamo ora, senza dimostrazione, alcuni risultati sulle serie di numeri complessi che ci torneranno utili.
+
+\begin{defn}
+  Sia $(c_n)_{n \in \mathbb{N}}$ una successione di numeri complessi. Diciamo che $\displaystyle \sum_{n \ge 0} c_n$ è \textit{assolutamente convergente} se la serie $\displaystyle \sum_{n \ge 0} |c_n|$ è convergente.
+\end{defn}
+
+\begin{exc}
+  $\displaystyle \sum_{n \ge 0} \frac{i^n}{n!}$ è convergente?
+\end{exc}
+
+\begin{prop} \label{sum&prod}
+  Siano $\displaystyle \sum_{n \ge 0} a_n$ e $\displaystyle \sum_{n \ge 0} b_n$ due serie assolutamente convergenti.
+  \begin{nlist}
+    \item $\displaystyle \sum_{n \ge 0} a_n+b_n$ è assolutamente convergente ed è uguale a $\displaystyle \sum_{n \ge 0} a_n + \sum_{n \ge 0} b_n$ (la serie delle somme è la somma delle serie);
+    \item se $\displaystyle c_n:=\sum_{p=0}^n a_pb_{n-p}$, allora $\displaystyle \sum_{n \ge 0} c_n$ è assolutamente convergente e la sua somma è uguale al prodotto delle somme delle due serie date.
+  \end{nlist}
+\end{prop}
+
+\begin{defn}
+  Sia $\displaystyle \sum_{n \ge 0} a_nz^n$ una serie di potenze. Chiamiamo \textit{raggio di convergenza} la quantità $\displaystyle \rho:=\sup\{r \in \mathbb{R}, r>0 \mid \sum_{n \ge 0} |a_n|r^n \text{ è convergente}\}$.
+\end{defn}
+
+\begin{oss}
+  $\rho$ può essere finito e in questo caso $\rho \ge 0$, oppure $\rho=+\infty$.
+\end{oss}
+
+\begin{defn}
+  Chiamiamo \textit{disco di convergenza} l'insieme $\{z \in \mathbb{C} \mid |z|<\rho\}$.
+\end{defn}
+
+\begin{oss}
+  Il disco di convergenza è aperto e $\rho=0$ $\implies$ disco$=\emptyset$.
+\end{oss}
+
+\begin{prop}
+  Data una serie di potenze $\displaystyle \sum_{n \ge 0} a_nz^n$, esiste $0 \le \rho \le +\infty$ t.c.:
+  \begin{enumerate}
+    \item caso $\rho=0$ la serie converge solo per $z=0$;
+    \item caso $\rho=+\infty$: la serie converge assolutamente per ogni $z \in \mathbb{C}$;
+    \item caso $0<\rho<+\infty$: se $|z|<\rho$ la serie converge assolutamente, se $|z|>\rho$ la serie non converge.
+  \end{enumerate}
+  Inoltre si ha la formula di Hadamard:
+  $$\frac{1}{\rho}=\limsup_{n \longrightarrow +\infty} |a_n|^{1/n}$$
+  con la convenzione che $\rho=+\infty$ se il limite è $0$ e $\rho=0$ se il limite è $+\infty$.
+\end{prop}
+
+\begin{exc}
+  Calcolare il raggio di convergenza di \\
+  $\displaystyle \sum_{n \ge 0} n!z^n, \sum_{n \ge 0} \frac{z^n}{n!}, \sum_{n \ge 0} (-1)^n \frac{z^{2n}}{(2n)!}, \sum_{n \ge 0} (-1)^n \frac{z^{2n+1}}{(2n+1)!}$.
+\end{exc}
+
+\begin{ex}
+  Proviamo che $\displaystyle \sum_{n \ge 0} z^n=\frac{1}{1-z}$ per $|z|<1$. La somma della serie è $\displaystyle \lim_{n \longrightarrow +\infty}S_n, S_n=z^0+z^1+\dots+z^n=\frac{1-z^{n+1}}{1-z}$. Lo studio del limite è lasciato per esercizio.
+\end{ex}
+
+\begin{ftt}
+  \begin{nlist}
+    \item Siano $\displaystyle \sum_{n \ge 0} a_nz^n$ e $\displaystyle \sum_{n \ge 0} b_nz^n$ due serie di potenze con raggio di convergenza $\ge R$ per qualche $R$.
+    Allora, definendo $\displaystyle S(z):=\sum_{n \ge 0} a_nz^n+\sum_{n \ge 0}b_nz^n, P(z):=\left(\sum_{n \ge 0}a_nz^n\right)\left(\sum_{n \ge 0}b_nz^n\right)$, abbiamo che $S(z)$ e $P(z)$ hanno raggio di convergenza $\ge R$.
+    Inoltre, per ogni $r \in \mathbb{C}$ con $|r|<R$, $\displaystyle S(r)=\sum_{n \ge 0}a_nr^n+\sum_{n \ge 0} b_nr^n$ e $\displaystyle P(r)=\left(\sum_{n \ge 0}a_nr^n\right)\left(\sum_{n \ge 0}b_nr^n\right)$.
+    \item Sia $\displaystyle f(z)=\sum_{n \ge 0} a_nz^n$. Chiamiamo \textit{serie derivata} la serie di potenze $\displaystyle \sum_{n \ge 0} na_nz^{n-1}$ e la denotiamo con $f'(z)$. Allora $f$ e $f'$ hanno lo stesso raggio di convergenza.
+  \end{nlist}
+\end{ftt}
+
+Passiamo ora a definire alcune funzioni complesse tramite serie di potenze. Cominciamo da esponenziale, seno e coseno.
+
+\begin{defn}
+  Fissato $z \in \mathbb{C}$, chiamiamo \textit{esponenziale del numero complesso $z$} la quantità $\displaystyle e^z:=\sum_{n \ge 0} \frac{1}{n!}z^n$.
+  Chiamiamo \textit{coseno di $z$} $\displaystyle \cos{z}:=\sum_{n \ge 0}(-1)^n\frac{z^{2n}}{(2n)!}$ e \textit{seno di $z$} $\displaystyle \sum_{n \ge 0}(-1)^n \frac{z^{2n+1}}{(2n+1)!}$.
+\end{defn}
+
+\begin{oss}
+  Le definizioni sono ben poste perché le serie hanno raggio di convergenza infinito.
+\end{oss}
+
+\begin{exc}
+  Provare che le definizioni coincidono con quelle già date.
+\end{exc}
+
+\begin{ex}
+  Dati $z, z' \in \mathbb{C}$, $e^{z+z'}=e^ze^{z'}$. Siano $a_n=\dfrac{1}{n!}z^n, b_n=\dfrac{1}{n!}(z')^n$.
+  Sia $\displaystyle c_n=\sum_{p=0}^n a_pb_{n-p}=\sum_{p=0}^n \left(\frac{1}{p!}z^p\right)\left(\frac{1}{(n-p)!}(z')^{n-p}\right)=\frac{1}{n!}\sum_{p=0}^n\binom{n}{p}z^p(z')^{n-p}=\frac{1}{n!}(z+z')^n$,
+  allora per il punto (ii) della proposizione \ref{sum&prod} abbiamo proprio $e^{z+z'}=e^ze^{z'}$.
+\end{ex}
+
+Adesso vogliamo definire il logaritmo.
+
+\begin{defn}
+  Sia $z \in \mathbb{C}, z \not=0$. Chiamiamo \textit{logaritmo del numero complesso $z$} la quantità $\log{z}:=\log{|z|}+i\arg{z}$.
+\end{defn}
+
+\begin{oss}
+  $\log{z} \in \mathbb{C}$ è definito modulo $2\pi i \mathbb{Z}$ perché $\arg{z} \in \faktor{\mathbb{R}}{2\pi \mathbb{Z}}$.
+\end{oss}
+
+\begin{prop}
+  Per ogni $z \in \mathbb{C}, z \not=0$, $e^{\log{z}}=z$.
+\end{prop}
+
+\begin{ftt}
+  $\log{(zz')}=\log{z}+\log{z'} \mod{2\pi i \mathbb{Z}}$.
+\end{ftt}
+
+Domanda: come definiamo $z \longmapsto \log{z}$? Abbiamo bisogno della definizione di branca.
+
+\begin{defn}
+  Sia $D$ aperto connesso di $\mathbb{C}$ t.c. $0 \not\in D$ e $f:D \longrightarrow \mathbb{C}$ continua. Diciamo che $f$ è una \textit{branca} di $\log{z}$ se $e^{f(z)}=z$ (cioè se $f(z)$ è uno dei possibili valori di $\log{z}$).
+\end{defn}
+
+\begin{prop}
+  Assumiamo che esista una branca $f(z)$ di $\log{z}$ in $D$. Allora ogni altra branca di $\log{z}$ in $D$ è della forma $f(z)+k(2\pi i)$ per qualche intero $k$. Viceversa, $f(z)+k(2 \pi i)$ è una branca di $\log{z}$ per ogni intero $k$, a partire dalla branca fissata $f(z)$.
+\end{prop}
+
+\begin{proof}
+  Siano $f(z)$ e $g(z)$ due branche di $\log{z}$ in $D$ ($e^{f(z)}=z, e^{g(z)}=z$ per ogni $z \in D$). $h(z):=\dfrac{1}{2\pi i}(g(z)-f(z)):D \longrightarrow \mathbb{C}$. $h$ è continua e t.c. $\Ima{h} \subseteq \mathbb{Z}$.
+  Visto che $D$ è connesso, $h$ è costantemente uguale a un certo intero $k$ $\implies$ $g(z)=f(z)+k(2\pi i)$. Il viceversa è ovvio.
+\end{proof}
+
+\begin{oss}
+  \begin{nlist}
+    \item Possiamo dare una definizione di branca anche per $\arg{z}$;
+    \item ogni branca di $\arg{z}$ definisce una branca di $\log{z}$ (e viceversa) (se $f(z)$ è una branca di $\arg{z}$, $\log{|z|}+if(z)$ è una branca di $\log{z}$).
+  \end{nlist}
+\end{oss}
+
+\begin{oss}
+  Sia $D=\{z \in \mathbb{C} \mid \mathfrak{Re}(z)>0\}$. Per ogni $z \in D$ esiste un unico $-\pi/2<\phi<\pi/2$ t.c. $\phi$ è un argomento di $z$; poniamo allora $\text{Arg}(z):=\phi$.
+\end{oss}
+
+\begin{prop}
+  La funzione
+  \begin{align*}
+    \text{Arg}(z):D &\longrightarrow \mathbb{C}\\
+    z &\longmapsto \phi
+  \end{align*}
+  è continua.
+\end{prop}
+
+\begin{proof}
+  Non l'ha ancora fatta, verrà aggiunta asap.
+\end{proof}
+
+\begin{defn}
+  Chiamiamo branca \textit{principale} di $\log{z}$ la funzione continua $\log{z}+i\text{Arg}(z)$ per $z \in D=\{z \in \mathbb{C} \mid \mathfrak{Re}(z)>0\}$.
+\end{defn}

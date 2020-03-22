@@ -171,3 +171,47 @@ Obiettivo: sostituire la condizione (ii) con le cosiddette condizioni di Cauchy-
   \beta & \alpha
 \end{pmatrix}$. Imponendo l'uguaglianza troviamo le condizioni di Cauchy-Riemann.
 \end{proof}
+
+\begin{defn}
+  $z=x+iy, e^z:=e^x(\cos{y}+i\sin{y})$.
+\end{defn}
+
+\begin{prop}
+  $f(z)=e^z$ è intera con $f'(z)=e^z$.
+\end{prop}
+
+\begin{proof}
+  Nella base $\{1, i\}$ di $\mathbb{C}$ scriviamo $f(x, y)=u(x, y)+iv(x, y)$, $u(x, y)=e^x\cos{y}, v(x, y)=e^x\sin{y}$.
+  \begin{enumerate}
+    \item $f$ è differenziabile: ovvio.
+    \item Verifichiamo le condizioni di C-R:
+    $\dfrac{\partial u}{\partial x}=e^x\cos{y}, \dfrac{\partial u}{\partial y}=-e^x\sin{y}, \dfrac{\partial v}{\partial x}=e^x\sin{y}, \dfrac{\partial v}{\partial y}=e^x\cos{y} \implies f(z)$ soddisfa C-R e $f'(z)=e^z$.
+  \end{enumerate}
+\end{proof}
+
+\begin{ex}
+  Altri esempi di funzioni intere:
+  $$\sin{z}:=\dfrac{e^{iz}-e^{-iz}}{2i}, \cos{z}:=\dfrac{e^{iz}+e^{-iz}}{2}, \sinh{z}:=\dfrac{e^{z}-e^{-z}}{2}, \cosh{z}:=\dfrac{e^{z}+e^{-z}}{2}.$$
+\end{ex}
+
+\begin{cor}
+  Sia $f:U \longrightarrow \mathbb{C}$ olomorfa con $U \subset \mathbb{C}$ aperto connesso. Le seguenti affermazioni sono equivalenti:
+  \begin{nlist}
+    \item $f$ è costante in $U$;
+    \item $f'$ è identicamente nulla;
+    \item $\mathfrak{Re}(f)$ è costante in $U$;
+    \item $\mathfrak{Im}(f)$ è costante in $U$.
+  \end{nlist}
+\end{cor}
+
+\begin{proof}
+  (i) $\implies$ (iii) e (i) $\implies$ (iv) sono ovvie. Adesso vogliamo usare il teorema di Cauchy-Riemann per la caratterizzazione delle funzioni olomorfe.
+
+  (i) $\iff$ (ii) $f$ è costante in $U$ $\iff$ $Jf$ è identicamente nullo, ma $Jf$ era la moltiplicazione per la matrice $\begin{pmatrix}
+    \alpha & -\beta\\
+    \beta & \alpha
+\end{pmatrix}$ dove $f'(z)=\alpha+i\beta$, quindi $Jf \equiv 0 \iff \alpha =\beta=0 \iff f'(z)=0$.
+
+(iii) $\implies$ (i) e (iv) $\implies$ (i) Adesso bisogna usare C-R. Nella base $\{1, i\}$ di $\mathbb{C}$, scriviamo $f(x, y)=u(x, y)+iv(x, y)$.
+$\mathfrak{Re}(f)$ costante $\iff$ $u$ costante $\iff$ $\dfrac{\partial u}{\partial x}=0=\dfrac{\partial u}{\partial y}$ e per C-R abbiamo $\dfrac{\partial v}{\partial x}=0=\dfrac{\partial v}{\partial y}$. (iv) $\implies$ (i) è analogo.
+\end{proof}
