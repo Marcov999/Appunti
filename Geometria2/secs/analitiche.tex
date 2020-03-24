@@ -1,0 +1,72 @@
+\begin{defn}
+  (Funzione analitica) Sia $U \subset \mathbb{C}$ un aperto. Una funzione $f:U \longrightarrow \mathbb{C}$ si dice \textsc{analitica in $z_0 \in U$} se
+  \begin{nlist}
+    \item esiste una serie di potenze $\displaystyle \sum_{n \ge 0} a_n(z-z_0)^n$ che converge assolutamente per $|z-z_0|<r$ per un qualche $r>0$ e
+    \item $\displaystyle f(z)=\sum_{n \ge 0} a_n(z-z_0)^n$ per $|z-z_0|<r$.
+  \end{nlist}
+  Diremo che $f$ è \textsc{analitica in $U$} se $f$ è analitica in $z_0$ per ogni $z_0 \in U$.
+\end{defn}
+
+\begin{oss}
+  $\displaystyle \sum_{n \ge 0} a_n(z-z_0)^n=a_0+\sum_{n \ge 1} a_n(z-z_0)^n$.
+\end{oss}
+
+\begin{ex}
+  Sono funzioni analitiche:
+  \begin{nlist}
+    \item i polinomi;
+    \item $e^z, \cos{z}, \sin{z}, \dots$
+  \end{nlist}
+\end{ex}
+
+\begin{prop}
+  Sia $U \subset \mathbb{C}$ un aperto e siano $f, g:U \longrightarrow \mathbb{C}$ funzioni analitiche in $U$. Allora
+  \begin{nlist}
+    \item $f+g$ è analitca in $U$;
+    \item $fg$ è analitica in $U$;
+    \item $\dfrac{f}{g}$ è definita e analitica in qualunque aperto contenuto in $\{z \in U \mid g(z) \not=0\}$.
+  \end{nlist}
+\end{prop}
+
+\begin{prop}
+  Siano $U$ e $V$ aperti di $\mathbb{C}$. Siano $f:U \longrightarrow V$ e $g:V \longrightarrow \mathbb{C}$ funzioni analitiche. Allora $g \circ f$ è analitica in $U$.
+\end{prop}
+
+\begin{prop}
+  Sia $U \subset \mathbb{C}$ aperto e $f:U \longrightarrow \mathbb{C}$ una funzione. Se $f$ è analitica in $U$, allora $f$ è continua in $U$.
+\end{prop}
+
+\begin{proof}
+  Sia $z_0 \in U$. Assumiamo che $\displaystyle f(z)=\sum_{n \ge 0}(z-z_0)^n$ per $|z-z_0|<r$ per qualche $r>0$. Senza perdita di generalità $z_0=0$ e $f(z_0)=f(0)=0$ $\implies$ $a_0=f(z_0)=f(0)=0$.
+  $\displaystyle f(z)=\sum_{n \ge 0} a_n(z-z_0)^n=\sum_{n \ge 0} a_nz^n=\sum_{n \ge 1} a_nz^n=z\sum_{n \ge 1} a_nz^{n-1}$. Se $0<\rho<r$ e $|z|<\rho$, $\displaystyle |f(z)| \le \sum_{n \ge 1} |a_n||z^n| \le |z| \sum_{n \ge 1} |a_n||z|^{n-1} \le |z| \sum_{n \ge 1} |a_n| \rho^{n-1}$.
+  Adesso notiamo che $\displaystyle \sum_{n \ge 1} |a_n| \rho^{n-1}$ non dipende da $|z|$, quindi $|f(z)| \longrightarrow 0$ per $|z| \longrightarrow 0$.
+\end{proof}
+
+\begin{prop}
+  Sia $z_0 \in \mathbb{C}$. Sia $\displaystyle \sum_{n \ge 0} a_n(z-z_0)^n$ una serie di potenze assolutamente convergente nel disco aperto $D_r(z_0)=\{z \mid |z-z_0|<r\}$ per qualche $r>0$. Allora la funzione
+  \begin{align*}
+    f:D_r(z_0) &\longrightarrow \mathbb{C}\\
+    z &\longmapsto \sum_{n \ge 0} a_n(z-z_0)^n
+  \end{align*}
+  è analitica in $D_r(z_0)$.
+\end{prop}
+
+\begin{proof}
+  Senza perdita di generalità $z_0=0$ $\implies$ $\displaystyle f(z)=\sum_{n \ge 0} a_nz^n$. Sia $a \in D_r(0)$ e sia $s \in \mathbb{R}, s>0$ t.c. $|a|+s<r$. Notiamo che $\displaystyle z^n=((z-a)+a)^n=\displaystyle \sum_{0 \le k \le n} \binom{n}{k}(z-a)^ka^{n-k}$.
+  Quindi $\displaystyle f(z)=\sum_{n \ge 0} a_nz^n=\sum_{n \ge 0} a_n\left(\sum_{0 \le k \le n} \binom{n}{k}(z-a)^na^{n-k}\right)$. Se $|z-a|<s$, $|a|+|z-a|<r$, quindi la serie $\displaystyle \sum_{n \ge 0} |a_n|(|a|+|z-a|)^n$ converge.
+  Scambiando l'ordine delle sommatorie, scriveremo $\displaystyle f(z)=\sum_{n \ge 0} \left(\sum_{k \ge 0} a_k\binom{k}{n}a^{k-n}\right)\cdot (z-a)^n=\sum_{n \ge 0}b_n(z-a)^n$ per $|z-a|<s$.
+\end{proof}
+
+\begin{thm}
+  Sia $U \subset \mathbb{C}$ aperto. Se $f:U \longrightarrow \mathbb{C}$ è analitica in $U$, allora $f$ è olomorfa in $U$ e la sua derivata $f'$ è una funzione analitica in $U$.
+\end{thm}
+
+\begin{proof}
+  Sia $z_0 \in U$, senza perdita di generalità $z_0=0$. Per ipotesi esiste una serie $\displaystyle \sum_{n \ge 0} a_n(z-z_0)^n=\sum_{n \ge 0} a_nz^n$ che converge assolutamente per $|z-z_0|=|z|<r$ per qualche $r>0$. Sia $\delta>0$ t.c. $|z|+\delta<r$.
+  Per ogni $h \in \mathbb{C}, h\not=0, |h|<\delta$, abbiamo $\displaystyle f(z+h)=\sum_{n \ge 0} a_n(z+h)^n=\sum_{n \ge 0} a_n(z^n+nhz^{n-1}+h^2P_n(z, h))$ dove $P_n(z, h)$ è un polinomio in $z$ e $h$ a coefficienti interi positivi.
+  $\displaystyle P_n(z, h)=\sum_{k=2}^n \binom{n}{k}h^{k-2}z^{n-k} \implies |P_n(z, h)| \le \sum_{k=2}^n \binom{n}{k} \delta^{k-2}|z|^{n-k}=P_n(|z|, \delta)$, che non dipende da $h$.
+  Allora $\displaystyle f(z+h)=f(z)+\sum_{n \ge 1} a_nnhz^{n-1}+h^2\sum_{n \ge 2}a_nP_n(z, h) \implies f(z+h)-f(z)-\sum_{n \ge 1} a_nnhz^{n-1}=h^2\sum_{n \ge 2} a_nP_n(z, h)$. Per ipotesi la somma al membro di sinistra è assolutamente convergente, dunque lo è anche quella al membro di destra.
+  Dividiamo per $h$: $\displaystyle \frac{f(z+h)-f(z)}{h}-\sum_{n \ge 1}a_nnz^{n-1}=h\sum_{n \ge 2} a_nP_n(z, h)$. $\displaystyle \sum_{n \ge 1}a_nnz^{n-1}$ è la cosiddetta serie derivata di $\displaystyle \sum_{n \ge 0}a_nz^n$.
+  Per $|h|<\delta$, $\displaystyle \left|\sum_{n \ge 2} a_nP_n(z, h)\right| \le \sum_{n \ge 2} |a_n|P_n(|z|, \delta)$ che non dipende da $h$ e converge.
+  Dunque per $h \longrightarrow 0$ abbiamo che $\displaystyle h\sum_{n \ge 2} a_nP_n(z, h) \longrightarrow 0$ e $\displaystyle \sum_{n \ge 1} a_nnz^{n-1} \longrightarrow 0$, quindi $\displaystyle \frac{f(z+h)-f(z)}{h} \longrightarrow f'(z)=\sum_{n \ge 1} a_nnz^{n-1}$ $\implies$ $f'$ è analitica.
+\end{proof}

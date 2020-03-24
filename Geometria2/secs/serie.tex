@@ -83,6 +83,11 @@ Passiamo ora a definire alcune funzioni complesse tramite serie di potenze. Comi
   allora per il punto (ii) della proposizione \ref{sum&prod} abbiamo proprio $e^{z+z'}=e^ze^{z'}$.
 \end{ex}
 
+\begin{oss}
+  $z, z' \in \mathbb{C}$ t.c. $e^z=e^{z'}$. Questo equivale a $e^{z'-z}=1$ $\iff$ $|e^{z'-z}|=e^{\mathfrak{Re}(w)}=1, \cos{\mathfrak{Im}(w)}+i\sin{\mathfrak{Im}(w)}=1$ ($w=z'-z$) $\iff$ $\mathfrak{Re}(w)=0$ e $\mathfrak{Im}(w)=2\pi k$ per $k \in \mathbb{Z}$.
+  Da questo segue che $e^z=e^{z'}$ $\iff$ $z'=z+i(2\pi k)$ per un certo $k \in \mathbb{Z}$.
+\end{oss}
+
 Adesso vogliamo definire il logaritmo.
 
 \begin{defn}
@@ -137,9 +142,43 @@ Domanda: come definiamo $z \longmapsto \log{z}$? Abbiamo bisogno della definizio
 \end{prop}
 
 \begin{proof}
-  Non l'ha ancora fatta, verrà aggiunta asap.
+  Per ogni $z \in \mathbb{C}, z \not=0$, $\arg{z}=\arg{\left(\dfrac{z}{|z|}\right)}$.
+  \begin{align*}
+    f:D &\longrightarrow U=\{u \in \mathbb{C} \mid |u|=1, \mathfrak{Re}(u)>0\}\\
+    z &\longmapsto \frac{z}{|z|}
+  \end{align*}
+  \begin{center}
+    \begin{tikzcd}
+      D \arrow[rr, "f"] \arrow[rd, "\text{Arg}"] & & U \arrow[ld, "\text{Arg}"]\\
+      & \mathbb{C}
+    \end{tikzcd}
+  \end{center}
+  $f$ è continua. Ci rimane da provare che
+  \begin{align*}
+    \text{Arg}:U &\longrightarrow \mathbb{C}\\
+    u &\longmapsto \text{Arg}(u)=y
+  \end{align*}
+  è continua.
+  Per costruzione, è l'inversa di
+  \begin{align*}
+    g:(-\pi/2, \pi/2) &\longrightarrow U\\
+    y &\longmapsto e^{iy}
+  \end{align*}
+  $g$ è continua e biettiva. $g$ si estende a $\tilde{g}$ continua e biettiva da $[-\pi/2, \pi/2]$ (compatto) a $\{u \in \mathbb{C} \mid \mathfrak{Re}(u) \ge 0\}$ (Hausdorff) $\implies$ $\tilde{g}$ è un omeomorfismo, quindi la sua inversa è continua, quindi l'inversa di $g$ è continua, quindi $\text{Arg}$ è continua.
 \end{proof}
 
 \begin{defn}
   Chiamiamo branca \textit{principale} di $\log{z}$ la funzione continua $\log{z}+i\text{Arg}(z)$ per $z \in D=\{z \in \mathbb{C} \mid \mathfrak{Re}(z)>0\}$.
+\end{defn}
+
+\begin{prop}
+  La serie di potenze $\displaystyle \sum_{n \ge 1} (-1)^{n-1}\frac{z^n}{n}$ converge per $|z|<1$ ed è uguale alla branca principale di $\log{(z+1)}$.
+\end{prop}
+
+\begin{prop}
+  Se $f(z)$ è una branca di $\log{z}$ in un insieme aoerto connesso $D$, la funzione $f$ ammette derivata $\dfrac{\diff}{\diff z}f(z)=\dfrac{1}{z}$.
+\end{prop}
+
+\begin{defn}
+  Per ogni $z, \alpha \in \mathbb{C}, z \not=0$ poniamo $z^{\alpha}=e^{\alpha\log{z}}$.
 \end{defn}
