@@ -58,7 +58,7 @@ Vediamo ora, senza dimostrazione, alcuni risultati sulle serie di numeri comples
     \item Siano $\displaystyle \sum_{n \ge 0} a_nz^n$ e $\displaystyle \sum_{n \ge 0} b_nz^n$ due serie di potenze con raggio di convergenza $\ge R$ per qualche $R$.
     Allora, definendo $\displaystyle S(z):=\sum_{n \ge 0} a_nz^n+\sum_{n \ge 0}b_nz^n, P(z):=\left(\sum_{n \ge 0}a_nz^n\right)\left(\sum_{n \ge 0}b_nz^n\right)$, abbiamo che $S(z)$ e $P(z)$ hanno raggio di convergenza $\ge R$.
     Inoltre, per ogni $r \in \mathbb{C}$ con $|r|<R$, $\displaystyle S(r)=\sum_{n \ge 0}a_nr^n+\sum_{n \ge 0} b_nr^n$ e $\displaystyle P(r)=\left(\sum_{n \ge 0}a_nr^n\right)\left(\sum_{n \ge 0}b_nr^n\right)$.
-    \item Sia $\displaystyle f(z)=\sum_{n \ge 0} a_nz^n$. Chiamiamo \textit{serie derivata} la serie di potenze $\displaystyle \sum_{n \ge 0} na_nz^{n-1}$ e la denotiamo con $f'(z)$. Allora $f$ e $f'$ hanno lo stesso raggio di convergenza.
+    \item Sia $\displaystyle f(z)=\sum_{n \ge 0} a_nz^n$. Chiamiamo \textit{serie derivata} la serie di potenze $\displaystyle \sum_{n \ge 1} na_nz^{n-1}$ e la denotiamo con $f'(z)$. Allora $f$ e $f'$ hanno lo stesso raggio di convergenza.
   \end{nlist}
 \end{ftt}
 
@@ -171,13 +171,39 @@ Domanda: come definiamo $z \longmapsto \log{z}$? Abbiamo bisogno della definizio
   Chiamiamo branca \textit{principale} di $\log{z}$ la funzione continua $\log{z}+i\text{Arg}(z)$ per $z \in D=\{z \in \mathbb{C} \mid \mathfrak{Re}(z)>0\}$.
 \end{defn}
 
-\begin{prop}
-  La serie di potenze $\displaystyle \sum_{n \ge 1} (-1)^{n-1}\frac{z^n}{n}$ converge per $|z|<1$ ed è uguale alla branca principale di $\log{(z+1)}$.
-\end{prop}
+\begin{lm} \label{der_inv}
+  Se $f:D \longrightarrow D'$ è olomorfa e biettiva e $g:D \longrightarrow D'$ è l'inversa di $f$, se $f'(z_0)\not=0$, allora $g$ è olomorfa in $f(z_0)$ e vale l'usuale formula $g'(f(z_0))=\dfrac{1}{f'(z_0)}$.
+\end{lm}
+
+\begin{proof}
+  Da $g \circ f=\id$ e dal teorema della funzione inversa (Analisi II), poiché $f'(z_0)=a+ib\not=0$, $\diff f_{z_0}=\begin{pmatrix}
+  a & -b\\
+  b & a
+\end{pmatrix}$ è invertibile, per cui $g$ è differenziabile in $f(z_0)$ e $\diff g_{f(z_0)}=(\diff f_{z_0})^{-1}$. Infine, si verifica che se $\diff f_{z_0}=A=\begin{pmatrix}
+a & -b\\
+b & a
+\end{pmatrix}$, $a^2+b^2\not=0$ (cioè $a+ib\not=0$), $\diff g_{f(z_0)}=A^{-1}=\begin{pmatrix}
+  c & -d\\
+  d & c
+\end{pmatrix}$ con $c+id=\dfrac{1}{a+ib}$ su $\mathbb{C}$.
+\end{proof}
 
 \begin{prop}
-  Se $f(z)$ è una branca di $\log{z}$ in un insieme aoerto connesso $D$, la funzione $f$ ammette derivata $\dfrac{\diff}{\diff z}f(z)=\dfrac{1}{z}$.
+  Se $f(z)$ è una branca di $\log{z}$ in un insieme aperto connesso $D$, la funzione $f$ è olomorfa e $\dfrac{\diff}{\diff z}f(z)=\dfrac{1}{z}$ (ovviamente $0 \not\in D$).
 \end{prop}
+
+\begin{proof}
+  $f(\exp(z))=z+c$, $c$ costante. Per il lemma \ref{der_inv}, $f'(\exp(z))=\dfrac{1}{\exp(z)}$, cioè $f'(y)=\dfrac{1}{y}$.
+  Detto bene, fissato $z_0 \in D, z_0\not=0$, $y_0=f(z_0) \in f(D)$ è t.c. $z_0=\exp(y_0)$. Per continuità di $\exp$, dato un intorno $V$ di $z_0$ in $D$ esiste un intorno $W$ di $y_0$ in $\mathbb{C}$ t.c. $\exp(W) \subseteq V$ e le uguaglianze sopra sono verificate (in particolare, $f \circ \exp=\id$, senza l'aggiunta di una costante).
+\end{proof}
+
+\begin{prop} \label{serie_log}
+  La serie di potenze $\displaystyle \sum_{n \ge 1} (-1)^{n+1}\frac{z^n}{n}$ converge per $|z|<1$ ed è uguale alla branca principale di $\log{(z+1)}$.
+\end{prop}
+
+\begin{proof}
+  Si veda più avanti, alla fine del paragrafo sulle funzioni analitiche.
+\end{proof}
 
 \begin{defn}
   Per ogni $z, \alpha \in \mathbb{C}, z \not=0$ poniamo $z^{\alpha}=e^{\alpha\log{z}}$.

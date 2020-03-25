@@ -1,0 +1,53 @@
+D'ora in poi, $D$ sarà un aperto connesso di $\mathbb{C}$.
+
+\begin{thm} \label{ann_anal}
+  Sia $f:D \longrightarrow \mathbb{C}$ analitica. Sono fatti equivalenti:
+  \begin{nlist}
+    \item esiste $z_0 \in D$ con $f^{(n)}(z_0)=0$ per ogni $n \in \mathbb{N}$;
+    \item esiste un aperto $U \subseteq D$ con $f \equiv 0$ su $U$;
+    \item $f \equiv 0$ su $D$.
+  \end{nlist}
+\end{thm}
+
+\begin{proof}
+  (iii) $\implies$ (i) è ovvio e vale per ogni $z_0 \in D$.
+
+  (i) $\implies$ (ii) Per analiticità, $\displaystyle f(z)=\sum_{n=0}^{+\infty} a_n(z-z_0)^n$ per ogni $z \in B(z_0, R)$ per qualche $R>0$. Inoltre, $a_n=\dfrac{f^{(n)}(z_0)}{n!}$ (segue da una semplice induzione). Dunque $f^{(n)}(z_0)=0$ $\implies$ $a_n=0$ per ogni $n \in \mathbb{N}$, perciò $f \equiv 0$ su $B(z_0, R)$.
+
+  (ii) $\implies$ (iii) Sia $\Omega \subseteq D$, $\Omega=\{z \in D \mid \text{esiste un intorno aperto } U \text{ di } z_0 \text{ con } f\restrict{U}\equiv 0\}$. Essendo nelle ipotesi del punto (ii), $\Omega \not=\emptyset$. Poiché $D$ è connesso, basta vedere che $\Omega$ è clopen in $D$, da cui $\Omega=D$. $\Omega$ è aperto praticamente per definizione.
+  $\Omega$ chiuso: sia $z \in D$ con $\displaystyle z=\lim_{n \longrightarrow +\infty} z_n, z_n \in \Omega$. Allora $f^{(k)}(z_n)=0$ per ogni $n, k \in \mathbb{N}$. Ma $f^{(k)}$ continua per ogni $k$ $\implies$ $\displaystyle f^{(k)}(z)=\lim_{n \longrightarrow +\infty} f^{(k)}(z_n)=0$. Si usa adesso che (i) $\implies$ (ii).
+\end{proof}
+
+Abbiamo usato che, se $f:D \longrightarrow \mathbb{C}$ è analitica, $f':D \longrightarrow \mathbb{C}$ è analitica e se $\displaystyle f(z)=\sum_{n=0}^{+\infty} a_n(z-z_0)^n$, allora $\displaystyle f'(z)=\sum_{n=1}^{+\infty} na_n(z-z_0)^{n-1}$, da cui $f'$ derivabile. Iterando otteniamo $f \in C^{\infty}$ e $f^{(n)}(z_0)=a_nn!$, cioè $a_n=\dfrac{f^{(n)}(z_0)}{n!}$. \\
+
+Attenzione: l'enunciato appena dato è falso per funzioni $C^{\infty}$. \marginpar\warningsign
+
+\begin{ex}
+  $f: \mathbb{C} \longrightarrow \mathbb{C}$, $f(a+ib)=\begin{cases} e^{-\frac{1}{a}} & \mbox{se }a>0 \\ 0 & \mbox{se }a \le 0
+
+\end{cases}$, allora $f$ è $C^{\infty}$, si annulla su $\{\mathfrak{Re}z>0\}$,dunque anche su un aperto di $\mathbb{C}$, ma non è nulla in $\mathbb{C}$. In questo esempio l'insieme $\Omega$ definito nella dimostrazione del teorema \ref{ann_anal} è aperto ma non è chiuso.
+\end{ex}
+
+\begin{cor}
+  (Prolungamento analitico) Siano $f, g:D \longrightarrow \mathbb{C}$ analitiche. Se $f=g$ su un aperto $U \subseteq D$, allora $f=g$ su $D$. Se esiste $z_0 \in D$ con $f^{(n)}(z_0)=g^{(n)}(z_0)$ per ogni $n \in \mathbb{N}$, allora anche in questo caso $f=g$ su $D$.
+\end{cor}
+
+\begin{proof}
+  Si applica il teorema \ref{ann_anal} alla funzione $f=h-g$.
+\end{proof}
+
+\begin{cor}
+  L'anello delle funzioni analitiche su $D$ è un domino di integrità.
+\end{cor}
+
+\begin{proof}
+  Se $f, g:D \longrightarrow \mathbb{C}$ sono t.c. $f \cdot g=0$, se $A=\{z \mid f(z)=0\}, B=\{z \mid g(z)=0\}$, allora $D=A \cup B$. $A, B$ chiusi $\implies$ almeno uno di essi ha parte interna non vuota (dimostrazione per esercizio). Se, senza perdita di generalità, $A^{\circ}\not=\emptyset$, $f \equiv 0$ su un aperto, dunque per il teorema \ref{ann_anal} $f \equiv 0$ su $D$.
+\end{proof}
+
+Vediamo ora un paio di risultati sugli zeri di funzioni analitiche. Cominciamo da una definizione.
+
+\begin{defn}
+  Sia $f:D \longrightarrow \mathbb{C}$ analitica non identicamente nulla. Allora, per ogni $z_0 \in D$, $ord_{z_0}(f)=\min{\{n \in \mathbb{N} \mid f^{(n)}(z_0)\not=0\}}$ è \textsc{l'ordine di $f$ in $z_0$}.
+  Per il teorema \ref{ann_anal}, poiché $f$ non è identicamente nulla, $\{n \in \mathbb{N} \mid f^{(n)}(z_0)\not=0\}\not=\emptyset$, dunque $ord_{z_0}(f)$ è ben definito. $f(z_0)=0 \iff ord_{z}(f) \ge 1$.
+  Uno zero $z_0$ di $f$ si dice \textsc{semplice} se $ord_{z_0}(f)=1$ e \textsc{multiplo} altrimenti. Se $\displaystyle f(z)=\sum_{n=0}^{+\infty} a_n(z-z_0)^n$, poiché $f^{(n)}(z_0)=n!a_n$, $ord_{z_0}(f)=\min{\{n \in \mathbb{N} \mid a_n\not=0\}}$.
+\end{defn}

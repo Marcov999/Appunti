@@ -70,3 +70,12 @@
   Per $|h|<\delta$, $\displaystyle \left|\sum_{n \ge 2} a_nP_n(z, h)\right| \le \sum_{n \ge 2} |a_n|P_n(|z|, \delta)$ che non dipende da $h$ e converge.
   Dunque per $h \longrightarrow 0$ abbiamo che $\displaystyle h\sum_{n \ge 2} a_nP_n(z, h) \longrightarrow 0$ e $\displaystyle \sum_{n \ge 1} a_nnz^{n-1} \longrightarrow 0$, quindi $\displaystyle \frac{f(z+h)-f(z)}{h} \longrightarrow f'(z)=\sum_{n \ge 1} a_nnz^{n-1}$ $\implies$ $f'$ è analitica.
 \end{proof}
+
+Concludiamo il paragrafo con la dimostrazione della proposizione \ref{serie_log}.
+
+\begin{proof}
+  Sia $D=B(0, 1)$ e siano $f:D \longrightarrow \mathbb{C}, f(z)=\log(1+z)$, $\displaystyle g:D \longrightarrow \mathbb{C}, g(z)=\sum_{n=1}^{+\infty} (-1)^{n+1}\frac{z^n}{n}$.
+  Poiché il raggio di convergenza della serie data è $1$, $g$ è ben definita, analitica, dunque olomorfa e $\displaystyle g'(z)=\sum_{n=1}^{+\infty} (-1)^{n+1}n\frac{z^{n-1}}{n}=\sum_{n=1}^{+\infty} (-1)^{n+1}z^{n-1}=\sum_{n=0}^{+\infty} (-1)^nz^n=\sum_{n=0}^{+\infty} (-z)^n=\frac{1}{1-(-z)}=\frac{1}{1+z}$.
+  Perciò, se $h=f-g$, $h'(z)=f'(z)-g'(z)=\dfrac{1}{1+z}-\dfrac{1}{1+z}=0$ per ogni $z \in D$, dunque $h' \equiv 0$ su $D$ e $h$ è costante su $D$ (una funzione con differenziale nullo ovunque è costante su un connesso). Dunque $h(z)=c$ per ogni $z \in D$.
+  Per trovare $c$ osserviamo che $\displaystyle h(0)=f(0)-g(0)=\log{1}-\sum_{n=1}^{+\infty} 0=0$. Dunque $h \equiv 0$, cioè $f \equiv g$.
+\end{proof}
