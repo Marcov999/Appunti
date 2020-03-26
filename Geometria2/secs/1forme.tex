@@ -42,3 +42,29 @@ Perciò si ha che $\diff f=\dfrac{\partial f}{\partial z}\diff z+\dfrac{\partial
 \begin{prop}
   Sia $f:D \longrightarrow \mathbb{C}$ differenziabile. Allora $f$ è olomorfa $\iff$ $\dfrac{\partial f}{\partial \bar{z}}=0$ e in talo caso $\diff f=\dfrac{\partial f}{\partial z}\diff z$.
 \end{prop}
+
+\begin{oss}
+  Sia $D \subseteq \mathbb{C}$ aperto connesso, $f:D \longrightarrow \mathbb{C}$ differenziabile. Abbiamo visto che se $f$ è olomorfa (cioè $\mathbb{C}$-lineare per ogni $z \in D$, ed è perciò la moltiplicazione per un elemento di $\mathbb{C}$ detto $f'(z)$) si ha $\dfrac{\partial f}{\partial \bar{z}}=0$.
+  Inoltre, sempre assumendo $f$ olomorfa, $\dfrac{\partial f}{\partial x}(z)=\diff f_z(1)=f'(z)\cdot 1=f'(z)$, $\dfrac{\partial f}{\partial y}(z)=\diff f_z(i)=i\diff f_z(1)=if'(z)$.
+  Perciò $\dfrac{\partial f}{\partial z}=\dfrac{1}{2}\left(\dfrac{\partial f}{\partial x}-i\dfrac{\partial f}{\partial y}\right)=\dfrac{1}{2}(f'(z)-i \cdot if'(z))=f'(z)$.
+\end{oss}
+
+\begin{cor}
+  Se $f$ è olomorfa, $\diff f=f' \diff z$.
+\end{cor}
+
+\begin{proof}
+  $\diff f=\dfrac{\partial f}{\partial z}\diff z+\dfrac{\partial f}{\partial \bar{z}}\diff \bar{z}=f'(z)\diff z+0$.
+\end{proof}
+
+\begin{defn}
+  Sia $\omega$ una $1$-forma differenziale complessa su $D$. Allora $\omega$ è \textsc{esatta} se esiste $F:D \longrightarrow \mathbb{C}$ t.c. $\omega=\diff F$.
+  Inoltre, $\omega$ è \textsc{chiusa} se è localmente esatta, cioè per ogni $p \in D$ esiste un aperto $U \subseteq D$ con $p \in U$ e $F_U:U \longrightarrow \mathbb{C}$ con $\diff F_U=\omega\restrict{U}$ (in particolare, $F$ e $F_U$ sono differenziabili). $F$ si chiama \textsc{primitiva} di $\omega$ mentre $F_U$ è una \textsc{primitiva locale}.
+\end{defn}
+
+Ovviamente $\omega$ esatta $\implies$ $\omega$ chiusa. Ricordiamo che $\diff F=\dfrac{\partial F}{\partial x}\diff x+\dfrac{\partial F}{\partial y}\diff y$, per cui $\omega=P\diff x+Q\diff y$ è esatta se esiste $F$ t.c. $P=\dfrac{\partial F}{\partial x}, Q=\dfrac{\partial F}{\partial y}$, cioè se il "campo vettoriale" $z \longmapsto (P(z), Q(z))$ è gradiente di una funzione (ammette un potenziale).
+Le forme chiuse corrispondono ai campi che ammettono potenziali locali. Vedremo che questa condizione si può controllare localmente ed è equivalente a essere "irrotazionale".
+\begin{align*}
+  \text{chiusura di } \omega &\longrightarrow \text{proprietà locale}\\
+  \text{esattezza di } \omega &\longrightarrow \text{proprietà globale, che dipende dalla topologia di $D$}
+\end{align*}
