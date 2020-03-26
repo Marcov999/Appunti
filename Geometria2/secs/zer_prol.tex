@@ -44,10 +44,29 @@ Attenzione: il teorema \ref{ann_anal} è falso per funzioni $C^{\infty}$. \margi
   Se $f, g:D \longrightarrow \mathbb{C}$ sono t.c. $f \cdot g=0$, se $A=\{z \mid f(z)=0\}, B=\{z \mid g(z)=0\}$, allora $D=A \cup B$. $A, B$ chiusi $\implies$ almeno uno di essi ha parte interna non vuota (dimostrazione per esercizio). Se, senza perdita di generalità, $A^{\circ}\not=\emptyset$, $f \equiv 0$ su un aperto, dunque per il teorema \ref{ann_anal} $f \equiv 0$ su $D$.
 \end{proof}
 
-Vediamo ora un paio di risultati sugli zeri di funzioni analitiche. Cominciamo da una definizione.
+Vediamo ora un paio di risultati sugli zeri di funzioni analitiche.
 
 \begin{defn}
   Sia $f:D \longrightarrow \mathbb{C}$ analitica non identicamente nulla. Allora, per ogni $z_0 \in D$, $ord_{z_0}(f)=\min{\{n \in \mathbb{N} \mid f^{(n)}(z_0)\not=0\}}$ è \textsc{l'ordine di $f$ in $z_0$}.
   Per il teorema \ref{ann_anal}, poiché $f$ non è identicamente nulla, $\{n \in \mathbb{N} \mid f^{(n)}(z_0)\not=0\}\not=\emptyset$, dunque $ord_{z_0}(f)$ è ben definito. $f(z_0)=0 \iff ord_{z}(f) \ge 1$.
   Uno zero $z_0$ di $f$ si dice \textsc{semplice} se $ord_{z_0}(f)=1$ e \textsc{multiplo} altrimenti. Se $\displaystyle f(z)=\sum_{n=0}^{+\infty} a_n(z-z_0)^n$, poiché $f^{(n)}(z_0)=n!a_n$, $ord_{z_0}(f)=\min{\{n \in \mathbb{N} \mid a_n\not=0\}}$.
 \end{defn}
+
+\begin{prop}
+  Sia $f:D \longrightarrow \mathbb{C}$ analitica non identicamente nulla. Allora $f(z)=(z-z_0)^{ord_{z_0}(f)}\cdot g(z)$ con $g:D \longrightarrow \mathbb{C}$ analitica e $g(z)\not=0$ in un intorno di $z_0$.
+\end{prop}
+
+\begin{proof}
+  Sia $k=ord_{z_0}(f)$. In un intorno di $z_0$, $\displaystyle f(z)=\sum_{n=0}^{+\infty} a_n(z-z_0)^n=\sum_{n=k}^{+\infty} a_n(z-z_0)^n=(z-z_0)^k\sum_{n=k}^{+\infty} a_n(z-z_0)^{n-k}=(z-z_0)^n\sum_{n=0}^{+\infty} a_{n+k}(z-z_0)^n=(z-z_0)^kg(z)$. La serie di potenze che definisce $g$ ha lo stesso raggio di convergenza di quella di $f$.
+  In particolare, esiste un intorno $U$ di $z_0$ t.c., posto $\displaystyle g(z)=\sum_{n=0}^{+\infty} a_{n+k}(z-z_0)^n$, $f(z)=(z-z_0)^kg(z)$ per ogni $z \in U$. $g$ è analitica e $g(z_0)=a_k \not=0$ (per definizione). Questo ci dà la tesi su $U$. Fuori da $U$ (anzi, su $D \setminus \{z_0\}$) poniamo $g(z)=\dfrac{f(z)}{(z-z_0)^k}$.
+  Questa definizione estende $\displaystyle g(z)=\sum_{n=0}^{+\infty} a_{n+k}(z-z_0)^n$ a una funzione analitica su tutto $D$. Infine, poiché $g(z_0)\not=0$ e $g$ è continua in quanto analitica, $g(z)\not=0$ in un intorno di $z_0$.
+\end{proof}
+
+\begin{cor}
+  $f:D \longrightarrow \mathbb{C}$ analitica non identicamente nulla.  Allora $C=\{z \in D \mid f(z)=0\} \subseteq D$ è discreto e chiuso in $D$ (ma non necessariamente in $\mathbb{C}$).
+\end{cor}
+
+\begin{proof}
+  Se $z_0 \in C$, $f(z_0)=0$ e $k=ord_{z_0}(f)$, allora in un intorno $U$ di $z_0$ si ha $f(z)=(z-z_0)^kg(z), g(z) \not=0$ per ogni $z \in U$. Se $z \in U \setminus \{z_0\}$, $(z-z_0)^k\not=0, g(z) \not=0 \implies f(z) \not=0$.
+  Perciò $C \cap U=\{z_0\}$, dunque $C$ è discreto ed è chiuso perché preimmagine di $0$, che è un chiuso. 
+\end{proof}

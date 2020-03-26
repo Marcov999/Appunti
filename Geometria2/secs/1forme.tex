@@ -1,0 +1,44 @@
+$\mathbb{C}$ è un $\mathbb{R}$-spazio vettoriale di dimensione $2$, con base $\{1, i\}$. Fissata questa base,
+\begin{align*}
+  End_{\mathbb{R}}(\mathbb{C}) &\cong M(2 \times 2, \mathbb{R})\\
+  \varphi &\longleftrightarrow \begin{pmatrix}
+    \mathfrak{Re}(\varphi(1)) & \mathfrak{Re}(\varphi(i))\\
+    \mathfrak{Im}(\varphi(1)) & \mathfrak{Im}(\varphi(i))
+\end{pmatrix}
+\end{align*}
+
+\begin{defn}
+  Sia $D \subseteq \mathbb{C}$ un dominio aperto. Una \textsc{$1$-forma complessa su $D$} è una funzione $\omega:D \longrightarrow End_{\mathbb{R}}(\mathbb{C})$ continua (rispetto all'usuale topologia su $M(2 \times 2, \mathbb{R}) \cong \mathbb{R}^4$).
+\end{defn}
+
+Notiamo che
+\begin{align*}
+  \diff x: \mathbb{C} \longrightarrow \mathbb{C}, \,\,\, \diff x(a+ib)=a\\
+  \diff y: \mathbb{C} \longrightarrow \mathbb{C}, \,\,\, \diff y(a+ib)=b
+\end{align*}
+sono una base di $End_{\mathbb{R}}(\mathbb{C})$ inteso come $\mathbb{C}$-spazio vettoriale.
+
+Più concretamente, una $1$-forma differenziale complessa $\omega$ su $D$ corrisponde a due funzioni $P, Q:D \longrightarrow \mathbb{C}$ t.c. $\omega(z)=P(z)\diff x+Q(z)\diff y=P\diff x+Q\diff y$. La continuità di $\omega$ equivaòe alla continuità di $P$ e $Q$. Infatti, se $P(z)=a(z)+ib(z), Q(z)=c(z)+id(z)$, $\omega(z)(1)=P(z)\diff x(1)+Q(z)\diff y(1)=P(z)=a(z)+ib(z), \omega(z)(i)=P(z)\diff x(i)+Q(z)\diff y(i)=Q(z)=c(z)+id(z)$, perciò $w(z)=\begin{pmatrix}
+  a(z) & c(z)\\
+  b(z) & d(z)
+\end{pmatrix}$ ed è continua $\iff$ $a, b, c, d$ lo sono $\iff$ $P$ e $Q$ lo sono.
+
+\begin{ex}
+  Se $f:D \longrightarrow \mathbb{C}$ è $C^1$, $z=u+iv$, allora $\diff f$ è una $1$-forma complessa, data da $\diff f=\begin{pmatrix}
+    \dfrac{\partial\mathfrak{Re}(f)}{\partial u} & \dfrac{\partial\mathfrak{Re}(f)}{\partial v}\\
+    \dfrac{\partial\mathfrak{Im}(f)}{\partial u} & \dfrac{\partial\mathfrak{Im}(f)}{\partial v}
+\end{pmatrix}$.
+\end{ex}
+
+Un'altra base utile di $End_{\mathbb{R}}(\mathbb{C})$ è data da $\diff z= \diff x+i\diff y, \diff \bar{z}=\diff x-i\diff y$. Inoltre, se $f:D \longrightarrow \mathbb{C}$ è differenziabile, $\diff f=\dfrac{\partial f}{\partial x}\diff x+\dfrac{\partial f}{\partial y}\diff y$,
+da cui $\diff f=\dfrac{\partial f}{\partial x}\left(\dfrac{\diff z+\diff \bar{z}}{2}\right)+\dfrac{\partial f}{\partial y}\left(-\dfrac{i}{2}(\diff z-\diff \bar{z})\right)=\dfrac{1}{2}\left(\dfrac{\partial f}{\partial x}-i\dfrac{\partial f}{\partial y}\right)\diff z+\dfrac{1}{2}\left(\dfrac{\partial f}{\partial x}+i\dfrac{\partial f}{\partial y}\right)\diff \bar{z}$.
+Poniamo $\dfrac{\partial f}{\partial z}:=\dfrac{1}{2}\left(\dfrac{\partial f}{\partial x}-i\dfrac{\partial f}{\partial y}\right), \dfrac{\partial f}{\partial \bar{z}}:=\dfrac{1}{2}\left(\dfrac{\partial f}{\partial x}+i\dfrac{\partial f}{\partial y}\right)$.
+Perciò si ha che $\diff f=\dfrac{\partial f}{\partial z}\diff z+\dfrac{\partial f}{\partial \bar{z}}\diff \bar{z}$ per costruzione.
+
+\begin{oss}
+  $f$ è olomorfa $\iff$ $\diff f$ è $\mathbb{C}$-lineare, cioè $\dfrac{\partial f}{\partial y}=\diff f(i)=i\diff f(1)=i\dfrac{\partial f}{\partial x}$ $\iff$ $\dfrac{\partial f}{\partial x}=-i\dfrac{\partial f}{\partial y}$ $\iff$ $\dfrac{\partial f}{\partial \bar{z}}=0$.
+\end{oss}
+
+\begin{prop}
+  Sia $f:D \longrightarrow \mathbb{C}$ differenziabile. Allora $f$ è olomorfa $\iff$ $\dfrac{\partial f}{\partial \bar{z}}=0$ e in talo caso $\diff f=\dfrac{\partial f}{\partial z}\diff z$.
+\end{prop}
