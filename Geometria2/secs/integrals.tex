@@ -79,7 +79,7 @@ Se $f:[a, b] \longrightarrow \mathbb{C}$ è continua, poniamo $\displaystyle \in
   Se $G$ è un'altra primitiva di $\omega$, $\diff G=\diff F \implies \diff(G-F)=0 \implies G-F=c$, $c$ costante $\implies$ $G=F+c$. Il viceversa è ovvio: $\diff(F+c)=\diff F=\omega$.
 \end{proof}
 
-\begin{thm}
+\begin{thm} \label{int=0no1}
   Sia $D \subseteq \mathbb{C}$ un aperto connesso, $\omega$ una $1$-forma su $D$. Allora $\omega$ è esatta $\iff$ $\displaystyle \int_{\gamma} \omega=0$ per ogni loop $\gamma$ $C^1$ a tratti.
 \end{thm}
 
@@ -92,6 +92,66 @@ Se $f:[a, b] \longrightarrow \mathbb{C}$ è continua, poniamo $\displaystyle \in
   Mostriamo che $\dfrac{\partial F}{\partial x}=P$ (l'altra dimostrazione è analoga). Se vogliamo calcolare la derivata parziale lungo $x$, poniamo $h$ un numero reale, allora dobbiamo valutare la funzione in un punto $p$ e in $p+h$ e calcolare il limite del rapporto incrementale. Sia dunque $\gamma_h:[0, h] \longrightarrow D, \gamma_h(t)=p+t$.
   Allora $\displaystyle F(p)=\int_{\gamma_p} \omega, F(p+h)=\int_{\gamma_p*\gamma_h} \omega \implies F(p+h)-F(p)=\int_{\gamma_p*\gamma_h}-\int_{\gamma_p} \omega=\int_{\gamma_p} \omega+\int_{\gamma_h} \omega-\int_{\gamma_p} \omega=\int_{\gamma_h} \omega$.
   Notiamo che $\omega_{\gamma_h(t)}(\gamma_h'(t))=\omega_{\gamma_h(t)}(1)=P(\gamma_h(t))\diff x(1)+Q(\gamma_h(t)) \diff y(1)=P(\gamma_h(t))=P(p+t)$.
-  Dunque $\displaystyle F(p+h)-F(p)=\int_{\gamma_h} \omega=\int_0^h P(p+t)\diff t$ e $\displaystyle \frac{F(p+h)-F(h)}{h}=\frac{1}{h}\int_0^h P(p+t)\diff t=P(p+\xi_h)$ con $0 \le \xi_h \le h$ per il teorema della media integrale.
+  Dunque $\displaystyle F(p+h)-F(p)=\int_{\gamma_h} \omega=\int_0^h P(p+t)\diff t$ e $\displaystyle \frac{F(p+h)-F(h)}{h}=\frac{1}{h}\int_0^h P(p+t)\diff t=P(p+\xi_h)$ con $0 \le \xi_h \le h$ per il teorema della media integrale (in realtà, andrebbe applicato separatamente a parte reale e parte immaginaria, ma non cambiano le conclusioni).
   Passando al limite per $h \longrightarrow 0$ e usando la continuità di $P$ otteniamo $\displaystyle \frac{\partial F}{\partial x}(p)=\lim_{h \longrightarrow 0} \frac{F(p+h)-F(p)}{h}=\lim_{h \longrightarrow 0} P(p+\xi_h)=P(p)$.
+\end{proof}
+
+\begin{cor}
+  Su $\mathbb{C}*$ la forma $\dfrac{\diff z}{z}$ è chiusa ma non esatta.
+\end{cor}
+
+\begin{proof}
+  Per ogni $z_0 \in \mathbb{C}*$ esiste un aperto $U$ con $z_0 \in U \subseteq \mathbb{C}*$ su cui è definita una branca $F$ di $\log$ e $\diff F=F'\diff z=\dfrac{1}{z}\diff z$ su $U$, per cui $\dfrac{\diff z}{z}$ è chiusa.
+  Però, se $\gamma:[0,1] \longrightarrow \mathbb{C}*, \gamma(t)=e^{2\pi it}$, $\displaystyle \int_{\gamma} \frac{\diff z}{z}\not=0$ $\implies$ $\dfrac{\diff z}{z}$ non è esatta.
+\end{proof}
+
+\begin{cor}
+  Non esiste un "logaritmo" definito su tutto $\mathbb{C}*$.
+\end{cor}
+
+\begin{proof}
+  Altrimenti, $\dfrac{\diff z}{z}$ sarebbe esatta su $\mathbb{C}*$.
+\end{proof}
+
+Adesso integriamo sui rettangoli. Un rettangolo $R \subseteq \mathbb{C}$ è caratterizzato da quattro vertici della forma $a_1+ib_1, a_1+ib_2, a_2+ib_2, a_2+ib_1$. Siano $\gamma_1(t)=a_1+t(a_2-a_1)+ib_1, \gamma_2(t)=a_2+i(b_1+t(b_2-b_1)), \gamma_3(t)=a_2+t(a_1-a_2)+ib_2, \gamma_4(t)=a_1+i(b_2+t(b_1-b_2))$.
+Possiamo parametrizzare il bordo del rettangolo con il cammino $\gamma=\gamma_1*\gamma_2*\gamma_3*\gamma_4$. D'ora in poi indicheremo con $\displaystyle \int_{\partial R} \omega$ l'integrale $\displaystyle \int_{\gamma} \omega$ per  ogni $1$-forma $\omega$. Se $\omega=P\diff x+Q\diff y$,
+$$\int_{\partial R} \omega=\int_{a_1}^{a_2}P(t, b_1)\diff t+\int_{b_1}^{b_2}Q(a_2, t)\diff t-\int_{a_1}^{a_2}P(t, b_2)\diff t-\int_{b_1}^{b_2}Q(a_1, t)\diff t.$$
+
+\begin{prop} \label{int=0no2}
+  Sia $D=B(z_0, R)$ un disco aperto, $\omega$ una $1$-forma su $D$. Allora $\omega$ è esatta $\iff$ $\displaystyle \int_{\partial R} \omega=0$ per ogni rettangolo $R \subseteq D$.
+\end{prop}
+
+\begin{proof}
+  ($\implies$) Segue dal teorema \ref{int=0no1}, poiché $\partial R$ è un cammino chiuso $C^1$ a tratti.
+
+  ($\Leftarrow$) Costruiamo una primitiva integrando $\omega$ lungo cammini differenziabikli a tratti fatti da un tratto orizzontale seguito da un tratto verticale. Per ogni $z \in D$, sia $\gamma_z$ un tale cammino (esiste perché $D$ è un disco). Poniamo $\displaystyle F(z)=\int_{\gamma(z)} \omega$. Poiché $\gamma_z$ è univocamente determinato da $z$ (a meno di riparametrizzazioni), $F$ è ben definita. Dobbiamo mostrare che, se $\omega=P\diff x+Q\diff $, allora $\dfrac{\partial F}{\partial x}=P, \dfrac{\partial F}{\partial y}=Q$.
+  $\displaystyle F(z+ih)-F(z)=\int_{\gamma_{z+ih}} \omega-\int_{\gamma_z} \omega=\int_{\gamma_h'} \omega=\int_0^h Q(z+it) \diff t$ che, diviso per $h$, ragionando come nella dimostrazione del teorema \ref{int=0no1} tende a $Q(z)$ per $h \longrightarrow 0$. Sia $\alpha_z$ il cammino che va da $z_0$ a $z$ prima in orizzontale poi in verticale.
+  Allora $\gamma_z * \bar{\alpha}_z$ è il bordo di un rettangolo $R$, dunque per ipotesi $\displaystyle 0=\int_{\partial R} \omega=\int_{\gamma_z*\bar{\alpha_z}} \omega=\int_{\gamma_z}\omega-\int_{\alpha_z} \omega \implies F(z)=\int_{\gamma_z}\omega=\int_{\alpha_z}\omega$.
+  A questo punto, la dimostrazione che $\dfrac{\partial F}{\partial x}=P$ è analoga a quella per $\dfrac{\partial F}{\partial y}=Q$, con gli $\alpha_z$ al posto dei $\gamma_z$.
+\end{proof}
+
+\begin{cor}
+  Sia $D \subseteq \mathbb{C}$ un aperto qualsiasi, $\omega$ una $1$-forma su $D$. Se $\displaystyle \int_{\partial R} \omega=0$ per ogni $R \subseteq D$ rettangolo, allora $\omega$ è chiusa.
+\end{cor}
+
+\begin{proof}
+  Dato $z_0 \in D$, sia $z_0 \in U \subseteq D$ una palla aperta centrata in $z_0$. Allora si applica la proposizione \ref{int=0no2} a $U$.
+\end{proof}
+
+Vogliamo adesso definire gli integrali lungo curve continue (non necessariamente $C^1$ a tratti).
+
+\begin{defn} \label{prim_gamma}
+  Sia $\omega$ una $1$-forma chiusa su un aperto $D \subseteq \mathbb{C}$. Se $\gamma:[0, 1] \longrightarrow D$ è una curva continua, allora una \textsc{primitiva di $\omega$ lungo $\gamma$} è una funzione continua $f:[0, 1] \longrightarrow \mathbb{C}$ t.c. per ogni $t_0 \in [0, 1]$ esiste $\epsilon>0$ e un intorno $U$ di $\gamma(t_0)$ t.c.
+  $f(t)=F(\gamma(t))$ per ogni $t \in (t_0-\epsilon, t_0+\epsilon)$, dove $F:U \longrightarrow \mathbb{C}$ è una primitiva locale di $\omega$.
+\end{defn}
+
+\begin{prop}
+  Nelle ipotesi della definizione \ref{prim_gamma}, una primitiva lungo $\gamma$ esiste, e due primitive lungo $\gamma$ differiscono per una costante.
+\end{prop}
+
+\begin{proof}
+  Per compattezza di $[0, 1]$, possiamo prendere una suddivisione $0=t_0<t_1<\dots<t_n=1$ di $[0, 1]$ t.c. per ogni $i=0,\dots, n-1$ $\gamma([t_i, t_{i+1}]) \subseteq U_i$ dove $U_i$ è una palla in $D$ su cui $\omega$ ammette una primitiva.
+  Per $t \in [t_0, t_1]$,scegliamo una primitiva $F_0:U_0 \longrightarrow \mathbb{C}$ e poniamo $f(t)=F_0(\gamma(t))$. Scegliamo poi una primitiva $F_1:U_1 \longrightarrow \mathbb{C}$ t.c. $F_1(\gamma(t_1))=F_0(\gamma(t_1))$. Poniamo ora $f(t)=F_1(\gamma(t))$ per ogni $t \in [t_1, t_2]$ e continuiamo per induzione. Per costruzione $f$ è continua (continua su un ricoprimento chiuso che si raccorda sui punti di intersezione) ed è una primitiva lungo $\gamma$.
+  Siano $f_1, f_2:[0, 1] \longrightarrow \mathbb{C}$ due primitive lungo $\gamma$ di $\omega$.Allora per ogni $t_0 \in [0, 1]$ esistono $\epsilon>0$, $U$ intorno connesso di $\gamma(t_0)$ t.c. $f_1(t)=F(\gamma(t)), f_2(t)=G(\gamma(t))$ per ogni $ t \in (t_0-\epsilon, t_0+\epsilon)$ dove $F, G:U \longrightarrow \mathbb{C}$ sono primitive locali di $\omega$.
+  Poiché $F-G$ è costante, $f_1-f_2$ è costante su $(t_0-\epsilon, t_0+\epsilon)$. Dunque $f_1-f_2$ è localmente costante ed è perciò costante per connessione di $[0, 1]$.
 \end{proof}
