@@ -1,6 +1,6 @@
 Se $f:[a, b] \longrightarrow \mathbb{C}$ è continua, poniamo $\displaystyle \int_a^b f(t)\diff t=\int_a^b \mathfrak{Re}(f(t))\diff t+i\int_a^b \mathfrak{Im}(f(t))\diff t$.
 
-\begin{defn}
+\begin{defn} \label{int_gamma_no1}
   Sia $D$ dominio aperto connesso di $\mathbb{C}$ e sia $\omega$ una $1$-forma differenziale complessa su $D$ fissata. Se $\gamma:[a, b] \longrightarrow D$ è un cammino $C^1$, definiamo $\displaystyle \int_{\gamma} \omega:=\int_a^b \omega_{\gamma(t)}(\gamma'(t))\diff t$, dove se $\gamma(t)=(x(t), y(t))=x(t)+iy(t)$, allora $\gamma'(t)=x'(t)+iy'(t)=(x'(t), y'(t))$.
 \end{defn}
 
@@ -54,7 +54,7 @@ Se $f:[a, b] \longrightarrow \mathbb{C}$ è continua, poniamo $\displaystyle \in
   La dimostrazione è quasi identica a localmente connesso per archi+connesso $\implies$ connesso per archi. Basta osservare che ogni punto di $D$ ha un intorno connesso per archi $C^1$ (una piccola palla), scegliamo $x_0 \in D$ e mostriamo che l'insieme dei punti di $D$ connessi a $x_0$ da un arco $C^1$ a tratti è aperto e chiuso. I dettagli sono lasciati al lettore.
 \end{proof}
 
-\begin{lm}
+\begin{lm} \label{calc_prim}
   Sia $\omega$ una $1$-forma differenziale esatta su $D$, $\omega=\diff F$. Allora per ogni $\gamma:[a, b] \longrightarrow D$ $C^1$ a tratti vale $\displaystyle \int_{\gamma} \omega=F(\gamma(b))-F(\gamma(a))$.
 \end{lm}
 
@@ -124,7 +124,7 @@ $$\int_{\partial R} \omega=\int_{a_1}^{a_2}P(t, b_1)\diff t+\int_{b_1}^{b_2}Q(a_
 \begin{proof}
   ($\implies$) Segue dal teorema \ref{int=0no1}, poiché $\partial R$ è un cammino chiuso $C^1$ a tratti.
 
-  ($\Leftarrow$) Costruiamo una primitiva integrando $\omega$ lungo cammini differenziabikli a tratti fatti da un tratto orizzontale seguito da un tratto verticale. Per ogni $z \in D$, sia $\gamma_z$ un tale cammino (esiste perché $D$ è un disco). Poniamo $\displaystyle F(z)=\int_{\gamma(z)} \omega$. Poiché $\gamma_z$ è univocamente determinato da $z$ (a meno di riparametrizzazioni), $F$ è ben definita. Dobbiamo mostrare che, se $\omega=P\diff x+Q\diff $, allora $\dfrac{\partial F}{\partial x}=P, \dfrac{\partial F}{\partial y}=Q$.
+  ($\Leftarrow$) Costruiamo una primitiva integrando $\omega$ lungo cammini differenziabili a tratti fatti da un tratto orizzontale seguito da un tratto verticale. Per ogni $z \in D$, sia $\gamma_z$ un tale cammino (esiste perché $D$ è un disco). Poniamo $\displaystyle F(z)=\int_{\gamma(z)} \omega$. Poiché $\gamma_z$ è univocamente determinato da $z$ (a meno di riparametrizzazioni), $F$ è ben definita. Dobbiamo mostrare che, se $\omega=P\diff x+Q\diff $, allora $\dfrac{\partial F}{\partial x}=P, \dfrac{\partial F}{\partial y}=Q$.
   $\displaystyle F(z+ih)-F(z)=\int_{\gamma_{z+ih}} \omega-\int_{\gamma_z} \omega=\int_{\gamma_h'} \omega=\int_0^h Q(z+it) \diff t$ che, diviso per $h$, ragionando come nella dimostrazione del teorema \ref{int=0no1} tende a $Q(z)$ per $h \longrightarrow 0$. Sia $\alpha_z$ il cammino che va da $z_0$ a $z$ prima in orizzontale poi in verticale.
   Allora $\gamma_z * \bar{\alpha}_z$ è il bordo di un rettangolo $R$, dunque per ipotesi $\displaystyle 0=\int_{\partial R} \omega=\int_{\gamma_z*\bar{\alpha_z}} \omega=\int_{\gamma_z}\omega-\int_{\alpha_z} \omega \implies F(z)=\int_{\gamma_z}\omega=\int_{\alpha_z}\omega$.
   A questo punto, la dimostrazione che $\dfrac{\partial F}{\partial x}=P$ è analoga a quella per $\dfrac{\partial F}{\partial y}=Q$, con gli $\alpha_z$ al posto dei $\gamma_z$.
@@ -145,7 +145,7 @@ Vogliamo adesso definire gli integrali lungo curve continue (non necessariamente
   $f(t)=F(\gamma(t))$ per ogni $t \in (t_0-\epsilon, t_0+\epsilon)$, dove $F:U \longrightarrow \mathbb{C}$ è una primitiva locale di $\omega$.
 \end{defn}
 
-\begin{prop}
+\begin{prop} \label{esiste_prim}
   Nelle ipotesi della definizione \ref{prim_gamma}, una primitiva lungo $\gamma$ esiste, e due primitive lungo $\gamma$ differiscono per una costante.
 \end{prop}
 
@@ -154,4 +154,42 @@ Vogliamo adesso definire gli integrali lungo curve continue (non necessariamente
   Per $t \in [t_0, t_1]$,scegliamo una primitiva $F_0:U_0 \longrightarrow \mathbb{C}$ e poniamo $f(t)=F_0(\gamma(t))$. Scegliamo poi una primitiva $F_1:U_1 \longrightarrow \mathbb{C}$ t.c. $F_1(\gamma(t_1))=F_0(\gamma(t_1))$. Poniamo ora $f(t)=F_1(\gamma(t))$ per ogni $t \in [t_1, t_2]$ e continuiamo per induzione. Per costruzione $f$ è continua (continua su un ricoprimento chiuso che si raccorda sui punti di intersezione) ed è una primitiva lungo $\gamma$.
   Siano $f_1, f_2:[0, 1] \longrightarrow \mathbb{C}$ due primitive lungo $\gamma$ di $\omega$.Allora per ogni $t_0 \in [0, 1]$ esistono $\epsilon>0$, $U$ intorno connesso di $\gamma(t_0)$ t.c. $f_1(t)=F(\gamma(t)), f_2(t)=G(\gamma(t))$ per ogni $ t \in (t_0-\epsilon, t_0+\epsilon)$ dove $F, G:U \longrightarrow \mathbb{C}$ sono primitive locali di $\omega$.
   Poiché $F-G$ è costante, $f_1-f_2$ è costante su $(t_0-\epsilon, t_0+\epsilon)$. Dunque $f_1-f_2$ è localmente costante ed è perciò costante per connessione di $[0, 1]$.
+\end{proof}
+
+\begin{defn} \label{int_gamma_no2}
+  Sia $\omega$ una $1$-forma chiusa su $D$, $\gamma:[0, 1] \longrightarrow D$ continua. Poniamo $\displaystyle \int_{\gamma} \omega=f(1)-f(0)$ dove $f$ è una primitiva di $\omega$ lungo $\gamma$. Si noti che la definizione è ben posta grazie alla proposizione \ref{esiste_prim}.
+\end{defn}
+
+\begin{ftt}
+  \begin{nlist}
+    \item $\displaystyle \int_{\gamma_1*\gamma_2} \omega=\int_{\gamma_1}\omega+\int_{\gamma_2}\omega$;
+    \item $\displaystyle \int_{\bar{\gamma}} \omega=-\int_{\gamma} \omega$;
+    \item se $\gamma$ è differenziabile a tratti, riotteniamo la definizione già data. Infatti, prendiamo $0=t_0<\dots<t_n=1$ t.c. per ogni $i=0, \dots, n-1$ $\gamma_i=\gamma\restrict{[t_i, t_{i+1}]}$ sia differenziabile e $\gamma([t_i, t_{i+1}]) \subseteq U_i$ su cui $\omega$ ha una primitiva $F_i$.
+    Allora con la definizione \ref{int_gamma_no1} abbiamo che $\displaystyle \int_{\gamma} \omega=\sum_{i=0}^{n-1} \int_{\gamma_i} \omega$ che, per il lemma \ref{calc_prim}, è uguale a $\displaystyle \sum_{i=0}^{n-1} (F_i(\gamma(t_{i+1}))-F_i(\gamma(t_i)))$.
+    Con la definizione \ref{int_gamma_no2} abbiamo invece che $\displaystyle \int_{\gamma} \omega=\sum_{i=0}^{n-1} \int_{\gamma_i} \omega=\sum_{i=0}^{n-1} (f(t_{i+1})-f({t_i}))=\sum_{i=0}^{n-1} (F_i(\gamma(t_{i+1}))-F_i(\gamma(t_i)))$.
+  \end{nlist}
+\end{ftt}
+
+\begin{thm} \label{inv_omo_int}
+  (Invarianza omotopica) Sia $\omega$ una $1$-forma chiusa su $D \subseteq \mathbb{C}$ aperto. Siano $\gamma_1, \gamma_2:[0, 1] \longrightarrow D$ cammini omotopi a estremi fissi. Allora $\displaystyle \int_{\gamma_1} \omega=\int_{\gamma_2} \omega$.
+\end{thm}
+
+\begin{proof}
+  Sia $H:[0, 1]\times[0, 1] \longrightarrow D$ l'omotopia a estremi fissi tra $\gamma_1$ e $\gamma_2$.
+  Vogliamo costruire $G:[0, 1]\times[0, 1] \longrightarrow \mathbb{C}$ continua t.c. per ogni $(t_0, s_0) \in [0, 1]^2$ esiste un intorno $U$ di $H(t_0, s_0)$ in $D$ e una primitiva $F:U \longrightarrow \mathbb{C}$ di $\omega$ su $U$ con $G(t, s)=F(H(t, s))$ per ogni $(t,s)$ in un intorno di $(t_0, s_0)$ ($G$ è una primitiva di $\omega$ lungo $H$).
+  Per compattezza di $[0, 1]\times[0,1]$, esiste una suddivisione $0=t_0<\dots<t_n=1, 0=s_0<\dots<s_m=1$ t.c. $H([t_i, t_{i+1}]\times[s_j, s_{j+1}]) \subseteq U_{i, j} \subseteq D$ aperto connesso su cui $\omega$ ammette una primitiva. Fissiamo $s_0=0$ e occupiamoci della prima riga di quadratini.
+  Scegliamo $F_{0, 0}:U_{0,0} \longrightarrow \mathbb{C}$ primitiva di $\omega$ su $U_{0,0}$ e per ogni $(t, s) \in [t_0, t_1]\times[s_0, s_1]$ poniamo $G(t, s)=F_{0, 0}(H(t, s))$. Tra tutte le primitive di $\omega$ su $U_{1, 0}$, scegliamo quella che coincide con $F_{0, 0}$ su $H(t_1, s_0)$ (unica perché $U_{1, 0}$ connesso) e chiamiamola $F_{1, 0}$.
+  È facile verificare che $F_{0, 0}(t_1, s)=F_{1, 0}(t_1, s)$ per ogni $s \in [s_0, s_1]$. Dunque possiamo porre $G(t, s)=F_{1, 0}(H(t, s))$ per ogni $t \in [t_1, t_2], s \in [s_0, s_1]$. Proseguiamo così definendo $G$ su tutti i quadratini della forma $[t_i, t_{i+1}]\times[s_0, s_1]$, ottenendo $G$ definita  su $[0,1]\times[s_0,s_1]$.
+  Poi proseguiamo su $[0, 1]\times[s_1,s_2]$: se facciamo in modo che la definizione coincida con quella della riga sotto in un punto $(t_i, s_1)$, coinciderà anche sui lati $[t_i, t_{i+1}]\times\{s_1\}$ e $\{t_i\}\times[s_1, s_2]$. Allora per induzione possiamo definire $G$ su tutto $[0,1]\times[0,1]$. Notiamo ora che $G(0, s)$ è una primitiva di $\omega$ lungo il cammino costante $H(0, s)$ e pertanto è costante. In particolare $G(0, 0)=G(0, 1)$.
+  Analogamente $G(1, 0)=G(1, 1)$. Inoltre $G(t, 0)$ è una primitiva di $\omega$ lungo $\gamma_1$ e $G(t, 1)$ è una primitiva di $\omega$ lungo $\gamma_2$, per cui $\displaystyle \int_{\gamma_1} \omega=G(1, 0)-G(0, 0)=G(1, 1)-G(0, 1)=\int_{\gamma_2} \omega$.
+\end{proof}
+
+\begin{cor}
+  Sia $D \subseteq \mathbb{C}$ semplicemente connesso, $\omega$ una $1$-forma su $D$. Allora $\omega$ è chiusa $\iff$ $\omega$ è esatta.
+\end{cor}
+
+\begin{proof}
+  ($\Leftarrow$) Sempre vera.
+
+  ($\implies$) Dato $\gamma:[0, 1] \longrightarrow D$ un laccio chiuso, per semplice connessione di $D$ $\gamma \sim C_{\gamma(0)}$ (il cammino costante in $\gamma(0)$). Dunque per invarianza omotopica $\displaystyle \int_{\gamma} \omega=\int_{C_{\gamma(0)}} \omega=0$. Dunque $\omega$ è esatta.
 \end{proof}
