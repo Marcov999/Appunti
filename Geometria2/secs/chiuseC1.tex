@@ -1,0 +1,22 @@
+\begin{defn}
+  Sia $D\subseteq \mathbb{C}$ un aperto, $\omega=P\diff x+Q\diff y$ $1$-forma su $D$ si dice $C^1$ se $P, Q:D \longrightarrow \mathbb{C}$ sono di classe $C^1$. In questo caso poniamo formalmente $\diff \omega=\left(\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}\right)\diff x\diff y$ dove $\diff x\diff y$ è un simbolo formale.
+\end{defn}
+
+\begin{thm}
+  (Formula di Green, o Green-Riemann, o Stokes) Sia $\omega$ una $1$-forma $C^1$ su $D$, $R \subseteq D$ rettangolo. Allora $\displaystyle \int_{\partial R}\omega=\int_{R} \diff \omega$.
+\end{thm}
+
+\begin{proof}
+  $\displaystyle \int_R \diff \omega=\int_R \left(\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}\right)\diff x\diff y=\int_R \dfrac{\partial Q}{\partial x}\diff x\diff y-\int_R \dfrac{\partial P}{\partial y} \diff x\diff y=\int_{b_1}^{b_2} \left(\int_{a_1}^{a_2} \dfrac{\partial Q}{\partial x}(x, y)\diff x\right)\diff y-\int_{a_1}^{a_2} \left(\int_{b_1}^{b_2} \dfrac{\partial P}{\partial y}(x, y)\diff y\right)\diff x=\int_{b_1}^{b_2} (Q(a_2,y)-Q(a_1,y))\diff y-\int_{a_1}^{a_2} (P(x,b_2)-P(x,b_1))\diff x=\int_{b_1}^{b_2}Q(a_2, y)\diff y-\int_{b_1}^{b_2}Q(a_1, y)\diff y-\int_{a_1}^{a_2}Q(x, b_2)\diff x+\int_{a_1}^{a_2}Q(x, b_1)\diff x=\int_{\gamma_2}\omega-\int_{\bar{\gamma}_4}\omega-\int_{\bar{\gamma}_3}\omega+\int_{\gamma_1}\omega=\int_{\gamma_1}\omega+\int_{\gamma_2}\omega+\int_{\gamma_3}\omega+\int_{\gamma_4}\omega$.
+\end{proof}
+
+\begin{thm}
+  Sia $\omega$ una $1$-forma $C^1$ su $D$. Allora $\omega$ è chiusa $\iff$ $\diff \omega=0$.
+\end{thm}
+
+\begin{proof}
+  ($\implies$) Se $\omega$ è chiusa, per ogni $p \in D$ esiste $U \subseteq D$ aperto, $p \in U$ con $\omega=\diff F=\dfrac{\partial F}{\partial x}\diff x+\dfrac{\partial F}{\partial y}\diff y$ su $U$. $F$ è $C^2$ perché $\omega$ è $C^1$.
+  Per un noto teorema, $\dfrac{\partial^2 F}{\partial x\partial y}=\dfrac{\partial^2}{\partial y\partial x}$, dunque $\diff \omega=\left(\dfrac{\partial}{\partial x}\left(\dfrac{\partial F}{\partial y}\right)-\dfrac{\partial}{\partial y}\left(\dfrac{\partial F}{\partial x}\right)\right)\diff x\diff y=0$.
+
+  ($\Leftarrow$) Sia $R \subseteq D$ un rettangolo. Allora $\displaystyle \int_{\partial R} \omega=\int_R \diff \omega=0$, per cui $\omega$ è chiusa per il corollario \ref{intR=0}.
+\end{proof}

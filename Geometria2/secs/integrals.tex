@@ -97,23 +97,23 @@ Se $f:[a, b] \longrightarrow \mathbb{C}$ è continua, poniamo $\displaystyle \in
 \end{proof}
 
 \begin{cor}
-  Su $\mathbb{C}*$ la forma $\dfrac{\diff z}{z}$ è chiusa ma non esatta.
+  Su $\mathbb{C}^*$ la forma $\dfrac{\diff z}{z}$ è chiusa ma non esatta.
 \end{cor}
 
 \begin{proof}
-  Per ogni $z_0 \in \mathbb{C}*$ esiste un aperto $U$ con $z_0 \in U \subseteq \mathbb{C}*$ su cui è definita una branca $F$ di $\log$ e $\diff F=F'\diff z=\dfrac{1}{z}\diff z$ su $U$, per cui $\dfrac{\diff z}{z}$ è chiusa.
-  Però, se $\gamma:[0,1] \longrightarrow \mathbb{C}*, \gamma(t)=e^{2\pi it}$, $\displaystyle \int_{\gamma} \frac{\diff z}{z}\not=0$ $\implies$ $\dfrac{\diff z}{z}$ non è esatta.
+  Per ogni $z_0 \in \mathbb{C}^*$ esiste un aperto $U$ con $z_0 \in U \subseteq \mathbb{C}^*$ su cui è definita una branca $F$ di $\log$ e $\diff F=F'\diff z=\dfrac{1}{z}\diff z$ su $U$, per cui $\dfrac{\diff z}{z}$ è chiusa.
+  Però, se $\gamma:[0,1] \longrightarrow \mathbb{C}^*, \gamma(t)=e^{2\pi it}$, $\displaystyle \int_{\gamma} \frac{\diff z}{z}\not=0$ $\implies$ $\dfrac{\diff z}{z}$ non è esatta.
 \end{proof}
 
 \begin{cor}
-  Non esiste un "logaritmo" definito su tutto $\mathbb{C}*$.
+  Non esiste un "logaritmo" definito su tutto $\mathbb{C}^*$.
 \end{cor}
 
 \begin{proof}
-  Altrimenti, $\dfrac{\diff z}{z}$ sarebbe esatta su $\mathbb{C}*$.
+  Altrimenti, $\dfrac{\diff z}{z}$ sarebbe esatta su $\mathbb{C}^*$.
 \end{proof}
 
-Adesso integriamo sui rettangoli. Un rettangolo $R \subseteq \mathbb{C}$ è caratterizzato da quattro vertici della forma $a_1+ib_1, a_1+ib_2, a_2+ib_2, a_2+ib_1$. Siano $\gamma_1(t)=a_1+t(a_2-a_1)+ib_1, \gamma_2(t)=a_2+i(b_1+t(b_2-b_1)), \gamma_3(t)=a_2+t(a_1-a_2)+ib_2, \gamma_4(t)=a_1+i(b_2+t(b_1-b_2))$.
+Adesso integriamo sui rettangoli. Salvo diversamente indicato, quando parliamo di rettangoli useremo sempre le notazioni che introduciamo adesso. Un rettangolo $R \subseteq \mathbb{C}$ è caratterizzato da quattro vertici della forma $a_1+ib_1, a_1+ib_2, a_2+ib_2, a_2+ib_1$. Siano $\gamma_1(t)=a_1+t(a_2-a_1)+ib_1, \gamma_2(t)=a_2+i(b_1+t(b_2-b_1)), \gamma_3(t)=a_2+t(a_1-a_2)+ib_2, \gamma_4(t)=a_1+i(b_2+t(b_1-b_2))$.
 Possiamo parametrizzare il bordo del rettangolo con il cammino $\gamma=\gamma_1*\gamma_2*\gamma_3*\gamma_4$. D'ora in poi indicheremo con $\displaystyle \int_{\partial R} \omega$ l'integrale $\displaystyle \int_{\gamma} \omega$ per  ogni $1$-forma $\omega$. Se $\omega=P\diff x+Q\diff y$,
 $$\int_{\partial R} \omega=\int_{a_1}^{a_2}P(t, b_1)\diff t+\int_{b_1}^{b_2}Q(a_2, t)\diff t-\int_{a_1}^{a_2}P(t, b_2)\diff t-\int_{b_1}^{b_2}Q(a_1, t)\diff t.$$
 
@@ -126,11 +126,11 @@ $$\int_{\partial R} \omega=\int_{a_1}^{a_2}P(t, b_1)\diff t+\int_{b_1}^{b_2}Q(a_
 
   ($\Leftarrow$) Costruiamo una primitiva integrando $\omega$ lungo cammini differenziabili a tratti fatti da un tratto orizzontale seguito da un tratto verticale. Per ogni $z \in D$, sia $\gamma_z$ un tale cammino (esiste perché $D$ è un disco). Poniamo $\displaystyle F(z)=\int_{\gamma(z)} \omega$. Poiché $\gamma_z$ è univocamente determinato da $z$ (a meno di riparametrizzazioni), $F$ è ben definita. Dobbiamo mostrare che, se $\omega=P\diff x+Q\diff $, allora $\dfrac{\partial F}{\partial x}=P, \dfrac{\partial F}{\partial y}=Q$.
   $\displaystyle F(z+ih)-F(z)=\int_{\gamma_{z+ih}} \omega-\int_{\gamma_z} \omega=\int_{\gamma_h'} \omega=\int_0^h Q(z+it) \diff t$ che, diviso per $h$, ragionando come nella dimostrazione del teorema \ref{int=0no1} tende a $Q(z)$ per $h \longrightarrow 0$. Sia $\alpha_z$ il cammino che va da $z_0$ a $z$ prima in orizzontale poi in verticale.
-  Allora $\gamma_z * \bar{\alpha}_z$ è il bordo di un rettangolo $R$, dunque per ipotesi $\displaystyle 0=\int_{\partial R} \omega=\int_{\gamma_z*\bar{\alpha_z}} \omega=\int_{\gamma_z}\omega-\int_{\alpha_z} \omega \implies F(z)=\int_{\gamma_z}\omega=\int_{\alpha_z}\omega$.
+  Allora $\gamma_z * \bar{\alpha}_z$ è il bordo di un rettangolo $R$, dunque per ipotesi $\displaystyle 0=\int_{\partial R} \omega=\int_{\gamma_z*\bar{\alpha}_z} \omega=\int_{\gamma_z}\omega-\int_{\alpha_z} \omega \implies F(z)=\int_{\gamma_z}\omega=\int_{\alpha_z}\omega$.
   A questo punto, la dimostrazione che $\dfrac{\partial F}{\partial x}=P$ è analoga a quella per $\dfrac{\partial F}{\partial y}=Q$, con gli $\alpha_z$ al posto dei $\gamma_z$.
 \end{proof}
 
-\begin{cor}
+\begin{cor} \label{intR=0}
   Sia $D \subseteq \mathbb{C}$ un aperto qualsiasi, $\omega$ una $1$-forma su $D$. Se $\displaystyle \int_{\partial R} \omega=0$ per ogni $R \subseteq D$ rettangolo, allora $\omega$ è chiusa.
 \end{cor}
 
@@ -193,3 +193,36 @@ Vogliamo adesso definire gli integrali lungo curve continue (non necessariamente
 
   ($\implies$) Dato $\gamma:[0, 1] \longrightarrow D$ un laccio chiuso, per semplice connessione di $D$ $\gamma \sim C_{\gamma(0)}$ (il cammino costante in $\gamma(0)$). Dunque per invarianza omotopica $\displaystyle \int_{\gamma} \omega=\int_{C_{\gamma(0)}} \omega=0$. Dunque $\omega$ è esatta.
 \end{proof}
+
+\begin{thm}
+  Sia $D \subseteq \mathbb{C}$ aperto, $\omega$ una $1$-forma su $D$. Allora sono fatti equivalenti:
+  \begin{nlist}
+    \item $\omega$ è chiusa;
+    \item $\displaystyle \int_{\partial R} \omega=0$ per ogni rettangolo $R \subseteq D$;
+    \item $\displaystyle \int_{\gamma}\omega=0$ per ogni laccio continuo omotopo al laccio costante.
+  \end{nlist}
+\end{thm}
+
+\begin{proof}
+  (i) $\implies$ (iii) segue dall'invarianza omotopica.
+
+  (iii) $\implies$ (ii) è ovvio.
+
+  (ii) $\implies$ (i) è il corollario \ref{intR=0}.
+\end{proof}
+
+\begin{defn}
+  Ricordiamo che ogni cammino chiuso $\gamma:[0, 1] \longrightarrow D$ definisce un loop $\hat{\gamma}:S^1 \longrightarrow D$ e $\gamma$ si dice \textit{liberamente omotopo a $\alpha$} se esiste $H:[0,1]\times[0,1] \longrightarrow D$ continua con $H(t,0)=\gamma(t), H(t,1)=\alpha(t)$ per ogni $t \in [0,1]$, $H(0, s)=H(1,s)$ per ogni $s \in [0,1]$
+  (cioè $H(\cdot, s)$ è un cammino chiuso per ogni $s \in[0,1]$). Però non chiediamo $H(0,s),H(1,s)$ costanti in $s$.
+\end{defn}
+
+Ricordiamo che $\gamma$ è liberamente omotopa a $\alpha$ $\iff$ $\hat{\gamma}$ è omotopo a $\hat{\alpha}$ $\iff$ $\gamma \sim \beta*\alpha*\bar{\beta}$ per qualche cammino $\beta$ che congiunge $\gamma(0)$ a $\alpha(0)$.
+
+\begin{ex}
+  In $\mathbb{C}\setminus\{0\}$, $\gamma(t)=e^{2\pi it}, \alpha(t)=5\cdot e^{2\pi i t}$, $t \in [0,1]$ sono liberamente omotopi.
+\end{ex}
+
+\begin{ftt}
+  Se $\omega$ è una $1$-forma chiusa su $D$ e $\gamma$ e $\alpha$ sono cammini chiusi su $D$ liberamente omotopi, allora $\displaystyle \int_{\gamma} \omega=\int_{\alpha}\omega$.
+  Infatti $\gamma$ è omotopo a estremi fissi a $\beta*\alpha*\bar{\beta}$, per cui $\displaystyle \int_{\gamma} \omega=\int_{\beta*\alpha*\bar{\beta}} \omega=\int_{\beta}\omega+\int_{\alpha}\omega+\int_{\bar{\beta}}\omega=\int_{\alpha}\omega$.
+\end{ftt}
