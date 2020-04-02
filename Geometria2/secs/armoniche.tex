@@ -1,0 +1,30 @@
+\begin{defn}
+  Indichiamo con $\Delta$ l'operatore $\left(\dfrac{\partial}{\partial x}\right)^2+\left(\dfrac{\partial}{\partial y}\right)^2$. In alcuni testi è indicato con $\nabla \cdot \nabla$ o $\nabla^2$ ed è chiamato \textit{operatore di Laplace} o \textit{laplaciano} e corrisponde alla divergenza del gradiente.
+\end{defn}
+
+\begin{defn}
+  Sia $D \subseteq \mathbb{R}^2$ un aperto. Una funzione $u \in C^2(D)$ si dice \textsc{armonica} se $\Delta u=0$.
+\end{defn}
+
+\begin{thm}
+  Se $f$ olomorfa su $D$ è t.c. $f=u+iv, u,v \in C^2(D)$, allora $u, v$ sono armoniche.
+\end{thm}
+
+\begin{proof}
+  $\Delta u=\dfrac{\partial^2u}{\partial x^2}+\dfrac{\partial^2 u}{\partial y^2}$.
+  Usando le condizioni di Cauchy-Riemann abbiamo che $\dfrac{\partial^2u}{\partial x^2}=\dfrac{\partial}{\partial x}\left(\dfrac{\partial u}{\partial x}\right)=\dfrac{\partial}{\partial x}\left(\dfrac{\partial v}{\partial y}\right)=\dfrac{\partial^2v}{\partial x\partial y}$.
+  Per un noto teorema, le derivate parziali commutano, dunqe usando di nuovo le condizioni di CR abbiamo che $\dfrac{\partial^2v}{\partial x\partial y}=\dfrac{\partial^2v}{\partial y\partial x}=\dfrac{\partial}{\partial y}\left(\dfrac{\partial v}{\partial x}\right)=\dfrac{\partial}{\partial y}\left(-\dfrac{\partial u}{\partial y}\right)=-\dfrac{\partial^2 u}{\partial y^2}$.
+  Otteniamo quindi $\Delta u=0$. La dimostrazione per $v$ è analoga.
+\end{proof}
+
+\begin{thm}
+  Sia $D \subseteq \mathbb{C}$ un aperto semplicemente connesso, $u \in C^2(D)$ una funzione armonica. Allora esiste $f:D \longrightarrow \mathbb{C}$ olomorfa con $\mathfrak{Re}(f)=u$ e tale funzione è definita univocamente a meno di una costante additiva puramente immaginaria.
+\end{thm}
+
+\begin{proof}
+  Consideriamo la $1$-forma $\omega=P\diff x+Q\diff y=-\dfrac{\partial u}{\partial y}\diff x+\dfrac{\partial u}{\partial x}\diff y$.
+  $\diff \omega=\left(\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}\right)\diff x\diff y)=\left(\dfrac{\partial^2 u}{\partial x^2}+\dfrac{\partial^2 u}{\partial y^2}\right)\diff x\diff y=\Delta u\diff x\diff y=0$.
+  Dato che $u$ è $C^2$, $\omega$ è $C^1$, dunque per il teorema \ref{diffC1=0} è chiusa.
+  Essendo $D$ semplicemente connesso, per il corollario \ref{sccue} $\omega$ è esatta, quindi $\omega=\diff v$ per qualche funzione $v$, il che significa che $\dfrac{\partial v}{\partial x}=-\dfrac{\partial u}{\partial y}, \dfrac{\partial v}{\partial y}=\dfrac{\partial u}{\partial x}$, dunque ponendo $f=u+iv$ abbiamo che le condizioni di Cauchy-Riemann sono soddisfatte, quindi, affinché $f$ sia olomorfa con $\mathfrak{Re}(f)=u$ e unicamente definita a meno di costanti additive immaginarie, ci manca solo che $v$ sia a valori reali e univocamente definita a meno di costanti additive reali.
+  Dato che le sue derivate parziali sono a valori reali (per le condizioni di CR), $v$ è uguale a una funzione a valori reali più una costante. Considerando solo le costanti con parte immaginaria nulla si ha la tesi.
+\end{proof}
