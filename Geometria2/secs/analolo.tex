@@ -34,11 +34,140 @@ Abbiamo visto che analitica $\implies$ olomorfa. Quanto segue è di interesse in
   $f:D \longrightarrow \mathbb{C}$ olomorfa $\implies$ $\displaystyle \int_{\gamma} f(z)\diff z=0$ per ogni $\gamma$ laccio in $D$ omotopicamente banale.
 \end{cor}
 
-\begin{prop}
+\begin{prop} \label{retta_orizzontale}
   Sia $f:D \longrightarrow \mathbb{C}$ continua, $D$ aperto, e $f$ olomorfa su $D \setminus r$, $r$ una retta orizzontale. Allora $f(z)\diff z$ è chiusa.
 \end{prop}
 
 \begin{proof}
   Sia $R \subseteq D$ rettangolo, vogliamo $\displaystyle \int_{\partial R} \omega=0$. Se $R \cap r=\emptyset$, segue da quanto già visto. Se $R \cap r\not=\emptyset$, supponiamo senza perdita di generalità che un lato orizzontale di $r$ giaccia su $r$ (se $r$ taglia $R$ da qualche parte a metà, si separa $R$ in due rettangoli con lati giacenti su $R$: è ovvio che l'integrale lungo il bordo di $R$ è la somma degli integrali lungo i bordi degli integrali ottenuti). Allora possiamo costruire una successione di rettangoli $R_n$ in questo modo: un lato orizzontale coincide con il lato orizzontale di $R$ che non giace su $R$, i lati verticali sono contenuti nei lati verticali di $R$ e il rimanente lato orizzontale si avvicina al crescere di $n$ al lato di $R$ che giace su $r$.
   $R_n$ "tende" a $R$. Allora, usando che $f$ è continua, si vede facilmente che $\displaystyle \int_{\partial R} f(z)\diff z=\lim_{n \longrightarrow +\infty} \int_{\partial R_n} f(z)\diff z=0$ in quanto $\displaystyle \int_{\partial R_n} f(z)\diff z=0$ per ogni $n$ (sempre perché $R_n \subseteq D \setminus r$).
+\end{proof}
+
+Per proseguire nella dimostrazione che le funzioni olomorfe sono analitiche, avremo bisogno di una definizione e di alcune sue proprietà. Sia $a \in \mathbb{C}, x_0=1+a$. Ricordiamo che $\pi_1(\mathbb{C}\setminus\{a\}, x_0) \simeq \mathbb{Z}$. Fissiamo un isomorfismo canonico $f:\pi_1(\mathbb{C}\setminus\{a\}, x_0)\longrightarrow \mathbb{Z}$ che manda $[\gamma]$ in $1$, dove $\gamma$ è una parametrizzazione di $\partial B(a, 1)$ che percorre la circonferenza in senso antiorario.
+Ricordiamo anche che $[S^1, \mathbb{C}\setminus\{a\}]$ indica le classi di omotopia (libera) di mappe continue da $S^1$ in $\mathbb{C}\setminus\{a\}$. Abbiamo visto che esiste una bigezione naturale
+\begin{align*}
+  \Omega(x_0, x_0) &\longrightarrow \Omega(S^1, x_0)\\
+  \gamma &\longmapsto \hat{\gamma}
+\end{align*}
+\begin{center}
+  \begin{tikzcd}
+    \left[0,1\right] \arrow[r, "\gamma"] \arrow[d, "\pi"] & \mathbb{C}\setminus\{a\}\\
+    S^1\simeq\faktor{[0,1]}{\{0,1\}} \arrow[ru, "\hat{\gamma}"]
+  \end{tikzcd}
+\end{center}
+Questa bigezione induce un omomorfismo
+\begin{align*}
+  \partial:\pi_1(\mathbb{C}\setminus\{a\}, x_0) &\longrightarrow [S^1, \mathbb{C}\setminus\{a\}]\\
+  [\gamma] &\longmapsto [\hat{\gamma}]
+\end{align*}
+Inoltre $\partial$ è suriettiva e $\partial([\gamma])=\partial([\gamma'])$ $\iff$ $[\gamma]$ e $[\gamma']$ sono coniugati in $\pi_1(\mathbb{C}\setminus\{a\}, x_0)$, che però è abeliano, dunque $\partial$ è iniettiva.
+Definiamo $\psi:[S^1, \mathbb{C}\setminus\{a\}] \longrightarrow \mathbb{Z}$ come $\psi=\partial^{-1}\circ f$.
+
+\begin{defn}
+  Sia $\gamma:[0,1] \longrightarrow \mathbb{C}\setminus\{a\}$ un cammino chiuso in $x_0$. Chiamiamo \textsc{indice di $\gamma$ rispetto ad $a$} l'intero $\psi([\hat{\gamma}])=:I(\gamma, a)$ dove $\hat{\gamma}:S^1 \longrightarrow \mathbb{C}\setminus\{a\}$ è la mappa indotta da $\gamma$.
+\end{defn}
+
+\begin{thm}
+  Sia $\gamma:[0,1] \longrightarrow \mathbb{C}\setminus\{a\}$ un cammino chiuso. Allora $\displaystyle I(\gamma, a)=\frac{1}{2\pi i}\int_{\gamma} \frac{1}{z-a}\diff z$.
+\end{thm}
+
+\begin{proof}
+  Abbiamo già visto che $\dfrac{1}{z-a}$ è olomorfa in $\mathbb{C}\setminus\{a\}$ $\implies$ $\omega=\dfrac{1}{z-a}\diff z$ è chiusa $\implies$ possiamo integrare $\omega$ lungo curve $\gamma$ continue. Inoltre, abbiamo già visto che, se $\gamma'$ è liberamente omotopo a $\gamma$, $\displaystyle \int_{\gamma}\omega=\int_{\gamma'}\omega$. Quindi la seguente mappa è ben definita:
+  \begin{align*}
+    \varphi:[S^1, \mathbb{C}\setminus\{a\}] &\longrightarrow \mathbb{C}\\
+    [\hat{\gamma}] &\longmapsto \frac{1}{2\pi i}\int_{\gamma}\omega
+  \end{align*}
+  Ci resta da dimostrare $\varphi=\psi$, cioè $\varphi([\hat{\gamma}])=\psi([\hat{\gamma}])$ per ogni $[\hat{\gamma}] \in [S^1, \mathbb{C}\setminus\{a\}]$.
+  Notiamo che $[S^1, \mathbb{C}\setminus\{a\}]=\{[\hat{\gamma}_n] \mid \gamma_n:[0,1]\longrightarrow \mathbb{C}\setminus\{a\}, \gamma_n(t)=a+e^{2\pi i t}\} \implies \psi([\hat{\gamma}_n])=n$.
+  Abbiamo già visto d'altro canto che $\displaystyle \int_{\gamma_n} \frac{1}{z-a}\diff z=2\pi i n$, da cui la tesi.
+\end{proof}
+
+\begin{oss}
+  Per definizione, $\omega=\dfrac{1}{z-a}\diff z$ è chiusa, cioè localmente esatta. Le primitive locali di $\omega$ sono date dalle branche di $\log(z-a)$. Una primitiva di $\omega$ lungo $\gamma$ è una funzione continua $f:[0,1]\longrightarrow \mathbb{C}$ t.c. $e^{f(t)}=\gamma(t)-a \implies I(\gamma, a)=\dfrac{1}{2\pi i}(f(1)-f(0))$.
+\end{oss}
+
+Elenchiamo ora alcune proprietà dell'indice.
+
+\begin{oss}
+  Siano $\gamma, \gamma'$ due curve $C^0$ in $\mathbb{C}\setminus\{a\}$, $\gamma$ liberamente omotopo a $\gamma'$: Allora $I(\gamma, a)=I(\gamma',a)$.
+\end{oss}
+
+\begin{prop}
+  Sia $\gamma:[0,1]\longrightarrow \mathbb{C}$ una curva chiusa $C^0$. La funzione
+  \begin{align*}
+    \mathbb{C}\setminus\Ima{\gamma} &\longrightarrow \mathbb{Z}\\
+    z &\longmapsto I(\gamma,z)
+  \end{align*}
+  è continua e localmente costante (in particolare, è costante su ogni componente connessa di $\mathbb{C}\setminus\Ima{\gamma}$).
+\end{prop}
+
+\begin{proof}
+  Fissiamo $a \in \mathbb{C}\setminus\Ima{\gamma}$. Mostreremo che per ogni $h \in \mathbb{C}$, $|h|$ sufficientemente piccolo, $I(\gamma, a+h)=I(\gamma, a)$. Sia $0<\delta_0<\min\{|\gamma(t)-a| \mid t \in [0,1]\}\not=0$ perché $a \not \in \mathbb{C}\setminus\Ima{\gamma}$.
+  Per ogni $h \in \mathbb{C}$ t.c. $|h|<\delta_0$ abbiamo: $\displaystyle I(\gamma, a+h)=\frac{1{2\pi i}}\int_{\gamma} \frac{1}{z-(a+h)}\diff z=\frac{1}{2\pi i} \int_{\gamma} \frac{\diff z}{(z-h)-a}$. Facciamo un cambio di variabile: $z'=z-h$.
+  Otteniamo che $\displaystyle I(\gamma, a+h)=\frac{1}{2\pi i}\int_{\gamma'} \frac{1}{z'-a}\diff z'$ dove $\gamma'(t)=\gamma(t)-h$ per $t \in [0,1]$.
+  Per concludere, mostreremo che è uguale a $\displaystyle \frac{1}{2\pi i}\int_{\gamma} \frac{1}{z-a}\diff z$ perché $\gamma$ e $\gamma'$ sono liberamente omotopi. $\gamma \sim \gamma'$ tramite l'omotopia $F(t,s)=\gamma(t)-sh$ per ogni $t,s \in [0,1]$ $\implies$ $I(\gamma, a+h)=I(\gamma', a)=I(\gamma, a)$.
+\end{proof}
+
+\begin{prop}
+  Sia $a \in \mathbb{C}$. Sia $\gamma$ una curva chiusa $C^0$ t.c. $\Ima{\gamma} \subset D \subset D \subset \mathbb{C}\setminus\{a\}$, $D$ è un aperto semplicemente connesso. Allora $I(\gamma, a)=0$.
+\end{prop}
+
+\begin{proof}
+  $\omega=\dfrac{1}{z-a}\diff z$ è chiusa in $D$ $\implies$ $\omega$ è esatta $\implies$ $\displaystyle \int_{\gamma} \omega=0$ $\implies$ $I(\gamma, a)=0$.
+\end{proof}
+
+\begin{exc}
+  Sia $\gamma$ una curva chiusa $C^0$, $a \in \mathbb{C}\setminus\Ima{\gamma}$. Allora $I(\gamma, a)=0$ per tutti gli $a$ in una componente connessa illimitata di $\mathbb{C}\setminus\Ima{\gamma}$.
+\end{exc}
+
+\begin{ex}
+  Sia $\gamma:t \longmapsto Re^{it}$ con $R>0$ e $t \in [0, 2\pi]$. Per $|z|<R$, $I(\gamma, z)=1$. Per $|z|>R$, $I(\gamma, z)=0$.
+\end{ex}
+
+\begin{prop}
+  Sia $f:\{z \in \mathbb{C} \mid |z| \le R\} \longrightarrow \mathbb{C}$ una mappa continua, sia $\gamma(t)=f(Re^{2\pi it})$ per $t \in [0,1]$. Se $a \not\in \Ima(\gamma)$ e $I(\gamma, a)\not=0$ allora esiste $z \in \mathbb{C}, |z|<R$ t.c. $f(z)=a$.
+\end{prop}
+
+\begin{proof}
+  Per assurdom assumiamo che $f(z)\not=a$ per ogni $|z|<R$. Allora $f(z)\not=a$ per ogni $|z| \le R$ visto che $a \not\in \Ima{\gamma}$. Definiamo $F(t,s)=f(t, Re^{2\pi is})$ per ogni $t,s \in [0,1]$. $F$ ci dà un'omotopia tra $\gamma$ e un cammino costante in $f(0)$.
+  Infatti $F$ è continua, $F(1,s)=\gamma(s)$, $F(0,s)=f(0)$, $F(t,0)=F(t,1)$ e $F(t, s) \in \mathbb{C}\setminus\{a\}$ per ogni $t, s$. $\gamma$ è dunque omotopo al cammino costante in $f(0)$ $\implies$ $\displaystyle \int_{\gamma} \frac{1}{z-a}\diff z=0$, ma $I(\gamma, a)\not=0$, assurdo.
+\end{proof}
+
+\begin{defn}
+  Siano $\gamma_1, \gamma_2$ due curve $C^0$. Allora Poniamo
+  \begin{align*}
+    \gamma_1\gamma_2:t &\longmapsto \gamma_1(t)\gamma_2(t)\\
+    \gamma_1+\gamma_2:t &\longmapsto \gamma_1(t)+\gamma_2(t)
+  \end{align*}
+\end{defn}
+
+\begin{thm}
+  Siano $\gamma_1, \gamma_2$ due curve $C^0$ chiuse t.c. $0 \not\in \Ima{\gamma_1}\cup\Ima{\gamma_2}$. Allora $I(\gamma_1\gamma_2, 0)=I(\gamma_1, 0)+I(\gamma_2, 0)$.
+\end{thm}
+
+\begin{proof}
+  Sia $\omega=\dfrac{\diff z}{z}$ e $\gamma_i:[0,1] \longrightarrow \mathbb{C}\setminus\{0\}$, $i=1,2$. Sia $f_i:[0,1] \longrightarrow \mathbb{C}$ continua t.c. $e^{f_i(t)}=\gamma_i(t)$ per ogni $t \in [0,1], i=1,2$.
+  Allora $\gamma_1(t)\gamma_2(t)=e^{f_1(t)}e^{f_2(t)}=e^{f_1(t)+f_2(t)}$ $\implies$ $f=f_1+f_2$ è una primitiva di $\omega$ lungo $\gamma_1\gamma_2$. $I(\gamma_1, \gamma_2)=\dfrac{f_1(1)+f_2(1)-f_1(0)-f_2(0)}{2\pi i}=\dfrac{f_1(1)-f_1(0)}{2\pi i}+\dfrac{f_2(1)-f_2(0)}{2\pi i}=I(\gamma_1, 0)+I(\gamma_2, 0)$.
+\end{proof}
+
+\begin{thm}
+  Siano $\gamma_1, \gamma$ curve chiuse $C^0$ t.c. $0 \not\in \Ima{\gamma_1}\cup\Ima{\gamma}$. Assumiamo che $0<|\gamma_1(t)|<|\gamma(t)|$ per ogni $t \in [0,1]$. Allora $I(\gamma_1+\gamma_2, 0)=I(\gamma, 0)$.
+\end{thm}
+
+\begin{proof}
+  $\gamma(t)+\gamma_1(t)=\gamma(t)\left(1+\dfrac{\gamma_1(t)}{\gamma(t)}\right)=\gamma(t)\beta(t)$. $I(\gamma_1+\gamma, 0)=I(\gamma\beta, 0)=I(\gamma, 0)+I(\beta, 0)$.
+  Notiamo che $I(\beta, 0)=0$, infatti $|\beta(t)-1|=\left|1+\dfrac{\gamma_1(t)}{\gamma(t)}-1 \right|=\left|\dfrac{\gamma_1(t)}{\gamma(t)} \right|<1$ $\implies$ $\Ima{\beta} \subset D(1,1)$, un aperto semplicemente connesso che non contiene $0$, dunque $I(\beta, 0)=0$.
+\end{proof}
+
+\begin{thm}
+  (Formula integrale di Cauchy) Sia $D \subset \mathbb{C}$ un aperto, $a \in D$, sia $\gamma:[0,1] \longrightarrow D$ un cammino chiuso omotopicamente banale, con $a \not\in \Ima{\gamma}$. Sia $f:D \longrightarrow \mathbb{C}$ olomorfa. Allora $\displaystyle \frac{1}{2\pi i}\int_{\gamma} \frac{f(z)}{z-a}\diff z=I(\gamma, a)f(a)$.
+\end{thm}
+
+\begin{proof}
+  Per ogni $z \in D$ sia $g(z)=\begin{cases}
+    \dfrac{f(z)-f(a)}{z-a} & \mbox{se }z\not=a\\
+    f'(a) & \mbox{se }z=a
+\end{cases}$. $g$ è continua in $D$ ed è olomorfa in $D \setminus r$ dove $r$ è la retta orizzontale che passa per $a$.
+Per la proposizione \ref{retta_orizzontale}, $g(z)\diff z$ è chiusa in $D$. Visto che $\gamma$ è omotopicamente banale in $D$ e $g(z)\diff z$ è chiusa in $D$, abbiamo che $\displaystyle \int_{\gamma}g(z)\diff z=0$.
+$\displaystyle 0=\int_{\gamma} g(z)\diff z=\int_{\gamma} \frac{f(z)-f(a)}{z-a}\diff z=\int_{\gamma} \frac{f(z)}{z-a}\diff z-f(a)\int_{\gamma} \frac{1}{z-a}\diff z$. Dividendo per $2\pi i$ otteniamo la tesi.
 \end{proof}
