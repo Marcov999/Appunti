@@ -171,3 +171,103 @@ Elenchiamo ora alcune proprietà dell'indice.
 Per la proposizione \ref{retta_orizzontale}, $g(z)\diff z$ è chiusa in $D$. Visto che $\gamma$ è omotopicamente banale in $D$ e $g(z)\diff z$ è chiusa in $D$, abbiamo che $\displaystyle \int_{\gamma}g(z)\diff z=0$.
 $\displaystyle 0=\int_{\gamma} g(z)\diff z=\int_{\gamma} \frac{f(z)-f(a)}{z-a}\diff z=\int_{\gamma} \frac{f(z)}{z-a}\diff z-f(a)\int_{\gamma} \frac{1}{z-a}\diff z$. Dividendo per $2\pi i$ otteniamo la tesi.
 \end{proof}
+
+\begin{ex}
+  Sia $R>0$ t.c. $B(a,R)=\{z\in \mathbb{C}\mid |z-a|\le R\} \subset D$ e sia $\gamma$ una parametrizzazione di $\partial B(a,R)$ in senso antiorario. Applicando la formula integrale di Cauchy otteniamo che $\displaystyle \frac{1}{2\pi i}\int_{\gamma} \frac{f(z)}{z-a}\diff z=f(a)$ ($I(\gamma,a)=1$) per ogni $f:D \longrightarrow \mathbb{C}$ olomorfa.
+\end{ex}
+
+\begin{oss}
+  La formula integrale di Cauchy implica il teorema di Cauchy. Infatti, se $f$ è olomorfa su un aperto $D\subset \mathbb{C}$, vogliamo $\omega=f(z)\diff z$ chiusa in $D$. Sia $\gamma$ omotopicamente banale in $D$ e $a \not\in \Ima{\gamma}$. Sia $F(z)=(z-a)f(z)$.
+  Applichiamo la formula integrale di Cauchy a $F(z)$: $\displaystyle 0=F(a)I(\gamma, a)=\frac{1}{2\pi i}\int_{\gamma} \frac{F(z)}{z-a}\diff z=\frac{1}{2\pi i}\int_{\gamma}f(z)\diff z$.
+  Abbiamo $\displaystyle\int_{\gamma}\omega=0$ per ogni $\gamma$ omotopicamente banale con $\Ima{\gamma} \subset D$, dunque per il teorema \ref{chiusa^int=0} $\omega$ è chiusa.
+\end{oss}
+
+\begin{thm}
+  (Analitica $\implies$ olomorfa) Sia $f$ olomorfa nel disco aperto $\{z \in \mathbb{C} \mid |z|<R\}$ per $0<R\le+\infty$. Allora $f$ è analitica in $\{z \in \mathbb{C} \mid |z|<R\}$. In particolare, esiste una serie di potenze $\displaystyle \sum_{n \ge 0} a_nz^n$ con raggio di convergenza $\rho \ge R$ t.c. $\displaystyle f(z)=\sum_{n \ge 0} a_nz^n$ per $|z|<R$.
+\end{thm}
+
+\begin{proof}
+  Sia $0<r_0<R$. Definiamo $\gamma:t \longmapsto r_0e^{2\pi i t}$ per ogni $t \in [0,1]$. Sia $z \in \mathbb{C}$ t.c. $|z|<r_0$ (per notazione, $|z|=r$). Allora $I(\gamma,z)=1$ e la formula integrale di Cauchy ci dice che $\displaystyle f(z)=\dfrac{1}{2\pi i}\int_{\gamma}\frac{f(w)}{w-z}\diff w$.
+  Notiamo che $\displaystyle \frac{1}{w-z}-\frac{1}{w}\frac{\left(\frac{z}{w}\right)^{n+1}}{1-\frac{z}{w}}=\frac{1}{w}\frac{1-\left(\frac{z}{w}\right)^{n+1}}{1-\frac{z}{w}}=\frac{1}{w}\sum_{k=0}^n \left(\frac{z}{w}\right)^k$.
+  $\displaystyle \frac{1}{w-z}=\frac{1}{w}\sum_{k=0}^n \left(\frac{z}{w}\right)^k+\frac{1}{w}\frac{\left(\frac{z}{w}\right)^{n+1}}{1-\frac{z}{w}}$.
+  Sostituiamolo dentro la formula con l'integrale per $f(z)$ per ottenere $\displaystyle f(z)=\frac{1}{2\pi i}\left[\int_{\gamma}\frac{f(w)}{w}\sum_{k=0}^n \left(\frac{z}{w}\right)^k\diff w+\int_{\gamma}\frac{f(w)}{w}\frac{\left(\frac{z}{w}\right)^{n+1}}{1-\frac{z}{w}}\diff w\right]=\frac{1}{2\pi i}\left[\sum_{k=0}^n z^k\left(\int_{\gamma} \frac{f(w)}{w^{k+1}}\diff w\right)+\int_{\gamma}\frac{f(w)}{w}\frac{\left(\frac{z}{w}\right)^{n+1}}{1-\frac{z}{w}}\diff w\right]$.
+  Definiamo $\displaystyle a_k=\frac{1}{2\pi i}\int_{\gamma} \frac{f(w)}{w^{k+1}}\diff w$, $\displaystyle R_n=\frac{1}{2\pi i}\int_{\gamma}\frac{f(w)}{w}\frac{\left(\frac{z}{w}\right)^{n+1}}{1-\frac{z}{w}}\diff w$.
+  Abbiamo ottenuto $\displaystyle f(z)=\sum_{k=0}^n a_kz^k+R_n$. Definiamo $M(r_0)=\sup\{|f(\gamma(t))| \mid t \in [0,1]\}$.
+  $\displaystyle R_n=\frac{1}{2\pi i}\int_{\gamma}\frac{f(w)}{w}\frac{\left(\frac{z}{w}\right)^{n+1}}{1-\frac{z}{w}}\diff w=\frac{1}{2\pi i}\int_0^1 \frac{f(\gamma(t))}{\gamma(t)}\frac{\left(\frac{z}{\gamma(t)}\right)^{n+1}}{1-\frac{z}{\gamma(t)}}r_02\pi ie^{2\pi it}\diff t$.
+  $\displaystyle |R_n| \le \frac{1}{2\pi}\int_0^1 \frac{|f(\gamma(t))|}{|\gamma(t)|}\frac{\left|\frac{z}{\gamma(t)}\right|^{n+1}}{\left|1-\frac{z}{\gamma(t)}\right|}r_02\pi \diff t$.
+  $|z|=r<r_0=|\gamma(t)| \implies \left|1-\dfrac{z}{\gamma(t)}\right| \ge 1-\dfrac{r}{r_0}$.
+  $\displaystyle |R_n| \le \frac{1}{2\pi} \int_0^1 \frac{|f(\gamma(t))|}{r_0}\frac{\left(\frac{r}{r_0}\right)^{n+1}}{1-\frac{r}{r_0}}r_02\pi\diff t \le M(r_0) \frac{\left(\frac{r}{r_0}\right)^{n+1}}{1-\frac{r}{r_0}}$.
+  Quindi, poiché $r/r_0<1$, $|R_n| \longrightarrow 0$ per $n \longrightarrow +\infty$ $\implies$ $\displaystyle f(z)=\sum_{k \ge 0}a_kz^k$ per $|z|<R$.
+  Osserviamo che $\displaystyle a_k=\frac{1}{2\pi i}\int_{\gamma} \frac{f(w)}{w^{k+1}}\diff w$ è indipendente da $r_0$ per ogni $0<r_0<R$. Usando stime analoghe alle precedenti otteniamo $\displaystyle |a_k| \le \frac{1}{2\pi} \int_0^1 \frac{|f(\gamma(t))|}{|\gamma(t)|^{k+1}}r_02\pi \diff t \le \frac{M(r_0)}{r_0^k}$.
+  $$ |a_k| \le \frac{M(r_0)}{r_0^k} \, (\star)$$
+  Per la proposizione \ref{convergenza_serie} $\displaystyle \sum_{k \ge 0} a_kz^k$ converge uniformemente per $|z| \le r$ per ogni $r<r_0$ e converge assolutamente per $|z|<r_0$ per ogni $0<r_0<R$ $\implies$ il raggio di convergenza della serie è $\rho \ge R$.
+\end{proof}
+
+\begin{oss}
+  $\displaystyle f(z)=\sum_{k \ge 0} a_kz^k \implies 2\pi if(z)=\sum_{k \ge 0}\left(\int_{\gamma} \frac{f(w)}{w^{k+1}}\diff w\right)z^k=\int_{\gamma}f(w)\left(\sum_{k \ge 0}\frac{z^k}{w^{k+1}}\right)\diff w$.
+\end{oss}
+
+\begin{cor}
+  Sia $D \subset \mathbb{C}$ un aperto. Una funzione $f$ è olomorfa in $D$ $\iff$ $f$ è analitica in $D$. In particolare, la serie di Taylor di $f$ in $a \in D$ ha raggio di convergenza $\rho \ge \sup\{r>0 \mid \{z \in \mathbb{C} \mid |z-a|<r\}\subseteq D\}$.
+\end{cor}
+
+\begin{proof}
+  Segue da quanto visto nella dimostrazione del teorema precedente.
+\end{proof}
+
+\begin{cor} \label{derivate_olo}
+  Se $f$ è olomorfa su $D$ aperto, allora $f$ è $C^{\infty}$ in $D$ e per ogni $n \ge 0$ $f^{(n)}$ è olomorfa in $D$.
+\end{cor}
+
+\begin{proof}
+  $f$ olomorfa $\implies$ $f$ analitica $\implies$ $f \in C^{\infty}$ e $f^{(n)}$ analitica $\implies$ $f^{(n)}$ olomorfa.
+\end{proof}
+
+\begin{cor}
+  Sia $f$ olomorfa in $D$ aperto. Sia $R>0$ t.c. $B(a, R) \subset D$. Sia $\gamma$ la curva che parametrizza $\partial B(a, R)$ in senso antiorario. Allora $\displaystyle f^{(n)}(a)=\frac{n!}{2\pi i}\int_{\gamma}\frac{f(z)}{(z-a)^{n+1}}\diff z$.
+\end{cor}
+
+\begin{proof}
+  $\displaystyle \frac{f^{(n)}(a)}{n!}=a_n=\frac{1}{2\pi i}\int_{\gamma}\frac{f(z)}{(z-a)^{n+1}}\diff z$.
+\end{proof}
+
+\begin{thm}
+  (Teorema di Morera) Sia $f$ una funzione continua in un aperto $D$. Se $\omega=f(z)\diff z$ è chiusa in $D$, allora $f$ è olomorfa in $D$.
+\end{thm}
+
+\begin{proof}
+  $\omega$ è chiusa in $D$. Per definizione, per ogni $a \in D$ esiste un intorno aperto $U$ di $a$ t.c. $\omega=\diff F$ in $U$, $F$ di classe $C^1$ in $U$.
+  $f(z)\diff z=\omega=\diff F=\dfrac{\partial F}{\partial z}\diff z+\dfrac{\partial F}{\partial\bar{z}}\diff\bar{z} \iff f(z)=\dfrac{\partial F}{\partial z}, \dfrac{\partial F}{\partial\bar{z}}=0$.
+  $\dfrac{\partial F}{\partial\bar{z}}=0$ $\iff$ $F$ soddisfa le condizioni di Cauchy-Riemann $\implies$ $F$ olomorfa $\implies$ $F'$ olomorfa per il corollario \ref{derivate_olo}, ma $F'=f$.
+\end{proof}
+
+\begin{cor}
+  Sia $f:D \longrightarrow \mathbb{C}$ continua, $D$ aperto. De $f$ è olomorfa in $D \setminus r$, $r$ retta orizzontale, allora $f$ è olomorfa in $D$.
+\end{cor}
+
+\begin{proof}
+  Segue dal teorema di Morera e dalla proposizione \ref{retta_orizzontale}.
+\end{proof}
+
+\begin{thm}
+  Sia $f:D \longrightarrow \mathbb{C}$ una funzione, $D \subset \mathbb{C}$ un aperto. Le seguenti sono equivalenti:
+  \begin{nlist}
+    \item $f$ è olomorfa in $D$;
+    \item $f$ è analitica in $D$;
+    \item $f \in C^1$ e soddisfa le condizioni di Cauchy-Riemann in $D$;
+    \item $f$ è continua in $D$ e olomorfa in $D\setminus r$, $r$ retta orizzontale;
+    \item $f$ è continua e $\omega=f(z)\diff z$ è chiusa in $D$.
+  \end{nlist}
+\end{thm}
+
+\begin{proof}
+  Segue da quanto visto finora.
+\end{proof}
+
+\begin{cor}
+  (Disuguaglianze di Cauchy) Sia $a \in \mathbb{C}$, $\displaystyle f(z)=\sum_{n \ge 0} a_n(z-a)^n$ con raggio di convergena $\rho>0$. Allora per ogni $0 <r<\rho$ $a_n=\dfrac{f^{(n)}(a)}{n!}$ e $|a_n| \le M(r)$ dove $M(r)=\sup\{|f(z)| \mid |z-a|=r\}$.
+\end{cor}
+
+\begin{proof}
+  Vista nelle dimostrazioni sopra.
+\end{proof}
