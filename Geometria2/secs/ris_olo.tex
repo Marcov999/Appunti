@@ -1,0 +1,110 @@
+Adesso enunciamo una serie di risultati importanti sulle funzioni olomorfe. Cominciamo con una caratterizzazione.
+
+\begin{thm}
+  Sia $f:D \longrightarrow \mathbb{C}$ una funzione, $D \subset \mathbb{C}$ un aperto. Le seguenti sono equivalenti:
+  \begin{nlist}
+    \item $f$ è olomorfa in $D$;
+    \item $f$ è analitica in $D$;
+    \item $f \in C^1$ e soddisfa le condizioni di Cauchy-Riemann in $D$;
+    \item $f$ è continua in $D$ e olomorfa in $D\setminus r$, $r$ retta orizzontale;
+    \item $f$ è continua e $\omega=f(z)\diff z$ è chiusa in $D$.
+  \end{nlist}
+\end{thm}
+
+\begin{proof}
+  Segue da quanto visto finora.
+\end{proof}
+
+\begin{cor}
+  (Disuguaglianze di Cauchy) Sia $a \in \mathbb{C}$, $\displaystyle f(z)=\sum_{n \ge 0} a_n(z-a)^n$ con raggio di convergena $\rho>0$. Allora per ogni $0 <r<\rho$ $a_n=\dfrac{f^{(n)}(a)}{n!}$ e $|a_n| \le M(r)$ dove $M(r)=\sup\{|f(z)| \mid |z-a|=r\}$.
+\end{cor}
+
+\begin{proof}
+  Vista nelle dimostrazioni precedenti.
+\end{proof}
+
+\begin{thm}
+  (Teorema di Liouville) Una funzione intera limitata è costante.
+\end{thm}
+
+\begin{proof}
+  Visto che $f$ è intera, $\displaystyle f(z)=\sum_{n \ge 0} a_nz^n$ con raggio di convergenza $\rho=+\infty$ $\implies$ $|a_n|r^n \le M(r)$ per ogni $r \ge 0$.
+  $f$ limitata $\implies$ esiste $M>0$ t.c. $|f(z)| \le M$ per ogni $z \in \mathbb{C}$ $\implies$ $M(r) \le M$ per ogni $r>0$ $\implies$ $|a_n| \le \dfrac{M}{r^n}$ per ogni $r>0$ e $n \ge 0$.
+  Mandando $r \longrightarrow +\infty$, $|a_n| \longrightarrow 0$ per ogni $n \ge 1$ $\implies$ $f(z)=a_0$ costante.
+\end{proof}
+
+Vediamo un'interessante applicazione del teorema di Liouville.
+
+\begin{thm}
+  (Teorema fondamentale dell'algebra) Sia $P(z) \in \mathbb{C}[z]$ un polinomio non costante. Allora esso ammette almeno uno zero.
+\end{thm}
+
+\begin{proof}
+  Per assurdo, $P(z) \not=0$ per ogni $z \in \mathbb{C}$ $\implies$ $\dfrac{1}{P(z)}$ è intera.
+  $P(z)=a_nz^n+a_{n-1}+z^{n-1}+\dots+a_1z+a_0$ con $a_n\not=0$, quindi possiamo riscrivere $P(z)$ come $P(z)=z^n\left(a_n+\dfrac{a_{n-1}}{z}+\dfrac{a_{n-2}}{z^2}+\dots+\dfrac{a_0}{z^n}\right)$.
+  Per $|z| \longrightarrow +\infty$, $|P(z)| \longrightarrow +\infty$ poiché $|P(z)|=|z|^n\left|a_n+\dfrac{a_{n-1}}{z}+\dfrac{a_{n-2}}{z^2}+\dots+\dfrac{a_0}{z^n}\right|$ e $|z|^n \longrightarrow +\infty, \left|a_n+\dfrac{a_{n-1}}{z}+\dfrac{a_{n-2}}{z^2}+\dots+\dfrac{a_0}{z^n}\right| \longrightarrow |a_n|>0$.
+  Allora $\left|\dfrac{1}{P(z)}\right| \longrightarrow 0$ $\implies$ esiste $R>0$ t.c. $\left|\dfrac{1}{P(z)}\right|$ è limitata per ogni $|z|>R$.
+  Ma $\left|\dfrac{1}{P(z)}\right|$ è limitata su $\{z \in \mathbb{C} \mid |z| \le R\}$, quindi $\left|\dfrac{1}{P(z)}\right|$ $\implies$ $\dfrac{1}{P(z)}$ è limitata. Applicando il teorema di Liouville a $\dfrac{1}{P(z)}$ otteniamo che essa è costante, quindi $P(z)$ è costante, assurdo.
+\end{proof}
+
+\begin{defn}
+  Sia $D \subset \mathbb{C}$ un aperto e $f:D \longrightarrow \mathbb{C}$ una funzione continua. Diciamo che $f$ ha la \textit{proprietà del valore medio} (pvm d'ora in avanti) se per ogni $a \in D$ esiste $r_0>0$ t.c.
+  \begin{nlist}
+    \item $\{z \mid |z-a|<r_0\} \subseteq D$;
+    \item $\displaystyle f(a)=\dfrac{1}{2\pi}\int_0^{2\pi} f(a+re^{i\theta})\diff\theta$ per ogni $0 \le r<r_0$.
+  \end{nlist}
+\end{defn}
+
+\begin{oss}
+  Se $f$ ha la pvm, $\mathfrak{Re}f$ e $\mathfrak{Im}f$ hanno la pvm.
+\end{oss}
+
+\begin{oss}
+  $f$ olomorfa $\implies$ $f$ ha la pvm. Infatti, sia $f$ olomorfa in $D$ e $a \in D$ e scegliamo $r_0>0$ t.c. $\{z \mid |z-a| \le r_0\}\subseteq D$.
+  Per la formula integrale di Cauchy su $\gamma:t \longmapsto a+re^{i\theta}, t \in [0,2\pi]$ abbiamo che $\displaystyle f(a)=\dfrac{1}{2\pi i}\int_{\gamma} \dfrac{f(z)}{z-a}\diff z=\dfrac{1}{2\pi i}\int_0^{2\pi} \dfrac{f(a+re^{i\theta})}{a+re^{i\theta}-a}rie^{i\theta}\diff\theta$ per ogni $0 \le r <r_0$.
+\end{oss}
+
+\begin{thm}
+  (Principio del massimo modulo) Sia $D \subset \mathbb{C}$ un aperto, $f:D \longrightarrow \mathbb{C}$ continua che ha la pvm. Se $|f|$ ha un massimo relativo in $a \in D$ (cioè $|f(z)| \le |f(a)|$ per ogni $z$ sufficientemente vicino ad $a$), allora $f$ è costante in un intorno di $a$.
+\end{thm}
+
+\begin{proof}
+  Se $f(a)=0$, $|f(z)| \le |f(a)|=0$ per ogni $z$ sufficientemente vicino ad $a$ $\implies$ $f(z)=0$ per ogni $z$ sufficientemente vicino ad $a$ $\implies$ $f$ è costante in un intorno di $a$.
+  Se $f(a)\not=0$, $f(a)=\alpha e^{i\beta}$ $\implies$ $e^{-i\beta}f(a) \in \mathbb{R}$ e $e^{-i\beta}f(a)>0$. Quindi, a meno di rimpiazzare $f$ con $e^{-i\beta}f$, possiamo assumere $f(a) \in \mathbb{R}$ e $f(a)>0$.
+  Per notazione, $u=\mathfrak{Re}f, v=\mathfrak{Im}f$. Adesso scegliamo $r_0>0$ t.c.
+  \begin{nlist}
+    \item $B(a,r_0)=\{z \in \mathbb{C} \mid |z-a| \le r_0\} \subset D$;
+    \item $\displaystyle f(a)=\frac{1}{2\pi} \int_0^{2\pi} f(a+re^{i\theta})\diff\theta$ per ogni $0 \le r <r_0$;
+    \item $|f(z)| \le |f(a)|$ per ogni $z \in B(a,r_0)$.
+  \end{nlist}
+  Definiamo $M(r)=\sup\{|f(z)| \mid |z-a|=r\}<+\infty$ per ogni $0 \le r<r_0$. (iii) $\implies$ $M(r) \le |f(a)|=f(a)$ per ogni $0 \le r<r_0$. Per (ii), $\displaystyle f(a)=\frac{1}{2\pi} \int_0^{2\pi} f(a+re^{i\theta})\diff\theta$ per ogni $0 \le r <r_0$.
+  Ma allora $\displaystyle f(a)=|f(a)| \le \int_0^{2\pi} |f(a+re^{i\theta})|\diff\theta=\int_0^{2\pi} M(r)\diff\theta=M(r)$ $\implies$ $f(a)=M(r)$ per ogni $0 \le r<r_0$.
+  $\displaystyle \int_0^{2\pi} M(r)\diff\theta=M(r)=f(a)=\int_0^{2\pi} f(a+re^{i\theta})\diff\theta$, ma poiché $f(a) \in \mathbb{R}$ possiamo integrare solo la parte reale, dunque $\displaystyle \int_0^{2\pi} M(r)\diff\theta=\int_0^{2\pi} u(a+re^{i\theta})\diff\theta \implies \int_0^{2\pi} [M(r)-u(a+re^{i\theta})]\diff\theta=0$.
+  Sia $g(\theta)=M(r)-u(a+rw^{i\theta})$. Allora $\displaystyle \int_0^{2\pi} g(\theta)\diff\theta=0$, ma per definizione $M(r) \ge |f(a+re^{i\theta})|\ge |u(a+re^{i\theta})| \implies g(\theta) \ge 0 \implies g=0$ per ogni $\theta \in [0,2\pi]$, quindi $M(r)=u(a+re^{i\theta})$ per ogni $\theta \in [0,2\pi]$.
+  $M(r) \ge |f(a+re^{i\theta})|=(u(a+re^{i\theta})^2+v(a+re^{i\theta})^2)^{1/2}=(M(r)^2+v(a+re^{i\theta})^2)^{1/2}$ $\implies$ $v(a+re^{i\theta})=0$ per ogni $\theta \in [0, 2\pi]$ e $0 \le r<r_0$. Concludendo, per ogni $z$ t.c. $|z-a|<r_0$ abbiamo $f(z)=\mathfrak{Re}(f)(z)=u(z)=M(|z-a|)=f(a)$.
+\end{proof}
+
+\begin{cor} \label{max_bordo}
+  Sia $D \subset \mathbb{C}$ un aperto connesso e limitato. Sia $f$ continua su $\overline{D}$ che ha la pvm in $D$. Sia $M=\sup\{|f(z)| \mid z \in \partial D\}$. Allora:
+  \begin{nlist}
+    \item $|f(z)| \le M$ per ogni $z \in D$;
+    \item se esiste $a \in D$ t.c. $|f(a)|=M$, allora $f$ è costante.
+  \end{nlist}
+\end{cor}
+
+\begin{proof}
+  Poi.
+\end{proof}
+
+\begin{cor}
+  (Principio del massimo modulo per funzioni olomorfe) Sia $f$ olomorfa su $D \subset \mathbb{C}$ aperto connesso. Se $f$ non è costante, allora $|f|$ non ha massimo relativo in $D$. Inoltre, se $D$ è limitato e $f$ è continua in $\overline{D}$, allora $|f|$ assume massimo in $\partial D$.
+\end{cor}
+
+\begin{proof}
+  $f$ olomorfa su $D$ $\implies$ $f$ ha la pvm. Se $|f|$ ha massimo relativo in $D$, per il principio del massimo modulo esiste $a \in D$ t.c. $f$ è costante in un intorno di $a$, dunque per prolungamento analitico $f$ è costante in $D$.
+  Assumiano $D$ limitato, per il corollario \ref{max_bordo} $|f(z)| \le M=\sup\{|f(z)| \mid z \in \partial D\}$, che è un massimo perché $\partial D$ è chiuso e $D$ limitato ci dà $\partial D$ limitato, quindi $\partial D$. Dunque $|f(z)|$ assume massimo in $\partial D$.
+\end{proof}
+
+\begin{oss}
+  Sia $f$ olomorfa in $\{z \in \mathbb{C} \mid |z| <r\}$ e continua in $\{|z| \le r\}$. Allora $|f(z)| \le M(r)=\sup\{|f(z)| \mid |z|=r\}$ per ogni $z$ t.c. $|z| \le r$.
+\end{oss}

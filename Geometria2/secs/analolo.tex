@@ -248,26 +248,3 @@ $\displaystyle 0=\int_{\gamma} g(z)\diff z=\int_{\gamma} \frac{f(z)-f(a)}{z-a}\d
 \begin{proof}
   Segue dal teorema di Morera e dalla proposizione \ref{retta_orizzontale}.
 \end{proof}
-
-\begin{thm}
-  Sia $f:D \longrightarrow \mathbb{C}$ una funzione, $D \subset \mathbb{C}$ un aperto. Le seguenti sono equivalenti:
-  \begin{nlist}
-    \item $f$ è olomorfa in $D$;
-    \item $f$ è analitica in $D$;
-    \item $f \in C^1$ e soddisfa le condizioni di Cauchy-Riemann in $D$;
-    \item $f$ è continua in $D$ e olomorfa in $D\setminus r$, $r$ retta orizzontale;
-    \item $f$ è continua e $\omega=f(z)\diff z$ è chiusa in $D$.
-  \end{nlist}
-\end{thm}
-
-\begin{proof}
-  Segue da quanto visto finora.
-\end{proof}
-
-\begin{cor}
-  (Disuguaglianze di Cauchy) Sia $a \in \mathbb{C}$, $\displaystyle f(z)=\sum_{n \ge 0} a_n(z-a)^n$ con raggio di convergena $\rho>0$. Allora per ogni $0 <r<\rho$ $a_n=\dfrac{f^{(n)}(a)}{n!}$ e $|a_n| \le M(r)$ dove $M(r)=\sup\{|f(z)| \mid |z-a|=r\}$.
-\end{cor}
-
-\begin{proof}
-  Vista nelle dimostrazioni sopra.
-\end{proof}
