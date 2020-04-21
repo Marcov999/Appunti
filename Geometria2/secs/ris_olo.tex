@@ -93,7 +93,28 @@ Vediamo un'interessante applicazione del teorema di Liouville.
 \end{cor}
 
 \begin{proof}
-  Poi.
+    Definiamo $M'=\text{sup}\{|f(z)|:z\in\overline{D}\}$. Allora $M\leq
+    M'<\infty$ ed esiste almeno un punto $a\in\overline{D}$ tale che
+    $|f(a)|=M'$. Distinguiamo i due casi, a seconda se $a$ sia in $D$ o meno.
+
+    \emph{Caso 1}: $a\in D$. Per il principio del massimo modulo si ha che $f$
+    \`e costante in un intorno di $a$. Sia allora
+    \[
+        D' = \{z\in D: |f(z)|=|f(a)|=M'\}
+    \]
+    Bisogna dimostrare che $D'=D$. In primo luogo si vede che che $D'$ \`e
+    chiuso.
+    Riptendo il ragionamento della seconda parte del teorema sopra citato, si
+    ottiene che se esiste $a'$ tale che $|f(a')|=M'=|f(a)|$ allora vale
+    $f(z)=f(a')$ per i $z$ nella palla $|z-a'|<r'_0$. Allora D' \`e anche aperto
+    e dunque uguale a $D$.
+
+    Poich\'e $f$ \`e continua in $\overline{D}$, \`e anche costante in tale
+    insieme e si ottengono entrambi i punti.
+
+    \emph{Caso 2}: $a\notin D$. Allora $a$ si trova sul bordo di $D$. Allora
+    $M\geq |f(a)| = M'$, e per costruzione si aveva $M\leq M'$. Dunque si ha che
+    $M'=M$, che implica solo il primo punto.
 \end{proof}
 
 \begin{cor}
@@ -108,3 +129,37 @@ Vediamo un'interessante applicazione del teorema di Liouville.
 \begin{oss}
   Sia $f$ olomorfa in $\{z \in \mathbb{C} \mid |z| <r\}$ e continua in $\{|z| \le r\}$. Allora $|f(z)| \le M(r)=\sup\{|f(z)| \mid |z|=r\}$ per ogni $z$ t.c. $|z| \le r$.
 \end{oss}
+
+\begin{thm} \emph{(Lemma di Schwarz).}
+    Sia $f$ olomorfa sul disco $|z|<1$ tale che $f(0)=0$ e $|f(z)|<1$ in tale
+    disco. Allora valgono:
+    \begin{nlist}
+        \item $|f(z)|\leq |z|$ per $|z|<1$;
+        \item $|f'(0)|<1$;
+        \item Se esiste $z_0\neq 0$ tale che $|f(z_0)|=|z_0|$ oppure
+            $|f'(0)|=1$, allora esiste $\lambda\in\mathbb{C}$ di modulo unitario
+            tale che $f(z)=\lambda z$.
+    \end{nlist}
+\end{thm}
+\begin{proof}
+    Sia $f(z)=\sum_{n\geq 0} a_n z^n$ l'espansione di Taylor nell'origine.
+    Definiamo inoltre la funzione:
+    \[
+        g(z)=
+        \begin{cases}
+            \frac{f(z)}{z} & 0<|z|<1 \\
+            a_1=f'(0) & z=0
+        \end{cases}
+    \]
+    Allora $g(z)=\sum_{n\geq 1}a_n z^{n-1}$ per $|z|<1$. Dunque g \`e analitica
+    (e olomorfa) nel disco unitario. Sia $0<r<1$ e $|z|=r$. Abbiamo $|g(z)| =
+    |f(z)/z|\leq 1/r$. In particolare per $|z|<1$, $|g(z)|\leq 1$. Di
+    conseguenza, nello stesso dominio, $|f(z)|\leq |z|$. Inoltre si deve avere
+    $|g(0)|\leq 1$, cio\`e $|f'(0)|\leq 1$.
+
+    Supponiamo esista $a$ tale che $|a|<1$ e $|g(a)|=1$ (ed esiste se e solo se
+    esiste uno $z_0$ come nelle ipotesi). Per il principio di massimo modulo,
+    $g$ \`e costante, cio\`e $g(z) = \lambda$.
+\end{proof}
+
+

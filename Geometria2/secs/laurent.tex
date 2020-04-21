@@ -1,0 +1,80 @@
+\begin{defn}
+    Una serie di Laurent \`e un'espressione del tipo
+    \[
+        \sum_{n\in \mathbb{Z}}a_n z^n.
+    \]
+    Ad essa possiamo associare due serie di potenze, $\sum_{n\geq 0}a_n z^n$ e
+    $\sum_{n< 0}a_n z^{-n}$. Assumiamole assolutamente convergenti con raggio di
+    convergenza finito e non nullo.
+    Si definiscono $\rho_1$ come il raggio di convergenza della prima serie e
+    $\rho_2$ come il reciproco del raggio di convergenza della seconda.
+    Consideriamo anche $f_1(z)=\sum_{n\geq 0}a_n z^n$, $f_1(z)=\sum_{n< 0}a_n
+    z^n$.
+\end{defn}
+$f_1$ \`e chiaramente analitca nella palla di raggio $\rho_1$. Invece $f_2$
+converge assolutamente per $|z|>\rho_2$.
+
+\begin{prop} $f_2$ \`e olomorfa in $|z|>\rho_2$.
+\end{prop}
+\begin{proof}
+    Sia $z=1/u$, $g(u) = f_2(1/u) = \sum_{k>0}a_{-k}u^k$, che converge
+    assolutamente per $|u|<1/\rho_2$. Inoltre 
+    \[
+        f'_2(z) = -g'(\frac{1}{z})\frac{1}{x^2} = \sum_{n<0}na_nz^{n-1}.
+    \]
+    Poich\'e $f'_2$ esiste $f_2$ \`e olomorfa.
+\end{proof}
+
+\begin{prop}
+    Sia $f(z)=\sum_{n\in\mathbb{Z}}a_nz^n$ una serie di Laurent. Supponiamo che:
+    \begin{nlist}
+        \item $\sum_{n\geq 0}a_nz^n$ e $\sum_{n<0}a_nz^{-n}$ assolutamente
+            convergenti
+        \item $\rho_2<\rho_1$
+    \end{nlist}
+    Allora la somma $f(z)$ \`e olomorfa per per $\rho_2<|z|<\rho_1$ e la serie
+    converge normalmente in $r_2\leq |z| \leq r_1$ con $\rho_2<r_2<r_1<\rho_1$.
+\end{prop}
+
+\begin{defn}
+    Diciamo che una funzione $f(z)$ definita sulla corona circolare
+    $\rho_2<r_2<r_1<\rho_1$ ha un'espansione di Laurent se esiste una serie di
+    Laurent che converge in tale corona e che la sua somma sia uguale a $f$ in
+    ogni suo punto.
+\end{defn}
+
+\begin{oss}    
+    Se $f$ ha un'espansione di Laurent, $f$ \`e olomorfa nella corona.
+\end{oss}    
+
+\begin{thm}
+    Sia $a\in\mathbb{C}$ e sia $f$ olomorfa nella corona circolare
+    \[
+        A = \{z\in\mathbb{C}:0<\rho_2<|z-a|<\rho_1<\infty\}.
+    \]
+    Allora $f$ ha un'espansione di Laurent, cio\`e esplicitamente per $z\in A$:
+    \[
+        f(z) = \sum_{n\in\mathbb{Z}}(z-a)^n \text{\ con\ }
+        a_n = \frac{1}{2\pi i} \int_\gamma \frac{f(w)}{(w-a)^{n+1}}dw
+    \]
+\end{thm}
+\begin{proof}
+    Senza perdita di generalit\`a, prendiamo $a=0$. Scegliamo $\rho_2 <
+    r'_2<r_2<r_1<\rho_1$, $\gamma_1(t)=r_1e^{2\pi i t}$,$\gamma_2(t)=r_2e^{2\pi
+    i t}$.
+    Sia $B=\{z: r'_2\leq |z| \leq r'_1\}$, $r_2\leq |z| \leq r_1$, e $r>0$ tale
+    che $\overline{B(z,r)}\subseteq \{w: r'_2<|w|<r'_1\}$. Si prenda $\alpha$
+    parametrizzazione del bordo di $\overline{B(z,r)}$, in senso antiorario.
+    Si ha per ogni forma chiusa in $A\setminus B(z,r)$ $\omega$ che
+    \[
+        \int_{\gamma_1}\omega-\int_{\gamma_2}\omega-\int_{\alpha}\omega=0
+    \]
+    In particolare si pu\`o prendere $\omega = \frac{f(w)}{w-z}dw$, per ottenere
+    \[
+        \int_{\gamma_1}\frac{f(w)}{w-z}dw - \int_{\gamma_2}\frac{f(w)}{w-z}dw =
+        \int_{\alpha}\frac{f(w)}{w-z}dw = 2\pi i I(\alpha,z) f(z)
+    \]
+
+
+\end{proof}
+
