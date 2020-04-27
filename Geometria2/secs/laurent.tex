@@ -132,3 +132,42 @@ converge assolutamente per $|z|>\rho_2$.
     \infty} F(z) = 0$. Dunque $F$ \`e limitata e per Liouville \`e costante.
     Dunque $f_1=g_1$ e $f_2 = g_2$.
 \end{proof}
+
+\begin{thm}
+    la serie di Laurent \`e unica.
+\end{thm}
+\begin{proof}
+    Per semplicit\`a sia $z_0=0$, $f:D\rightarrow\C$ olomorfa con $D = \{z,
+    \rho_2<|z|<\rho_1\}$ con sviluppo $\sum_{-\infty}^\infty a_nz^n$.
+
+    Fissiamo $k\in\mathbb{Z}$. Sia $\gamma$ un loop in $D$ con $I(\gamma,0)=1$ e
+    calcoliamo
+    \[
+        \int_\gamma \frac{f(z)}{z^{k+1}}dz = 
+        \int_\gamma \frac{\sum a_nz^n}{z^{k+1}}dz = 
+        \int_\gamma (\sum a_nz^{n-k-1})dz = 
+        \sum a_n \int_\gamma z^{n-k-1}dz.
+    \]
+    dove l'ultima uguaglianza \`e giustificata dalla convergenza uniforme della
+    serie.
+    Ora, $z^jdz$ \`e esatta su $\C\setminus\{0\}$ per $j\neq -1$, per cui se
+    $n-k-1\neq -1$, si ha che
+    \[
+        \int_\gamma z^{n-k-1}dz = 0 \qquad \text{per $n\neq k$}.
+    \]
+    Per cui
+    \[
+        \int\frac{f(z)}{z^{k+1}}dz = a_k \int_\gamma\frac{1}{z}dz = 2\pi i a_k.
+    \]
+    Per cui gli $a_k$ sono univocamente determinati da $f$.
+\end{proof}
+
+\begin{defn}
+    Data una palla $B$ centrata in $z_0$, $f:B\setminus\{z_0\}\rightarrow\C$
+    olomorfa con sviluppo di Laurent con coefficienti $a_n$, il residuo di $f$
+    in $z_0$ \`e
+    \[
+        \Res(f,z_0)=a_{-1}
+    \]
+\end{defn}
+

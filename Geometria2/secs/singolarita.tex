@@ -1,4 +1,3 @@
-\newcommand{\C}{\mathbb{C}}
 \begin{thm}
     Sia $D\subseteq\C$ aperto, $f:D\setminus\{z_0\}\rightarrow\C$ olomorfa, con
     $z_0\in\C$. Allora $f$ si estende a una funzione olomorfa $g:D\rightarrow\C$
@@ -52,3 +51,105 @@
     \]
     poich\'e $g$ olomorfa anche in $z_0$.
 \end{oss}
+
+\begin{prop}
+    Sia $z_0$ una singolarit\`a isolata di $f:D\setminus\{z_0\}\rightarrow\C$,
+    con $D$ aperto, $z_0\in D$, $f$ olomorfa. Sono fatti equivalenti:
+    \begin{nlist}
+    \item  
+        $z_0$ \`e un polo di ordine $n_0$ di $f$;
+    \item
+        $f(z) = g(z)/(z-z_0)^{n_0}$, con $g$ olomorfa su $D$ e $g(z_0)\neq 0$.
+    \item
+        $1/f$ si estende a una funzione olomorfa $k:U\rightarrow\C$ in un
+        intorno di $z_0$, con $z_0$ zero di ordine $n_0$ per $k$.
+    \end{nlist}
+\end{prop}
+\begin{proof}
+    ($i\Rightarrow ii)$. Si ha che $f_z = \sum_{n\geq n_0} a_n(z-z_0)^n$ e
+    $a_{-n_0} \neq 0$. Alora semplicemente si raccolglie il $(z-z_0)^{-n_0}$ e
+    quello che rimane \`e una serie di potenze, cio\`e la nostra funzione
+    olomorfa $g$.
+
+    ($ii\Rightarrow iii)$. In un intorno di $z_0$, $g$ non si annulla, quindi
+    \`e ben definita e olomorfa $k=1/f = (z-z_0)^{n_0}/g(z)$, che ha in $z_0$
+    uno zero di ordine $n_0$.
+
+    ($iii\Rightarrow i)$. Se $k(z) = h(z)(z-z_0)^{n_0}$, $h(z_0)\neq 0$ in una
+    palla bucata centrata in $z_0$, si ha
+    \[
+        f(z) = \frac{(z-z_0)^{-n_0}}{h(z)} = \sum_{n\geq -n_0}
+        a_{n+n_0}(z-z_0)^n.
+    \]
+    dove $1/h(z)$ \`e analitica.
+\end{proof}
+
+\begin{defn}
+    Sia $D\subseteq\C$ aperto. Una funzione meromorfa su $D$ \`e una funzione
+    olomorfa $f:D\setminus S\rightarrow\C$, dove $S$ \`e un insieme discreto (e
+    chiuso in $D$) e per ogni $z_0\in S$, $f$ ha un polo in $z_0$.
+\end{defn}
+
+\begin{exc}
+    Rapporti di funzioni olomorfe sono meromorfi.
+\end{exc}
+
+\begin{thm}
+    (di Weierstrass). Sia $z_0$ una singolarit\`a essenziale per
+    $f:D\setminus\{z_0\}\rightarrow\C$. Allora per ogni intorno $U\subseteq D$
+    di $z_0$, l'insieme $f(U\setminus\{z_0\})$ \`e denso in $\C$.
+\end{thm}
+\begin{proof}
+    Per assurdo, se $f(U\setminus\{z_0\})$ non \`e denso, esiste un complesso
+    $a$ con $B(a,R)\cap f(U\setminus\{z_0\})=\emptyset$, $R>0$.
+    
+    Sia $g:U\setminus\{z_0\}\rightarrow\C$, $g(z) = \frac{1}{f(z)-a}$. Si ha
+    dunque $|g(z)| \leq 1/R$, per $z\in U$. Allora $z_0$ \`e una singolarit\`a
+    eliminabile per $g$, che si estende dunque ad una funzione olomorfa (che
+    denotiamo comunque con $g$) su $U$. Ma allora $f$ avrebbe un polo in $z_0$,
+    che \`e contro le ipotesi.
+\end{proof}
+
+\begin{oss}
+    Se una funzione ha una singolarit\`a essenziale in $z_0$, allora non ammette
+    limite per $z\rightarrow z_0$.
+\end{oss}
+
+\subsubsection{Teorema dei Residui}
+
+\begin{defn}
+    Sia $D\subseteq\C$ chiuso con parte interna non vuota, e sia
+    $\Gamma=\partial D$. Diciamo che $D$ ha bordo $C^1$ a tratti se per ogni
+    componente connessa $\Gamma_i$ di $\Gamma$, esiste una curva in $\Gamma_i$
+    che sia $C^1$ a tratti, surgettiva e iniettiva eccetto al pi\`u che negli
+    estremi.
+
+    Le componenti di bordo di un tale $D$ si possono orientare canonicamente
+    come segue: diciamo che $\gamma:J\rightarrow \Gamma_i$ con $J$ intervallo
+    reale \`e positiva se per tutti i $t_0$ per cui $\gamma'(t_0)$ \`e definita,
+    il vettore $-i\gamma'(t_0)$ punta all'esterno di $D$ in $\gamma(t_0)$.
+
+    Il significato di "punta all'esterno" a livello intuitivo \`e chiaro, a
+    livello formale un vettore $v$ punta all'esterno di $D$ in $z_0\in\partial D$ se
+    esiste un$\epsilon>0$ tale che $\{t\in(-\epsilon,\epsilon) \ :\ z_0+tv\in D
+    \} = (\epsilon,0]$.
+
+    In questi casi, se $R\subseteq D$ \`e un dominio con bordo $C^1$, $\Gamma =
+    \partial R  \Gamma_1 \cup \dots \cup \Gamma_k$, con parametrizzazioni
+    positive $\gamma_i:J_i\rightarrow \Gamma_i$, e $\omega$ \`e una 1-forma su
+    $D$, poniamo
+    \[
+        \int_{\partial R}\omega = \sum_{i=1}^k \int_{\gamma_i} \omega
+    \]
+\end{defn}
+
+\begin{thm}
+    Sia $D\subseteq \C$ aperto, $f:D\setminus S\rightarrow \C$ olomorfa con $S$
+    chiuso e discreto in $D$. Sia $R\subseteq D$ compatto e con bordo $C^1$
+    atratti, per cui $R\cap S = \{z_1,\dots,z_k\}$ \`e finito, $\partial R \cap
+    S \neq \emptyset$. Allora
+    \[
+        \int_{\partial R} f(z)dz = 2 \pi i \sum_{i=1}^k \Res(f,z_i)
+    \]
+\end{thm}
+
