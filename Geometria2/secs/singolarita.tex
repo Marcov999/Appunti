@@ -5,7 +5,7 @@
 \end{thm}
 \begin{proof}
     il $(\Rightarrow)$ \`e facile, infatti se $g$ \`e olomorfa, \`e continua,
-    dunque localmente limitata. Per l'altra freccia, sia $\epsilon$ tale che 
+    dunque localmente limitata. Per l'altra freccia, sia $\epsilon$ tale che
     $B = B(z_0,\epsilon)\subseteq D$ e $|f(z)|\leq M$ per $z\in B\setminus
     \{z_0\}$. Sappiamo che $f$ ha uno sviluppo in serie di Laurent su
     $B\setminus \{z_0\}$:
@@ -31,7 +31,7 @@
     olomorfa con sviluppo di Laurent $\sum a_n (z-z_0)^n$ in un piccolo disco
     puntato centrato in $z_0$. Allora $z_0$ si dice:
     \begin{nlist}
-        \item   
+        \item
             Polo di ordine $n_0$ se $X=\{a_n, n<0, a_n\neq 0\}$ \`e finito e
             $n_0 = -min(X)$.
         \item
@@ -45,8 +45,8 @@
     f(z)(z-z_0)^{|n_0|-1}$, $a_{n_0}\neq 0$, $n_0<0$. Se $f$ fosse estendibile,
     lo sarebbe anche $g$. Se $b_n$ \`e il coefficiente $n$-esimo dello sviluppo
     di laurent di $g$, avremmo $b_{-1} = a_{n_0} \neq 0$.
-    Ma 
-    \[  
+    Ma
+    \[
         b_{-1} = \frac{1}{2\pi i} \int_\gamma \frac{g(w)}{(w-z_0)^{-1+1}} = 0
     \]
     poich\'e $g$ olomorfa anche in $z_0$.
@@ -56,7 +56,7 @@
     Sia $z_0$ una singolarit\`a isolata di $f:D\setminus\{z_0\}\rightarrow\C$,
     con $D$ aperto, $z_0\in D$, $f$ olomorfa. Sono fatti equivalenti:
     \begin{nlist}
-    \item  
+    \item
         $z_0$ \`e un polo di ordine $n_0$ di $f$;
     \item
         $f(z) = g(z)/(z-z_0)^{n_0}$, con $g$ olomorfa su $D$ e $g(z_0)\neq 0$.
@@ -102,7 +102,7 @@
 \begin{proof}
     Per assurdo, se $f(U\setminus\{z_0\})$ non \`e denso, esiste un complesso
     $a$ con $B(a,R)\cap f(U\setminus\{z_0\})=\emptyset$, $R>0$.
-    
+
     Sia $g:U\setminus\{z_0\}\rightarrow\C$, $g(z) = \frac{1}{f(z)-a}$. Si ha
     dunque $|g(z)| \leq 1/R$, per $z\in U$. Allora $z_0$ \`e una singolarit\`a
     eliminabile per $g$, che si estende dunque ad una funzione olomorfa (che
@@ -153,3 +153,51 @@
     \]
 \end{thm}
 
+\begin{proof}
+  Limitiamoci al caso in cui $R$ è omeomorfo a un disco, il caso generale è simile ma non verrà mai usato nelle applicazioni, per cui non viene dimostrato. Abbiamo dunque $f$ olomorfa in $D\setminus S$ con $R \cap S=\{z_1, \dots, z_k\}$ singolarità isolate.
+  Sia $\gamma=\partial R$ (percorso in senso antiorario) e $\beta=\gamma*l_k*\bar{\alpha}_k*\bar{l}_k*l_{k-1}*\bar{\alpha}_{k-1}*\bar{l}_{k-1}*\dots*l_1*\bar{\alpha}_1*\bar{l}_1$, dove $\alpha_i$ è una piccola circonferenza intorno a $z_i$ percorsa in senso antiorario e gli $l_i$ sono tratti che uniscono un punto di $\gamma$ a gli $\alpha_i$.
+  È possibile scegliere gli $\alpha_i$ e $l_i$ di modo che $\beta$ sia omotopicamente banale in $R\setminus \{z_1,\dots, z_k\}$.
+  Poiché $f$ è olomorfa su $R \setminus \{z_1, \dots, z_k\}$, $f(z)\diff z$ è chiusa su $R \setminus \{z_1, \dots, z_k\}$ e poiché $\beta$ è banale $\displaystyle 0=\int_{\beta}f(z)\diff z=\int_{\gamma} f(z)\diff z+\sum_{i=1}^k \left(\int_{\bar{l}_i} f(z)\diff z+\int_{\bar{\alpha}_i}f(z)\diff z+\int_{l_i}f(z)\diff z\right)=\int_{\gamma} f(z)\diff z+\sum_{i=1}^k \int_{\bar{\alpha}_i}f(z)\diff z$.
+  Dunque $\displaystyle \int_{\gamma} f(z)\diff z=-\sum_{i=1}^k \int_{\bar{\alpha}_i}f(z)\diff z=$\\
+  $\displaystyle =\sum_{i=1}^k \int_{\alpha_i}f(z)\diff z=2\pi i \sum_{i=1}^k \Res(f, z_i)$.
+\end{proof}
+
+Vediamo ora come effettuare il calcolo dei residui. Se $z_0$ è un polo semplice di $f$, allora $\displaystyle f(z)=\frac{a_{-1}}{z-z_0}+\sum_{n \ge 0} a_n(z-z_0)^n$, per cui $\displaystyle (z-z_0)f(z)=a_{-1}+\sum_{n \ge 0} a_n(z-z_0)^{n+1}$ e $\Res(f,z_0)=a_{-1}=\displaystyle \lim_{z \longrightarrow z_0} (z-z_0)f(z)$.
+Dunque, se $f=p/q$, $p, q$ olomorfe, $p(z_0)\not=0$ e $z_0$ è uno zero semplice di $q$, si ha $\displaystyle \Res(f,z_0)=\lim_{z\longrightarrow z_0} \frac{(z-z_0)p(z)}{q(z)}=\frac{p(z_0)}{q'(z_0)}$ in quanto $q(z)=q(z)-q(z_0)$.
+
+\begin{ex}
+  $f(z)=\dfrac{e^{iz}}{z^2+1}$ ha singolarità in $z=\pm i$, che sono poli semplici in quanto zeri semplici di $z^2+1$. Dunque $\Res(f,i)=\left.\dfrac{e^{iz}}{2z}\right|_{z=i}=-\dfrac{i}{2e}$, $\Res(f,-i)=\left.\dfrac{e^{iz}}{2z}\right|_{z=-i}=\dfrac{ie}{2}$.
+\end{ex}
+
+Per i poli di ordine superiore una strategia possibile è la seguente: se $f$ ha un polo di ordine $k$ in $z_0$, si pone $g(z)=(z-z_0)^kf(z)$, che si estende a una funzione olomorfa anche in $z_0$.
+$f(z)=a_{-k}(z-z_0)^{-k}+\dots+a_{-1}(z-z_0)^{-1}+\sum_{n \ge 0} a_n(z-z_0)^n$ $\implies$ $g(z)=a_{-k}+a_{-k+1}(z-z_0)+a_{-k+2}(z-z_0)^2+\dots+a_{-1}(z-z_0)^{k-1}+\dots$ $\implies$ $\Res(f,z_0)=a_{-1}=\dfrac{g^{(k-1)}(z_0)}{(k-1)!}$.
+
+\begin{ex}
+  $f(z)=\dfrac{e^{iz}}{z(z^2+1)^2}$ ha un polo semplice in $0$ e due poli doppi in $\pm i$. Calcoliamo il residuo in $i$: $g(z)=(z-i)^2f(z)=\dfrac{e^{iz}}{z(z+i)^2}$. $g^{(k-1)}(z)=g'(z)=\dfrac{ize^{iz}(z+i)-e^{iz}((z+i)+2z)}{z^3(z+i)^3}$, dunque $\Res(f,i)=\dfrac{g'(i)}{1!}=-\dfrac{3}{4e}$.
+\end{ex}
+
+Vediamo ora alcune applicazioni utili del teorema dei residui. Verrà riportata la prima come esempio e le altre saranno lasciate come esercizio, eventualmente con qualche aiuto se ci sono degli inghippi a cui stare attenti, perché l'approccio è sostanzialmente identico.
+
+\begin{ex}
+  Calcolare $\displaystyle \int_{-\infty}^{+\infty} \frac{\cos{x}}{x^2+1}\diff x=\lim_{R \longrightarrow +\infty} \int_{-R}^R \dfrac{\cos{x}}{x^2+1}\diff x$. Per $x \in \mathbb{R}$, $\dfrac{\cos{x}}{x^2+1}=\mathfrak{Re}\left(\dfrac{e^{ix}}{x^2+1}\right)$.
+  La funzione $\dfrac{e^{iz}}{z^2+1}$ ha poli semplici in $\pm i$. Sia $\Omega_R=\{z \mid |z| \le R, \mathfrak{Im}(z) \ge 0\}$, $R>1$. Una parametrizzazione di $\partial\Omega_R$ è $\gamma_R=\alpha_R*\beta_R$ dove $\alpha_R:[-R, R] \longrightarrow \mathbb{C}, \alpha_R(t)=t$ e $\beta_R:[0, \pi] \longrightarrow \mathbb{C}, \beta_R(t)=Re^{it}$.
+  Per il teorema dei residui, se $f(z)=\dfrac{e^{iz}}{z^2+1}$, $\displaystyle \int_{\alpha_R} f(z)\diff z+\int_{\beta_R}f(z)\diff z=\int_{\partial \Omega_R} f(z)\diff z=2\pi i\Res(f, i)=2\pi i\left(-\frac{i}{2e}\right)=\frac{\pi}{e}$.
+  Osserviamo che $\displaystyle \int_{\alpha_R} f(z)\diff z=\int_{-R}^R f(\alpha(t))\alpha'(t)\diff t=\int_{-R}^R f(t)\diff t=\int_{-R}^R \frac{\cos{t}+i\sin{t}}{t^2+1}\diff t$, la cui parte reale è l'integrale richiesto (prima di passare al limite).
+  Dunque $\displaystyle \int_{-R}^R \dfrac{\cos{t}}{1+t^2}\diff t=\mathfrak{Re}\left(\int_{\alpha_R} f(z)\diff z\right)=\mathfrak{Re}\left(\int_{\partial \Omega_R} f(z)\diff z-\int_{\beta_R}f(z)\diff z\right)=\frac{\pi}{e}-\mathfrak{Re}\left(\int_{\beta_R} f(z) \diff z\right)$.
+  Adesso mostriamo che $\displaystyle \lim_{R \longrightarrow +\infty} \int_{\beta_R} f(z)\diff z=0$, da cui $\displaystyle \int_{-\infty}^{+\infty} \frac{\cos{t}}{1+t^2}\diff t=\frac{\pi}{e}$.
+  $\beta_R(t)=Re^{it}=R(\cos{t}+i\sin{t})$, per cui $e^{i\beta_R(t)}=e^{iR(\cos{t}+i\sin{t})}=e^{iR\cos{t}}\cdot e^{-R\sin{t}}$, il cui modulo è $e^{-R\sin{t}}$, dunque $| f(\beta_R(t))\beta_R'(t)|=\left|\dfrac{e^{i\beta_R(t)}}{\beta_R(t)^2+1}iRe^{it}\right|=\dfrac{Re^{-R\sin{t}}}{|R^2e^{2it}+1|} \le \dfrac{R}{|R^2e^{2it}|-1}=\dfrac{R}{R^2-1}$, per cui
+  $\displaystyle \left|\int_{\beta_R}f(z)\diff z\right|=\left|\int_0^\pi f(\beta_R(t))\beta_R'(t)\diff t\right| \le \int_0^\pi \frac{R}{R^2-1}\diff t=\dfrac{R\pi}{R^2-1} \longrightarrow 0$ per $R \longrightarrow +\infty$, come voluto.
+\end{ex}
+
+Attenzione: per "complessificare" $\dfrac{\cos{x}}{x^2+1}$ si sarebbe potuto prendere $\dfrac{\cos{z}}{z^2+1}$.
+Il problema è che $\left| \dfrac{\cos{z}}{z^2+1}\right|$ non è stimabile facilmente lungo $\beta_R$, per cui $\displaystyle \int_{\beta_R} \frac{\cos{z}}{z^2+1}\diff z \not\rightarrow 0$ per $R \longrightarrow +\infty$ ($\cos(it)=\cosh{t}$). Dunque meglio la scelta fatta di prendere $\cos{t}=\mathfrak{Re}(e^{it})$. \marginpar\warningsign
+
+In modo analogo si calcola $\displaystyle \int_{-\infty}^{+\infty} \frac{P(x)}{Q(x)}\diff x$ dove $P, Q$ sono polinomi, $Q(x) \not=0$ per ogni $x \in \mathbb{R}$ e $\deg{Q} \ge \deg{P}+2$.
+
+\begin{exc}
+  Calcolare $\displaystyle \int_{-\infty}^{+\infty} \frac{1}{1+x^4}\diff x$.
+\end{exc}
+
+\begin{exc}
+  Calcolare $\displaystyle \int_0^{+\infty} \frac{1}{1+x^n} \diff x$, $n \ge 2$. Hint: se $n$ è pari si può svolgere come l'esercizio precedente, se $n$ è dispari c'è un polo in $z_0=-1$, che dà fastidio. Considerare allora $D_R=\{z \in \mathbb{C} \mid |z| \le R, 0 \le \arg{z} \le 2\pi/n\}$. In questo caso, l'unico polo di cui preoccuparsi è $z_0=e^{i\frac{\pi}{n}}$.
+\end{exc}
