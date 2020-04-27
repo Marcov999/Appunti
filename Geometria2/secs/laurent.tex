@@ -69,12 +69,66 @@ converge assolutamente per $|z|>\rho_2$.
     \[
         \int_{\gamma_1}\omega-\int_{\gamma_2}\omega-\int_{\alpha}\omega=0
     \]
-    In particolare si pu\`o prendere $\omega = \frac{f(w)}{w-z}dw$, per ottenere
+    Questo segue dal fatto che il loop $l_2 * \alpha_1 * l_1 * \gamma_2 *
+    \overline{l_1} * \alpha_2 * \overline{l_2} * \overline{\gamma_1}$ \`e banale
+    in $A\setminus\{0\}$.
+
+    Lungo $\gamma_1$ si ha ha che $|\gamma_1(t)| = r_1 > |z|$, per cui se $w =
+    \gamma_1(t)$, si ha che:
     \[
-        \int_{\gamma_1}\frac{f(w)}{w-z}dw - \int_{\gamma_2}\frac{f(w)}{w-z}dw =
-        \int_{\alpha}\frac{f(w)}{w-z}dw = 2\pi i I(\alpha,z) f(z)
+        \frac{f(w)}{w-z} = \frac{f(w)}{w(1-z/w)} = \frac{f(w)}{w}\frac{1}{1-z/w}
+        = \frac{f(w)}{w} \sum_{n=0}^\infty \left(\frac{z}{w}\right)^n = 
+        \sum_{n=0}^\infty \frac{z^nf(w)}{w^{n+1}}
     \]
 
+    La convergenza di tale serie nella corona tra $r_2$ e $r_1$ \`e normale,
+    dunque uniforme, e si pu\`o scambiare serie e integrale in:
+    \[
+        \int_{\gamma_1} \frac{f(w)dw}{z-w} =
+        \int_{\gamma_1} (\sum_{n\geq 0}\frac{z^nf(w)}{w^{n+1}})dw = 
+        \sum_{n\geq 0}z^n\int_{\gamma_1} \frac{f(w)}{w^{n+1}}dw = 
+        \sum_{n\geq 0}b_n z^n
+    \]
+    con $b_n=\int_{\gamma_1} \frac{f(w)}{w^{n+1}}dw$.
 
+    Poich\`e essere liberamente omotopi su $A$ \`e equivalente a esserlo su
+    $\mathbb{C}\setminus\{0\}$, allora l'integrale di $b_n$ si pu\`o anche fare
+    su un qualunque loop $\gamma$ liberamente omotopo a $\gamma_1$.
+
+    Ripetendo il ragionemento su $\gamma_2$ (occhio a un segno nella serie
+    geometrica!), si ottiene che
+    \[
+        -\int_{\gamma_2} \frac{f(w)dw}{z-w} =
+        \sum_{n< 0}b_n z^n
+    \]
+    con $b_n =\int_{\gamma_2} \frac{f(w)}{w^{n+1}}dw = \int_\gamma
+    \frac{f(w)}{w^{n+1}}dw$.
+
+    Allora per la  formula di Cauchy, si ha che
+    \[
+        f(z) = \frac{1}{2\pi i} \int_\alpha \frac{f(w)}{w-z} dw = 
+        \frac{1}{2\pi i}( \int_{\gamma_1} \frac{f(w)}{w-z} dw - 
+        \int_{\gamma_2} \frac{f(w)}{w-z} dw) = \frac{1}{2\pi i}
+        \sum_{n=-\infty}^\infty b_n z^n.
+    \]
 \end{proof}
 
+\begin{cor}
+    Sia $A = \{\rho_2<|z|<\rho_1\}$, $f:A\rightarrow \mathbb{C}$ olomorfa.
+    Allora $f = f_1 + f_2$, con $f_1:B(0,\rho_1)\rightarrow\mathbb{C}$ e $f_2:
+    \mathbb{C}\setminus \overline{B(0,\rho_2)}\rightarrow\mathbb{C}$ e sono
+    olomorfe. Richiedendo che $\lim_{|z|\rightarrow +\infty} |f_2(z)| = 0$,
+    tale scrittura \`e unica.
+\end{cor}
+\begin{proof}
+    Per l'esistenza, basta scrivere $f$ come serie di Laurent e assegnare a
+    $f_1$ e $f_2$ le somme sugli indici negativi e non negativi.
+    Supponiamo che tale scomposizione si possa fare in due modi, con $f_1$ e
+    $f_2$, e dall'altra parte $g_1$ e $g_2$.
+    Definisco la funzione olomorfa $F:\mathbb{C}\rightarrow\mathbb{C}$ come 
+    $f_1-g_1$ dentro la palla di raggio $\rho_1$ e come $g_2-f_2$ fuori dalla
+    palla di raggio $\rho_2$. Tale funzione \`e ben definita in quanto le
+    differenze sono uguali nella corona. Inoltre vale che $\lim_{|z|\rightarrow
+    \infty} F(z) = 0$. Dunque $F$ \`e limitata e per Liouville \`e costante.
+    Dunque $f_1=g_1$ e $f_2 = g_2$.
+\end{proof}

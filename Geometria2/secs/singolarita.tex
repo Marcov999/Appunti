@@ -1,0 +1,54 @@
+\newcommand{\C}{\mathbb{C}}
+\begin{thm}
+    Sia $D\subseteq\C$ aperto, $f:D\setminus\{z_0\}\rightarrow\C$ olomorfa, con
+    $z_0\in\C$. Allora $f$ si estende a una funzione olomorfa $g:D\rightarrow\C$
+    se e solo se $f$ \`e limitata in un intorno di $z_0$.
+\end{thm}
+\begin{proof}
+    il $(\Rightarrow)$ \`e facile, infatti se $g$ \`e olomorfa, \`e continua,
+    dunque localmente limitata. Per l'altra freccia, sia $\epsilon$ tale che 
+    $B = B(z_0,\epsilon)\subseteq D$ e $|f(z)|\leq M$ per $z\in B\setminus
+    \{z_0\}$. Sappiamo che $f$ ha uno sviluppo in serie di Laurent su
+    $B\setminus \{z_0\}$:
+    \[
+        f(z) = \sum_{-\infty}^\infty a_n (z-z_0)^n
+    \]
+    con $|a_n|\leq\frac{M}{R*n}$, $R<\epsilon$, $M=sup\{|f(z)|\ t.c.\
+    |z-z_0|=R\}$.
+
+    Se $n<0$, $\lim_{R\rightarrow 0^+} M/R^n = 0$, per cui $a_n = 0$. Allora la
+    serie di Laurent ha solo termini con esponente non negativo, quindi $f$ si
+    estende a tale funzione olomorfa.
+\end{proof}
+
+\begin{defn}
+    Nel caso descritto nel teorema precedente, $z_0$ s chiama singolarit\`a
+    eliminabile o rimuovibile di $f$. In caso contrario, si chiama singolarit\`a
+    isolata.
+\end{defn}
+
+\begin{defn}
+    Sia $z_0$ singolarit\`a isolata di $f:D\setminus\{z_0\}\rightarrow\C$
+    olomorfa con sviluppo di Laurent $\sum a_n (z-z_0)^n$ in un piccolo disco
+    puntato centrato in $z_0$. Allora $z_0$ si dice:
+    \begin{nlist}
+        \item   
+            Polo di ordine $n_0$ se $X=\{a_n, n<0, a_n\neq 0\}$ \`e finito e
+            $n_0 = -min(X)$.
+        \item
+            Singolarit\`a essenziale se $X$ \`e infinito.
+    \end{nlist}
+\end{defn}
+
+\begin{oss}
+    Il fatto che se $a_n\neq 0 $ per qualche $n<0$ allora la singolarit\`a non
+    \`e eliminabile pu\`o essere vista nel seguente modo: sia $g(z) =
+    f(z)(z-z_0)^{|n_0|-1}$, $a_{n_0}\neq 0$, $n_0<0$. Se $f$ fosse estendibile,
+    lo sarebbe anche $g$. Se $b_n$ \`e il coefficiente $n$-esimo dello sviluppo
+    di laurent di $g$, avremmo $b_{-1} = a_{n_0} \neq 0$.
+    Ma 
+    \[  
+        b_{-1} = \frac{1}{2\pi i} \int_\gamma \frac{g(w)}{(w-z_0)^{-1+1}} = 0
+    \]
+    poich\'e $g$ olomorfa anche in $z_0$.
+\end{oss}
