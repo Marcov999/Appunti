@@ -228,3 +228,38 @@ Attenzione: se non ci fosse il termine $e^{iz}$ servirebbe $\displaystyle \lim_{
 \begin{exc}
   Calcolare $\displaystyle \int_0^{+\infty} \frac{\sin{x}}{x} \diff x$ dove estendiamo $\dfrac{\sin{x}}{x}$ in $0$ ponendola uguale a $1$. Hint: integrare lungo il bordo della semicorona circolare $C_R=\{z \mid \mathfrak{Im}(z) \ge 0, 1/R \le |z| \le R\}$.
 \end{exc}
+
+Vediamo ora un'applicazione più teorica del teorema dei residui: la derivata logaritmica.
+
+\begin{defn}
+  Sia $f$ meromorfa su un aperto $\Omega \subseteq \mathbb{C}$ e sia $z_0$ uno zero o un polo di $f$, per cui $f(z)=(z-z_0)^kg(z), g(z_0)\not=0, k\not=0$. La \textsc{derivata logaritmica di $f$} è $\dfrac{f'}{f}$ (si chiama così perché $\diff(\log{f(z)})=\dfrac{f'(z)}{f(z)}\diff z$).
+\end{defn}
+
+La derivata logaritmica è olomorfa eccetto al più nei poli o negli zeri di $f$. Vediamo come si comporta vicino a $z_0$. Si ha $f'(z)=k(z-z_0)^{k-1}g(z)+(z-z_0)^kg'(z) \implies \dfrac{f'(z)}{f(z)}=\dfrac{k}{z-z_0}+\dfrac{g'(z)}{g(z)}$. $g'/g$ è olomorfa vicino a $z_0$, perciò $f'/f$ ha un polo semplice in $z_0$ e $\Res(f'/f, z_0)=k$.
+
+\begin{cor} \label{stessi_zeri}
+  Sia $f$ meromorfa su $\Omega$, e sia $R \subseteq \Omega$ una regione compatta con bordo $C^1$ a tratti. Allora $R$ contiene un numero finito di zeri e poli di $f$ (discreti in un compatto) e supponiamo che nessuno di essi sia in $\partial R$, Allora $\displaystyle \int_{\partial R} \frac{f'(z)}{f(z)}\diff z=2\pi i(Z-P)$ dove $Z$ è il numero di zeri contati con molteplicità e $P$ è il numero di poli contati con molteplicità.
+\end{cor}
+
+\begin{proof}
+  Segue dal teorema dei residui e dal conto appena fatto.
+\end{proof}
+
+\begin{thm}
+  (Rouché) Sia $f:\Omega \longrightarrow \mathbb{C}$ olomorfa e $R \subseteq \Omega$ compatta con bordo $C^1$ a tratti. Sia $g:\Omega \longrightarrow \mathbb{C}$ olomorfa con $|g(z)|<|f(z)|$ per ogni $z \in \partial R$. Allora $f$ e $f+g$ hanno lo stesso numero di zeri (contati con molteplicità) in $R$.
+\end{thm}
+
+\begin{proof}
+  Da $|g(z)|<|f(z)|$ per ogni $z \in \partial R$ si deduce che $f$, e più in generale $h_t=f+tg, t \in [0,1]$, non si annulla su $\partial R$. Inoltre per ogni $t \in [0,1]$ $h_t$ è olomorfa. Applicando il corollario \ref{stessi_zeri} a $h_t$ otteniamo che, se $Z_t$ è il numero di zeri di $h_t$, $\displaystyle Z_t=\dfrac{1}{2\pi i} \int_{\partial R} \dfrac{h_t'}{h_t}(z)\diff z$.
+  Al variare di $t$, il membro di destra varia in maniera continua, mentre quello di sinistra è un intero, perciò $Z_t$ è costante $\implies$ $Z_0=Z_1$, che è la tesi.
+\end{proof}
+
+Ecco dunque un'altra dimostrazione di una nostra vecchia conoscenza.
+
+\begin{thm}
+  (Teorema fondamentale dell'algebra [con stima sul modulo delle radici]) Sia $p(z)=z^n+a_{n-1}z^{n-1}+\dots+a_1z+a_0, a_i \in \mathbb{C}, n \ge 1$. Se $M=\max\{|a_i|\}$, allora $p$ ammette $n$ radici (contate con molteplicità) nel disco di raggio $M+1$ centrato nell'origine.
+\end{thm}
+
+\begin{proof}
+  Sia $\displaystyle g(z)=p(z)-z^n=\sum_{i=0}^{n-1} a_iz^i$. Allora per $|z|=M+1$ $\displaystyle |g(z)|=\left|\sum_{i=0}^{n-1} a_iz^i\right| \le \sum_{i=0}^{n-1} |a_i||z|^i \le M \sum_{i=0}^{n-1} |z|^i=M\frac{|z|^n-1}{|z|-1}=|z|^n-1 < |z^n|$. Allora possiamo applicare il teorema di Rouché a $g(z)$ e $f(z)=z^n$ per ottenere la tesi visto che $z^n$ ha chiaramente un unico zero, $0$, con molteplicità $n$.
+\end{proof}
