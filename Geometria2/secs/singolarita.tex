@@ -176,7 +176,7 @@ $f(z)=a_{-k}(z-z_0)^{-k}+\dots+a_{-1}(z-z_0)^{-1}+\sum_{n \ge 0} a_n(z-z_0)^n$ $
   $f(z)=\dfrac{e^{iz}}{z(z^2+1)^2}$ ha un polo semplice in $0$ e due poli doppi in $\pm i$. Calcoliamo il residuo in $i$: $g(z)=(z-i)^2f(z)=\dfrac{e^{iz}}{z(z+i)^2}$. $g^{(k-1)}(z)=g'(z)=\dfrac{ize^{iz}(z+i)-e^{iz}((z+i)+2z)}{z^3(z+i)^3}$, dunque $\Res(f,i)=\dfrac{g'(i)}{1!}=-\dfrac{3}{4e}$.
 \end{ex}
 
-Vediamo ora alcune applicazioni utili del teorema dei residui. Verrà riportata la prima come esempio e le altre saranno lasciate come esercizio, eventualmente con qualche aiuto se ci sono degli inghippi a cui stare attenti, perché l'approccio è sostanzialmente identico.
+Vediamo ora alcune applicazioni utili del teorema dei residui. Verrà riportata la prima come esempio e le altre saranno lasciate come esercizio (eventualmente con qualche aiuto se ci sono degli inghippi a cui stare attenti) perché l'approccio è sostanzialmente identico.
 
 \begin{ex}
   Calcolare $\displaystyle \int_{-\infty}^{+\infty} \frac{\cos{x}}{x^2+1}\diff x=\lim_{R \longrightarrow +\infty} \int_{-R}^R \dfrac{\cos{x}}{x^2+1}\diff x$. Per $x \in \mathbb{R}$, $\dfrac{\cos{x}}{x^2+1}=\mathfrak{Re}\left(\dfrac{e^{ix}}{x^2+1}\right)$.
@@ -199,5 +199,32 @@ In modo analogo si calcola $\displaystyle \int_{-\infty}^{+\infty} \frac{P(x)}{Q
 \end{exc}
 
 \begin{exc}
-  Calcolare $\displaystyle \int_0^{+\infty} \frac{1}{1+x^n} \diff x$, $n \ge 2$. Hint: se $n$ è pari si può svolgere come l'esercizio precedente, se $n$ è dispari c'è un polo in $z_0=-1$, che dà fastidio. Considerare allora $D_R=\{z \in \mathbb{C} \mid |z| \le R, 0 \le \arg{z} \le 2\pi/n\}$. In questo caso, l'unico polo di cui preoccuparsi è $z_0=e^{i\frac{\pi}{n}}$.
+  Calcolare $\displaystyle \int_0^{+\infty} \frac{1}{1+x^n} \diff x$, $n \ge 2$. Hint: se $n$ è pari si può svolgere come l'esercizio precedente, se $n$ è dispari c'è un polo in $z_0=-1$ che dà fastidio. Considerare allora $D_R=\{z \in \mathbb{C} \mid |z| \le R, 0 \le \arg{z} \le 2\pi/n\}$. In questo caso, l'unico polo di cui preoccuparsi è $z_0=e^{i\frac{\pi}{n}}$.
+\end{exc}
+
+Per svolgere il prossimo esercizio servono i seguenti due lemmi.
+
+\begin{lm}
+  Sia $f$ meromorfa con polo semplice in $0$ e sia $\gamma_{\epsilon}:[0,\pi] \longrightarrow \mathbb{C}\setminus\{0\}$, $\gamma_{\epsilon}(t)=\epsilon\cdot e^{it}$, $\epsilon>0$. Allora $\displaystyle \lim_{\epsilon \longrightarrow 0} \int_{\gamma_\epsilon} f(z)\diff z=\pi i \Res(f,0)$.
+\end{lm}
+
+\begin{proof}
+  $f(z)=\dfrac{a_{-1}}{z}+g(z)$, $g$ olomorfa in un intorno di $0$ con primitiva $G$. Allora $\displaystyle \int_{\gamma_\epsilon} f(z)\diff z=\int_{\gamma_\epsilon} \dfrac{a_{-1}}{z}\diff z+\int_{\gamma_\epsilon} g(z)\diff z=\pi i a_{-1}+G(\gamma_\epsilon(\pi))-G(\gamma_\epsilon(0))$.
+  È chiaro che $G(\gamma_\epsilon(\pi))-G(\gamma_\epsilon(0)) \longrightarrow G(0)-G(0)=0$ per $\epsilon \longrightarrow 0$, da cui segue la tesi.
+\end{proof}
+
+\begin{lm}
+  Sia $f$ meromorfa su $\mathbb{C}$ con la seguente proprietà: detto $M(R)=\max\{|f(z)| \mid |z|=R, \mathfrak{Im}(z) \ge 0\}$. Allora $\displaystyle \lim_{R \longrightarrow +\infty} M(R)=0$. Allora, se $\gamma_R(y)=Re^{it}$, $t \in [0,\pi]$, si ha $\displaystyle \lim_{R \longrightarrow +\infty} \int_{\gamma_R} f(z)e^{iz}\diff z=0$.
+\end{lm}
+
+\begin{proof}
+  Se $z=\gamma_R(t)=R\cos{t}+iR\sin{t}$, $e^{iz}=e^{iR\cos{t}}\cdot e^{i^2R\sin{t}}=e^{iR\sin{t}}\cdot e^{-R\sin{t}}$, da cui $|e^{iz}|=e^{-R\sin{t}}$.
+  Dunque $\displaystyle \left| \int_{\gamma_R} f(z)e^{iz}\diff z\right| \le \int_0^\pi | f(\gamma_R(t))\cdot e^{i\gamma_R(t)}\cdot \gamma_R'(t)|\diff t=\int_0^\pi |f(\gamma_R(t))|\cdot |e^{i\gamma_R(t)}|\cdot |Ri e^{it}| \diff t \le \int_0^\pi M(R) \cdot e^{-R\sin{t}} \cdot R \diff t=M(R)\int_0^\pi e^{-R\sin{t}}\cdot R \diff t$.
+  Per concludere basta vedere che l'ultimo integrale è limitato indipendentemente da $R$. Ora, su $[0,\pi/2]$ la funzione $\dfrac{\sin{t}}{t}$ è limitata dal basso da una cosante positiva $K$ (in quanto si estende con continuità in $0$ a una funzione strettamente positiva e $[0,\pi/2]$ è compatto. Allora $\displaystyle \int_0^\pi Re^{-R\sin{t}} \diff t=2 \int_0^{\pi/2} Re^{-R\sin{t}}\diff t=2R \int_0^{\pi/2} e^{-R\frac{\sin{t}}{t}\cdot t} \diff t \le 2R \int_0^{\pi/2} e^{-RKt}\diff t=2R\left[-\frac{e^{-RKt}}{RK}\right]_0^{\pi/2}=\frac{2}{K}[-e^{-RK\pi/2}+1] \le 2/K$.
+\end{proof}
+
+Attenzione: se non ci fosse il termine $e^{iz}$ servirebbe $\displaystyle \lim_{R \longrightarrow +\infty} RM(R)=0$; quel fattore oscillante rende sufficiente la condizione più debole. \marginpar\warningsign
+
+\begin{exc}
+  Calcolare $\displaystyle \int_0^{+\infty} \frac{\sin{x}}{x} \diff x$ dove estendiamo $\dfrac{\sin{x}}{x}$ in $0$ ponendola uguale a $1$. Hint: integrare lungo il bordo della semicorona circolare $C_R=\{z \mid \mathfrak{Im}(z) \ge 0, 1/R \le |z| \le R\}$.
 \end{exc}
