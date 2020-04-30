@@ -1,1 +1,98 @@
-aaa
+Si ricordino le definizioni viste nel capitolo 5. Useremo senza specificarla ogni volta la convenzione $\dim{V}=n+1$.
+
+\begin{defn}
+  Sia $\{e_0, \dots, e_n\}$ una base di $V$. Diremo che $\{e_0, \dots, e_n\}$ è un \textsc{riferimento proiettivo}.
+\end{defn}
+
+Notazione: indichiamo un punto come $P=[x_0,\dots,x_n]$. $F_0=[e_0], F_1=[e_1], \dots, F_n=[e_n]$ sono i cosiddetti \textit{punti fondamentali} rispetto al riferimento proiettivo fissato. $U=[e_0+\dots+e_n]$ è il \textit{punto unità} rispetto al riferimento proiettivo fissato.
+
+\begin{oss}
+  Le coordinate omogenee, viste nel capitolo 5, non sono uniche, ma sono determinate a meno di moltiplicare per uno scalare non nullo. Per riferimenti proiettivi che si ottengono l'uno dall'altro moltiplicando per uno scalare non nullo, il sistema di coordinate omogenee è lo stesso.
+\end{oss}
+
+In $\mathbb{P}^n(\mathbb{K})$, chiamiamo \textit{riferimento proiettivo standard} quello dato dalla base canonica di $\mathbb{K}^{n+1}$. Se $P=[x_0, \dots, x_n] \in \mathbb{P}^n(\mathbb{K})$, chiamiamo $x_0, \dots, x_n$ le \textit{coordinate proiettive standard} di $P$.
+
+\begin{defn}
+  Sia $W$ un sottospazio vettoriale di $V$. Chiamiamo $\mathbb{P}(W)$ il \textsc{sottospazio proiettivo} di $\mathbb{P}(V)$ associato a $W$.
+\end{defn}
+
+\begin{oss}
+  $\text{codim}\,\mathbb{P}(V)=\dim{\mathbb{P}(V)}-\dim{\mathbb{P}(W)}=(\dim{V}-1)-(\dim{W}-1)=\dim{V}-\dim{W}=\text{codim}\,W$.
+\end{oss}
+
+\begin{defn}
+  Chiamiamo \textit{iperpiani} di $\mathbb{P}(V)$ i sottospazi di codimensione $1$.
+\end{defn}
+
+\begin{oss} \label{stessa_equazione}
+  Sia $\{e_0, \dots, e_n\}$ una base di $V$. Siano $a_0, a_1, \dots, a_n \in \mathbb{K}$ con $(a_0, \dots, a_n) \not= (0, \dots, 0)$. Consideriamo l'equazione lineare omogenea $a_0X_0+\dots+a_nX_n=0$ $(*)$. Essa definisce un sottospazio vettoriale $W$ di $V$, che è un iperpiano vettoriale in $V$.
+  Notiamo che i punti $P=[v] \in \mathbb{P}(V)$ le cui coordinate omogenee soddisfano $(*)$ sono esattamente quelli per cui $v \in W$, quindi $(*)$ è l'equazione dell'iperpiano $\mathbb{P}(W)$.
+\end{oss}
+
+\begin{exc}
+  Consideriamo i seguenti punti di $\mathbb{P}^2(\mathbb{R})$: $P=[1/2,1,1], Q=[1,1/3,4/3],R=[2,-1,2]$. Domanda: esiste una retta proiettiva che li contiene?
+\end{exc}
+
+\begin{sol}
+  Poniamo $v=(1/2,1,1), w=(1,1/3,4/3)$. Chiaramente non esiste $\lambda \in \mathbb{R}^*$ t.c. $v=\lambda w$, quindi $P \not=W$. Inoltre, $v$ e $w$ sono linearmente indipendenti, quindi $W=\Span\{v,w\}$ è un sottospazio vettoriale di $V$ di dimensione $2$, e $[v], [w] \in \mathbb{P}(W)$, che è una retta in quanto a dimensione $\dim{W}-1=1$.
+  Quindi resta solo da verificare se $R \in \mathbb{P}(W)$. In generale, $[x_0, x_1, x_2] \in \mathbb{P}(W)$ se e solo se $0\not=(x_0,x_1,x_2) \in W$, cioè $(x_0,x_1,x_2), v, w$ devono essere linearmente indipendenti. La condizione è dunque $\det{\begin{pmatrix}
+    x_0 & 1/2 & 1 \\ x_1 & 1 & 1/3 \\ x_2 & 1 & 4/3
+\end{pmatrix}}=0$, quindi $x_0+x_1/3-5x_2/6=0$. Verificare che le coordinate di $R$ soddisfino l'equazione.
+\end{sol}
+
+Notazione: sia $i \in \{0, 1, \dots, n\}$; chiamiamo \textit{$i$-esimo iperpiano coordinato $H_i$} di $\mathbb{P}^n(\mathbb{K})$ l'iperpiano definito dall'equazione $X_i=0$.
+Più in generale, data una matrice $A \in M(t \times (n+1), \mathbb{K})$ possiamo definire un sistema lineare omogeneo $A \begin{pmatrix}
+  X_0 \\ \vdots \\ X_n
+\end{pmatrix}=0$ $(***)$. Sono le equazioni cartesiane nella base $\{e_0, \dots, e_n\}$ di un sottospazio vettoriale $W$ di $V$. Ragionando come nell'osservazione \ref{stessa_equazione} otteniamo che sono le stesse equazioni cartesiane del sottospazio proiettivo $\mathbb{P}(W) \subset \mathbb{P}(V)$ nel riferimento proiettivo $\{e_0, \dots, e_n\}$. \\
+
+Attenzione: un sottospazio proiettivo $\mathbb{P}(W)$ non ammette un unico sistema di equazioni cartesiane. \marginpar\warningsign
+
+\begin{oss}
+  $\text{rk}\,A=r \implies \dim{W}=\dim{V}-r \implies \dim{\mathbb{P}(W)}=\dim{\mathbb{P}(V)}-r$.
+\end{oss}
+
+\begin{lm} \label{int_sottos}
+  Siano $\mathbb{P}(W_1)$ e $\mathbb{P}(W_2)$ due sottospazi proiettivi di $\mathbb{P}(V)$. Allora $\mathbb{P}(W_1) \cap \mathbb{P}(W_2)=\mathbb{P}(W_1 \cap W_2)$.
+\end{lm}
+
+\begin{proof}
+  Poiché le equazioni che definiscono i sottospazi proiettivi sono le stesse che definiscono i sottospazi vettoriali corrispondenti, l'affermazione è ovvia. In particolare, se $A_1$ e $A_2$ sono le matrici che danno le equazioni che definiscono i sottospazi in origine, il sottospazio intersezione è definito dalle equazioni date dalla matrice a blocchi $A=\begin{pmatrix}
+    A_1 \\ A_2
+\end{pmatrix}$.
+\end{proof}
+
+\begin{exc}
+  In $\mathbb{P}^2(\mathbb{C})$ consideriamo le rette $r_1: ax_1-x_2+3ix_0=0, r_2:-iax_0+x_1-ix_2=0, r_3: 3ix_2+5x_0+x_1=0$. Calcolare $r_1 \cap r_2 \cap r_3$ al variare di $a \in \mathbb{C}$.
+\end{exc}
+
+\begin{sol}
+  Ragionando come nella dimostrazione del lemma \ref{int_sottos}, l'equazione che definisce l'intersezione delle tre rette è $\begin{pmatrix}
+    3i & a & -1 \\ -ia & 1 & -i \\ 5 & 1 & 3i
+\end{pmatrix}\begin{pmatrix}
+  X_0 \\ X_1 \\ X_2
+\end{pmatrix}=0$. Dato che siamo nello spazio proiettivo, cerchiamo soluzioni non banali, che esistono se e solo se il determinate della matrice ottenuta è $0$. L'equazione che si ottiene è $3a^2+4ai+7=0$, che ha come radici $i$ e $-7i/3$. Per quei due valori la matrice ha rango $2$ (si veda il minore $\begin{pmatrix}
+  1 & -i \\ 1 & 3i
+\end{pmatrix}$), quindi l'intersezione ha dimensione $2-2=0$, cioè è un punto, e sostituendoli si possono cercarne le coordinate omogenee. In tutti gli altri casi la matrice ha rango $3$, dunque l'intersezione ha dimensione $2-3=-1$, cioè è l'insieme vuoto.
+\end{sol}
+
+\begin{defn}
+  Diciamo che due sottospazi $\mathbb{P}(W_1), \mathbb{P}(W_2)$ di $\mathbb{P}(V)$ sono \textsc{incidenti} de $\mathbb{P}(W_1) \cap \mathbb{P}(W_2) \not=\emptyset$, \textsc{sghembi} altrimenti.
+\end{defn}
+
+\begin{prop}
+  \begin{nlist}
+    \item In un piano proiettivo, due rette qualsiasi sono incidenti.
+    \item In uno spazio proiettivo, una retta e un piano qualsiasi sono incidenti e due piani distinti qualsiasi hanno in comune una retta.
+  \end{nlist}
+\end{prop}
+
+\begin{proof}
+  Da scrivere.
+\end{proof}
+
+\begin{oss}
+  \begin{nlist}
+    \item Se $\{W_i\}_{i \in I}$ è una famiglia di sottospazi vettoriali di $V$, allora $\displaystyle \bigcap_{i \in I} \mathbb{P}(W_i)=\mathbb{P}\left(\bigcap_{i \in I}W_i\right)$.
+    \item Ha detto che l'avrebbe fatta Lunedì.
+  \end{nlist}
+\end{oss}
