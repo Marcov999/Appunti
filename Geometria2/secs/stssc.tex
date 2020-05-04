@@ -27,7 +27,7 @@ Questa proprietà è verificata ad esempio se ogni punto ha un intorno semplicem
       E_1 \arrow[r, "p_1"] \arrow[ru, dashed, "\varphi"] & X
     \end{tikzcd}
   \end{center}
-  Poiché $E$ è semplicemente connesso, per il corollario \ref{soll_conn} il diagramma si completa con $\varphi:E_1 \longrightarrow E_2$ t.c. $p_2 \circ \varphi=p_1$. Fissati $\tilde{x}_1 \in p_1^{-1}(x)$ e $\tilde{x}_2 \in p_2^{-1}(x)$, possiamo anche richiedere $\varphi(\tilde{x}_1)=\tilde{x}_2$.
+  Poiché $E_1$ è semplicemente connesso, per il corollario \ref{soll_conn} il diagramma si completa con $\varphi:E_1 \longrightarrow E_2$ t.c. $p_2 \circ \varphi=p_1$. Fissati $\tilde{x}_1 \in p_1^{-1}(x)$ e $\tilde{x}_2 \in p_2^{-1}(x)$, possiamo anche richiedere $\varphi(\tilde{x}_1)=\tilde{x}_2$.
   Analogamente, esiste $\psi:E_2 \longrightarrow E_1$ con $p_1 \circ \psi=p_2$ e $\psi(\tilde{x}_2)=\tilde{x}_1$. Segue facilmente che $\varphi$ e $\psi$ sono isomorfismi, uno l'inverso dell'altro.
 \end{proof}
 
@@ -52,7 +52,7 @@ Questa proprietà è verificata ad esempio se ogni punto ha un intorno semplicem
   Sia $q:\widetilde{X} \longrightarrow X$ il rivestimento universale di $X$ e fissiamo $\tilde{\tilde{x}} \in q^{-1}(x)$. Abbiamo $\pi_1(X, x) \cong \text{Aut}(\widetilde{X})$, denotiamo con $H$ anche il sottogruppo di $\text{Aut}(\widetilde{X})$ corrispondente a $H<\pi_1(X, x)$. Pongo $E=\faktor{\widetilde{X}}{H}$.
   \begin{center}
     \begin{tikzcd}
-      \widetilde{X} \arrow[rr, bend right, "q"] \arrow[r, "\pi"] & \faktor{\widetilde{x}}{H}=E \arrow[r, "p"] & \faktor{\widetilde{X}}{\pi_1(X, x)}=X
+      \widetilde{X} \arrow[rr, bend right, "q"] \arrow[r, "\pi"] & \faktor{\widetilde{X}}{H}=E \arrow[r, "p"] & \faktor{\widetilde{X}}{\pi_1(X, x)}=X
     \end{tikzcd}
   \end{center}
   Si verifica facilmente che $p$ è un rivestimento (un aperto di $X$ ben rivestito rispetto a $q$ lo è anche rispetto a $p$). Inoltre, se $\tilde{x}=\pi(\tilde{\tilde{x}}) \in E$, abbiamo $p_{\star}(\pi_1(E, \tilde{x}))=stab(\tilde{x})$ rispetto all'azione di monodromia.
