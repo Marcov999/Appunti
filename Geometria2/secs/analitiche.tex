@@ -37,7 +37,7 @@
 \end{prop}
 
 \begin{proof}
-  Sia $z_0 \in U$. Assumiamo che $\displaystyle f(z)=\sum_{n \ge 0}(z-z_0)^n$ per $|z-z_0|<r$ per qualche $r>0$. Senza perdita di generalità $z_0=0$ e $f(z_0)=f(0)=0$ $\implies$ $a_0=f(z_0)=f(0)=0$.
+  Sia $z_0 \in U$. Assumiamo che $\displaystyle f(z)=\sum_{n \ge 0}a_n(z-z_0)^n$ per $|z-z_0|<r$ per qualche $r>0$. Senza perdita di generalità $z_0=0$ e $f(z_0)=f(0)=0$ $\implies$ $a_0=f(z_0)=f(0)=0$.
   $\displaystyle f(z)=\sum_{n \ge 0} a_n(z-z_0)^n=\sum_{n \ge 0} a_nz^n=\sum_{n \ge 1} a_nz^n=z\sum_{n \ge 1} a_nz^{n-1}$. Se $0<\rho<r$ e $|z|<\rho$, $\displaystyle |f(z)| \le \sum_{n \ge 1} |a_n||z^n| \le |z| \sum_{n \ge 1} |a_n||z|^{n-1} \le |z| \sum_{n \ge 1} |a_n| \rho^{n-1}$.
   Adesso notiamo che $\displaystyle \sum_{n \ge 1} |a_n| \rho^{n-1}$ non dipende da $|z|$, quindi $|f(z)| \longrightarrow 0$ per $|z| \longrightarrow 0$.
 \end{proof}
@@ -54,7 +54,7 @@
 \begin{proof}
   Senza perdita di generalità $z_0=0$ $\implies$ $\displaystyle f(z)=\sum_{n \ge 0} a_nz^n$. Sia $a \in D_r(0)$ e sia $s \in \mathbb{R}, s>0$ t.c. $|a|+s<r$. Notiamo che $\displaystyle z^n=((z-a)+a)^n=\displaystyle \sum_{0 \le k \le n} \binom{n}{k}(z-a)^ka^{n-k}$.
   Quindi $\displaystyle f(z)=\sum_{n \ge 0} a_nz^n=\sum_{n \ge 0} a_n\left(\sum_{0 \le k \le n} \binom{n}{k}(z-a)^na^{n-k}\right)$. Se $|z-a|<s$, $|a|+|z-a|<r$, quindi la serie $\displaystyle \sum_{n \ge 0} |a_n|(|a|+|z-a|)^n$ converge.
-  Scambiando l'ordine delle sommatorie, scriveremo $\displaystyle f(z)=\sum_{n \ge 0} \left(\sum_{k \ge 0} a_k\binom{k}{n}a^{k-n}\right)\cdot (z-a)^n=\sum_{n \ge 0}b_n(z-a)^n$ per $|z-a|<s$.
+  Scambiando l'ordine delle sommatorie, possiamo scrivere $\displaystyle f(z)=\sum_{k \ge 0} \left(\sum_{n \ge 0} a_n\binom{n}{k}a^{n-k}\right)\cdot (z-a)^k=\sum_{n \ge 0}b_k(z-a)^k$ per $|z-a|<s$.
 \end{proof}
 
 \begin{thm}
