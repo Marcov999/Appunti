@@ -93,6 +93,233 @@ Attenzione: un sottospazio proiettivo $\mathbb{P}(W)$ non ammette un unico siste
 \begin{oss}
   \begin{nlist}
     \item Se $\{W_i\}_{i \in I}$ è una famiglia di sottospazi vettoriali di $V$, allora $\displaystyle \bigcap_{i \in I} \mathbb{P}(W_i)=\mathbb{P}\left(\bigcap_{i \in I}W_i\right)$.
-    \item Ha detto che l'avrebbe fatta Lunedì.
+    \item Sia $J$ un sottoinsieme non vuoto di $\mathbb{P}(V)$ e sia
+    $$\mathfrak{F}=\{\mathbb{P}(W) \subset \mathbb{P}(V) \mid J \subset \mathbb{P}(V)\}$$
+    cioe $\mathfrak{F}$ è la famiglia di tutti i sottospazi proiettivi che contengono $J$. Allora associamo il sottospazio proiettivo 				associato a $J$:
+    $$L(J)=\bigcup _{\mathbb{P}(W) 	\in \mathfrak{F}} \mathbb{P}(W)$$
+    cioè $L(J)$ è il più piccolo sottospazio proiettivo di $\mathbb{P}(V)$ che contiene $J$.
+    \item Per $S \subseteq \mathbb{P}(V)$:
+    $$L(S)=S \Leftrightarrow S=\mathbb{P}(T) \text{ per }T\text{ sottospazio vettoriale }\subset V$$
+    \item \textbf{Notazione:} Se $J=\{P_1,\dots,P_t\}$ è un insieme finito di punti, scriviamo
+    $$L(J)=L(P_1,\dots,P_t)$$
+    \item Sia $P_i=[v_i]$ per $i=1,\dots,t$. Allora $L(P_1,\dots,P_t)=\mathbb{P}(\langle v_1,\dots,v_t \rangle) \Rightarrow \dim \				\langle v_1,\dots,v_t \rangle \le t \Rightarrow \dim L(P_1,\dots,P_t) \le t-1$.
   \end{nlist}
 \end{oss}
+
+\begin{defn}
+Assumiamo come prima che $P_i=[v_i]$ per $i=1,\dots,t$. Allora diciamo che i punti $P_1,\dots,P_t$ sono linearmente indipendenti se i vettori $v_1,\dots,v_t$ sono linearmente indipendenti (cioè se $\dim L(P_1,\dots,P_t)=t-1$).
+\end{defn}
+
+\begin{oss}
+  \begin{nlist}
+	\item Siano $P=[v],\ Q=[w]$ due punti di $\mathbb{P}(V)$. Allora $P$ e $Q$ sono linearmente indipendenti se e solo se sono 				distinti. Infatti $P=[v]\neq Q=[w] \Leftrightarrow \not\exists \lambda \in \mathbb{K}^*$ tale che $w=\lambda v \Leftrightarrow \{{v,w\}$ sono linearmente indipendenti.
+	\item Se $P \neq Q \Leftrightarrow L(P,Q)$ è una retta allora dati due punti distinti $P,Q$ per essi passa una e una sola retta, cioè 		$L(P,Q)$.
+	\item Siano $P,Q,R \in \mathbb{P}(V)$ distinti. Allora $P,Q,R$ sono linearmente indipendenti $\Leftrightarrow$ non sono allineati. 	In questo caso $L(P,Q,R)$ è un piano, ed è l'unico piano che contiene $P,Q,R$.
+  \end{nlist}.
+\end{oss}
+
+\begin{ex}
+In $\mathbb{P}^2(\mathbb{R})$ siano $P=[\frac{1}{2},1,1],\ Q=[1,\frac{1}{3},\frac{4}{3}],\ R=[2,1,-2]$. Allora $P,Q,R$ sono allineati.
+\end{ex}
+
+\begin{oss}
+$P_1,\dots,P_t \in \mathbb{P}(V)$. Se $P_1,\dots,P_t$ sono linearmente indipendenti allora $t \le \dim V=n+1$.
+\end{oss}
+
+\begin{defn}
+Siano $P_1,\dots,P_t \in \mathbb{P}(V)$ punti. Diciamo che essi sono in \textsc{posizione generale} se:
+\begin{itemize}
+	\item Caso $t \le n+1$: essi sono linearmente indipendenti
+	\item Caso $t>n+1$: per ogni possibile scelta di $n+1$ punti tra essi, otteniamo un sottoinsieme costituito da punti linearmente 		indipendenti
+\end{itemize}
+\end{defn}
+
+\begin{oss}
+Se $P_1,\dots,P_t$ sono in posizione generale e $t>n+1$, allora $L(P_1,\dots,P_t)=\mathbb{P}(V)$.
+\end{oss}
+
+\begin{ex}
+Sia $e_0,\dots,e_n$ un riferimento proiettivo di $\mathbb{P}(V)$. Allora $F_0=[e_0],F_1=[e_1],\dots,F_n=[e_n],U=[e_0+\cdots+e_n]$ sono in posizione generale.
+\end{ex}
+
+\begin{lm}
+Sia $V$ uno spazio vettoriale di dimensione $n+1$. Siano $P_0,\dots,P_{n+1} \in \mathbb{P}(V)$ punti in posizione generale. Allora $\{P_0,\dots,P_{n+1}\}$ definisce un riferimento proiettivo $e_0,\dots,e_n$ per cui $P_0,\dots,P_n$ sono i suoi punti fondamentali e $P_{n+1}$ è il suo punto unità.
+\end{lm}
+
+\begin{proof}
+Assumiamo che $P_i=[v_i]$ per $i=0,\dots,n+1$. Per ipotesi $v_0,\dots,v_n$ sono vettori linearmente indipendenti. Di conseguenza $\exists a_0,\dots,a_n \in \mathbb{K}$ tali che:
+$$v_{n+1}=a_0v_0+\cdots+a_nv_n$$
+Osserviamo che $a_i \neq 0\ \forall i=0,\dots,n$ perché i punti $P_0,\dots,P_{n+1}$ sono in posizione generale. Se ad esempio si ha $a_0=0$, allora avremmo che $\{v_{n+1},v_1,\dots,v_n\}$ è un insieme costituito da vettori linearmente dipendenti, e dunque $P_{n+1},P_1,\dots,P_n$ sono linearmente dipendenti, da cui si ha una contraddizione. 
+
+Definiamo il riferimento proiettivo associato a $P_0,\dots,P_{n+1}$:
+$$e_0=a_0v_0, e_1=a_1v_1,\dots,e_n=a_nv_n \Rightarrow v_{n+1}=e_0+\cdots+e_n$$
+Allora concludiamo:
+$$P_i=[v_i]=[a_iv_i]=[e_i]\ \forall i \Rightarrow P_{n+1}=[v_{n+1}]=[e_0+\cdots+e_n]$$
+\end{proof}
+
+\begin{ex}
+Consideriamo i seguenti punti in $\mathbb{P}^3(\mathbb{R})$:
+$$P_1=[1,0,1,2],\ P_2=[0,1,1,1],\ P_3=[2,1,2,2],\ P_4=[1,1,2,3]$$
+Abbiamo che $t=\#\{P_1,P_2,P_3,P_4\}=4=\dim V$. Allora $P_1,\dots,P_4$ sono in posizione generale se e solo se sono linearmente indipendenti.
+\end{ex}
+
+\begin{exc}
+Verificare se $P_1,\dots,P_4$ sono linearmente indipendenti e calcolare $\dim L(P_1,P_2,P_3,P_4)$.
+\end{exc}
+
+\begin{oss}
+Visto che ogni sottospazio vettoriale $W$ di $V$ ammette una base, abbiamo che $\mathbb{P}(W)=L(P_1,\dots,P_t)$, dove $P_i=[v_i]$ per $i=0,\dots,t$ e $v_1,\dots,v_t$ è una base di $W$. Allora, come prima, sia $\dim V=n+1$, e fissiamo un sottospazio vettoriale $W$ di $V$ di dimensione $k+1$. Siano $P_0=[v_0],\dots,P_k=[v_k] \in \mathbb{P}(W)$ in posizione generale, dunque $v_o,\dots,v_k$ formano una base di $W$. Di conseguenza, per ogni punto $P=[v] \in \mathbb{P}(W)$, abbiamo che $v=\lambda _0v_0+\cdots \lambda _kv_k$ per certi $\lambda_0,\dots,\lambda_k \in \mathbb{K}$. Fissiamo adesso un riferimento proiettivo $e_0,\dots,e_n$ di $\mathbb{P}(V)$. Allora:
+$$P=[x_0,\dots,x_n],\ P_i=[y_{i0},\dots,y_{in}]$$
+Per $i=0,\dots,k$. Possiamo dunque riscrivere $v=\lambda _0v_0+\cdots \lambda _kv_k$ nella forma:
+\begin{align*}
+x_0&=\lambda_0y_{00}+\lambda_1y_{10}+\cdots+\lambda_ky_{k0}\\
+x_1&=\lambda_0y_{01}+\lambda_1y_{11}+\cdots+\lambda_ky_{k1}\\
+\vdots\\
+x_n&=\lambda_0y_{0n}+\lambda_1y_{1n}+\cdots+\lambda_ky_{kn}\\
+\end{align*}
+\end{oss}
+
+\begin{defn}
+Siano $S_1$ e $S_2$ sottospazi proiettivi di $\mathbb{P}(V)$. Allora chiamiamo \textsc{sottospazio somma} di $S_1$ e $S_2$ il sottospazio proiettivo
+$$L(S_1,S_2)=L(S_1 \cup S_2)$$
+\end{defn}
+
+\begin{lm}
+Se $S_1=\mathbb{P}(W_1)$ e $S_2=\mathbb{P}(W_2)$ allora $L(S_1,S_2)=L(S_1 \cup S_2)=\mathbb{P}(W_1+W_2)$.
+\end{lm}
+
+\begin{proof}
+Sia $L(S_1,S_2)=\mathbb{P}(W)$ per un qualche $W$ sottospazio vettoriale di $V$. Per definizione, $L(S_1,S_2)$ è il più piccolo sottospazio proiettivo che contiene $S_1$ e $S_2$. Allora abbiamo che
+\begin{align*}
+S_1 \subset L(S_1,S_2) &\Rightarrow W_1 \subset W\\
+S_2 \subset L(S_1,S_2) &\Rightarrow W_2 \subset W
+\end{align*}
+da cui si ottiene che $W_1+W_2\subset W$, e dunque $\mathbb{P}(W_1+W_2)\subseteq \mathbb{P}(W)=L(S_1,S_2)$.
+
+D'altro canto:
+\begin{align*}
+W_1 \subset W_1+W_2 &\Rightarrow S_1=\mathbb{P}(W_1) \subset \mathbb{P}(W_1+W_2)\\
+W_2 \subset W_1+W_2 &\Rightarrow S_2=\mathbb{P}(W_2) \subset \mathbb{P}(W_1+W_2)
+\end{align*}
+E dunque, dato che $L(S_1,S_2)$ è il più piccolo sottospazio che contiene $S_1$ e $S_2$, si conclude che $L(S_1,S_2)\subseteq \mathbb{P}(W_1+W_2)$.
+\end{proof}
+
+\begin{defn}
+Dalla formula di Grassmann, possiamo ricavare la \textsc{formula di Grassmann proiettiva}:
+$$\dim L(S_1,S_2)=\dim S_1+\dim S_2-\dim S_1 \cap S_2$$
+\end{defn}
+
+\begin{proof}
+Dalla formula di Grassmann otteniamo:
+\begin{align*}
+&\dim L(S_1,S_2)=\dim \mathbb{P}(W_1+W_2)=\dim (W_1+W_2)-1\\
+&=\dim W_1+\dim W_2-\dim W_1 \cap W_2 -1\\
+&=(\dim W_1 -1)+(\dim W_2 -1)-(\dim W_1 \cap W_2 -1)\\
+&=\dim S_1+\dim S_2-\dim S_1 \cap S_2
+\end{align*}
+\end{proof}
+
+\begin{prop}
+\begin{nlist}
+\item In un piano proiettivo due rette qualsiasi si incontrano.
+\item In uno spazio proiettivo di dimensione 3, una retta e un piano qualsiasi si incontrano, e due piani distinti hanno una retta in comune.
+\end{nlist}
+\end{prop}
+
+\begin{proof}
+\begin{nlist}
+\item Siano $S_1=r_1$ e $S_2=r_2$ due rette proiettive in un piano proiettivo. Allora $\dim S_1 \cap S_2=\dim r_1 \cap r_2 \ge \dim r_1+\dim r_2 -\dim \mathbb{P}(V)=1+1-2=0$. Ma allora, se $\dim r_1 \cap r_2 \ge 0$, abbiamo che $r_1 \cap r_2 \neq \emptyset$.
+\item Sia $S_1=r_1$ una retta e $S_2=p_2$ un piano. Allora come prima $\dim r_1 \cap p_2 \ge 1+2-3=0$ e dunque l'intersezione è non vuota.
+
+Siano $S_1=p_1$ e $S_2=p_2$ due piani. Assumiamo che $S_1 \neq S_2$, allora $\dim S_1 \cap S_2 <2$. D'altro canto $\dim S_1 \cap S_2 \ge 2+2-3=1 \Rightarrow 2>\dim S_1\cap S_2 \ge 1 \Rightarrow \dim S_1 \cap S_2=1$, dunque l'intersezione è una retta.
+\end{nlist}
+\end{proof}
+
+\begin{ex}
+Siano $A,B,C,D$ punti di $\mathbb{P}^2(\mathbb{K})$ in posizione generale, e siano:
+$$P=L(A,B) \cap L(C,D),\ Q=L(A,C)\cap L(B,D),\ R=L(A,D)\cap L(B,C)$$
+Ci chiediamo se $P,Q,R$ sono allineati oppure no. Prendiamo allora $\mathbb{P}(V)=\mathbb{P}^2(\mathbb{K})$ dove $\dim \mathbb{P}(V)=2=n$, il che implica che i 4 punti in posizione generale $A,B,C,D$ determinino un riferimento proiettivo:
+$$A=[e_0],\ B=[e_1],\ C=[e_2],\ D=[e_0+e_1+e_2]$$
+Adesso determiniamo esplicitamente le equazioni cartesiane delle rette definite sopra: $L(A,B)=L([1,0,0],[0,1,0])$ ha equazione cartesiana:
+$$\det \begin{pmatrix}
+x_0 & 1 & 0 \\ x_1 & 0 & 1 \\ x_2 & 0 & 0
+\end{pmatrix} =0$$
+Dunque $L(A,B)=H_2:x_2=0$. Allo stesso modo abbiamo che $L(C,D)=L([0,0,1],[1,1,1])$ ha equazione:
+$$\det \begin{pmatrix}
+x_0 & 0 & 1 \\x_1 & 0 & 1 \\ x_2 & 1 & 1
+\end{pmatrix}=0$$
+Cioè $x_1-x_0=0$. Analogamente, $L(A,C)=L([1,0,0],[0,0,1])=H_1:x_1=0$. Infine:
+\begin{align*}
+L(B,D)=&L([0,1,0],[1,1,1]):\\
+&\det \begin{pmatrix}
+x_0 & 0 & 1 \\x_1 & 1& 1 \\ x_2 & 0 & 1
+\end{pmatrix}=0 \quad \text{cioè }x_0-x_2=0\\
+L(A,D)=&L([1,0,0],[1,1,1]):\\
+&\det \begin{pmatrix}
+x_0 & 1 & 1 \\x_1 & 0 & 1 \\ x_2 & 0 & 1
+\end{pmatrix}=0 \quad \text{cioè }x_2-x_1=0\\
+L(B,C)=&L([0,1,0],[0,0,1])=H_0:x_0=0
+\end{align*}
+Allora abbiamo che $P=L(A,B) \cap L(C,D)=H_2 \cap L(C,D) \Rightarrow P=[1,1,0]$. Procedendo analogamente con $Q$ ed $R$, otteniamo che:
+$$P=[1,1,0],\ Q=[1,0,1],\ R=[0,1,1]$$
+Poiché $P,Q,R$ sono allineati $\Leftrightarrow$ sono linearmente dipendenti $\Leftrightarrow \det \begin{pmatrix}
+1 & 1 & 0 \\ 1 & 0 & 1 \\ 0 & 1 & 1
+\end{pmatrix}=0$, otteniamo che $P,Q,R$ non sono allineati, poiché il determinante della matrice è $-2$.
+\end{ex}
+
+\begin{exc}
+Siano $r_1,r_2$ rette sghembe in $\mathbb{P}^3(\mathbb{K})$ e sia $P \in \mathbb{P}^3(\mathbb{K}) \smallsetminus (r_1 \cup r_2)$. Provare che $\exists ! \ell \subset \mathbb{P}^3(\mathbb{K})$ retta tale che $P \in \ell,\ \ell \cap r_1 \neq \emptyset,\ \ell \cap r_2 \neq \emptyset$.
+\end{exc}
+
+\begin{exc}
+Siano $W_1,W_2,W_3$ piani di $\mathbb{P}^4(\mathbb{K})$ tali che $W_i \cap W_j$ è un punto $\forall i \neq j$ e $W_1 \cap W_2 \cap W_3 =\emptyset$. Dimostrare che $\exists !$ un piano $W_0$ tale che $W_0 \cap W_i$ è una retta proiettiva $\forall i=1,2,3$.
+\end{exc}
+
+\begin{exc}
+Siano $r_1,r_2,r_3$ rette di $\mathbb{P}^4(\mathbb{K})$ a due a due sghembe e non tutte contenute in un iperpiano. Allora $\exists !$ una retta $\ell$ che interseca tutte e tre le rette.
+\end{exc}
+
+\begin{thm}
+(Desagues) Sia $\mathbb{P}(V)$ un piano proiettivo, e siano $A_1,A_2,A_3$, $B_1,B_2,B_3$ punti distinti di $\mathbb{P}(V)$ a tre a tre non allineati. Consideriamo i triangoli $T_1$ e $T_2$ di $\mathbb{P}(V)$ di vertici rispettivamente $A_1,A_2,A_3$ e $B_1,B_2,B_3$, e diciamo che $T_1$ e $T_2$ sono in prospettiva se e solo se esiste un punto $O$, detto "centro della prospettiva", distinto dagli $A_i$ e $B_j$, tale che le rette $L(A_i,B_i)$ per $i=1,2,3$ passino per $O$.
+
+Allora $T_1$ e $T_2$ sono in prospettiva se e solo se i punti
+\begin{align*}
+P_1&=L(A_2,A_3) \cap L(B_2,B_3)\\ P_2&=L(A_3,A_1) \cap L(B_3,B_1)\\ P_3&=L(A_1,A_2) \cap L(B_1,B_2)
+\end{align*}
+sono allineati.
+\end{thm}
+
+\begin{proof}
+È facile verificare che i punti $P_1,P_2,P_3$ sono distinti tra loro e distinti dai vertici di $T_1$ e $T_2$. Si verifica che i punti $A_1, B_1, P_3, P_2$ sono in posizione generale, e dunque essi danno luogo ad un riferimento proiettivo di $\mathbb{P}(V)$, cioè:
+$$A_1=[e_0],\ B_1=[e_1],\ P_3=[e_2],\ P_2=[e_0+e_1+e_2]$$
+Il punto $A_2$ appartiene alla retta $L(A,P_3)=H_1:x_1=0$. Allora $A_2=[b,0,c]$ con $b,c \neq 0$ perché $A_2 \neq A_1$ e $A_2 \neq P_3$, dunque $A_2=[b,0,c]=[1,0,a_2]$ con $a_2 \neq 0$.
+
+Il punto $A_3$ appartiene a $L(A_1,P_2):x_1=x_2$, dunque poiché $A_3 \neq A_1$ abbiamo che $A_3=[a,b,b]=[a_3,1,1]$ dove $b \neq 0$ e $a_3 \neq 1$ perché $A_3=P_2$ è un punto unità. Ragionando allo stesso modo abbiamo
+\begin{align*}
+B_2&=[0,1,b_2], \quad b_2 \neq 0\\
+B_3&=[1,b_3,1], \quad b_3 \neq 1
+\end{align*}
+Consideriamo i punti:
+\begin{align*}
+P_1&=L(A_2,A_3)\cap L(B_2,B_3)\\
+P_1'&=L(A_2,A_3)\cap L(P_2,P_3)\\
+P_1''&=L(B_2,B_3)\cap L(P_2,P_3)
+\end{align*}
+Allora $P_1,P_2,P_3$ sono allineati $\Leftrightarrow P_1=P_1'=P_1''$. Infatti, se $P_1, P_2, P_3$ sono allineati allora $P_1 \in L(P_2,P_3) \Rightarrow P_1=P_1'=P_1''$. Viceversa, $P_1=P_1'=P_1'' \Rightarrow P_1 \in L(P_2,P_3)$.
+
+Le coordinate omogenee di $P_1'$ e $P_1''$ sono:
+$$P_1'=[1,1,1-a_2a_3+a_2],\ P_1''=[1,1,1-b_2b_3+b_2]$$
+E dunque $P_1,P_2,P_3$ allineati $\Leftrightarrow P_1'=P_1'' \Leftrightarrow a_2(1-a_3)=b_2(1-b_3)$.
+
+Esaminiamo adesso la condizione che $T_1$ e $T_2$ siano in prospettiva: le condizioni per cui esiste $O \in L(A_1,B_1)\cap L(A_2,B_2)\cap L(A_3,B_3)$ sono:
+$$\begin{cases}
+x_2=0\\
+a_2x_0+b_2x_1-x_2=0\\
+(1-b_3)x_0+(1-a_3)x_1+(a_3b_3-1)x_2=0
+\end{cases}$$
+Tale sistema ammette soluzione non nulla se e solo se
+$$\det \begin{pmatrix}
+0 & 0 & 1 \\ a_2 & b_3 & -1 \\ 1-b_3 & 1-a_3 & a_3b_3-1
+\end{pmatrix}=0$$
+Cioè $a_2(1-a_3)-b_2(1-b_3)=0$. Inoltre, se questa equazione è soddisfatta, abbiamo che $0=[b_2,-a_2,0] \Rightarrow 0 \neq A_i,\ 0 \neq B_i$.
+\end{proof}

@@ -1,0 +1,129 @@
+Abbiamo visto che esistono due definizioni equivalenti di riferimento proiettivo. Cioè, dato $\mathbb{P}(V)$, un suo riferimento proiettivo è:
+\begin{itemize}
+\item Una base $\mathcal{B}=\{v_0,\dots,v_n\}$ di $V$ (a meno di moltiplicazioni simultanee di tutti i $v_i$ per un qualche $\lambda \in \mathbb{K}^*$).
+\item Una $(n+2)$-upla di punti $P_0,\dots,P_{n+1}$ di $V$ in posizione generale.
+\end{itemize}
+Infatti, data $\mathcal{B}$ si pone $P_i=[v_i]$ per $i=0,\dots,n$ e $P_{n+1}=[v_0+\cdots+v_n]$. Viceversa, data una $(n+2)$-upla definita come sopra, si ottiene la base associata $\{v_0,\dots,v_n\}$ tale che $P_i=[v_i]$ e $P_{n+1}=[v_0+\cdots+v_n]$. 
+
+D'ora in avanti quando si parlerà di riferimento proiettivo ci si riferirà alla $(n+2)$-upla definita come sopra.
+
+\begin{defn}
+Siano $\mathbb{P}(V)$ e $\mathbb{P}(W)$ spazi proiettivi su $\mathbb{K}$. Una \textsc{trasformazione proiettiva} $f:\mathbb{P}(V) \rightarrow \mathbb{P}(W)$ è una funzione tale che $\exists \varphi : V \rightarrow W$ lineare iniettiva per cui $f([v])=[\varphi (v)],\ \forall v \in V \setminus \{0\}$.
+
+In tal caso $f$ si dice \textsc{indotta} da $\varphi$.
+\end{defn}
+
+\begin{oss}
+Se $\varphi :V\rightarrow W$ è lineare iniettiva, $\varphi$ induce una ben definita $f:\mathbb{P}(V)\rightarrow \mathbb{P}(W)$ come sopra, in quanto $[v]=[v'] \Rightarrow v=\lambda v',\ \lambda \in \mathbb{K}^* \Rightarrow \varphi (v)=\varphi (\lambda v')=\lambda \varphi (v') \Rightarrow [\varphi (v)]=[\varphi (v')]$. Inoltre $v\neq 0 \Rightarrow \varphi (v) \neq 0$ per l'iniettività.
+\end{oss}
+
+\begin{oss}
+Una trasformazione proiettiva è necessariamente iniettiva, infatti: $f(P),\ f(Q), P=[v],\ Q=[v'] \Rightarrow [\varphi (v)]=[\varphi (v')] \Rightarrow \varphi (v)=\lambda \varphi (v') \Rightarrow \varphi (v)=\varphi (\lambda v') \Rightarrow v=\lambda v'$ (per l'iniettività di $\varphi$), per cui $[v]=[v']$, cioe $P=Q$.
+\end{oss}
+
+\begin{oss}
+\begin{itemize}
+\item $\id :\mathbb{P}(V) \rightarrow \mathbb{P}(V)$ è una trasformazione proiettiva indotta da $\id _V$.
+\item La composizione di trasformazioni proiettive è una trasformazione proiettiva, cioè se $f$ è indotta da $\varphi$ e $g$ è indotta da $\psi$, allora $f \circ g$ è indotta da $\varphi \circ \psi$.
+\end{itemize}
+\end{oss}
+
+\begin{defn}
+Un \textsc{isomorfismo proiettivo} è una trasformazione proiettiva che ammette un'inversa che sia a sua volta una trasformazione proiettiva.
+\end{defn}
+
+\begin{oss}
+Poiché l'inversa insiemistica di una mappa lineare bigettiva è automaticamente lineare bigettiva, una trasformazione proiettiva è un isomorfismo proiettivo se e solo se è bigettiva (se $f$ è indotta da $\varphi$, $f^{-1}$ è indotta da $\varphi ^{-1}$).
+\end{oss}
+
+\begin{oss}
+$\mathbb{P}(V)$ è isomorfo a $\mathbb{P}(W) \Leftrightarrow \exists\ f:\mathbb{P}(V) \rightarrow \mathbb{P}(W)$ isomorfismo proiettivo $\Leftrightarrow \exists\ \varphi :V\rightarrow W$ isomorfismo lineare $\Leftrightarrow \dim V=\dim W \Leftrightarrow \dim \mathbb{P}(V)=\dim \mathbb{P}(W)$.
+\end{oss}
+
+\begin{defn}
+Una trasformazione proiettiva $f:\mathbb{P}(V)\rightarrow \mathbb{P}(V)$ si chiama \textsc{proiettività}.
+\end{defn}
+
+\begin{oss}
+Una proiettività $f:\mathbb{P}(V) \rightarrow \mathbb{P}(V)$ è automaticamente un isomorfismo se $\dim V<+\infty$, in quanto mappe lineari da $V$ in sé sono automaticamente bigettive se $V$ ha dimensione finita.
+\end{oss}
+
+\begin{lm}
+Siano $f,g:\mathbb{P}(V) \rightarrow \mathbb{P}(W)$ trasformazioni proiettive indotte rispettivamente da $\varphi$ e $\psi$. Allora sono equivalenti:
+\begin{nlist}
+\item $f=g$
+\item $f$ e $g$ coincidono su un riferimento proiettivo
+\item $\exists\ \lambda \in \mathbb{K}^*$ con $\varphi=\lambda \psi$
+\end{nlist}
+\end{lm}
+
+\begin{proof}
+(i) $\Rightarrow$ (ii). Da fare.\\
+(ii) $\Rightarrow$ (iii). Sia $\{P_0,\dots,P_{n+1}\}$ il riferimento per cui $f(P_i)=g(P_i)$ per $i=0,\dots,n+1$. Sia $\{v_0,\dots,v_n\}$ la base associata di $V$. Allora $f(P_i)=g(P_i) \Rightarrow \varphi (v_i) =\lambda _i \psi (v_i),\ \lambda _i \in \mathbb{K}^*$ per ogni $i=0,\dots,n$. Dobbiamo dimostrare che $\lambda _i$ non dipende da $i$, cosi avremo $\varphi (v_i)=\lambda \psi (v_i)\ \forall i$ con $\lambda$ fissato, per cui $\varphi =\lambda \psi$ su una base di $V$, e dunque su tutto $V$. Sia dunque che $\varphi (v_0)=\lambda _0 \psi (v_0),\dots, \varphi (v_n)=\lambda _n \psi (v_n)$ e, poiché $f(P_{n+1})=g(P_{n+1})$, abbiamo che $\varphi (v_0+\cdots+v_n)=\lambda _{n+1} \psi (v_0+\cdots+v_n)$. Otteniamo quindi $\varphi (v_0)+\cdots+\varphi (v_n)=\lambda _{n+1} \psi (v_0)+\cdots+\lambda _{n+1} \psi (v_n)=\lambda _0 \psi (v_0)+\cdots+\lambda _n \psi (v_n)$. Poiché $\psi$ è iniettiva, abbiamo che $\psi (v_0),\dots,\psi (v_n)$ sono linearmente indipendenti, per cui confrontando i coefficienti di queste due combinazioni lineari otteniamo $\lambda _i=\lambda _{n+1}$ per ogni $i=0,\dots,n$, dunque $\varphi (v_i)=\lambda _{n+1} \psi (v_i)$ per ogni $i$, e quindi $\varphi =\lambda _{n+1} \psi$.\\
+(iii) $\Rightarrow$ (i). Se $\varphi =\lambda \psi\ \forall v \in V\setminus \{0\}$ abbiamo:
+$$f([v])=[\varphi (v)]=[\lambda \psi (v)]=[\psi (v)]=g([v])$$
+\end{proof}
+
+Se denotiamo con $\mathbb{P}GL(V)$ il gruppo:
+$$\faktor{GL(V)}{\sim} \qquad \varphi \sim \psi \Leftrightarrow \varphi=\lambda \psi,\ \lambda \in \mathbb{K}^*$$
+abbiamo che $\mathbb{P}GL(V)=\faktor{GL(V)}{N}$ con $N \triangleleft GL(V)$ e
+$$N=\{\varphi :V \rightarrow V \mid \varphi =\lambda \id,\ \lambda \in \mathbb{K}^*\}$$
+allora valgono i seguenti teoremi.
+
+\begin{thm}
+Il gruppo delle proiettività di $\mathbb{P}(V)$ è isomorfo a $\mathbb{P}GL(V)$.
+\end{thm}
+
+\begin{thm}
+(fondamentale delle trasformazioni proiettive) Siano $\mathbb{P}(V)$ e $\mathbb{P}(W)$ spazi proiettivi della stessa dimensione, e siano $\{P_0,\dots,P_{n+1}\}$ e $\{Q_0,\dots,Q_{n+1}\}$ riferimenti proiettivi di $\mathbb{P}(V)$ e $\mathbb{P}(W)$ rispettivamente. Allora esiste unica $f:\mathbb{P}(V) \rightarrow \mathbb{P}(W)$ trasformazione proiettiva con $f(P_i)=Q_i$ per $i=0,\dots,n+1$.
+\end{thm}
+
+\begin{proof}
+L'unicità discende dal lemma visto sopra. Per quanto riguarda l'esistenza, siano $\{v_0,\dots,v_n\}$ e $\{w_0,\dots,w_n\}$ basi associate ai due riferimenti proiettivi, e sia $\varphi : V\rightarrow W$ l'isomorfismo lineare tale che $\varphi (v_i)=w_i$ per ogni $i$. Allora sia $f$ indotta da $\varphi$. Per costruzione:
+$$f(P_i)=f([v_i])=[\varphi (v_i)]=[w_i]=Q_i \quad i=0,\dots,n$$
+Inoltre:
+\begin{align*}
+f(P_{n+1})&=f([v_0+\cdots+v_n])=[\varphi (v_0+\cdots+v_n)]\\
+&=[\varphi (v_0)+\cdots+\varphi (v_n)]=[w_0+\cdots+w_n]=Q_{n+1}
+\end{align*}
+\end{proof}
+
+D'ora in poi, visto che $\varphi$ e $\psi$ inducono la stessa $f$ se e solo se $\varphi =\lambda \psi,\ \lambda \in \mathbb{K}^*$, scriveremo $f=[\varphi]$ per indicare che $f$ è indotta da $\varphi$.
+
+\begin{ex}
+(Prospettività) Sia $\mathbb{P}(V)$ spazio proiettivo su $\mathbb{K}$ di dimensione 2, ad esempio $\mathbb{P}^2(\mathbb{K})$. Siano $r,s$ rette distinte di $\mathbb{P}(V)$ e sia $o \in \mathbb{P}^2(V) \setminus (r \cup s)$. Abbiamo già visto che $r \cap s =\{A\}$ con $A \in \mathbb{P}^2(V)$. Dato $p \in r$, poiché $o \notin r$, abbiamo che $L(o,P)$ è una retta, ed è distinta da $s$ perché $o \in L(o,P)$ e $o \notin s$. Dunque $L(o,P) \cap s$ consiste esattamente di un punto, che chiamiamo $\pi _o(P)$. Abbiamo così definito la \textsc{prospettività} di centro $o$:
+$$\pi_o:r \rightarrow s$$
+Per costruzione, $\pi_o(A)=A$.
+\end{ex}
+
+\begin{thm}
+$\pi_0:r \rightarrow s$ è un isomorfismo proiettivo.
+\end{thm}
+
+\begin{proof}
+Dobbiamo dimostrare che $\pi_o$ è indotta da un isomorfismo lineare tra $H_r$ e $H_s$, dove $r=\mathbb{P}(H_r)$ e $s=\mathbb{P}(H_s)$, con $H_r$ e $H_s$ piani di $V$. Scegliamo $B \in r \setminus \{A\}$ e $c \in s \setminus (\{A\} \cup L(o,B))$. Con queste scelte, nessuna scelta in $\{A,B,C,o\}$ è costituita da punti allineati, per cui $A,B,C,o$ è un riferimento proiettivo di $\mathbb{P}(V)$.\\
+Sia $v_A,v_B,v_C$ una base di $V$ associata a $A,B,C,o$, così che $v_A,v_B$ è una base di $H_r$ e $v_A,v_C$ è una base di $H_s$. Sia ora $p$ il generico elemento di $r$, dunque $p=[\lambda v_A+\mu v_B]$. Vogliamo scrivere allora le coordinate omogenee di $\pi_o(p)$ rispetto a $v_A,v_C$. Abbiamo che:
+$$L(o,p)=\mathbb{P}(\text{Span}_V \langle \lambda v_A+\mu v_B, v_A+v_B+v_C \rangle )$$
+Cerchiamo $L(o,p) \cap s=\mathbb{P}(\text{Span}_V \langle \lambda v_A+\mu v_B, v_A+v_B+v_C \rangle \cap \text{Span} \langle v_A,v_C \rangle)$, ovvero, in altri termini, cerchiamo $\alpha,\beta$ tali che
+$$\alpha (\lambda v_A+\mu v_B)+\beta(v_A+v_B+v_C) \in \text{Span} \langle v_A,v_C \rangle$$
+Poniamo dunque $\alpha=1$ e $\beta =-\mu$ per far sparire $v_B$ a sinistra, ottenendo
+$$\lambda v_A+\mu v_B -\mu (v_A+v_B+v_C)=(\lambda -\mu)v_A-\mu v_C$$
+Dunque $\pi_o([\lambda v_A+\mu v_B])=[(\lambda -\mu)v_A -\mu v_C]$. Perciò $\pi_o=[\varphi]$ dove $\varphi :H_r \rightarrow H_s$ è lineare e, rispetto alle basi $\{v_A,v_B\}$ di $H_r$ e $\{v_A,v_C\}$ di $H_s$, $\varphi$ è rappresentata dalla matrice
+$$\begin{pmatrix}
+1 & -1 \\ 0 & -1
+\end{pmatrix} \quad \text{che ha det}=-1\neq 0$$
+Dunque $f$ è una trasformazione proiettiva. Infatti
+$$\varphi (\lambda v_A+\mu v_B)=(\lambda -\mu)v_A-\mu v_B$$
+è chiaramente lineare, e $\varphi (v_A)$ si ottiene ponendo $\lambda =1$ e $\mu =0$ e dà $v_A$, $\varphi (v_B)$ si ottiene ponendo $\lambda =0$ e $\mu =1$ e dà $-v_A,-v_B$.
+\end{proof}
+
+\begin{thm}
+Siano $r,s \subseteq \mathbb{P}(V)$ rette proiettive distinte, e sia $\mathbb{P}(V)$ di dimensione 2. Sia inoltre $f:r\rightarrow s$ isomorfismo proiettivo. Allora $f$ è una prospettività $\Leftrightarrow f(A)=A$ con $A=r \cap s$.
+\end{thm}
+
+\begin{proof}
+($\Rightarrow$) Già osservato.\\
+($\Leftarrow$) Sia data $f:r \rightarrow s$ proiettiva con $f(A)=A$, e siano $B,C$ su $r$ tali che $A,B,C$ sia un riferimento proiettivo di $r$. Ovviamente $f(B) \neq B$ e $f(C) \neq C$. Dunque $L(B,f(B))$ e $L(C,f(C))$ sono rette proiettive e sono distinte, altrimenti $B, C, f(B), f(C)$ sarebbero allineati e $r=s$. Dunque è ben definito $o=L(B,f(B)) \cap L(C,f(C))$. Ora, per costruzione:
+$$\pi _o(B)=f(B),\ \pi_o(C)=f(C),\ \pi_o(A)=f(A)$$
+Dunque $f$ e $\pi_o$ coincidono su un riferimento proiettivo di $r$, e $f=\pi_o$ è una prospettività.
+\end{proof}
