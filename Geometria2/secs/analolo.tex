@@ -17,7 +17,7 @@ Abbiamo visto che analitica $\implies$ olomorfa. Quanto segue è di interesse in
   Poniamo $R_1$ uguale a questo $A_i$. Iterando la costruzione di $R_1$, otteniamo per induzione una successione di rettangoli inscatolati $R \supseteq R_1 \supseteq R_2 \supseteq R_3 \supseteq \dots \supseteq R_n \supseteq \dots$ con $|\alpha(R_n)|\ge \dfrac{|\alpha(R)|}{4^n}$. Ora prendiamo $\displaystyle z_0 \in \bigcap_{n \in \mathbb{N}} R_n \not=\emptyset$ in quanto intersezione decrescente di compatti chiusi non vuoti.
   Poiché $f$ è olomorfa, abbiamo $f(z)=f(z_0)+f'(z_0)(z-z_0)+\epsilon(z)|z-z_0|$, dove $\displaystyle \lim_{z \longrightarrow z_0} |\epsilon(z)|=0$, per cui $\displaystyle \alpha(R_n)=\int_{\partial R_n} (f(z_0)+f'(z_0)(z-z_0)+\epsilon(z)|z-z_0|)\diff z=\int_{\partial R_n} f(z_0)\diff z+\int_{\partial R_n} f'(z_0)(z-z_0)\diff z+\int_{\partial R_n} \epsilon(z)|z-z_0|\diff z$.
   $\diff z$ e $(z-z_0)\diff z$ ammettono primitive $z$ e $(z-z_0)^2/2$, dunque sono esatte, in particolare chiuse, quindi i primi due integrali fanno $0$. Perciò $\displaystyle \alpha(R_n)=\int_{\partial R_n} \epsilon(z)|z-z_0|\diff z$.
-  Ora, poiché $\displaystyle \lim_{z \longrightarrow z_0} \epsilon(z)=0$, possamo scegliere $\delta>0$ t.c. $|z-z_0|<\delta \implies |\epsilon(z)|\le \dfrac{|\alpha(R)|}{4(a+b)^2}$, dove $a, b$ sono le lunghezze dei lati di $R$.
+  Ora, poiché $\displaystyle \lim_{z \longrightarrow z_0} \epsilon(z)=0$, possiamo scegliere $\delta>0$ t.c. $|z-z_0|<\delta \implies |\epsilon(z)|\le \dfrac{|\alpha(R)|}{4(a+b)^2}$, dove $a, b$ sono le lunghezze dei lati di $R$.
   Poiché $z_0 \in R_n$ e $diam(R_n) \le \dfrac{a+b}{2^n}$, basta scegliere $n$ opportuna e avremo che $|\epsilon(z)|\le \dfrac{|\alpha(R)|}{4(a+b)^2}$ per ogni $z \in R_n$.
   Per tale $n$, se $z \in \partial R_n$, $|z-z_0| \le diam(R_n) \le \dfrac{a+b}{2^n}$, per cui $\displaystyle |\alpha(R_n)|=\left|\int_{\partial R_n} \epsilon(z)|z-z_0|\diff z\right|\le\int_0^{\frac{2(a+b)}{2^n}} |\epsilon(\gamma(t))|\cdot|\gamma(t)-z_0|\diff t \le \dfrac{2(a+b)}{2^n}\cdot\dfrac{|\alpha(R)|}{4(a+b)^2}\cdot\dfrac{(a+b)}{2^n}=\dfrac{1}{2}\dfrac{|\alpha(R)|}{4^n}$, il che contraddice $|\alpha(R_n)| \ge \dfrac{|\alpha(R)|}{4^n}$.
 \end{proof}
@@ -40,7 +40,7 @@ Abbiamo visto che analitica $\implies$ olomorfa. Quanto segue è di interesse in
 
 \begin{proof}
   Sia $R \subseteq D$ rettangolo, vogliamo $\displaystyle \int_{\partial R} \omega=0$. Se $R \cap r=\emptyset$, segue da quanto già visto. Se $R \cap r\not=\emptyset$, supponiamo senza perdita di generalità che un lato orizzontale di $r$ giaccia su $r$ (se $r$ taglia $R$ da qualche parte a metà, si separa $R$ in due rettangoli con lati giacenti su $R$: è ovvio che l'integrale lungo il bordo di $R$ è la somma degli integrali lungo i bordi degli integrali ottenuti). Allora possiamo costruire una successione di rettangoli $R_n$ in questo modo: un lato orizzontale coincide con il lato orizzontale di $R$ che non giace su $R$, i lati verticali sono contenuti nei lati verticali di $R$ e il rimanente lato orizzontale si avvicina al crescere di $n$ al lato di $R$ che giace su $r$.
-  $R_n$ "tende" a $R$. Allora, usando che $f$ è continua, si vede facilmente che $\displaystyle \int_{\partial R} f(z)\diff z=\lim_{n \longrightarrow +\infty} \int_{\partial R_n} f(z)\diff z=0$ in quanto $\displaystyle \int_{\partial R_n} f(z)\diff z=0$ per ogni $n$ (sempre perché $R_n \subseteq D \setminus r$).
+  $R_n$ ``tende'' a $R$. Allora, usando che $f$ è continua, si vede facilmente che $\displaystyle \int_{\partial R} f(z)\diff z=\lim_{n \longrightarrow +\infty} \int_{\partial R_n} f(z)\diff z=0$ in quanto $\displaystyle \int_{\partial R_n} f(z)\diff z=0$ per ogni $n$ (sempre perché $R_n \subseteq D \setminus r$).
 \end{proof}
 
 Per proseguire nella dimostrazione che le funzioni olomorfe sono analitiche, avremo bisogno di una definizione e di alcune sue proprietà. Sia $a \in \mathbb{C}, x_0=1+a$. Ricordiamo che $\pi_1(\mathbb{C}\setminus\{a\}, x_0) \simeq \mathbb{Z}$. Fissiamo un isomorfismo canonico $f:\pi_1(\mathbb{C}\setminus\{a\}, x_0)\longrightarrow \mathbb{Z}$ che manda $[\gamma]$ in $1$, dove $\gamma$ è una parametrizzazione di $\partial B(a, 1)$ che percorre la circonferenza in senso antiorario.
@@ -61,7 +61,7 @@ Questa bigezione induce un omomorfismo
   [\gamma] &\longmapsto [\hat{\gamma}]
 \end{align*}
 Inoltre $\partial$ è suriettiva e $\partial([\gamma])=\partial([\gamma'])$ $\iff$ $[\gamma]$ e $[\gamma']$ sono coniugati in $\pi_1(\mathbb{C}\setminus\{a\}, x_0)$, che però è abeliano, dunque $\partial$ è iniettiva.
-Definiamo $\psi:[S^1, \mathbb{C}\setminus\{a\}] \longrightarrow \mathbb{Z}$ come $\psi=\partial^{-1}\circ f$.
+Definiamo $\psi:[S^1, \mathbb{C}\setminus\{a\}] \longrightarrow \mathbb{Z}$ come $\psi=f\circ\partial^{-1}$.
 
 \begin{defn}
   Sia $\gamma:[0,1] \longrightarrow \mathbb{C}\setminus\{a\}$ un cammino chiuso in $x_0$. Chiamiamo \textsc{indice di $\gamma$ rispetto ad $a$} l'intero $\psi([\hat{\gamma}])=:I(\gamma, a)$ dove $\hat{\gamma}:S^1 \longrightarrow \mathbb{C}\setminus\{a\}$ è la mappa indotta da $\gamma$.
@@ -78,7 +78,7 @@ Definiamo $\psi:[S^1, \mathbb{C}\setminus\{a\}] \longrightarrow \mathbb{Z}$ come
     [\hat{\gamma}] &\longmapsto \frac{1}{2\pi i}\int_{\gamma}\omega
   \end{align*}
   Ci resta da dimostrare $\varphi=\psi$, cioè $\varphi([\hat{\gamma}])=\psi([\hat{\gamma}])$ per ogni $[\hat{\gamma}] \in [S^1, \mathbb{C}\setminus\{a\}]$.
-  Notiamo che $[S^1, \mathbb{C}\setminus\{a\}]=\{[\hat{\gamma}_n] \mid \gamma_n:[0,1]\longrightarrow \mathbb{C}\setminus\{a\}, \gamma_n(t)=a+e^{2\pi i t}\} \implies \psi([\hat{\gamma}_n])=n$.
+  Notiamo che $[S^1, \mathbb{C}\setminus\{a\}]=\{[\hat{\gamma}_n] \mid \gamma_n:[0,1]\longrightarrow \mathbb{C}\setminus\{a\}, \gamma_n(t)=a+e^{2\pi int}\} \implies \psi([\hat{\gamma}_n])=n$.
   Abbiamo già visto d'altro canto che $\displaystyle \int_{\gamma_n} \frac{1}{z-a}\diff z=2\pi i n$, da cui la tesi.
 \end{proof}
 
@@ -103,13 +103,13 @@ Elenchiamo ora alcune proprietà dell'indice.
 
 \begin{proof}
   Fissiamo $a \in \mathbb{C}\setminus\Ima{\gamma}$. Mostreremo che per ogni $h \in \mathbb{C}$, $|h|$ sufficientemente piccolo, $I(\gamma, a+h)=I(\gamma, a)$. Sia $0<\delta_0<\min\{|\gamma(t)-a| \mid t \in [0,1]\}\not=0$ perché $a \not \in \mathbb{C}\setminus\Ima{\gamma}$.
-  Per ogni $h \in \mathbb{C}$ t.c. $|h|<\delta_0$ abbiamo: $\displaystyle I(\gamma, a+h)=\frac{1{2\pi i}}\int_{\gamma} \frac{1}{z-(a+h)}\diff z=\frac{1}{2\pi i} \int_{\gamma} \frac{\diff z}{(z-h)-a}$. Facciamo un cambio di variabile: $z'=z-h$.
+  Per ogni $h \in \mathbb{C}$ t.c. $|h|<\delta_0$ abbiamo: $\displaystyle I(\gamma, a+h)=\frac{1}{2\pi i}\int_{\gamma} \frac{1}{z-(a+h)}\diff z=\frac{1}{2\pi i} \int_{\gamma} \frac{\diff z}{(z-h)-a}$. Facciamo un cambio di variabile: $z'=z-h$.
   Otteniamo che $\displaystyle I(\gamma, a+h)=\frac{1}{2\pi i}\int_{\gamma'} \frac{1}{z'-a}\diff z'$ dove $\gamma'(t)=\gamma(t)-h$ per $t \in [0,1]$.
   Per concludere, mostreremo che è uguale a $\displaystyle \frac{1}{2\pi i}\int_{\gamma} \frac{1}{z-a}\diff z$ perché $\gamma$ e $\gamma'$ sono liberamente omotopi. $\gamma \sim \gamma'$ tramite l'omotopia $F(t,s)=\gamma(t)-sh$ per ogni $t,s \in [0,1]$ $\implies$ $I(\gamma, a+h)=I(\gamma', a)=I(\gamma, a)$.
 \end{proof}
 
 \begin{prop}
-  Sia $a \in \mathbb{C}$. Sia $\gamma$ una curva chiusa $C^0$ t.c. $\Ima{\gamma} \subset D \subset D \subset \mathbb{C}\setminus\{a\}$, $D$ è un aperto semplicemente connesso. Allora $I(\gamma, a)=0$.
+  Sia $a \in \mathbb{C}$. Sia $\gamma$ una curva chiusa $C^0$ t.c. $\Ima{\gamma} \subset D \subset \mathbb{C}\setminus\{a\}$, $D$ è un aperto semplicemente connesso. Allora $I(\gamma, a)=0$.
 \end{prop}
 
 \begin{proof}
@@ -129,7 +129,7 @@ Elenchiamo ora alcune proprietà dell'indice.
 \end{prop}
 
 \begin{proof}
-  Per assurdom assumiamo che $f(z)\not=a$ per ogni $|z|<R$. Allora $f(z)\not=a$ per ogni $|z| \le R$ visto che $a \not\in \Ima{\gamma}$. Definiamo $F(t,s)=f(t, Re^{2\pi is})$ per ogni $t,s \in [0,1]$. $F$ ci dà un'omotopia tra $\gamma$ e un cammino costante in $f(0)$.
+  Per assurdo\ assumiamo che $f(z)\not=a$ per ogni $|z|<R$. Allora $f(z)\not=a$ per ogni $|z| \le R$ visto che $a \not\in \Ima{\gamma}$. Definiamo $F(t,s)=f(tRe^{2\pi is})$ per ogni $t,s \in [0,1]$. $F$ ci dà un'omotopia tra $\gamma$ e un cammino costante in $f(0)$.
   Infatti $F$ è continua, $F(1,s)=\gamma(s)$, $F(0,s)=f(0)$, $F(t,0)=F(t,1)$ e $F(t, s) \in \mathbb{C}\setminus\{a\}$ per ogni $t, s$. $\gamma$ è dunque omotopo al cammino costante in $f(0)$ $\implies$ $\displaystyle \int_{\gamma} \frac{1}{z-a}\diff z=0$, ma $I(\gamma, a)\not=0$, assurdo.
 \end{proof}
 
@@ -151,7 +151,7 @@ Elenchiamo ora alcune proprietà dell'indice.
 \end{proof}
 
 \begin{thm}
-  Siano $\gamma_1, \gamma$ curve chiuse $C^0$ t.c. $0 \not\in \Ima{\gamma_1}\cup\Ima{\gamma}$. Assumiamo che $0<|\gamma_1(t)|<|\gamma(t)|$ per ogni $t \in [0,1]$. Allora $I(\gamma_1+\gamma_2, 0)=I(\gamma, 0)$.
+  Siano $\gamma_1, \gamma$ curve chiuse $C^0$ t.c. $0 \not\in \Ima{\gamma_1}\cup\Ima{\gamma}$. Assumiamo che $0<|\gamma_1(t)|<|\gamma(t)|$ per ogni $t \in [0,1]$. Allora $I(\gamma_1+\gamma, 0)=I(\gamma, 0)$.
 \end{thm}
 
 \begin{proof}
@@ -183,7 +183,7 @@ $\displaystyle 0=\int_{\gamma} g(z)\diff z=\int_{\gamma} \frac{f(z)-f(a)}{z-a}\d
 \end{oss}
 
 \begin{thm}
-  (Analitica $\implies$ olomorfa) Sia $f$ olomorfa nel disco aperto $\{z \in \mathbb{C} \mid |z|<R\}$ per $0<R\le+\infty$. Allora $f$ è analitica in $\{z \in \mathbb{C} \mid |z|<R\}$. In particolare, esiste una serie di potenze $\displaystyle \sum_{n \ge 0} a_nz^n$ con raggio di convergenza $\rho \ge R$ t.c. $\displaystyle f(z)=\sum_{n \ge 0} a_nz^n$ per $|z|<R$.
+  (Olomorfa $\implies$ analitica) Sia $f$ olomorfa nel disco aperto $\{z \in \mathbb{C} \mid |z|<R\}$ per $0<R\le+\infty$. Allora $f$ è analitica in $\{z \in \mathbb{C} \mid |z|<R\}$. In particolare, esiste una serie di potenze $\displaystyle \sum_{n \ge 0} a_nz^n$ con raggio di convergenza $\rho \ge R$ t.c. $\displaystyle f(z)=\sum_{n \ge 0} a_nz^n$ per $|z|<R$.
 \end{thm}
 
 \begin{proof}

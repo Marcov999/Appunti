@@ -79,17 +79,6 @@ Attenzione: un sottospazio proiettivo $\mathbb{P}(W)$ non ammette un unico siste
   Diciamo che due sottospazi $\mathbb{P}(W_1), \mathbb{P}(W_2)$ di $\mathbb{P}(V)$ sono \textsc{incidenti} de $\mathbb{P}(W_1) \cap \mathbb{P}(W_2) \not=\emptyset$, \textsc{sghembi} altrimenti.
 \end{defn}
 
-\begin{prop}
-  \begin{nlist}
-    \item In un piano proiettivo, due rette qualsiasi sono incidenti.
-    \item In uno spazio proiettivo, una retta e un piano qualsiasi sono incidenti e due piani distinti qualsiasi hanno in comune una retta.
-  \end{nlist}
-\end{prop}
-
-\begin{proof}
-  Da scrivere.
-\end{proof}
-
 \begin{oss}
   \begin{nlist}
     \item Se $\{W_i\}_{i \in I}$ è una famiglia di sottospazi vettoriali di $V$, allora $\displaystyle \bigcap_{i \in I} \mathbb{P}(W_i)=\mathbb{P}\left(\bigcap_{i \in I}W_i\right)$.
@@ -149,7 +138,7 @@ Sia $V$ uno spazio vettoriale di dimensione $n+1$. Siano $P_0,\dots,P_{n+1} \in 
 \begin{proof}
 Assumiamo che $P_i=[v_i]$ per $i=0,\dots,n+1$. Per ipotesi $v_0,\dots,v_n$ sono vettori linearmente indipendenti. Di conseguenza $\exists a_0,\dots,a_n \in \mathbb{K}$ tali che:
 $$v_{n+1}=a_0v_0+\cdots+a_nv_n$$
-Osserviamo che $a_i \neq 0\ \forall i=0,\dots,n$ perché i punti $P_0,\dots,P_{n+1}$ sono in posizione generale. Se ad esempio si ha $a_0=0$, allora avremmo che $\{v_{n+1},v_1,\dots,v_n\}$ è un insieme costituito da vettori linearmente dipendenti, e dunque $P_{n+1},P_1,\dots,P_n$ sono linearmente dipendenti, da cui si ha una contraddizione. 
+Osserviamo che $a_i \neq 0\ \forall i=0,\dots,n$ perché i punti $P_0,\dots,P_{n+1}$ sono in posizione generale. Se ad esempio si ha $a_0=0$, allora avremmo che $\{v_{n+1},v_1,\dots,v_n\}$ è un insieme costituito da vettori linearmente dipendenti, e dunque $P_{n+1},P_1,\dots,P_n$ sono linearmente dipendenti, da cui si ha una contraddizione.
 
 Definiamo il riferimento proiettivo associato a $P_0,\dots,P_{n+1}$:
 $$e_0=a_0v_0, e_1=a_1v_1,\dots,e_n=a_nv_n \Rightarrow v_{n+1}=e_0+\cdots+e_n$$
@@ -221,8 +210,8 @@ Dalla formula di Grassmann otteniamo:
 
 \begin{prop}
 \begin{nlist}
-\item In un piano proiettivo due rette qualsiasi si incontrano.
-\item In uno spazio proiettivo di dimensione 3, una retta e un piano qualsiasi si incontrano, e due piani distinti hanno una retta in comune.
+\item In un piano proiettivo due rette qualsiasi sono incidenti.
+\item In uno spazio proiettivo di dimensione $3$, una retta e un piano qualsiasi sono incidenti, e due piani distinti hanno una retta in comune.
 \end{nlist}
 \end{prop}
 
@@ -288,6 +277,53 @@ P_1&=L(A_2,A_3) \cap L(B_2,B_3)\\ P_2&=L(A_3,A_1) \cap L(B_3,B_1)\\ P_3&=L(A_1,A
 \end{align*}
 sono allineati.
 \end{thm}
+
+\definecolor{qqqqff}{rgb}{0,0,1}
+\definecolor{ffqqqq}{rgb}{1,0,0}
+\definecolor{qqffqq}{rgb}{0,1,0}
+\begin{center}
+  \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+  \clip(4.2,-3.92) rectangle (15.18,5.84);
+  \draw [color=qqffqq,domain=4.200000000000001:14.66] plot(\x,{(-18.46--1.06*\x)/-4.86});
+  \draw [color=qqffqq,domain=4.200000000000001:14.66] plot(\x,{(-3.55--0.08*\x)/-3.96});
+  \draw [color=qqffqq,domain=4.200000000000001:14.66] plot(\x,{(--11.01-0.98*\x)/-5.6});
+  \draw [domain=4.2:15.18] plot(\x,{(-7.95--1.78*\x)/0.78});
+  \draw [domain=4.2:15.18] plot(\x,{(--11.1-0.98*\x)/0.9});
+  \draw [domain=4.2:15.18] plot(\x,{(--9.17-1.55*\x)/2.13});
+  \draw [domain=4.2:15.18] plot(\x,{(-10.23--1.06*\x)/1.64});
+  \draw [domain=4.2:15.18] plot(\x,{(-22.11--3.32*\x)/-1.35});
+  \draw [domain=4.2:15.18] plot(\x,{(--18.76-2.04*\x)/-0.74});
+  \draw [color=ffqqqq,domain=4.2:15.18] plot(\x,{(--62.45-8.35*\x)/1.3});
+  \draw [color=qqqqff] (4.83,0.8)-- (5.61,2.57);
+  \draw [color=qqqqff] (6.96,-0.75)-- (5.61,2.57);
+  \draw [color=qqqqff] (4.83,0.8)-- (6.96,-0.75);
+  \draw [color=qqqqff] (9.06,-0.38)-- (9.8,1.66);
+  \draw [color=qqqqff] (9.8,1.66)-- (10.7,0.68);
+  \draw [color=qqqqff] (10.7,0.68)-- (9.06,-0.38);
+  \begin{scriptsize}
+  \fill [color=black] (9.8,1.66) circle (1.5pt);
+  \draw[color=black] (10.18,1.96) node {$A_1$};
+  \fill [color=black] (10.7,0.68) circle (1.5pt);
+  \draw[color=black] (10.72,0.3) node {$A_3$};
+  \fill [color=black] (9.06,-0.38) circle (1.5pt);
+  \draw[color=black] (9.36,-0.58) node {$A_2$};
+  \fill [color=black] (14.66,0.6) circle (1.5pt);
+  \draw[color=black] (14.82,0.86) node {$O$};
+  \fill [color=black] (5.61,2.57) circle (1.5pt);
+  \draw[color=black] (6.1,2.82) node {$B_1$};
+  \fill [color=black] (4.83,0.8) circle (1.5pt);
+  \draw[color=black] (5,0.4) node {$B_3$};
+  \fill [color=black] (6.96,-0.75) circle (1.5pt);
+  \draw[color=black] (7.16,-0.34) node {$B_2$};
+  \fill [color=black] (6.69,5.04) circle (1.5pt);
+  \draw[color=black] (7.16,5.24) node {$P_2$};
+  \fill [color=black] (7.68,-1.27) circle (1.5pt);
+  \draw[color=black] (8.1,-1.25) node {$P_1$};
+  \fill [color=black] (8,-3.3) circle (1.5pt);
+  \draw[color=black] (8.4,-3.2) node {$P_3$};
+  \end{scriptsize}
+  \end{tikzpicture}
+\end{center}
 
 \begin{proof}
 È facile verificare che i punti $P_1,P_2,P_3$ sono distinti tra loro e distinti dai vertici di $T_1$ e $T_2$. Si verifica che i punti $A_1, B_1, P_3, P_2$ sono in posizione generale, e dunque essi danno luogo ad un riferimento proiettivo di $\mathbb{P}(V)$, cioè:

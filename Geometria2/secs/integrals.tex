@@ -87,7 +87,7 @@ Se $f:[a, b] \longrightarrow \mathbb{C}$ è continua, poniamo $\displaystyle \in
   ($\implies$) Se $\gamma:[a, b] \longrightarrow D$ è un loop e $\omega=\diff F$, abbiamo visto che $\displaystyle \int_{\gamma} \omega=F(\gamma(b))-F(\gamma(a))=0$ poiché $\gamma(b)=\gamma(a)$.
 
   ($\Leftarrow$) Costruiamo una primitiva di $\omega$ come segue. Fissato $x_0 \in D$, per ogni $p \in D$ scegliamo un cammino $\gamma_p:[0, 1] \longrightarrow D$ $C^1$ a tratti con $\gamma_p(0)=x_0, \gamma_p(1)=p$ e poniamo $\displaystyle F(p)=\int_{\gamma_p} \omega$. $F$ è ben definita (cioè non dipende dalla scelta di $\gamma_p$).
-  Ciò segue dalle proprietà viste nella proposizione \ref{prop_int}: sia $\alpha_p$ un altro cammino da $x_0$ a $p$, allora $\gamma_p*\bar{\alpha}_p$ è un loop, per cui per ipotesi $\displaystyle 0=\int_{\gamma_p*\bar{\alpha}} \omega=\int_{\gamma_p} \omega+\int_{\bar{\alpha}_p} \omega=\int_{\gamma_p} \omega-\int_{\alpha_p} \omega \implies \int_{\gamma_p} \omega=\int_{\alpha_p} \omega$.
+  Ciò segue dalle proprietà viste nella proposizione \ref{prop_int}: sia $\alpha_p$ un altro cammino da $x_0$ a $p$, allora $\gamma_p*\bar{\alpha}_p$ è un loop, per cui per ipotesi $\displaystyle 0=\int_{\gamma_p*\bar{\alpha}_p} \omega=\int_{\gamma_p} \omega+\int_{\bar{\alpha}_p} \omega=\int_{\gamma_p} \omega-\int_{\alpha_p} \omega \implies \int_{\gamma_p} \omega=\int_{\alpha_p} \omega$.
   Dobbiamo vedere che $F$ è differenziabile e $\diff F=\omega$. Se $\omega=P\diff x+Q\diff y$, basta vedere che $\dfrac{\partial F}{\partial x}=P, \dfrac{\partial F}{\partial y}=Q$ (perché $P, Q$ sono continue per ipotesi, dunque, per il teorema del differnziale totale, $F$ ammette derivate parziali continue e sarebbe differnziabile con $\diff F=\dfrac{\partial F}{\partial x}\diff x+\dfrac{\partial F}{\partial y}\diff y=\omega$).
   Mostriamo che $\dfrac{\partial F}{\partial x}=P$ (l'altra dimostrazione è analoga). Se vogliamo calcolare la derivata parziale lungo $x$, poniamo $h$ un numero reale, allora dobbiamo valutare la funzione in un punto $p$ e in $p+h$ e calcolare il limite del rapporto incrementale. Sia dunque $\gamma_h:[0, h] \longrightarrow D, \gamma_h(t)=p+t$.
   Allora $\displaystyle F(p)=\int_{\gamma_p} \omega, F(p+h)=\int_{\gamma_p*\gamma_h} \omega \implies F(p+h)-F(p)=\int_{\gamma_p*\gamma_h}-\int_{\gamma_p} \omega=\int_{\gamma_p} \omega+\int_{\gamma_h} \omega-\int_{\gamma_p} \omega=\int_{\gamma_h} \omega$.
@@ -106,7 +106,7 @@ Se $f:[a, b] \longrightarrow \mathbb{C}$ è continua, poniamo $\displaystyle \in
 \end{proof}
 
 \begin{cor}
-  Non esiste un "logaritmo" definito su tutto $\mathbb{C}^*$.
+  Non esiste un ``logaritmo'' definito su tutto $\mathbb{C}^*$.
 \end{cor}
 
 \begin{proof}
@@ -124,7 +124,7 @@ $$\int_{\partial R} \omega=\int_{a_1}^{a_2}P(t, b_1)\diff t+\int_{b_1}^{b_2}Q(a_
 \begin{proof}
   ($\implies$) Segue dal teorema \ref{int=0no1}, poiché $\partial R$ è un cammino chiuso $C^1$ a tratti.
 
-  ($\Leftarrow$) Costruiamo una primitiva integrando $\omega$ lungo cammini differenziabili a tratti fatti da un tratto orizzontale seguito da un tratto verticale. Per ogni $z \in D$, sia $\gamma_z$ un tale cammino (esiste perché $D$ è un disco). Poniamo $\displaystyle F(z)=\int_{\gamma(z)} \omega$. Poiché $\gamma_z$ è univocamente determinato da $z$ (a meno di riparametrizzazioni), $F$ è ben definita. Dobbiamo mostrare che, se $\omega=P\diff x+Q\diff $, allora $\dfrac{\partial F}{\partial x}=P, \dfrac{\partial F}{\partial y}=Q$.
+  ($\Leftarrow$) Costruiamo una primitiva integrando $\omega$ lungo cammini differenziabili a tratti fatti da un tratto orizzontale seguito da un tratto verticale. Per ogni $z \in D$, sia $\gamma_z$ un tale cammino (esiste perché $D$ è un disco). Poniamo $\displaystyle F(z)=\int_{\gamma(z)} \omega$. Poiché $\gamma_z$ è univocamente determinato da $z$ (a meno di riparametrizzazioni), $F$ è ben definita. Dobbiamo mostrare che, se $\omega=P\diff x+Q\diff y$, allora $\dfrac{\partial F}{\partial x}=P, \dfrac{\partial F}{\partial y}=Q$.
   $\displaystyle F(z+ih)-F(z)=\int_{\gamma_{z+ih}} \omega-\int_{\gamma_z} \omega=\int_{\gamma_h'} \omega=\int_0^h Q(z+it) \diff t$ che, diviso per $h$, ragionando come nella dimostrazione del teorema \ref{int=0no1} tende a $Q(z)$ per $h \longrightarrow 0$. Sia $\alpha_z$ il cammino che va da $z_0$ a $z$ prima in orizzontale poi in verticale.
   Allora $\gamma_z * \bar{\alpha}_z$ è il bordo di un rettangolo $R$, dunque per ipotesi $\displaystyle 0=\int_{\partial R} \omega=\int_{\gamma_z*\bar{\alpha}_z} \omega=\int_{\gamma_z}\omega-\int_{\alpha_z} \omega \implies F(z)=\int_{\gamma_z}\omega=\int_{\alpha_z}\omega$.
   A questo punto, la dimostrazione che $\dfrac{\partial F}{\partial x}=P$ è analoga a quella per $\dfrac{\partial F}{\partial y}=Q$, con gli $\alpha_z$ al posto dei $\gamma_z$.
