@@ -16,7 +16,7 @@ Adesso enunciamo una serie di risultati importanti sulle funzioni olomorfe. Comi
 \end{proof}
 
 \begin{cor}
-  (Disuguaglianze di Cauchy) Sia $a \in \mathbb{C}$, $\displaystyle f(z)=\sum_{n \ge 0} a_n(z-a)^n$ con raggio di convergena $\rho>0$. Allora per ogni $0 <r<\rho$ $a_n=\dfrac{f^{(n)}(a)}{n!}$ e $|a_n| \le M(r)$ dove $M(r)=\sup\{|f(z)| \mid |z-a|=r\}$.
+  (Disuguaglianze di Cauchy) Sia $a \in \mathbb{C}$, $\displaystyle f(z)=\sum_{n \ge 0} a_n(z-a)^n$ con raggio di convergena $\rho>0$. Allora per ogni $0 <r<\rho$ $a_n=\dfrac{f^{(n)}(a)}{n!}$ e $|a_n|r^n \le M(r)$ dove $M(r)=\sup\{|f(z)| \mid |z-a|=r\}$.
 \end{cor}
 
 \begin{proof}
@@ -95,7 +95,7 @@ Vediamo un'interessante applicazione del teorema di Liouville.
 \begin{proof}
     Definiamo $M'=\text{sup}\{|f(z)|:z\in\overline{D}\}$. Allora $M\leq
     M'<\infty$ ed esiste almeno un punto $a\in\overline{D}$ tale che
-    $|f(a)|=M'$. Distinguiamo i due casi, a seconda se $a$ sia in $D$ o meno.
+    $|f(a)|=M'$ (che esiste perché $D$ limitato $\implies$ $\overline{D}$ compatto). Distinguiamo i due casi, a seconda se $a$ sia in $D$ o meno.
 
     \emph{Caso 1}: $a\in D$. Per il principio del massimo modulo si ha che $f$
     \`e costante in un intorno di $a$. Sia allora
@@ -106,7 +106,7 @@ Vediamo un'interessante applicazione del teorema di Liouville.
     chiuso.
     Riptendo il ragionamento della seconda parte del teorema sopra citato, si
     ottiene che se esiste $a'$ tale che $|f(a')|=M'=|f(a)|$ allora vale
-    $f(z)=f(a')$ per i $z$ nella palla $|z-a'|<r'_0$. Allora D' \`e anche aperto
+    $f(z)=f(a')$ per i $z$ nella palla $|z-a'|<r'_0$. Allora $D'$ \`e anche aperto
     e dunque uguale a $D$.
 
     Poich\'e $f$ \`e continua in $\overline{D}$, \`e anche costante in tale
@@ -123,10 +123,10 @@ Vediamo un'interessante applicazione del teorema di Liouville.
 
 \begin{proof}
   $f$ olomorfa su $D$ $\implies$ $f$ ha la pvm. Se $|f|$ ha massimo relativo in $D$, per il principio del massimo modulo esiste $a \in D$ t.c. $f$ è costante in un intorno di $a$, dunque per prolungamento analitico $f$ è costante in $D$.
-  Assumiano $D$ limitato, per il corollario \ref{max_bordo} $|f(z)| \le M=\sup\{|f(z)| \mid z \in \partial D\}$, che è un massimo perché $\partial D$ è chiuso e $D$ limitato ci dà $\partial D$ limitato, quindi $\partial D$. Dunque $|f(z)|$ assume massimo in $\partial D$.
+  Assumiano $D$ limitato, per il corollario \ref{max_bordo} $|f(z)| \le M=\sup\{|f(z)| \mid z \in \partial D\}$, che è un massimo perché $\partial D$ è chiuso e $D$ limitato ci dà $\partial D$ limitato, quindi $\partial D$ è compatto. Dunque $|f(z)|$ assume massimo in $\partial D$.
 \end{proof}
 
-\begin{oss}
+\begin{oss} \label{osspmaxfolo}
   Sia $f$ olomorfa in $\{z \in \mathbb{C} \mid |z| <r\}$ e continua in $\{|z| \le r\}$. Allora $|f(z)| \le M(r)=\sup\{|f(z)| \mid |z|=r\}$ per ogni $z$ t.c. $|z| \le r$.
 \end{oss}
 
@@ -135,7 +135,7 @@ Vediamo un'interessante applicazione del teorema di Liouville.
     disco. Allora valgono:
     \begin{nlist}
         \item $|f(z)|\leq |z|$ per $|z|<1$;
-        \item $|f'(0)|<1$;
+        \item $|f'(0)| \le 1$;
         \item Se esiste $z_0\neq 0$ tale che $|f(z_0)|=|z_0|$ oppure
             $|f'(0)|=1$, allora esiste $\lambda\in\mathbb{C}$ di modulo unitario
             tale che $f(z)=\lambda z$.
@@ -152,8 +152,7 @@ Vediamo un'interessante applicazione del teorema di Liouville.
         \end{cases}
     \]
     Allora $g(z)=\sum_{n\geq 1}a_n z^{n-1}$ per $|z|<1$. Dunque g \`e analitica
-    (e olomorfa) nel disco unitario. Sia $0<r<1$ e $|z|=r$. Abbiamo $|g(z)| =
-    |f(z)/z|\leq 1/r$. In particolare per $|z|<1$, $|g(z)|\leq 1$. Di
+    (e olomorfa) nel disco unitario. Fissiamo $z$ nel disco unitario e $|z|<r<1$. Abbiamo per l'osservazione \ref{osspmaxfolo} che $|g(z)| \le M(r)=\sup\{|g(z)| \mid |z|=r\}=\sup\{|f(z)/z| \mid |z|=r\} \leq 1/r$. Mandando $r$ a $1$ otteniamo che per $|z|<1$, $|g(z)|\leq 1$. Di
     conseguenza, nello stesso dominio, $|f(z)|\leq |z|$. Inoltre si deve avere
     $|g(0)|\leq 1$, cio\`e $|f'(0)|\leq 1$.
 
@@ -161,5 +160,3 @@ Vediamo un'interessante applicazione del teorema di Liouville.
     esiste uno $z_0$ come nelle ipotesi). Per il principio di massimo modulo,
     $g$ \`e costante, cio\`e $g(z) = \lambda$.
 \end{proof}
-
-
