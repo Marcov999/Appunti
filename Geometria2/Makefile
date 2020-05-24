@@ -26,3 +26,12 @@ $(AUXX): main.tex $(SECS)
 .PHONY: clean
 clean:
 	rm -rf build
+
+.PHONY: quick
+quick: main.tex $(SECS) mstyle.sty
+	pdflatex main.tex
+	mv *.toc build
+	mv *.aux build
+	mv *.log build
+	mv *.out build
+	mv main.pdf Geometria2.pdf

@@ -1,0 +1,56 @@
+{
+\newcommand{\pro}{\P^n(\K)}
+\renewcommand{\dim}{\text{dim}}
+
+Lavoriamo in $\P^n(\K)$. Consideriamo la funzione $j_i:\K^n \rightarrow
+\P^n(\K)$ tal che $j_i(x_1,\dots, x_n)=[x_1:\dots:1:\dots:x_n]$, dove 1 compare
+in posizione $i$-esima. $j_i$ \`e la $i$-esima carta affine, che stabilisce una
+bigezione tra $\K^n$ e $U_i = j_i(\K^n)=\{x_i\neq 0\}\subseteq \P^n(\K)$.
+
+Indicheremo con $H_i$ l'iperpiano complementare a $U_i$. Notiamo anche che
+l'inversa di di $j_i$ \`e
+\[
+    j_i^{-1}([x_0:\dots:x_n])=(\frac{x_0}{x_i},\dots,\frac{x_{i-1}}{x_i},
+    \frac{x_{i+1}}{x_i}, \dots, \frac{x_n}{x_i})
+\]
+
+\begin{prop}
+    Se $W\subseteq \K^n$ \`e un sottospazio affine, esiste unico
+    $\overline{W}\subseteq \P^n(\K)$ sottospazio proiettivo con $j_0(W) =
+    \overline{W} \cap U_0$. Allora $\overline{W}$ si chiama chiusura proiettiva
+    di $W$ e $dim \overline{W} = dim W$.
+
+    Viceversa, se $K\subseteq \P^n(\K)$ \`e un sottospazio proiettivo non
+    contenuto in $H_0$, allora $K\cap U_0 = j_0(K')$ con $K'$ sottospazio affine.
+    Dunque c'\`e una corrispondenza biunivoca tra sottospazi affini di
+    dimensione $k$ e sottospazi proiettivi di dimensione $k$ non contenuti in
+    $H_0$.
+\end{prop}
+\begin{proof}
+    Sia $K$ un sottospazio proiettivo di $\pro$ di dimensione $k$, con $K
+    \not\subseteq H_0$. Sia $h=n-k$.  Allora $K$ \`e definito da un sistema di
+    equazioni
+    \[
+    \begin{cases}
+        a_{1,0}x_0+&\dots+a_{1,n}x_n=0 \\
+        &\dots\\
+        a_{h,0}x_0+&\dots+a_{h,n}x_n=0 \\
+    \end{cases}
+    \]
+    che ha rango $h$. Vale che $j_0(x_1,\dots,x_n)\in K$ se e solo se
+    $[1:x_1:\dots:x_n]\in K$ se e solo se vale il sistema di equazioni sopra.
+    Sostituendo gli $x_0$ si ritrova un sistema non omogeneo. Ora basta guardare
+    il rango di questo sistema per vedere che l'insieme delle soluzioni \`e non
+    vuoto.
+
+    Per il secondo punto, si parte dal sistema non omogeneo e si ritrova il
+    sistema omogeneo introducendo la variabile $x_0$.
+\end{proof}
+
+\begin{defn}
+    I punti di $\overline{W}\setminus W$ (con le notazioni appena introdotte) si
+    dicono punti impropri o punti all'inifinito di $W$. Si identificano $\K^n$
+    con $U_0$ e $W$ con $j_0(W)\subseteq U_0$. $H_0$ viene chiamato iperpiano
+    all'infinito di $\pro$. 
+\end{defn}
+}

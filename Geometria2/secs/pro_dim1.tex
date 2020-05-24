@@ -1,0 +1,131 @@
+\renewcommand{\dim}{\text{dim}}
+
+In dimensione 1, un sistema di riferimento proiettivo consta di 3 punti distinti. 
+Sia allora $\dim\P(V)=1$ e $P_1,P_2,P_3,P_4$ punti di $\P(V)$ con i primi tre
+distinti. Allora $P_4$ ha coordinate $[\lambda, \mu]$. Si pone allora il
+birapporto
+\[
+    \beta(P_1,P_2,P_3,P_4)=\frac{\lambda}{\mu}\in \K\cup \{\infty\}
+\]
+con la convenzione che la divisione per 0 fa infinito. Si tratta di una buona
+definizione perch\'e le coordinate proiettive sono definite a meno di una
+costante moltiplicativa.
+
+\begin{thm}
+    Sia $f:\P(V)\rightarrow\P(W)$ trasformazione proiettiva tra spazi di
+    dimensione unitaria. Allora con le notazioni introdotte sopra,
+\[
+    \beta(P_1,P_2,P_3,P_4)=\beta(f(P_1),f(P_2),f(P_3),f(P_4))
+\]
+\end{thm}
+\begin{proof}
+    Poich\'e $f$ \`e una trasformazione proiettiva tra spazi della stessa
+    dimensione, \`e un isomorfismo proiettivo, per cui $f(P_i)$ per $i=1,2,3$
+    \`e un rifermento proiettivo dello spazio in arrivo. Se $\{v_1,v_2\}$ \`e
+    base associata a $P_1,P_2,P_3$ e $f=[\phi]$ con $\phi:V\rightarrow W$,
+    allora $\{\phi(v_1), \phi(v_2)\}$ \`e una base associata agli $f$ dei tre
+    punti. Se $v_4$ \`e rappresentante di $P_4$, si ha $v_4 = \lambda v_1 + \mu
+    v_2$, per cui $P_4=[\lambda:\mu]$ nel sistema di coordinate introdotto. 
+    Allora $f(P_4)$ \`e rappresentato da $\phi(v_4)=\lambda \phi(v_1)+\mu
+    \phi(v_2)$. Per cui il birapporto \`e sempre $\lambda/\mu$.
+\end{proof}
+
+\begin{thm}
+    Prendendo i quattro punti come sopra, siano $[\lambda_i:\mu_i]$ le
+    coordinate di $P_i$. Allora
+\[
+    \beta(P_1,P_2,P_3,P_4)=\frac{(\lambda_1\mu_3-\lambda_3\mu_1)
+    (\lambda_2\mu_4-\lambda_4\mu_2)} {(\lambda_1\mu_4-\lambda_4\mu_1)
+    (\lambda_3\mu_2-\lambda_2\mu_3)}
+\]
+    In particolare se $P_i = j_0(z_i)$, allora
+\[
+    \beta(\dots) = \frac{(z_3-z_1)(z_4-z_2)}{(z_4-z_1)(z_3-z_2)}
+\]
+\end{thm}
+\begin{proof}
+    Poich\'e il birapporto \`e invariante per trasformazioni proiettive, non \`e
+    restrittivo supporre $\P(V)=\P'(\K)$ con il riferimento standard. Allora se
+    le coordinate dell'immagine del quarto sono $[\lambda:\mu]$ il birapporto
+    \`e $\lambda/\mu$. A questo punto per ottenere il birapporto in funzione dei
+    dati iniziali bisogna esplicitare la funzione appena utilizzata. Per
+    semplificare i conti \`e pi\`u conveniente cercare la trasformazione
+    inversa, ed \`e un semplice conto.
+\end{proof}
+
+\begin{cor}
+    Sia $r\cong \K$ una retta affine di coordinata affine $z$. Sia
+    $\overline{r}=\P^1(\K)$ la sua chiusura proiettiva. Sia
+    $H_0=\{[0:1]\}=\{\infty\}$. Allora se $P_1,P_2,P_3\in r$ hanno coordinate
+    $z_1, z_2, z_3$, si ha
+    \[
+        \beta(j_0(P_1),j_0(P_2),j_0(P_3),\infty) = \frac{z_1-z_3}{z_2-z_3}
+    \]
+\end{cor}
+\begin{proof}
+    Una coordinata affine su $\K$ \`e una funzione $z$ tale che $z(x)=ax+b$, con
+    $a\in\K^*$, $x\in\K$. Si mostra che il rapporto che si vuole dimostrare
+    essere il birapporto non dipende dalla particolare coordinata scelta ed \
+    e uguale a $(x_1-x_3)/(x_2-x_3)$. A questo punto si sostituisce nella
+    formula del teorema sopra.
+\end{proof}
+Breve osservazione sul teorema precedente: un cambio di coordinate affine sulla
+retta induce un cambio di coordinate proiettivo sulla chiusura che fissa
+l'infinito. 
+
+\begin{thm}
+    Siano $A,B,C\in\P^2(\K)$ in posizione generale, $r\subseteq \P^2(\K)$ retta
+    che non passa per tali punti. Siano
+    \[
+        A'= L(B,C)\cap r,\quad B'= L(C,A)\cap r,\quad C'=L(A,B)\cap r
+    \]
+    e scegliamo i punti
+    \[
+        A''\in L(B,C),\quad B''\in L(C,A),\quad C''\in L(A,B),\quad 
+    \]
+    distinti da $A,B,C$. Allora le rette $L(A,A''), L(B,B''), L(C,C'')$ sono
+    concorrenti se e solo se
+    \[
+        \beta(B,C,A'',A')\beta(C,A,B'',B')\beta(A,B,C'',C')=-1
+    \]
+\end{thm}
+\begin{proof}
+    Si scelgono coordinate per cui $A=[1:0:0], B=[0:1:0], C=[0:0:1]$,
+    $r=\{ax_0+bx_1+cx_2=0\}$, e base associata $\{v_1,v_2,v_3\}$. I punti non
+    appartengono alla retta, dunque $a,b,c$ sono non nulli, e scegliendo la base
+    $\{av_1,bv_2,cv_3\}$ si hanno le coordinate richieste.
+
+    Si ha $L(A,B)=\{x_2=0\}$, che intersecando con $r$ d\`a $C'=[1:-1:0]$. Si
+    procede analogamente per gli altri punti. Si scelgono basi per le rette del
+    tipo $L(B,C)$ in modo tale che $B=[1:0], C=[0:1],A'=[1:-1]$. Se
+    $A''=[\lambda:\mu]$, si ottiene che il birapporto di questi punti \`e
+    (usando la formula) $-\mu/\lambda=\alpha$.
+    Si ottiene dunque che $L(A,A'')=\{\alpha x_1+x_2=0\}$ e si rifanno gli
+    stessi ragionamenti sulle altre due rette. A questo punto si osserva che le
+    tre rette sono concorrenti se e solo se le soluzioni del sistema delle loro
+    equazioni ha soluzioni non banali. E questo \`e a sua volta alla condizione
+    sul determinante della matrice, che porta allora alla tesi.
+\end{proof}
+
+\begin{thm}
+    (di Ceva) Si consideri un triangolo del piano euclideo di vertici $A,B,C$.
+    Siano $A''$ un punto sul lato opposto ad $A$, e allo stesso modo si prendano
+    sui lati distinti i punti $B''$ e $C''$. Allora le rette $L(A,A''),
+    L(B,B''), L(C,C'')$ sono concorrenti se e solo se
+    \[
+        \frac{\overline{BC''}}{\overline{AC''}}
+        \frac{\overline{CA''}}{\overline{BA''}}
+        \frac{\overline{AB''}}{\overline{CB''}} = 1.
+    \]
+\end{thm}
+
+
+\begin{proof}
+    Si usa il teorema precdente mettendo $r$ all'infinito, cio\`e si identifica
+    $\mathbb{R}^2$ con $j_0(\mathbb{R}^2)$. Si prende $r=H_0$. A questo punto si
+    pu\`o applicare il teorema precedente, ricordando che che le affinit\`a
+    preservano le lunghezze dei segmenti, cio\`e se $z$ \`e una coordinata
+    affine su $L(B,C)$, vale $\frac{z(B)-z(A'')}{z(C)-z(A'')} =
+        -\frac{\overline{BA''}}{\overline{CA''}}$
+\end{proof}
+
