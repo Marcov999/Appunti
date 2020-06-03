@@ -31,7 +31,7 @@ D'ora in poi tutti gli spazi saranno localmente connessi per archi.
   \end{center}
   ($\implies$) Se $f=p \circ \tilde{f}$, $f_{\star}=p_{\star} \circ \tilde{f}_{\star}$ (sui $\pi_1$ con i punti base scelti), dunque $\Ima{f_{\star}} \subseteq \Ima{p_{\star}}$.
 
-  ($\Leftarrow$) Definiamo $\tilde{f}$ come segue: se $t \in Y$, scegliamo un cammino $\gamma$ in $Y$ con $\gamma(0)=y_0, \gamma(1)=y$. Poniamo $\tilde{f}(y)=\widetilde{(f \circ \gamma)}_{\tilde{x}_0}(1)$.
+  ($\Leftarrow$) Definiamo $\tilde{f}$ come segue: se $y \in Y$, scegliamo un cammino $\gamma$ in $Y$ con $\gamma(0)=y_0, \gamma(1)=y$. Poniamo $\tilde{f}(y)=\widetilde{(f \circ \gamma)}_{\tilde{x}_0}(1)$.
   $p(\tilde{f}(y))=p(\widetilde{(f \circ \gamma)}_{\tilde{x}_0}(1))=(f \circ \gamma)_{\tilde{x}_0}(1)=f(y)$ $\implies$ $p \circ \tilde{f}=f$.
   Verifichiamo che $\tilde{f}$ sia ben definita: se $\beta$ è un altro cammino da $y_0$ a $y$, $\gamma \sim \gamma * \bar{\beta}*\beta$ $\implies$ $f \circ \gamma \sim f \circ (\gamma * \bar{\beta}*\beta)=(f \circ (\gamma * \bar{\beta}))*(f \circ \beta)$,
   ma adesso notiamo che $\gamma *\bar{\beta}=\alpha$ è un loop in $y_0$, quindi $f \circ \alpha$ è un loop in $x_0$ e $[f \circ \alpha] \in f_{\star}(\pi_1(Y, y_0)) \subseteq p_{\star}(\pi_1(E, \tilde{x}_0))$, dunque $f \circ \alpha$ si solleva a un loop in $E$ a partire da $\tilde{x}_0$.
@@ -39,7 +39,7 @@ D'ora in poi tutti gli spazi saranno localmente connessi per archi.
   $\implies$ $\tilde{f}$ è ben definita.
 
   Continuità di $\tilde{f}$: dato $y \in Y$, sia $U$ un intorno aperto connesso per archi e ben rivestito di $f(y)$ in $X$ e sia $W=f^{-1}(U)$, che è aperto. $\displaystyle p^{-1}(U)=\bigsqcup_{i \in I} V_i$ con i $V_i$ aperti in $E$. Scegliamo $i_0$ t.c. $\tilde{f}(y) \in V_{i_0}$. Sia anche $s:U \longrightarrow V_{i_0}$ l'inversa continua di $p\restrict{V_{i_0}}$.
-  Basta vedere che $\tilde{f}\restrict{W}=s \circ f\restrict{W}$, così avremmo $\tilde{f}\restrict{W}$ continua, dunque $\tilde{f}$ continua. Sia $\gamma \in \Omega(y_0, y)$ e per ogni $z \in U$ sia $\gamma_z \in \Omega(y, z)$. Scegliamo $\alpha_z=\gamma*\gamma_z$.
+  Basta vedere che $\tilde{f}\restrict{W}=s \circ f\restrict{W}$, così avremmo $\tilde{f}\restrict{W}$ continua, dunque $\tilde{f}$ continua. Sia $\gamma \in \Omega(y_0, y)$ e per ogni $z \in W$ sia $\gamma_z \in \Omega(y, z)$. Scegliamo $\alpha_z=\gamma*\gamma_z$.
   $\tilde{f}(z)=\widetilde{(f \circ \alpha_z)}_{\tilde{x}_0}(1)=\widetilde{((f \circ \gamma)*(f \circ \gamma_z))}_{\tilde{x}_0}(1)=\widetilde{(f \circ \gamma)}_{\tilde{x}_0}*\widetilde{(f \circ \gamma_z)}_{\widetilde{(f \circ \gamma)}_{\tilde{x}_0}(1)}(1)=\widetilde{(f \circ \gamma)}_{\tilde{x}_0}*\widetilde{(f \circ \gamma_z)}_{\tilde{f}(y)}(1)=\widetilde{(f \circ \gamma_z)}_{\tilde{f}(y)}(1)$.
   Adesso notiamo che $s \circ f \circ \gamma_z$ solleva $f \circ \gamma_z$ a partire da $\tilde{f}(y)$, dunque per unicità del sollevamento dev'essere uguale a $\widetilde{(f \circ \gamma_z)}_{\tilde{f}(y)}$, perciò $\widetilde{(f \circ \gamma_z)}_{\tilde{f}(y)}(1)=(s \circ f \circ \gamma_z)(1)=s(f(z))$.
 \end{proof}

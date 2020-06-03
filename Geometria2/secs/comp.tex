@@ -272,7 +272,7 @@ Si ha che $f(X)$ \`e un compatto di $\mathbb{R}$, dunque chiuso e limitato. Dall
     Sia $x\in X$, $Z = \{Z_i\}_{i\in I}$. Allora esiste $i$ per cui $x\in Z_i$. Dunque esiste un $B$ nella base associata a $\mathcal{P}$ per cui $x\in B\subseteq Z_i$. Posso quindi prendere $P_1, \dots, P_n$ in $\mathcal{P}$ tali che la loro intersezione sia $B$. Vorrei trovare un $P_j$ che sta anche in $Z$. Per assurdo supponiamo che nessun $P_j$ sia in $Z$. Allora considero ${\{P_j \} \cup Z}$, che per massimalit\`a di $Z$ non appartiene a $\Omega$.
     Allora potrei scegliere un ricoprimento finito $P_j, V_{j,1}, \dots, V_{j.m}$, con i $V_{j,i}$ in $Z$. Ma quindi avrei
     \[
-        X = \left(\bigcup_{j=1}^nP_j\right)\cup \bigcup_{j=1}^n\bigcup_{s=1}^m V_{j,s} \subseteq Z_i \cup \bigcup_{j=1}^n\bigcup_{s=1}^m V_{j,s} = X.
+        X = \left(\bigcap_{j=1}^nP_j\right)\cup \bigcup_{j=1}^n\bigcup_{s=1}^m V_{j,s} \subseteq Z_i \cup \bigcup_{j=1}^n\bigcup_{s=1}^m V_{j,s} = X.
     \]
     Questo \`e assurdo in quanto ho appena trovato un sottoricoprimento finito di $Z$.
     Quindi ho finito, osservando che $P_j\in \mathcal{P}\cap Z$.
@@ -296,7 +296,7 @@ Si ha che $f(X)$ \`e un compatto di $\mathbb{R}$, dunque chiuso e limitato. Dall
 \end{ex}
 
 \begin{lm}
-  Siano $A \subseteq \mathbb{R}, \{f_n\}_{n \in \mathbb{N}}, f_n:X \rightarrow A$, allora $f_n \rightarrow f$ puntualmente $\Leftrightarrow f_b \rightarrow f$ in $A^X$.
+  Siano $A \subseteq \mathbb{R}, \{f_n\}_{n \in \mathbb{N}}, f_n:X \rightarrow A$, allora $f_n \rightarrow f$ puntualmente $\Leftrightarrow f_n \rightarrow f$ in $A^X$.
 \end{lm}
 
 \begin{proof}

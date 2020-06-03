@@ -122,8 +122,8 @@ Vediamo adesso gli altri due assiomi di separazione.
 
   Passiamo adesso ai prodotti. Sia $\displaystyle X=\prod_{\alpha \in A} X_{\alpha}$ dove $X_{\alpha}$ è T3 per ogni $\alpha \in A$ e siano $C \subseteq X$ un chiuso, $x \in X \setminus C$. Indichiamo con $x_{\alpha}$ la proiezione di $x$ su $X_{\alpha}$. Allora esiste un elemento $B$ della base che contiene $x$ e tutto contenuto in $X \setminus C$, perciò il suo complementare è un chiuso che contiene $C$. Sia $S \subseteq A$ il
   sottoinsieme finito per cui, se scriviamo $\displaystyle B=\prod_{\alpha \in A} U_{\alpha}$, abbiamo che $U_{\alpha}=X_{\alpha} \Leftrightarrow \alpha \not\in S$. Allora grazie alla proprietà T3 di ogni $X_{\alpha}$ troviamo, per ogni $\alpha \in S$, due aperti disgiunti $V_{\alpha}, V_{\alpha}'$  t.c.
-  $x_{\alpha} \in V_{\alpha}, X_{\alpha} \setminus U_{\alpha} \subseteq V_{\alpha }'$. Ponendo dunque $\displaystyle U=\prod_{\alpha \in A} V_{\alpha}, V=\prod_{\alpha \in A} V_{\alpha}'$ (dove se $\alpha \not\in S$
-  allora $V_{\alpha}=V_{\alpha}'=X_{\alpha}$) è facile verificare che questi sono due aperti disgiunti che separano $x$ e $C$, dunque $X$ è T3. Un esempio di prodotto di T4 non T4 sarà visto tra poco.
+  $x_{\alpha} \in V_{\alpha}, X_{\alpha} \setminus U_{\alpha} \subseteq V_{\alpha }'$. Ponendo dunque $\displaystyle U=\prod_{\alpha \in A} V_{\alpha}, V=\bigcup_{\alpha \in S}\prod_{\beta \in A} V_{\beta}''$ (dove $V_{\beta}''=V_{\alpha}'$ se $\beta=\alpha$, $V_{\beta}''=X_{\alpha}$ altrimenti) 
+  è facile verificare che questi sono due aperti disgiunti che separano $x$ e $C$, dunque $X$ è T3. Un esempio di prodotto di T4 non T4 sarà visto tra poco.
 \end{proof}
 
 Riassumendo, metrizzabile $\stackrel{\text{(i)}}{\implies}$ normale $\stackrel{\text{(ii)}}{\implies}$ regolare $\stackrel{\text{(iii)}}{\implies}$ T2. Vediamo dei controesempi che dimostrano che non valgono le implicazioni inverse.
