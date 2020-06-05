@@ -19,7 +19,10 @@
     Ogni $X$ metrico completo \`e di Baire.
 \end{thm}
 \begin{proof}
-    La dimostrazione \`e uguale uguale a quella fatta da Manetti a pagina 115.
+    Siano $A_n, n \in \mathbb{N}$ aperti densi. Dati $x_0 \in X$ e $r_0>0$, è sufficiente mostrare che $\displaystyle \left(\bigcap_{n \in \mathbb{N}} A_n \right)\cap B(x_0,r_0)\not=\emptyset$. Per farlo, costruiamo la seguente successione di palle: \\
+    $B_0=B(x_0,r_0)$; \\
+    $B_{n+1}$: dato che $A_{n+1}$ è denso, $A_{n+1}\cap B_n \not=\emptyset$ ed è un aperto, allora possiamo trovare una palla $B_{n+1}=B(x_{n+1},r_{n+1})$ t.c. $\overline{B_{n+1}} \subseteq B_n \cap A_{n+1}$ e $r_{n+1} \le 1/(n+1)$. \\
+    In questo modo, i centri delle palle definiscono una successione $x_n$ che è di Cauchy, quindi da $X$ completo abbiamo $x_n \longrightarrow x$. Abbiamo anche che la successione sta definitivamente in ogni $B_n$, dunque $x \in \overline{B_n} \implies x \in A_n$ per ogni $n$, ma $x \in \overline{B_1} \subset\ B_0=B(x_0,r_0)$, da cui la tesi.
 \end{proof}
 
 \begin{defn}
