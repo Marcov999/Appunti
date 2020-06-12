@@ -50,7 +50,7 @@ Dati $y_0,y_1 \in f(X), \exists x_0, x_1 \in X$ con $f(x_0)=y_0, f(x_1)=y_1$, es
 Siano $X$ spazio topologico, $Y \subseteq X$ connesso e $Z \subseteq X$ tale che $Y \subseteq Z \subseteq \overline{Y}$. Allora $Z$ è connesso.
 \end{lm}
 \begin{proof}
-Osserviamo inanzitutto che $Y$ è denso in $Z$, in quanto la chiusura di $Y$ in $Z$ è $Y \cap Z=Z$ poiché $Z \subseteq \overline{Y}$. Sia $A \neq \emptyset$ un aperto e chiuso di $Z$. Allora $A \cap Y$ è aperto e chiuso in $Y$ (per definizione di topologia di sottospazi), e $A \cap Y \neq \emptyset$ in quanto $Y$ è denso in $Z$ e $A$ è aperto in $Z$. Allora, per connessione di $Y$, si ha che $A \cap Y=Y$, cioè $Y \subseteq A$. Ma $Y$ è denso in $Z$, per cui anche $A$ lo è. Ma $A$ è anche chiuso in $Z$, per cui $A=Z$.
+Osserviamo inanzitutto che $Y$ è denso in $Z$, in quanto la chiusura di $Y$ in $Z$ è $\overline{Y} \cap Z=Z$ poiché $Z \subseteq \overline{Y}$. Sia $A \neq \emptyset$ un aperto e chiuso di $Z$. Allora $A \cap Y$ è aperto e chiuso in $Y$ (per definizione di topologia di sottospazi), e $A \cap Y \neq \emptyset$ in quanto $Y$ è denso in $Z$ e $A$ è aperto in $Z$. Allora, per connessione di $Y$, si ha che $A \cap Y=Y$, cioè $Y \subseteq A$. Ma $Y$ è denso in $Z$, per cui anche $A$ lo è. Ma $A$ è anche chiuso in $Z$, per cui $A=Z$.
 \end{proof}
 
 \begin{lm}
@@ -68,7 +68,7 @@ Pongo $C(x_0)=\bigcup \{Y \mid Y \subseteq X, Y \text{ connesso},x_0 \in Y\}$. P
 \end{proof}
 
 \begin{prop}
-Le componenti connesse realizzano una partizione dello spazio in chiusi. 
+Le componenti connesse realizzano una partizione dello spazio in chiusi.
 \end{prop}
 \begin{proof}
 $\forall x_0,x_1 \in X, x_0 \in C(x_0)$ poiché $\{x_0\}$ è connesso. Se $C(x_0) \cap C(x_1) \neq \emptyset$, per il lemma precedente $C(x_0) \cup C(x_1)$ è connesso $\Longrightarrow C(x_0) \cup C(x_1) \subseteq C(x_0)$ e $C(x_0) \cup C(x_1) \subseteq C(x_1) \Longrightarrow C(x_0)=C(x_1)$.\\
