@@ -300,10 +300,14 @@ Si ha che $f(X)$ \`e un compatto di $\mathbb{R}$, dunque chiuso e limitato. Dall
 \end{lm}
 
 \begin{proof}
-  La dimostrazione è molto semplice, ma per comprenderla al volo è necessaria un po' dimestichezza con basi, prebasi, topologia prodotto e "traduzioni in matematichese". Sono tutti dei se e solo se e i vari statement sono ridotti il più possibile a stringhe di simboli, quindi se non capite bene un enunciato o un passaggio non disperatevi: è tutto scritto in modo poco comprensibile, prendetelo come un buon esercizio per applicare ciò che avete imparato. Scusate.
-
   $f_n \rightarrow f$ puntualmente $\Leftrightarrow \forall x \in X, f_n(x) \rightarrow f(x) \Leftrightarrow \forall x \in X \forall \epsilon>0, \exists n_{x, \epsilon} | \forall n \ge n_{x, \epsilon}, |f_n(x)-f(x)|<\epsilon \Leftrightarrow \forall x \in X, B \in \mathcal{B}$
   base della topologia euclidea su $A$ t.c. $f \in \pi_x^{-1}(B), \exists n_{x, B} | \forall n \ge n_{x, B}, f_n \in \pi_x^{-1}(B) \Leftrightarrow \forall x \in X, B \subseteq A$ aperto t.c.
   $f \in \pi_x^{-1}(B), \exists n_{x, B} | \forall n \ge n_{x, B}, f_n \in \pi_x^{-1}(B) \Leftrightarrow \forall P \in \mathcal{P}$ prebase della topologia prodotto sua $A^X$ t.c.
-  $f \in P, \exists n_P | \forall n \ge n_P, f_n \in P \Leftrightarrow \forall U \subseteq A^X | f \in U^{\circ}, \exists n_U | \forall n \ge n_U, f_n \in U \Leftrightarrow f_n \rightarrow f$ in $A^X$.
+  $f \in P, \exists n_P | \forall n \ge n_P, f_n \in P \Leftrightarrow \forall U \subseteq A^X | f \in U^{\circ}, \exists n_U | \forall n \ge n_U, f_n \in U \Leftrightarrow f_n \rightarrow f$ in $A^X$. \\
+
+  Dimostrazione alternativa:
+
+  ($\Leftarrow$) Sia $x \in X, a=f(x)$ e fissiamo $\epsilon>0$. Sia $B=\pi_x^{-1}((a-\epsilon,a+\epsilon))$ che è aperto in $A^X$ perché $\pi_x$ è continua. Dunque poiché $f \in B$ abbiamo $f_n \in B$ definitivamente, ovvero $f_n(x)=\pi_x(f_n) \in (a-\epsilon,a+\epsilon)$ definitivamente $\implies$ $f_n(x) \longrightarrow f(x)$, da cui la convergenza puntuale.
+
+  ($\implies$) Sia $U$ un intorno di $f$. Per definizione di topologia prodotto esiste $\displaystyle B=\bigcap_{i=1}^m \pi_{x_i}^{-1}(U_i)$ con $U_i$ intorni di $f(x_i)$ per certi $x_i$ (finiti) t.c. $f \in B \subseteq U$. Poiché $f_n(x_i) \longrightarrow f(x_i)$ per ogni $i=1,\dots,m$ vale che $f_n(x_i) \in U_i$ definitivamente per ogni $i$. Allora $f_n \in B \subseteq U$ definitivamente.
 \end{proof}
