@@ -1,19 +1,8 @@
-AUXX = $(addprefix build/, main.toc main.aux)
 SECS := $(wildcard secs/*.tex)
 
 all: Geometria2.pdf
 
-Geometria2.pdf: $(AUXX) main.tex $(SECS) mstyle.sty
-	cp $(AUXX) .
-	pdflatex main.tex
-	pdflatex main.tex
-	mv *.toc build
-	mv *.aux build
-	mv *.log build
-	mv *.out build
-	mv main.pdf Geometria2.pdf
-
-$(AUXX): main.tex $(SECS)
+Geometria2.pdf: main.tex $(SECS) mstyle.sty
 	pdflatex main.tex
 	pdflatex main.tex
 	mkdir -p build
@@ -21,17 +10,5 @@ $(AUXX): main.tex $(SECS)
 	mv *.aux build
 	mv *.log build
 	mv *.out build
-	rm main.pdf
-
-.PHONY: clean
-clean:
-	rm -rf build
-
-.PHONY: quick
-quick: main.tex $(SECS) mstyle.sty
-	pdflatex main.tex
-	mv *.toc build
-	mv *.aux build
-	mv *.log build
-	mv *.out build
 	mv main.pdf Geometria2.pdf
+	rm -rf build
